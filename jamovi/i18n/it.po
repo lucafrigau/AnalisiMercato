@@ -1,0 +1,11 @@
+# Catalogo italiano di AnalisiMercato.
+# I testi del modulo sono scritti in italiano: il catalogo e' vuoto di
+# proposito e serve solo a dichiarare a jamovi che il modulo ha l'italiano.
+# Senza, jamovi in italiano ripiega sul catalogo inglese (vedi NEWS 2.1.4).
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"

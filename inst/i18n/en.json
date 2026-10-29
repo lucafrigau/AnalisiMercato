@@ -1,0 +1,1125 @@
+{
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "en",
+                "plural_forms": "nplurals=2; plural=(n != 1)"
+            },
+            "'proportional' alloca le unità in proporzione all'ampiezza dello strato (n_j = N_j · n/N). 'optimal' alloca anche in proporzione alla variabilità interna σ_j stimata sulla variabile ausiliaria (allocazione di Neyman).": [
+                "'proportional' allocates units in proportion to stratum size (n_j = N_j · n/N). 'optimal' allocates also in proportion to within-stratum variability σ_j, estimated on the auxiliary variable (Neyman allocation)."
+            ],
+            "'variances': inserire la varianza dello stimatore nel piano complesso e nel SCR di riferimento, il modulo calcola Deff come rapporto. 'formula': usa una formula analitica per uno dei piani standard (sistematico, a più stadi, a grappoli, stratificato) coerenti con la slide 39.": [
+                "'variances': enter the estimator variance under the complex design and under the reference SRS; the module computes Deff as their ratio. 'formula': uses an analytical formula for one of the standard designs (systematic, multistage, cluster, stratified) following the lecture slides."
+            ],
+            "% cumulata": [
+                "% cumulative"
+            ],
+            "% varianza": [
+                "% variance"
+            ],
+            "▸ MAPPA · Altezza": [
+                "▸ MAP · Height"
+            ],
+            "▸ MAPPA · Larghezza": [
+                "▸ MAP · Width"
+            ],
+            "▸ MAPPA · Mostra vettori quantitative supplementari": [
+                "▸ MAP · Show supplementary quantitative arrows"
+            ],
+            "▸ MAPPA · Mostra vettori variabili attive": [
+                "▸ MAP · Show active variables arrows"
+            ],
+            "▸ SALVA · PC1": [
+                "▸ SAVE · PC1"
+            ],
+            "▸ SALVA · PC2": [
+                "▸ SAVE · PC2"
+            ],
+            "▸ SALVA · PC3": [
+                "▸ SAVE · PC3"
+            ],
+            "▸ SALVA · PC4": [
+                "▸ SAVE · PC4"
+            ],
+            "▸ SALVA · PC5": [
+                "▸ SAVE · PC5"
+            ],
+            "2° stadio": [
+                "2nd stage"
+            ],
+            "A grappoli": [
+                "Clusters"
+            ],
+            "A più stadi": [
+                "Multistage"
+            ],
+            "Adjusted Rand Index": [
+                "Adjusted Rand Index"
+            ],
+            "Allocazione per strato": [
+                "Allocation by stratum"
+            ],
+            "Altezza dendrogramma": [
+                "Dendrogram height"
+            ],
+            "Altezza grafico Delta G": [
+                "Delta G plot height"
+            ],
+            "Altezza grafico Indice CH": [
+                "CH index plot height"
+            ],
+            "Altezza grafico R²": [
+                "R² plot height"
+            ],
+            "Altezza grafico RMSSTD": [
+                "RMSSTD plot height"
+            ],
+            "Ampiezza ± Δ": [
+                "Half-width ± Δ"
+            ],
+            "Analisi delle Componenti Principali": [
+                "Principal Component Analysis"
+            ],
+            "AnalisiMercato": [
+                "AnalisiMercato"
+            ],
+            "Appartenenza ai gruppi": [
+                "Group membership"
+            ],
+            "Applica fattore correttivo per popolazione finita (1 - f)": [
+                "Apply finite population correction (1 - f)"
+            ],
+            "Associazione con le variabili qualitative": [
+                "Association with qualitative variables"
+            ],
+            "Associazione tra la variabile 'Cluster' e le variabili categoriche": [
+                "Association between 'Cluster' and categorical variables"
+            ],
+            "Autovalore": [
+                "Eigenvalue"
+            ],
+            "Autovalori e varianza spiegata": [
+                "Eigenvalues and explained variance"
+            ],
+            "Base della segmentazione": [
+                "Segmentation base"
+            ],
+            "Binarie di presenza/assenza": [
+                "Presence/absence binaries"
+            ],
+            "Biplot (osservazioni nel piano principale)": [
+                "Biplot (observations on principal plane)"
+            ],
+            "Biplot delle osservazioni": [
+                "Observations biplot"
+            ],
+            "Campionamento": [
+                "Sampling"
+            ],
+            "Campionamento a due stadi": [
+                "Two-stage sampling"
+            ],
+            "Campionamento a grappoli": [
+                "Cluster sampling"
+            ],
+            "Campionamento casuale semplice": [
+                "Simple random sampling"
+            ],
+            "Campionamento con probabilità variabili (CPV)": [
+                "Probability-proportional-to-size (PPS) sampling"
+            ],
+            "Campionamento sistematico": [
+                "Systematic sampling"
+            ],
+            "Campionamento stratificato": [
+                "Stratified sampling"
+            ],
+            "Caratterizzazione": [
+                "Cluster description"
+            ],
+            "Categoria": [
+                "Category"
+            ],
+            "Centroide": [
+                "Centroid"
+            ],
+            "Cerchio delle correlazioni": [
+                "Correlation circle"
+            ],
+            "Cerchio delle correlazioni (variabili)": [
+                "Correlation circle (variables)"
+            ],
+            "CH index": [
+                "CH index"
+            ],
+            "Cla/Mod": [
+                "Cls/Cat"
+            ],
+            "Cluster": [
+                "Cluster"
+            ],
+            "Cluster Analysis": [
+                "Cluster Analysis"
+            ],
+            "Cluster Analysis Gerarchica": [
+                "Hierarchical Cluster Analysis"
+            ],
+            "Clustering": [
+                "Clustering"
+            ],
+            "Coefficiente di correlazione intra (a più stadi / a grappoli)": [
+                "Intra-cluster correlation (multistage / clusters)"
+            ],
+            "Colonna di output con l'assegnazione di ogni osservazione al cluster.": [
+                "Output column with each observation's cluster assignment."
+            ],
+            "Come allocare le unità di secondo stadio. 'fixed': estrae b unità da ciascuna PSU selezionata. 'frac': estrae una frazione f_b della numerosità di ciascuna PSU. 'all': prende tutte le unità delle PSU (equivalente al campionamento a grappoli).": [
+                "How to allocate second-stage units. 'fixed': draws b units from each selected PSU. 'frac': draws a fraction f_b of each PSU's size. 'all': takes every unit in the selected PSUs (equivalent to cluster sampling)."
+            ],
+            "Componente": [
+                "Component"
+            ],
+            "Componente da visualizzare sull'asse orizzontale del cerchio delle correlazioni e del biplot (es. 1 = PC1).": [
+                "Component shown on the horizontal axis of the correlation circle and biplot (e.g., 1 = PC1)."
+            ],
+            "Componente da visualizzare sull'asse verticale del cerchio delle correlazioni e del biplot (es. 2 = PC2).": [
+                "Component shown on the vertical axis of the correlation circle and biplot (e.g., 2 = PC2)."
+            ],
+            "Componente sull'asse X": [
+                "Component on X axis"
+            ],
+            "Componente sull'asse Y": [
+                "Component on Y axis"
+            ],
+            "Componenti ritenute": [
+                "Components retained"
+            ],
+            "Confidenza": [
+                "Confidence"
+            ],
+            "Confronto partizioni": [
+                "Comparing partitions"
+            ],
+            "Contributi delle osservazioni (%)": [
+                "Observation contributions (%)"
+            ],
+            "Contributi delle variabili (%)": [
+                "Variable contributions (%)"
+            ],
+            "Coordinate delle osservazioni": [
+                "Observation coordinates"
+            ],
+            "Coordinate delle variabili (loadings)": [
+                "Variable coordinates (loadings)"
+            ],
+            "Correlazione": [
+                "Correlation"
+            ],
+            "Correlazione al quadrato": [
+                "Squared correlation"
+            ],
+            "Coseni quadrati delle osservazioni (cos²)": [
+                "Squared cosines of observations (cos²)"
+            ],
+            "Coseni quadrati delle variabili (cos²)": [
+                "Squared cosines of variables (cos²)"
+            ],
+            "Criterio di agglomerazione passato a stats::hclust. Ward (ward.D2) è la scelta più comune per dati quantitativi standardizzati.": [
+                "Agglomeration criterion passed to stats::hclust. Ward (ward.D2) is the most common choice for standardised quantitative data."
+            ],
+            "Da due varianze": [
+                "From two variances"
+            ],
+            "Default TRUE: il CPV \"classico\" è con reinserimento perché le formule degli stimatori si semplificano. Se FALSE applica sample() senza reinserimento con probabilità proporzionali ai pesi (πps approssimato).": [
+                "Default TRUE: \"classical\" PPS uses with-replacement sampling because the estimator formulae simplify. If FALSE applies sample() without replacement with weight-proportional probabilities (approximate πps)."
+            ],
+            "Deff": [
+                "Deff"
+            ],
+            "Delta G": [
+                "Delta G"
+            ],
+            "Dendrogramma": [
+                "Dendrogram"
+            ],
+            "Descrittori": [
+                "Descriptors"
+            ],
+            "Descrizione dell'analisi": [
+                "Show methodological description"
+            ],
+            "Descrizione della variabile quantitativa tramite le categorie": [
+                "Description of the quantitative variable via categories"
+            ],
+            "Descrizione delle analisi": [
+                "Show methodological description"
+            ],
+            "Descrizione di ciascun 'Cluster' tramite le categorie": [
+                "Description of each 'Cluster' via categories"
+            ],
+            "Descrizione di ciascun 'Cluster' tramite le variabili quantitative": [
+                "Description of each 'Cluster' via quantitative variables"
+            ],
+            "Descrizione globale tramite le variabili quantitative": [
+                "Overall description via quantitative variables"
+            ],
+            "Descrizione tramite le variabili categoriche": [
+                "Description via categorical variables"
+            ],
+            "Descrizione tramite le variabili quantitative": [
+                "Description via quantitative variables"
+            ],
+            "Design Effect": [
+                "Design Effect"
+            ],
+            "Dev.std. generale": [
+                "Overall SD"
+            ],
+            "Dev.std. nel 'Cluster'": [
+                "SD in 'Cluster'"
+            ],
+            "df": [
+                "df"
+            ],
+            "Dimensione (n unità)": [
+                "Size (n units)"
+            ],
+            "Dimensione della popolazione (N)": [
+                "Population size (N)"
+            ],
+            "Dimensione della popolazione N (opzionale)": [
+                "Population size N (optional)"
+            ],
+            "Dimensione N della popolazione di riferimento. Usata per il fattore correttivo (1 - f) nel campionamento senza reinserimento.": [
+                "Reference population size N. Used for the (1 - f) finite-population correction in without-replacement sampling."
+            ],
+            "Dimensione PSU": [
+                "PSU size"
+            ],
+            "Distanza": [
+                "Distance"
+            ],
+            "Efficienza vs SCR": [
+                "Efficiency vs SRS"
+            ],
+            "Errore standard": [
+                "Standard error"
+            ],
+            "Errore standard atteso": [
+                "Expected standard error"
+            ],
+            "Estrai il campione (frequenza nel campione)": [
+                "Sample (frequency in sample)"
+            ],
+            "Estrai il campione (indicatore 0/1, frequenza)": [
+                "Sample (0/1 indicator, frequency)"
+            ],
+            "Estrazione con reinserimento": [
+                "Sampling with replacement"
+            ],
+            "Estrazione con reinserimento (popolazione infinita)": [
+                "With replacement (infinite population)"
+            ],
+            "Estrazione con reinserimento (SCR)": [
+                "With replacement (SRS-R)"
+            ],
+            "Etichetta cluster": [
+                "Cluster label"
+            ],
+            "Euclidea": [
+                "Euclidean"
+            ],
+            "f_j = n_j / N_j": [
+                "f_j = n_j / N_j"
+            ],
+            "Fattore (1-f)": [
+                "Factor (1-f)"
+            ],
+            "Formula analitica per piano specifico": [
+                "Analytical formula for a specific plan"
+            ],
+            "Formula usata": [
+                "Formula used"
+            ],
+            "Frazione di campionamento (f)": [
+                "Sampling fraction (f)"
+            ],
+            "Frazione di grappoli (f_g)": [
+                "Cluster fraction (f_g)"
+            ],
+            "Frazione di PSU (f_g)": [
+                "PSU fraction (f_g)"
+            ],
+            "Frazione di unità per PSU (f_b)": [
+                "Unit fraction per PSU (f_b)"
+            ],
+            "Frazione f = n/N": [
+                "Fraction f = n/N"
+            ],
+            "Frazione f = n/N della popolazione da estrarre (es. 0.1 = 10%).": [
+                "Sampling fraction f = n/N of the population (e.g., 0.1 = 10%)."
+            ],
+            "Frazione f = n/N della popolazione da estrarre.": [
+                "Sampling fraction f = n/N of the population."
+            ],
+            "Frazione f_b della PSU": [
+                "Fraction f_b of PSU"
+            ],
+            "Frazione f_g = n_g / M dei grappoli da estrarre.": [
+                "Fraction f_g = n_g / M of clusters to draw."
+            ],
+            "Frequenza di estrazione": [
+                "Draw frequency"
+            ],
+            "g": [
+                "g"
+            ],
+            "Generale": [
+                "Overall"
+            ],
+            "Gower": [
+                "Gower"
+            ],
+            "Grappoli estratti": [
+                "Sampled clusters"
+            ],
+            "Grappolo": [
+                "Cluster"
+            ],
+            "Heatmap dei coseni² (qualità di rappresentazione)": [
+                "Squared cosines heatmap (representation quality)"
+            ],
+            "ID": [
+                "ID"
+            ],
+            "ID/Riga": [
+                "ID/Row"
+            ],
+            "Impostazioni": [
+                "Settings"
+            ],
+            "Indica se il campione è definito tramite un numero assoluto di unità (n) oppure tramite una frazione f = n/N della popolazione.": [
+                "Whether the sample is specified by an absolute number of units (n) or by a fraction f = n/N of the population."
+            ],
+            "Indica se il campione è definito tramite un numero assoluto di unità (n) oppure tramite una frazione f della popolazione.": [
+                "Whether the sample is specified by an absolute number of units (n) or by a fraction f of the population."
+            ],
+            "Indica se si specifica un numero assoluto di grappoli da estrarre o una frazione dei grappoli totali.": [
+                "Whether to specify an absolute number of clusters to draw or a fraction of all clusters."
+            ],
+            "Indice CH": [
+                "CH index"
+            ],
+            "Intervalli di confidenza": [
+                "Confidence intervals"
+            ],
+            "Intervallo di confidenza": [
+                "Confidence interval"
+            ],
+            "Istruzioni": [
+                "Instructions"
+            ],
+            "Jaccard": [
+                "Jaccard"
+            ],
+            "Jaccard (politomici)": [
+                "Jaccard (polytomous)"
+            ],
+            "Larghezza dendrogramma": [
+                "Dendrogram width"
+            ],
+            "Larghezza grafico Delta G": [
+                "Delta G plot width"
+            ],
+            "Larghezza grafico Indice CH": [
+                "CH index plot width"
+            ],
+            "Larghezza grafico R²": [
+                "R² plot width"
+            ],
+            "Larghezza grafico RMSSTD": [
+                "RMSSTD plot width"
+            ],
+            "LB": [
+                "LB"
+            ],
+            "Legame completo": [
+                "Complete linkage"
+            ],
+            "Legame medio": [
+                "Average linkage"
+            ],
+            "Legame singolo": [
+                "Single linkage"
+            ],
+            "Livello \"successo\" (per variabile categoriale)": [
+                "\"Success\" level (for categorical variable)"
+            ],
+            "Livello di confidenza (%)": [
+                "Confidence level (%)"
+            ],
+            "Livello di confidenza in percentuale (default 95).": [
+                "Confidence level as a percentage (default 95)."
+            ],
+            "M (grappoli totali)": [
+                "M (total clusters)"
+            ],
+            "M (PSU totali)": [
+                "M (total PSUs)"
+            ],
+            "M (strati)": [
+                "M (strata)"
+            ],
+            "Mahalanobis": [
+                "Mahalanobis"
+            ],
+            "Manhattan": [
+                "Manhattan"
+            ],
+            "Mappa di posizionamento": [
+                "Positioning map"
+            ],
+            "Mappa di posizionamento (variabili e baricentri, no osservazioni)": [
+                "Positioning map (variables and centroids, no observations)"
+            ],
+            "Margine di errore (Δ)": [
+                "Margin of error (Δ)"
+            ],
+            "Margine di errore massimo ammesso, espresso nella scala del parametro: per la proporzione 0 &lt; Δ &lt; 1 (es. 0.03 = 3%), per la media qualsiasi valore positivo nella scala della variabile (es. ±2 punti).": [
+                "Maximum admissible margin of error, on the parameter scale: for a proportion 0 &lt; Δ &lt; 1 (e.g., 0.03 = 3%); for a mean any positive value on the variable's scale (e.g., ±2 points)."
+            ],
+            "Media": [
+                "Mean"
+            ],
+            "Media campionaria x̄ (modalità media)": [
+                "Sample mean x̄ (mean mode)"
+            ],
+            "Media generale": [
+                "Overall mean"
+            ],
+            "Media nel 'Cluster'": [
+                "Mean in 'Cluster'"
+            ],
+            "Metodo": [
+                "Method"
+            ],
+            "Metodo di agglomerazione": [
+                "Agglomeration method"
+            ],
+            "Metodo di allocazione": [
+                "Allocation method"
+            ],
+            "Metrica di distanza fra osservazioni. 'euclidean'/'manhattan'/'mahalanobis' per dati quantitativi; 'SokalMichener' e 'binary' (Jaccard) per dati binari 0/1; 'politomici' per categoriali con livelli interi; 'gower' per dataset misti.": [
+                "Distance metric between observations. 'euclidean'/'manhattan'/'mahalanobis' for quantitative data; 'SokalMichener' and 'binary' (Jaccard) for binary 0/1 data; 'politomici' for polytomous categorical with integer levels; 'gower' for mixed-type datasets."
+            ],
+            "Metriche partizioni": [
+                "Partition metrics"
+            ],
+            "Mod/Cla": [
+                "Cat/Cls"
+            ],
+            "Modalità": [
+                "Mode"
+            ],
+            "Modalità di calcolo": [
+                "Calculation mode"
+            ],
+            "Modalità di specifica": [
+                "Specification mode"
+            ],
+            "Modalità di specifica della numerosità": [
+                "Sample size specification mode"
+            ],
+            "Modulo didattico e applicativo per il corso di Analisi di Mercato. Comprende strumenti per le ricerche per campione (numerosità campionaria, estrazione del campione con i principali disegni probabilistici - casuale semplice, sistematico, stratificato proporzionale e ottimale, a grappoli, a due stadi, con probabilità variabili - intervalli di confidenza e Design Effect), per la cluster analysis gerarchica (con metriche per la scelta del numero di gruppi, caratterizzazione dei cluster e confronto fra partizioni tramite Adjusted Rand Index) e per l'analisi delle componenti principali (con rotazione varimax/promax, cerchio delle correlazioni, biplot e heatmap dei coseni quadrati).": [
+                "Educational and applied module for the Market Research course. It bundles tools for survey sampling (sample size, sample drawing under the main probability designs — simple random, systematic, proportional and optimal stratified, cluster, two-stage, probability-proportional-to-size — confidence intervals and Design Effect), for hierarchical cluster analysis (with metrics to choose the number of groups, cluster description, and partition comparison via the Adjusted Rand Index), and for principal component analysis (varimax/promax rotation, correlation circle, biplot and squared-cosines heatmap)."
+            ],
+            "Mostra tabella contributi/coseni² delle osservazioni": [
+                "Show observations contributions/cos² table"
+            ],
+            "n": [
+                "n"
+            ],
+            "N": [
+                "N"
+            ],
+            "N (popolazione)": [
+                "N (population)"
+            ],
+            "n consigliato": [
+                "n recommended"
+            ],
+            "n equivalente nel piano complesso": [
+                "Equivalent n in complex design"
+            ],
+            "n estratto": [
+                "n drawn"
+            ],
+            "n estrazioni totali": [
+                "n total draws"
+            ],
+            "n richiesto": [
+                "n requested"
+            ],
+            "n di riferimento": [
+                "Reference n"
+            ],
+            "n teorico": [
+                "n theoretical"
+            ],
+            "n unità campionate": [
+                "n sampled units"
+            ],
+            "n unità distinte": [
+                "n distinct units"
+            ],
+            "n_g estratti": [
+                "n_g drawn"
+            ],
+            "n_g richiesti": [
+                "n_g requested"
+            ],
+            "N_j": [
+                "N_j"
+            ],
+            "n_j": [
+                "n_j"
+            ],
+            "Nessuna": [
+                "None"
+            ],
+            "Nome della colonna che jamovi inietterà nel dataset con l'assegnazione di ciascuna osservazione al proprio cluster.": [
+                "Name of the column injected by jamovi into the dataset with each observation's cluster assignment."
+            ],
+            "Nome della variabile di output": [
+                "Output variable name"
+            ],
+            "Numero di cluster k a cui tagliare il dendrogramma per produrre l'assegnazione delle osservazioni.": [
+                "Number of clusters k at which to cut the dendrogram to produce the observation-to-cluster assignment."
+            ],
+            "Numero di componenti da ritenere": [
+                "Number of components to retain"
+            ],
+            "Numero di componenti principali da ritenere (massimo 5). Per orientarsi sulla scelta, consultare la tabella degli autovalori e lo scree plot (criterio di Kaiser: λ > 1; criterio del gomito; criterio della varianza cumulata).": [
+                "Number of principal components to retain (maximum 5). To guide the choice, consult the eigenvalues table and the scree plot (Kaiser criterion: λ > 1; elbow rule; cumulative variance criterion)."
+            ],
+            "Numero di elementi": [
+                "Number of elements"
+            ],
+            "Numero di grappoli (cluster) da estrarre dalla popolazione.": [
+                "Number of clusters to draw from the population."
+            ],
+            "Numero di grappoli (n_g)": [
+                "Number of clusters (n_g)"
+            ],
+            "Numero di grappoli da estrarre": [
+                "Number of clusters to draw"
+            ],
+            "Numero di gruppi": [
+                "Number of groups"
+            ],
+            "Numero di PSU": [
+                "Number of PSUs"
+            ],
+            "Numero di PSU (n_g)": [
+                "Number of PSUs (n_g)"
+            ],
+            "Numero di PSU da estrarre": [
+                "Number of PSUs to draw"
+            ],
+            "Numero di strati L (stratificato)": [
+                "Number of strata L (stratified)"
+            ],
+            "Numero di unità (n)": [
+                "Number of units (n)"
+            ],
+            "Numero di unità per PSU": [
+                "Units per PSU"
+            ],
+            "Numero di unità per PSU (b)": [
+                "Units per PSU (b)"
+            ],
+            "Numero fisso (b)": [
+                "Fixed number (b)"
+            ],
+            "Numero massimo di osservazioni da mostrare": [
+                "Maximum number of observations to display"
+            ],
+            "Numerosità campionaria": [
+                "Sample size"
+            ],
+            "Numerosità campionaria (n)": [
+                "Sample size (n)"
+            ],
+            "Numerosità campionaria n": [
+                "Sample size n"
+            ],
+            "Numerosità campionaria totale (n)": [
+                "Total sample size (n)"
+            ],
+            "Numerosità n, letta in due modi: se è la numerosità del casuale semplice da eguagliare, il piano complesso ne richiede n_complex = Deff · n; se è un campione già raccolto col piano complesso, vale quanto n_eff = n / Deff unità di un casuale semplice.": [
+                "Sample size n, read in two ways: if it is the size of the simple random sample to be matched, the complex design needs n_complex = Deff · n units; if it is a sample already collected with the complex design, it is worth n_eff = n / Deff units of a simple random sample."
+            ],
+            "Numerosità del campione da estrarre.": [
+                "Size of the sample to draw."
+            ],
+            "Numerosità del campione n": [
+                "Sample size n"
+            ],
+            "Numerosità di riferimento (n)": [
+                "Reference sample size (n)"
+            ],
+            "Ordinato per": [
+                "Sorted by"
+            ],
+            "Ordine": [
+                "Order"
+            ],
+            "Ordine nel campione": [
+                "Order in sample"
+            ],
+            "Osservazioni": [
+                "Observations"
+            ],
+            "Osservazioni (n)": [
+                "Observations (n)"
+            ],
+            "Ottimale di Neyman (n_j ∝ N_j · σ_j)": [
+                "Neyman optimal (n_j ∝ N_j · σ_j)"
+            ],
+            "p": [
+                "p"
+            ],
+            "P / σ": [
+                "P / σ"
+            ],
+            "Parametri dell'indagine": [
+                "Survey parameters"
+            ],
+            "Parametri usati": [
+                "Input parameters"
+            ],
+            "Parametro": [
+                "Parameter"
+            ],
+            "Parametro da stimare": [
+                "Parameter to estimate"
+            ],
+            "Parametro da stimare (modalità manuale)": [
+                "Parameter to estimate (manual mode)"
+            ],
+            "Partizioni da confrontare": [
+                "Partitions to compare"
+            ],
+            "Passo k = ⌊N/n⌋": [
+                "Step k = ⌊N/n⌋"
+            ],
+            "PC1": [
+                "PC1"
+            ],
+            "PC2": [
+                "PC2"
+            ],
+            "PC3": [
+                "PC3"
+            ],
+            "PC4": [
+                "PC4"
+            ],
+            "PC5": [
+                "PC5"
+            ],
+            "PCA": [
+                "PCA"
+            ],
+            "Per una variabile categoriale, etichetta del livello considerato \"successo\" (numeratore della proporzione). Se vuoto, viene usato il primo livello.": [
+                "For a categorical variable, label of the level treated as a \"success\" (numerator of the proportion). If empty, the first level is used."
+            ],
+            "Peso w_i": [
+                "Weight w_i"
+            ],
+            "Piano": [
+                "Plan"
+            ],
+            "Piano di campionamento": [
+                "Sampling plan"
+            ],
+            "Piano di campionamento per cui calcolare il Deff teorico.": [
+                "Sampling design for which the theoretical Deff is computed."
+            ],
+            "Plot delle sole variabili: baricentri delle modalità della variabile qualitativa supplementare + (opzionalmente) vettori delle attive e/o delle quantitative supplementari. Utile per leggere il posizionamento di segmenti o marche rispetto agli attributi.": [
+                "Variable-only plot: centroids of supplementary qualitative variable categories + (optionally) active and/or supplementary quantitative arrows. Useful for reading the positioning of segments or brands with respect to the attributes."
+            ],
+            "Popolazione N (sistematico)": [
+                "Population N (systematic)"
+            ],
+            "Posizione": [
+                "Position"
+            ],
+            "Posizione (dopo ordinamento)": [
+                "Position (after sorting)"
+            ],
+            "Probabilità p_i = w_i/Σw": [
+                "Probability p_i = w_i/Σw"
+            ],
+            "Promax (obliqua)": [
+                "Promax (oblique)"
+            ],
+            "Proporzionale (n_j ∝ N_j)": [
+                "Proportional (n_j ∝ N_j)"
+            ],
+            "Proporzione": [
+                "Proportion"
+            ],
+            "Proporzione campionaria p_c (modalità proporzione)": [
+                "Sample proportion p_c (proportion mode)"
+            ],
+            "PSU": [
+                "PSU"
+            ],
+            "PSU estratte": [
+                "Sampled PSUs"
+            ],
+            "Punto di partenza t": [
+                "Starting point t"
+            ],
+            "Qualità di rappresentazione (cos²) — heatmap": [
+                "Representation quality (cos²) — heatmap"
+            ],
+            "R²": [
+                "R²"
+            ],
+            "R² tra variabile di interesse e di stratificazione": [
+                "R² between target and stratification variable"
+            ],
+            "Relazione con le variabili quantitative": [
+                "Relationship with quantitative variables"
+            ],
+            "Relazione tra la variabile 'Cluster' e le variabili quantitative": [
+                "Relationship between 'Cluster' and quantitative variables"
+            ],
+            "Riepilogo del campione": [
+                "Sample summary"
+            ],
+            "Riga": [
+                "Row"
+            ],
+            "Riga originale": [
+                "Original row"
+            ],
+            "RMSSTD": [
+                "RMSSTD"
+            ],
+            "Rotazione": [
+                "Rotation"
+            ],
+            "Rotazione applicata ai loadings per facilitare l'interpretazione delle componenti. Varimax (ortogonale) massimizza la varianza dei loadings al quadrato per ciascuna componente; Promax (obliqua) consente che le componenti ruotate siano correlate.": [
+                "Rotation applied to the loadings to ease component interpretation. Varimax (orthogonal) maximises the variance of squared loadings on each component; Promax (oblique) allows the rotated components to be correlated."
+            ],
+            "s (campionario)": [
+                "s (sample)"
+            ],
+            "Scarto quadratico medio campionario s (modalità media)": [
+                "Sample standard deviation s (mean mode)"
+            ],
+            "Scarto quadratico medio σ": [
+                "Standard deviation σ"
+            ],
+            "Scarto quadratico medio σ della variabile di interesse nella popolazione (richiesto per il caso \"media\").": [
+                "Standard deviation σ of the variable of interest in the population (required for the \"mean\" case)."
+            ],
+            "Schema": [
+                "Scheme"
+            ],
+            "Scree plot": [
+                "Scree plot"
+            ],
+            "Se fornita, l'IC include il fattore correttivo per popolazioni finite (1 - f). Mantenere N molto grande (o ignorare) per il caso \"popolazione infinita\".": [
+                "When provided, the CI includes the finite-population correction (1 - f). Keep N very large (or ignore) for the \"infinite population\" case."
+            ],
+            "Se specificata, l'IC viene calcolato direttamente dai dati di questa variabile (media se numerica, proporzione del livello di riferimento se factor binario).": [
+                "When specified, the CI is computed directly from this variable's data (mean if numeric, proportion of the reference level if a binary factor)."
+            ],
+            "Se specificata, le unità della popolazione vengono ordinate in base ai valori di questa variabile prima di applicare il passo di campionamento. L'efficienza del sistematico dipende criticamente dall'ordinamento.": [
+                "When specified, units are sorted by this variable before applying the sampling step. Systematic-sampling efficiency depends critically on the ordering."
+            ],
+            "Se TRUE aggiunge le frecce delle variabili attive alla mappa.": [
+                "If TRUE, adds the active variable arrows to the map."
+            ],
+            "Se TRUE aggiunge le frecce delle variabili quantitative supplementari (se presenti) alla mappa.": [
+                "If TRUE, adds the supplementary quantitative arrows (if any) to the map."
+            ],
+            "Se TRUE applica (1 - f) all'espressione della varianza dello stimatore (slide 14, 20, 23).": [
+                "If TRUE, applies (1 - f) to the estimator's variance expression."
+            ],
+            "Se TRUE applica la formula per popolazione infinita o con reinserimento (SCR); se FALSE applica il fattore correttivo (1 - f) per popolazione finita (SSR).": [
+                "If TRUE, applies the infinite-population / with-replacement formula (SRS-WR); if FALSE, applies the (1 - f) finite-population correction (SRS-WOR)."
+            ],
+            "Se TRUE applica la PCA sulla matrice di correlazione (z-score preventivo). Raccomandato quando le variabili hanno unità di misura o varianze diverse. Se FALSE applica la PCA sulla matrice di covarianza.": [
+                "If TRUE, applies PCA on the correlation matrix (prior z-score). Recommended when variables have different units or variances. If FALSE, applies PCA on the covariance matrix."
+            ],
+            "Se TRUE estrazione con reinserimento (SCR): la stessa unità può essere selezionata più volte. Se FALSE estrazione senza reinserimento (SSR).": [
+                "If TRUE, sampling with replacement (SRS-WR): the same unit may be drawn multiple times. If FALSE, sampling without replacement (SRS-WOR)."
+            ],
+            "Se TRUE mostra il pannello con la descrizione metodologica dell'analisi.": [
+                "If TRUE, shows the panel with the methodological description of the analysis."
+            ],
+            "Se TRUE mostra il pannello con la descrizione metodologica.": [
+                "If TRUE, shows the panel with the methodological description."
+            ],
+            "Se TRUE produce il dendrogramma colorato per cluster.": [
+                "If TRUE, produces the cluster-coloured dendrogram."
+            ],
+            "Se TRUE produce il grafico del Delta G (differenza fra altezze di unione successive) al variare di k.": [
+                "If TRUE, produces the Delta G plot (differences between successive merge heights) as k varies."
+            ],
+            "Se TRUE produce il grafico dell'Indice F di Calinski-Harabasz al variare di k.": [
+                "If TRUE, produces the Calinski-Harabasz F-index plot as k varies."
+            ],
+            "Se TRUE produce il grafico dell'R² al variare di k.": [
+                "If TRUE, produces the R² plot as k varies."
+            ],
+            "Se TRUE produce il grafico dell'RMSSTD al variare di k.": [
+                "If TRUE, produces the RMSSTD plot as k varies."
+            ],
+            "Se TRUE standardizza le variabili prima del calcolo della distanza. Applicato solo a distanze numeriche (Euclidea, Manhattan, Mahalanobis); ignorato per distanze binarie/categoriche.": [
+                "If TRUE, standardises variables before computing distances. Applied only to numeric distances (Euclidean, Manhattan, Mahalanobis); ignored for binary/categorical distances."
+            ],
+            "Seed": [
+                "Seed"
+            ],
+            "Seed (riproducibilità)": [
+                "Seed (reproducibility)"
+            ],
+            "Seme del generatore casuale, usato per scegliere il punto di partenza t entro 1..k. Garantisce la riproducibilità del campione.": [
+                "Random-number generator seed, used to pick the starting point t in 1..k. Ensures sample reproducibility."
+            ],
+            "Seme del generatore casuale. Impostare un valore garantisce l'esatta riproducibilità del campione.": [
+                "Random-number generator seed. Setting a value ensures exact reproducibility of the sample."
+            ],
+            "Sistematico": [
+                "Systematic"
+            ],
+            "Soglia di significatività (%)": [
+                "Significance threshold (%)"
+            ],
+            "Soglia di significatività in percentuale (default 5 = 0.05) per filtrare le variabili e le categorie riportate nei risultati.": [
+                "Significance threshold as a percentage (default 5 = 0.05) used to filter variables and categories reported in the results."
+            ],
+            "Sokal-Michener": [
+                "Sokal-Michener"
+            ],
+            "Solo per la modalità manuale (senza variabile selezionata).": [
+                "Only for the manual mode (no variable selected)."
+            ],
+            "Spuntare per iniettare nel dataset la colonna con la frequenza di estrazione di ciascuna unità (0 = non estratta; 1 = estratta; >1 possibile solo in SCR). Il nome della colonna sarà freq_SSR o freq_SCR a seconda dello schema scelto.": [
+                "Tick to inject into the dataset the column with each unit's draw frequency (0 = not drawn; 1 = drawn once; >1 only under with-replacement). Column name will be freq_SSR or freq_SCR depending on the scheme."
+            ],
+            "Spuntare per iniettare nel dataset la colonna con la frequenza di estrazione di ciascuna unità. Il nome della colonna sarà freq_CPV.": [
+                "Tick to inject into the dataset the column with each unit's draw frequency. Column name will be freq_CPV."
+            ],
+            "Spuntare per iniettare nel dataset la colonna indicatrice del campione: 1 se l'unità è stata estratta, 0 altrimenti. Il nome della colonna sarà in_SM (Sistematico).": [
+                "Tick to inject the sample-indicator column into the dataset: 1 if the unit was drawn, 0 otherwise. Column name will be in_SM (Systematic)."
+            ],
+            "Spuntare per iniettare nel dataset la colonna indicatrice del campione. Il nome della colonna sarà in_2STG.": [
+                "Tick to inject the sample-indicator column into the dataset. Column name will be in_2STG."
+            ],
+            "Spuntare per iniettare nel dataset la colonna indicatrice del campione. Il nome della colonna sarà in_GR.": [
+                "Tick to inject the sample-indicator column into the dataset. Column name will be in_GR."
+            ],
+            "Spuntare per iniettare nel dataset la colonna indicatrice del campione. Il nome della colonna sarà in_STpr o in_STott a seconda del metodo scelto.": [
+                "Tick to inject the sample-indicator column into the dataset. Column name will be in_STpr or in_STott depending on the chosen method."
+            ],
+            "Standardizza le variabili": [
+                "Standardize variables"
+            ],
+            "Standardizza le variabili (z-score)": [
+                "Standardize variables (z-score)"
+            ],
+            "Standardizzate": [
+                "Standardized"
+            ],
+            "Statistiche generali": [
+                "Overall statistics"
+            ],
+            "Stima": [
+                "Estimate"
+            ],
+            "Stima della proporzione P (caso peggiore = 0.5)": [
+                "Proportion estimate P (worst case = 0.5)"
+            ],
+            "Stima puntuale": [
+                "Point estimate"
+            ],
+            "Stratificato": [
+                "Stratified"
+            ],
+            "Strato": [
+                "Stratum"
+            ],
+            "Tecniche di Analisi di Mercato": [
+                "Market Research Techniques"
+            ],
+            "Test del Chi-quadro": [
+                "Chi-square test"
+            ],
+            "Tipo di parametro che l'indagine intende stimare. Determina la formula utilizzata per il calcolo della numerosità.": [
+                "Type of parameter the survey aims to estimate. Determines the formula used to compute the sample size."
+            ],
+            "Tutte le unità della PSU (= grappoli)": [
+                "All PSU units (= clusters)"
+            ],
+            "UB": [
+                "UB"
+            ],
+            "Una o più variabili categoriali (o numeriche con pochi livelli) usate per suddividere la popolazione negli M strati. Se ne vengono fornite più di una, gli strati sono dati dall'incrocio joint dei livelli (es. Sesso × Fascia di età → 6 strati per 2 × 3 livelli). Le unità all'interno di ciascuno strato dovrebbero essere omogenee rispetto al fenomeno di interesse.": [
+                "One or more categorical variables (or numeric with few levels) used to split the population into M strata. If more than one is provided, strata are the joint cross of the levels (e.g., Sex × Age band → 6 strata for 2 × 3 levels). Units within each stratum should be homogeneous with respect to the variable of interest."
+            ],
+            "Una o più variabili categoriali supplementari. I baricentri delle loro modalità vengono proiettati nel piano principale e disegnati nel grafico \"Mappa di posizionamento\".": [
+                "One or more supplementary categorical variables. The centroids of their categories are projected on the principal plane and drawn in the \"Positioning map\" plot."
+            ],
+            "Unità estratte": [
+                "Sampled units"
+            ],
+            "Unità per gruppo / dimensione grappolo (n_s o n_g)": [
+                "Units per group / cluster size (n_s or n_g)"
+            ],
+            "Valore di P utilizzato nella formula. Se non si dispone di una stima pilota, lasciare 0.5 (varianza massima, stima n per eccesso).": [
+                "Value of P used in the formula. If no pilot estimate is available, leave 0.5 (maximum variance, giving an upward estimate of n)."
+            ],
+            "Var attesa dello stimatore": [
+                "Expected estimator variance"
+            ],
+            "Variabile": [
+                "Variable"
+            ],
+            "Variabile 'Cluster' da caratterizzare": [
+                "'Cluster' variable to describe"
+            ],
+            "Variabile (per calcolo da dataset)": [
+                "Variable (for dataset-based estimation)"
+            ],
+            "Variabile ausiliaria per allocazione ottimale (opzionale)": [
+                "Auxiliary variable for optimal allocation (optional)"
+            ],
+            "Variabile categoriale (tipicamente l'assegnazione ai cluster) da caratterizzare. Se numerica viene usata condes; se factor viene usata catdes.": [
+                "Categorical variable (typically the cluster assignment) to be described. If numeric, condes is used; if factor, catdes is used."
+            ],
+            "Variabile categoriale che NON contribuisce al calcolo delle componenti. Usata SOLO per colorare le osservazioni nel biplot.": [
+                "Categorical variable that does NOT contribute to component computation. Used ONLY to colour observations on the biplot."
+            ],
+            "Variabile che identifica i grappoli (es. città, scuola, quartiere). Le unità all'interno di uno stesso grappolo dovrebbero essere tra loro eterogenee rispetto al fenomeno di interesse: il metodo è efficiente quando i grappoli sono \"piccole popolazioni\" simili tra loro.": [
+                "Variable identifying the clusters (e.g., city, school, neighbourhood). Units within the same cluster should be heterogeneous with respect to the variable of interest: the method is efficient when clusters are \"small populations\" similar to each other."
+            ],
+            "Variabile che identifica le unità primarie (PSU = primary sampling units): tipicamente città, scuole, quartieri. Dal primo stadio vengono estratte casualmente n_g PSU.": [
+                "Variable identifying the primary sampling units (PSUs): typically cities, schools or neighbourhoods. The first stage randomly draws n_g PSUs."
+            ],
+            "Variabile di grappolo": [
+                "Cluster variable"
+            ],
+            "Variabile di ordinamento (opzionale)": [
+                "Sorting variable (optional)"
+            ],
+            "Variabile di peso (ausiliaria)": [
+                "Weight variable (auxiliary)"
+            ],
+            "Variabile identificativa (opzionale)": [
+                "ID variable (optional)"
+            ],
+            "Variabile qualitativa supplementare per biplot (opzionale)": [
+                "Supplementary qualitative variable for biplot (optional)"
+            ],
+            "Variabile quantitativa positiva proporzionale al \"peso\" che ogni unità ha nella popolazione (es. fatturato, addetti, numero di abitanti). Le probabilità di inclusione p_i sono calcolate come w_i / Σ w_i.": [
+                "Positive quantitative variable proportional to each unit's \"weight\" in the population (e.g., turnover, employees, inhabitants). Inclusion probabilities p_i are computed as w_i / Σ w_i."
+            ],
+            "Variabile quantitativa usata per stimare lo scarto quadratico medio σ_j dentro ciascuno strato (richiesta per il metodo ottimale). Tipicamente è la variabile di interesse o una sua proxy.": [
+                "Quantitative variable used to estimate the standard deviation σ_j within each stratum (required for the optimal method). Typically the variable of interest or a proxy."
+            ],
+            "Variabile unità di primo stadio (PSU)": [
+                "Primary sampling unit (PSU) variable"
+            ],
+            "Variabile usata per etichettare le osservazioni nelle tabelle e nel biplot.": [
+                "Variable used to label observations in the tables and biplot."
+            ],
+            "Variabile usata per identificare le singole unità nel dataset. Se specificata, la tabella \"Unità estratte\" mostra gli ID dei soggetti selezionati.": [
+                "Variable used to identify the individual units in the dataset. When specified, the \"Sampled units\" table shows the IDs of the selected subjects."
+            ],
+            "Variabile usata per identificare le singole unità nel dataset. Se specificata, la tabella \"Unità estratte\" mostra gli ID dei soggetti selezionati. Non influisce sul processo di estrazione.": [
+                "Variable used to identify the individual units in the dataset. When specified, the \"Sampled units\" table shows the IDs of the selected subjects. It does not affect the sampling process."
+            ],
+            "Variabile usata per identificare le singole unità nel dataset. Se specificata, la tabella \"Unità estratte\" mostra gli ID e i pesi dei soggetti selezionati.": [
+                "Variable used to identify the individual units in the dataset. When specified, the \"Sampled units\" table shows the IDs and weights of the selected subjects."
+            ],
+            "Variabile usata per identificare le unità di secondo stadio (SSU). Se specificata, la tabella \"Unità estratte\" mostra gli ID dei soggetti selezionati.": [
+                "Variable used to identify second-stage units (SSUs). When specified, the \"Sampled units\" table shows the IDs of the selected subjects."
+            ],
+            "Variabili": [
+                "Variables"
+            ],
+            "Variabili (almeno due) che codificano partizioni alternative delle stesse osservazioni. L'Adjusted Rand Index viene calcolato per ciascuna coppia.": [
+                "Variables (at least two) coding alternative partitions of the same observations. The Adjusted Rand Index is computed for each pair."
+            ],
+            "Variabili (quantitative e/o qualitative) con cui descrivere la variabile target attraverso test statistici.": [
+                "Variables (quantitative and/or qualitative) used to describe the target variable through statistical tests."
+            ],
+            "Variabili attive": [
+                "Active variables"
+            ],
+            "Variabili attive (quantitative)": [
+                "Active variables (quantitative)"
+            ],
+            "Variabili di stratificazione": [
+                "Stratification variables"
+            ],
+            "Variabili numeriche su cui calcolare la matrice delle distanze e applicare l'algoritmo di clustering gerarchico.": [
+                "Numeric variables on which to compute the distance matrix and apply the hierarchical clustering algorithm."
+            ],
+            "Variabili qualitative per la mappa di posizionamento (opzionali)": [
+                "Qualitative variables for positioning map (optional)"
+            ],
+            "Variabili quantitative che NON contribuiscono al calcolo delle componenti, ma vengono proiettate a posteriori nel piano principale. Utili per validare le componenti con variabili esterne.": [
+                "Quantitative variables that do NOT contribute to component computation but are projected a posteriori on the principal plane. Useful to validate components against external variables."
+            ],
+            "Variabili quantitative supplementari (opzionali)": [
+                "Supplementary quantitative variables (optional)"
+            ],
+            "Variabili quantitative usate per costruire le componenti principali. Devono essere almeno due. La PCA opera sulla matrice di covarianza (se non standardizzate) o di correlazione (se standardizzate).": [
+                "Quantitative variables used to build the principal components. At least two are required. PCA operates on the covariance matrix (if not standardised) or the correlation matrix (if standardised)."
+            ],
+            "Varianza nel piano complesso": [
+                "Variance in complex design"
+            ],
+            "Varianza nel SCR di riferimento": [
+                "Variance in reference SRS"
+            ],
+            "Varimax (ortogonale)": [
+                "Varimax (orthogonal)"
+            ],
+            "Vtest": [
+                "v-test"
+            ],
+            "W_j": [
+                "W_j"
+            ],
+            "Ward": [
+                "Ward"
+            ],
+            "z (α/2)": [
+                "z (α/2)"
+            ],
+            "Δ": [
+                "Δ"
+            ],
+            "Σ pesi": [
+                "Σ weights"
+            ],
+            "σ_j": [
+                "σ_j"
+            ],
+            "Numerosità efficace di n unità raccolte col piano": [
+                "Effective size of n units collected with the design"
+            ]
+        }
+    }
+}

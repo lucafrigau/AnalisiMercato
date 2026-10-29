@@ -1,0 +1,119 @@
+---
+name:  samplemultistage
+title: Campionamento a due stadi
+menuGroup: AnalisiMercato
+menuSubgroup: Campionamento
+version: '2.0.9'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: psu_var
+      title: Variabile unità di primo stadio (PSU)
+      type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Variabile che identifica le unità primarie (PSU = primary
+            sampling units): tipicamente città, scuole, quartieri.
+            Dal primo stadio vengono estratte casualmente n_g PSU.
+
+    - name: id_var
+      title: Variabile identificativa (opzionale)
+      type: Variable
+      suggested:
+        - id
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Variabile usata per identificare le unità di secondo stadio
+            (SSU). Se specificata, la tabella "Unità estratte" mostra gli
+            ID dei soggetti selezionati.
+
+    - name: tuto
+      title: Descrizione delle analisi
+      type: Bool
+      default: true
+
+    # --- primo stadio ---
+    - name: psu_mode
+      title: Numero di PSU
+      type: List
+      options:
+        - title: Numero di PSU (n_g)
+          name:  ng
+        - title: Frazione di PSU (f_g)
+          name:  fg
+      default: ng
+
+    - name: ng
+      title: Numero di PSU da estrarre
+      type: Integer
+      min: 1
+      default: 3
+
+    - name: fg
+      title: Frazione di PSU (f_g)
+      type: Number
+      min: 0.0001
+      max: 1
+      default: 0.3
+
+    # --- secondo stadio ---
+    - name: ssu_mode
+      title: Numero di unità per PSU
+      type: List
+      options:
+        - title: Numero fisso (b)
+          name:  fixed
+        - title: Frazione f_b della PSU
+          name:  frac
+        - title: Tutte le unità della PSU (= grappoli)
+          name:  all
+      default: fixed
+      description:
+          R: >
+            Come allocare le unità di secondo stadio. 'fixed': estrae b
+            unità da ciascuna PSU selezionata. 'frac': estrae una frazione
+            f_b della numerosità di ciascuna PSU. 'all': prende tutte le
+            unità delle PSU (equivalente al campionamento a grappoli).
+
+    - name: b
+      title: Numero di unità per PSU (b)
+      type: Integer
+      min: 1
+      default: 5
+
+    - name: fb
+      title: Frazione di unità per PSU (f_b)
+      type: Number
+      min: 0.0001
+      max: 1
+      default: 0.5
+
+    - name: seed
+      title: Seed (riproducibilità)
+      type: Integer
+      default: 1
+
+    - name: out_freq
+      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      type: Output
+      description:
+          R: >
+            Spuntare per iniettare nel dataset la colonna indicatrice del
+            campione. Il nome della colonna sarà in_2STG.
+...

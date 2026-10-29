@@ -1,0 +1,29 @@
+---
+name: ari
+title: Confronto partizioni
+menuGroup: AnalisiMercato
+menuSubgroup: Cluster Analysis
+version: '2.0.9'
+jas: '1.2'
+
+options:
+  - name: data
+    type: Data
+
+  - name: vars
+    title: Partizioni da confrontare
+    type: Variables
+    rejectInf: true
+    description:
+        R: >
+          Variabili (almeno due) che codificano partizioni alternative delle
+          stesse osservazioni. L'Adjusted Rand Index viene calcolato per
+          ciascuna coppia.
+
+  - name: tuto
+    title: Descrizione delle analisi
+    type: Bool
+    default: true
+    description:
+        R: Se TRUE mostra il pannello con la descrizione metodologica.
+...

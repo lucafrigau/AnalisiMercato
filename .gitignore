@@ -1,0 +1,14 @@
+# file compilati e cartelle di lavoro: i .jmo si allegano alle release
+build/
+mac/
+windows/
+linux/
+sorgenti/
+*.jmo
+*.zip
+.Rproj.user/
+.Rhistory
+.RData
+.DS_Store
+# resti delle esecuzioni dei test
+testthat-problems.rds

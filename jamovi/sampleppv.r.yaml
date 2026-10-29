@@ -1,0 +1,97 @@
+---
+name:  sampleppv
+title: Campionamento con probabilità variabili (CPV)
+jrs:   '1.1'
+
+refs:
+    - hansenhurwitz
+    - cochran
+
+items:
+    - name: instructions
+      title: Istruzioni
+      type: Html
+      visible: (tuto)
+
+    - name: summary
+      title: Riepilogo del campione
+      type: Table
+      rows: 1
+      clearWith:
+        - weight_var
+        - replacement
+        - size_mode
+        - n
+        - f
+        - seed
+      columns:
+        - name: N
+          title: N (popolazione)
+          type: integer
+        - name: n_richiesto
+          title: n richiesto
+          type: integer
+        - name: n_distinti
+          title: n unità distinte
+          type: integer
+        - name: n_totale
+          title: n estrazioni totali
+          type: integer
+        - name: peso_totale
+          title: Σ pesi
+          type: number
+        - name: schema
+          title: Schema
+          type: text
+        - name: seed_used
+          title: Seed
+          type: integer
+
+    - name: extracted
+      title: Unità estratte
+      type: Table
+      rows: 0
+      visible: (id_var)
+      clearWith:
+        - id_var
+        - weight_var
+        - replacement
+        - size_mode
+        - n
+        - f
+        - seed
+      columns:
+        - name: pos
+          title: Riga
+          type: integer
+        - name: id_value
+          title: ID
+          type: text
+        - name: peso
+          title: Peso w_i
+          type: number
+        - name: prob
+          title: Prob. di selezione p_i = w_i/Σw
+          type: number
+          format: zto
+        - name: pi_incl
+          title: Prob. di inclusione π_i
+          type: number
+          format: zto
+        - name: freq
+          title: Frequenza di estrazione
+          type: integer
+
+    - name: out_freq
+      title: "Estrai il campione (frequenza nel campione)"
+      type: Output
+      varTitle: freq_CPV
+      measureType: continuous
+      clearWith:
+        - weight_var
+        - replacement
+        - size_mode
+        - n
+        - f
+        - seed
+...

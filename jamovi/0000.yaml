@@ -1,0 +1,157 @@
+---
+title: Tecniche di Analisi di Mercato
+name: AnalisiMercato
+version: 2.1.4
+jms: '1.0'
+authors:
+  - Luca Frigau
+maintainer: Luca Frigau <frigau@unica.it>
+date: '2026-10-28'
+type: R
+defaultLanguage: it
+description: >-
+  Modulo didattico e applicativo per il corso di Analisi di Mercato. Comprende
+  strumenti per alcune delle principali fasi quantitative di una ricerca di
+  mercato: ricerche per campione (numerosità campionaria, estrazione del
+  campione con i principali disegni probabilistici - casuale semplice,
+  sistematico, stratificato proporzionale e ottimale, a grappoli, a due stadi,
+  con probabilità variabili - intervalli di confidenza e Design Effect), per la
+  cluster analysis gerarchica (con metriche per la scelta del numero di gruppi,
+  caratterizzazione dei cluster e confronto fra partizioni tramite Adjusted Rand
+  Index) e per l'analisi delle componenti principali (con rotazione
+  varimax/promax, cerchio delle correlazioni, biplot e heatmap dei coseni
+  quadrati).
+
+  Segnalazioni di bug, errori di calcolo o suggerimenti: scrivere a Luca Frigau
+  (frigau@unica.it) indicando la versione del modulo, l'analisi coinvolta e i
+  passi per riprodurre il problema.
+datasets:
+  - name: Popolazione clienti
+    path: popolazione_clienti.omv
+    description: >-
+      5.000 clienti con area, eta, sesso, reddito, spesa annua, punto vendita e
+      anzianita di fedelta. E la lista da cui estrarre il campione con tutti i
+      disegni: il punto vendita fa da grappolo, l'area da strato.
+    tags:
+      - Campionamento
+  - name: Comuni per strati
+    path: comuni_strati.omv
+    description: >-
+      200 comuni con area, popolazione, reddito medio e numero di punti vendita.
+      Per l'allocazione proporzionale e di Neyman e per il campionamento con
+      probabilita proporzionali alla dimensione.
+    tags:
+      - Campionamento
+  - name: Survey di segmentazione
+    path: survey_segmentazione.omv
+    description: >-
+      400 rispondenti, otto item su scala 1-7 piu eta, reddito, sesso e area.
+      Base per la cluster analysis e per la PCA; la colonna segmento_vero
+      permette di valutare la partizione ottenuta con l'Adjusted Rand Index.
+    tags:
+      - Cluster Analysis
+      - PCA
+  - name: Panel di prodotti
+    path: panel_prodotti.omv
+    description: >-
+      20 marche descritte da dieci attributi percepiti, piu la fascia di
+      posizionamento come variabile qualitativa supplementare. Per la mappa di
+      posizionamento con la PCA.
+    tags:
+      - PCA
+analyses:
+  - title: Numerosità campionaria
+    name: samplesize
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Campionamento
+    menuTitle: Numerosità campionaria
+    category: analyses
+  - title: Campionamento casuale semplice
+    name: samplesimple
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Campionamento
+    menuTitle: Campionamento casuale semplice
+    category: analyses
+  - title: Campionamento sistematico
+    name: samplesyst
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Campionamento
+    menuTitle: Campionamento sistematico
+    category: analyses
+  - title: Campionamento stratificato
+    name: samplestrat
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Campionamento
+    menuTitle: Campionamento stratificato
+    category: analyses
+  - title: Campionamento a grappoli
+    name: samplecluster
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Campionamento
+    menuTitle: Campionamento a grappoli
+    category: analyses
+  - title: Campionamento a due stadi
+    name: samplemultistage
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Campionamento
+    menuTitle: Campionamento a due stadi
+    category: analyses
+  - title: Campionamento con probabilità variabili (CPV)
+    name: sampleppv
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Campionamento
+    menuTitle: Campionamento con probabilità variabili (CPV)
+    category: analyses
+  - title: Intervalli di confidenza
+    name: confint
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Campionamento
+    menuTitle: Intervalli di confidenza
+    category: analyses
+  - title: Design Effect
+    name: deff
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Campionamento
+    menuTitle: Design Effect
+    category: analyses
+  - title: Cluster Analysis Gerarchica
+    name: hc
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Cluster Analysis
+    menuTitle: Cluster Analysis Gerarchica
+    category: analyses
+  - title: Confronto partizioni
+    name: ari
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Cluster Analysis
+    menuTitle: Confronto partizioni
+    category: analyses
+  - title: Caratterizzazione
+    name: catdes
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: Cluster Analysis
+    menuTitle: Caratterizzazione
+    category: analyses
+  - title: Analisi delle Componenti Principali
+    name: pca
+    ns: AnalisiMercato
+    menuGroup: AnalisiMercato
+    menuSubgroup: PCA
+    menuTitle: Analisi delle Componenti Principali
+    category: analyses
+usesNative: false
+minApp: 2.3.0
+
+...

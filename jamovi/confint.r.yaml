@@ -1,0 +1,91 @@
+---
+name:  confint
+title: Intervalli di confidenza
+jrs:   '1.1'
+
+refs:
+    - cochran
+    - lohr
+
+items:
+    - name: instructions
+      title: Istruzioni
+      type: Html
+      visible: (tuto)
+
+    - name: inputs
+      title: Parametri usati
+      type: Table
+      rows: 1
+      clearWith:
+        - data_var
+        - success_level
+        - param
+        - n_manual
+        - p_manual
+        - mean_manual
+        - sd_manual
+        - N
+        - use_fpc
+        - confidence
+      columns:
+        - name: modalita
+          title: Modalità
+          type: text
+        - name: parametro
+          title: Parametro
+          type: text
+        - name: n
+          title: n
+          type: integer
+        - name: N
+          title: N
+          type: text
+        - name: stima
+          title: Stima puntuale
+          type: number
+        - name: s
+          title: s (campionario)
+          type: number
+        - name: z
+          title: z (α/2)
+          type: number
+        - name: fpc
+          title: Fattore (1-f)
+          type: text
+
+    - name: result
+      title: Intervallo di confidenza
+      type: Table
+      rows: 1
+      clearWith:
+        - data_var
+        - success_level
+        - param
+        - n_manual
+        - p_manual
+        - mean_manual
+        - sd_manual
+        - N
+        - use_fpc
+        - confidence
+      columns:
+        - name: confidence
+          title: Confidenza
+          type: text
+        - name: stima
+          title: Stima
+          type: number
+        - name: se
+          title: Errore standard
+          type: number
+        - name: halfwidth
+          title: Ampiezza ± Δ
+          type: number
+        - name: lower
+          title: LB
+          type: number
+        - name: upper
+          title: UB
+          type: number
+...

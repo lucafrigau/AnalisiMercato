@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Confronto partizioni (ARI)">
+  <title>Confronto partizioni</title>
+  <!-- Due cerchi sovrapposti: due partizioni confrontate -->
+  <circle cx="24" cy="32" r="18" fill="#1F77B4" fill-opacity="0.55"/>
+  <circle cx="40" cy="32" r="18" fill="#FF7F0E" fill-opacity="0.55"/>
+  <!-- Bordi per leggibilità su sfondi chiari -->
+  <circle cx="24" cy="32" r="18" fill="none" stroke="#0F4E7A" stroke-width="1.5"/>
+  <circle cx="40" cy="32" r="18" fill="none" stroke="#A0531A" stroke-width="1.5"/>
+</svg>

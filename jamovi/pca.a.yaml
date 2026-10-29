@@ -1,0 +1,241 @@
+---
+name:  pca
+title: Analisi delle Componenti Principali
+menuGroup: AnalisiMercato
+menuSubgroup: PCA
+version: '2.0.9'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: vars
+      title: Variabili attive (quantitative)
+      type: Variables
+      suggested:
+        - continuous
+      permitted:
+        - numeric
+      description:
+          R: >
+            Variabili quantitative usate per costruire le componenti
+            principali. Devono essere almeno due. La PCA opera sulla
+            matrice di covarianza (se non standardizzate) o di correlazione
+            (se standardizzate).
+
+    - name: supp_quant
+      title: Variabili quantitative supplementari (opzionali)
+      type: Variables
+      suggested:
+        - continuous
+      permitted:
+        - numeric
+      description:
+          R: >
+            Variabili quantitative che NON contribuiscono al calcolo delle
+            componenti, ma vengono proiettate a posteriori nel piano
+            principale. Utili per validare le componenti con variabili
+            esterne.
+
+    - name: supp_qual
+      title: Variabile qualitativa supplementare per biplot (opzionale)
+      type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+      description:
+          R: >
+            Variabile categoriale che NON contribuisce al calcolo delle
+            componenti. Usata SOLO per colorare le osservazioni nel biplot.
+
+    - name: supp_qual_map
+      title: Variabili qualitative per la mappa di posizionamento (opzionali)
+      type: Variables
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+      description:
+          R: >
+            Una o più variabili categoriali supplementari. I baricentri
+            delle loro modalità vengono proiettati nel piano principale e
+            disegnati nel grafico "Mappa di posizionamento".
+
+    - name: id_var
+      title: Variabile identificativa (opzionale)
+      type: Variable
+      suggested:
+        - id
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Variabile usata per etichettare le osservazioni nelle tabelle
+            e nel biplot.
+
+    - name: tuto
+      title: Descrizione dell'analisi
+      type: Bool
+      default: true
+
+    - name: standardize
+      title: Standardizza le variabili (z-score)
+      type: Bool
+      default: true
+      description:
+          R: >
+            Se TRUE applica la PCA sulla matrice di correlazione (z-score
+            preventivo). Raccomandato quando le variabili hanno unità di
+            misura o varianze diverse. Se FALSE applica la PCA sulla
+            matrice di covarianza.
+
+    - name: ncp
+      title: Numero di componenti da ritenere
+      type: Integer
+      min: 1
+      max: 5
+      default: 2
+      description:
+          R: >
+            Numero di componenti principali da ritenere (massimo 5). Per
+            orientarsi sulla scelta, consultare la tabella degli
+            autovalori e lo scree plot (criterio di Kaiser: λ > 1;
+            criterio del gomito; criterio della varianza cumulata).
+
+    - name: rotation
+      title: Rotazione
+      type: List
+      options:
+        - title: Nessuna
+          name:  none
+        - title: Varimax (ortogonale)
+          name:  varimax
+        - title: Promax (obliqua)
+          name:  promax
+      default: none
+      description:
+          R: >
+            Rotazione applicata ai loadings per facilitare l'interpretazione
+            delle componenti. Varimax (ortogonale) massimizza la varianza
+            dei loadings al quadrato per ciascuna componente; Promax
+            (obliqua) consente che le componenti ruotate siano correlate.
+
+    # --- output / plot ---
+    - name: show_ind
+      title: Mostra tabella contributi/coseni² delle osservazioni
+      type: Bool
+      default: false
+
+    - name: top_ind
+      title: Numero massimo di osservazioni da mostrare
+      type: Integer
+      min: 1
+      max: 1000
+      default: 20
+
+    - name: axis_x
+      title: Componente sull'asse X
+      type: Integer
+      min: 1
+      default: 1
+      description:
+          R: >
+            Componente da visualizzare sull'asse orizzontale del cerchio
+            delle correlazioni e del biplot (es. 1 = PC1).
+
+    - name: axis_y
+      title: Componente sull'asse Y
+      type: Integer
+      min: 1
+      default: 2
+      description:
+          R: >
+            Componente da visualizzare sull'asse verticale del cerchio
+            delle correlazioni e del biplot (es. 2 = PC2).
+
+    - name: plot_scree
+      title: Scree plot
+      type: Bool
+      default: true
+
+    - name: plot_circle
+      title: Cerchio delle correlazioni (variabili)
+      type: Bool
+      default: true
+
+    - name: plot_biplot
+      title: Biplot (osservazioni nel piano principale)
+      type: Bool
+      default: true
+
+    - name: plot_cos2
+      title: Heatmap dei coseni² (qualità di rappresentazione)
+      type: Bool
+      default: true
+
+    - name: plot_map
+      title: Mappa di posizionamento (variabili e baricentri, no osservazioni)
+      type: Bool
+      default: false
+      description:
+          R: >
+            Plot delle sole variabili: baricentri delle modalità della
+            variabile qualitativa supplementare + (opzionalmente) vettori
+            delle attive e/o delle quantitative supplementari. Utile per
+            leggere il posizionamento di segmenti o marche rispetto agli
+            attributi.
+
+    - name: map_show_active
+      title: "▸ MAPPA · Mostra vettori variabili attive"
+      type: Bool
+      default: false
+      description:
+          R: Se TRUE aggiunge le frecce delle variabili attive alla mappa.
+
+    - name: map_show_supp_quant
+      title: "▸ MAPPA · Mostra vettori quantitative supplementari"
+      type: Bool
+      default: true
+      description:
+          R: >
+            Se TRUE aggiunge le frecce delle variabili quantitative
+            supplementari (se presenti) alla mappa.
+
+    - name: map_width
+      title: "▸ MAPPA · Larghezza"
+      type: Integer
+      min: 300
+      max: 1600
+      default: 800
+
+    - name: map_height
+      title: "▸ MAPPA · Altezza"
+      type: Integer
+      min: 300
+      max: 1600
+      default: 650
+
+    - name: out_PC1
+      title: "▸ SALVA · PC1"
+      type: Output
+    - name: out_PC2
+      title: "▸ SALVA · PC2"
+      type: Output
+    - name: out_PC3
+      title: "▸ SALVA · PC3"
+      type: Output
+    - name: out_PC4
+      title: "▸ SALVA · PC4"
+      type: Output
+    - name: out_PC5
+      title: "▸ SALVA · PC5"
+      type: Output
+...

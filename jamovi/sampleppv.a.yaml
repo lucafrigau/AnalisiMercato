@@ -1,0 +1,99 @@
+---
+name:  sampleppv
+title: Campionamento con probabilità variabili (CPV)
+menuGroup: AnalisiMercato
+menuSubgroup: Campionamento
+version: '2.0.9'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: weight_var
+      title: Variabile di peso (ausiliaria)
+      type: Variable
+      suggested:
+        - continuous
+      permitted:
+        - numeric
+      description:
+          R: >
+            Variabile quantitativa proporzionale al "peso" che ogni unità
+            ha nella popolazione (es. fatturato, addetti, numero di
+            abitanti). Deve essere finita e strettamente positiva per
+            tutte le unità: valori mancanti, non finiti, negativi o nulli
+            sono rifiutati. Le probabilità di SELEZIONE a ogni singola
+            estrazione sono p_i = w_i / Σ w_i; da non confondere con le
+            probabilità di inclusione nel campione.
+
+    - name: id_var
+      title: Variabile identificativa (opzionale)
+      type: Variable
+      suggested:
+        - id
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Variabile usata per identificare le singole unità nel dataset.
+            Se specificata, la tabella "Unità estratte" mostra gli ID e
+            i pesi dei soggetti selezionati.
+
+    - name: tuto
+      title: Descrizione delle analisi
+      type: Bool
+      default: true
+
+    - name: replacement
+      title: Estrazione con reinserimento
+      type: Bool
+      default: true
+      description:
+          R: >
+            Default TRUE: il CPV "classico" è con reinserimento perché le
+            formule degli stimatori si semplificano. Se FALSE applica
+            sample() senza reinserimento con probabilità proporzionali
+            ai pesi (πps approssimato).
+
+    - name: size_mode
+      title: Modalità di specifica della numerosità
+      type: List
+      options:
+        - title: Numero di unità (n)
+          name:  n
+        - title: Frazione di campionamento (f)
+          name:  f
+      default: n
+
+    - name: n
+      title: Numerosità campionaria (n)
+      type: Integer
+      min: 1
+      default: 30
+
+    - name: f
+      title: Frazione di campionamento (f)
+      type: Number
+      min: 0.0001
+      max: 1
+      default: 0.1
+
+    - name: seed
+      title: Seed (riproducibilità)
+      type: Integer
+      default: 1
+
+    - name: out_freq
+      title: "Estrai il campione (frequenza nel campione)"
+      type: Output
+      description:
+          R: >
+            Spuntare per iniettare nel dataset la colonna con la frequenza
+            di estrazione di ciascuna unità. Il nome della colonna sarà
+            freq_CPV.
+...

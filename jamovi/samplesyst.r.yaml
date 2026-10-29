@@ -1,0 +1,88 @@
+---
+name:  samplesyst
+title: Campionamento sistematico
+jrs:   '1.1'
+
+refs:
+    - cochran
+    - lohr
+
+items:
+    - name: instructions
+      title: Istruzioni
+      type: Html
+      visible: (tuto)
+
+    - name: summary
+      title: Riepilogo del campione
+      type: Table
+      rows: 1
+      clearWith:
+        - size_mode
+        - n
+        - f
+        - sort_var
+        - seed
+      columns:
+        - name: N
+          title: N (popolazione)
+          type: integer
+        - name: n_richiesto
+          title: n richiesto
+          type: integer
+        - name: n_estratto
+          title: n estratto
+          type: integer
+        - name: intervallo
+          title: Intervallo k = N/n
+          type: number
+          format: zto
+        - name: partenza
+          title: Partenza casuale r ∈ (0, k]
+          type: number
+          format: zto
+        - name: ordinato_per
+          title: Ordinato per
+          type: text
+        - name: seed_used
+          title: Seed
+          type: integer
+
+    - name: extracted
+      title: Unità estratte
+      type: Table
+      rows: 0
+      visible: (id_var)
+      clearWith:
+        - id_var
+        - sort_var
+        - size_mode
+        - n
+        - f
+        - seed
+      columns:
+        - name: ord
+          title: Ordine nel campione
+          type: integer
+        - name: pos
+          title: Posizione (dopo ordinamento)
+          type: integer
+        - name: pos_orig
+          title: Riga originale
+          type: integer
+        - name: id_value
+          title: ID
+          type: text
+
+    - name: out_freq
+      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      type: Output
+      varTitle: in_SM
+      measureType: continuous
+      clearWith:
+        - size_mode
+        - n
+        - f
+        - sort_var
+        - seed
+...

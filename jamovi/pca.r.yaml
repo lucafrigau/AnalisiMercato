@@ -1,0 +1,316 @@
+---
+name:  pca
+title: Analisi delle Componenti Principali
+jrs:   '1.1'
+refs:
+    - jolliffe
+    - kaiser
+    - hendrickson
+    - factominer
+    - explo
+
+items:
+    - name: instructions
+      title: Istruzioni
+      type: Html
+      visible: (tuto)
+
+    - name: settings
+      title: Impostazioni
+      type: Table
+      rows: 1
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - rotation
+      columns:
+        - name: n_var
+          title: Variabili attive
+          type: integer
+        - name: n_obs
+          title: Osservazioni (n)
+          type: integer
+        - name: standardize
+          title: Standardizzate
+          type: text
+        - name: ncp_used
+          title: Componenti ritenute
+          type: integer
+        - name: rotation
+          title: Rotazione
+          type: text
+
+    - name: eigenvalues
+      title: Autovalori e varianza spiegata
+      type: Table
+      rows: 0
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - rotation
+      columns:
+        - name: comp
+          title: Componente
+          type: text
+        - name: eig
+          title: Autovalore
+          type: number
+        - name: var_pct
+          title: "% varianza"
+          type: number
+        - name: cum_pct
+          title: "% cumulata"
+          type: number
+
+    - name: ss_loadings
+      title: Somme dei quadrati dei loadings dopo la rotazione
+      type: Table
+      rows: 0
+      visible: false
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - rotation
+      columns:
+        - name: comp
+          title: Componente ruotata
+          type: text
+        - name: ss
+          title: SS loadings
+          type: number
+        - name: ss_pct
+          title: "% varianza"
+          type: number
+        - name: ss_cum
+          title: "% cumulata"
+          type: number
+
+    - name: phi
+      title: Correlazioni fra le componenti ruotate (Φ)
+      type: Table
+      rows: 0
+      visible: (rotation:promax)
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - rotation
+      columns:
+        - name: componente
+          title: Componente
+          type: text
+
+    - name: var_coord
+      title: Coordinate delle variabili (loadings)
+      type: Table
+      rows: 0
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - rotation
+      columns:
+        - name: variabile
+          title: Variabile
+          type: text
+
+    - name: var_contrib
+      title: Contributi delle variabili (%)
+      type: Table
+      rows: 0
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - rotation
+      columns:
+        - name: variabile
+          title: Variabile
+          type: text
+
+    - name: var_cos2
+      title: Coseni quadrati delle variabili (cos²)
+      type: Table
+      rows: 0
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - rotation
+      columns:
+        - name: variabile
+          title: Variabile
+          type: text
+
+    - name: ind_group
+      title: Osservazioni
+      type: Group
+      visible: (show_ind)
+      items:
+        - name: ind_coord
+          title: Coordinate delle osservazioni
+          type: Table
+          rows: 0
+          clearWith:
+            - vars
+            - standardize
+            - ncp
+            - rotation
+            - top_ind
+            - id_var
+          columns:
+            - name: id
+              title: ID/Riga
+              type: text
+
+        - name: ind_contrib
+          title: Contributi delle osservazioni (%)
+          type: Table
+          rows: 0
+          clearWith:
+            - vars
+            - standardize
+            - ncp
+            - rotation
+            - top_ind
+            - id_var
+          columns:
+            - name: id
+              title: ID/Riga
+              type: text
+
+        - name: ind_cos2
+          title: Coseni quadrati delle osservazioni (cos²)
+          type: Table
+          rows: 0
+          clearWith:
+            - vars
+            - standardize
+            - ncp
+            - rotation
+            - top_ind
+            - id_var
+          columns:
+            - name: id
+              title: ID/Riga
+              type: text
+
+    - name: plot_scree
+      title: Scree plot
+      type: Image
+      width: 500
+      height: 400
+      renderFun: .plot_scree
+      visible: (plot_scree)
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - rotation
+
+    - name: plot_circle
+      title: Cerchio delle correlazioni
+      type: Image
+      width: 500
+      height: 500
+      renderFun: .plot_circle
+      visible: (plot_circle)
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - rotation
+        - supp_quant
+        - axis_x
+        - axis_y
+
+    - name: plot_biplot
+      title: Biplot delle osservazioni
+      type: Image
+      width: 600
+      height: 500
+      renderFun: .plot_biplot
+      visible: (plot_biplot)
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - rotation
+        - supp_qual
+        - id_var
+        - axis_x
+        - axis_y
+
+    - name: plot_cos2
+      title: Qualità di rappresentazione (cos²) — heatmap
+      type: Image
+      width: 600
+      height: 400
+      renderFun: .plot_cos2
+      visible: (plot_cos2)
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - rotation
+
+    - name: plot_map
+      title: Mappa di posizionamento
+      type: Image
+      width: 800
+      height: 650
+      renderFun: .plot_map
+      visible: (plot_map)
+      clearWith:
+        - vars
+        - standardize
+        - ncp
+        - supp_quant
+        - supp_qual
+        - supp_qual_map
+        - rotation
+        - axis_x
+        - axis_y
+        - map_show_active
+        - map_show_supp_quant
+        - map_width
+        - map_height
+
+    - name: out_PC1
+      title: "PC1"
+      type: Output
+      varTitle: PC1
+      measureType: continuous
+      clearWith: [vars, standardize, ncp, rotation]
+
+    - name: out_PC2
+      title: "PC2"
+      type: Output
+      varTitle: PC2
+      measureType: continuous
+      clearWith: [vars, standardize, ncp, rotation]
+
+    - name: out_PC3
+      title: "PC3"
+      type: Output
+      varTitle: PC3
+      measureType: continuous
+      clearWith: [vars, standardize, ncp, rotation]
+
+    - name: out_PC4
+      title: "PC4"
+      type: Output
+      varTitle: PC4
+      measureType: continuous
+      clearWith: [vars, standardize, ncp, rotation]
+
+    - name: out_PC5
+      title: "PC5"
+      type: Output
+      varTitle: PC5
+      measureType: continuous
+      clearWith: [vars, standardize, ncp, rotation]
+...

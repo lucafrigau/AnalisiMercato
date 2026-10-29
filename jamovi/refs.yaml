@@ -1,0 +1,139 @@
+---
+factominer:
+    type: software
+    author: 'Lê S, Josse J, Husson F'
+    year: 2008
+    title: 'FactoMineR: An R Package for Multivariate Analysis'
+    publisher: Journal of Statistical Software
+    url: https://CRAN.R-project.org/package=FactoMineR
+
+explo:
+    type: book
+    author: 'Husson F, Lê S, Pagès J'
+    year: 2017
+    title: 'Exploratory Multivariate Analysis by Example Using R (2nd ed.)'
+    publisher: Chapman & Hall/CRC
+    url: https://www.routledge.com/9781138196346
+
+cochran:
+    type: book
+    author: 'Cochran W G'
+    year: 1977
+    title: 'Sampling Techniques (3rd ed.)'
+    publisher: John Wiley & Sons
+    url: https://www.wiley.com/en-us/9780471162407
+
+lohr:
+    type: book
+    author: 'Lohr S L'
+    year: 2019
+    title: 'Sampling: Design and Analysis (3rd ed.)'
+    publisher: Chapman & Hall/CRC
+    url: https://www.routledge.com/9780367279509
+
+kish:
+    type: book
+    author: 'Kish L'
+    year: 1965
+    title: 'Survey Sampling'
+    publisher: John Wiley & Sons
+    url: https://www.wiley.com/en-us/9780471109495
+
+neyman:
+    type: article
+    author: 'Neyman J'
+    year: 1934
+    title: 'On the Two Different Aspects of the Representative Method'
+    publisher: Journal of the Royal Statistical Society
+    volume: 97
+    pages: 558-625
+
+hansenhurwitz:
+    type: article
+    author: 'Hansen M H, Hurwitz W N'
+    year: 1943
+    title: 'On the Theory of Sampling from Finite Populations'
+    publisher: The Annals of Mathematical Statistics
+    volume: 14
+    pages: 333-362
+
+everitt:
+    type: book
+    author: 'Everitt B S, Landau S, Leese M, Stahl D'
+    year: 2011
+    title: 'Cluster Analysis (5th ed.)'
+    publisher: John Wiley & Sons
+    url: https://www.wiley.com/en-us/9780470749913
+
+ward:
+    type: article
+    author: 'Ward J H'
+    year: 1963
+    title: 'Hierarchical Grouping to Optimize an Objective Function'
+    publisher: Journal of the American Statistical Association
+    volume: 58
+    pages: 236-244
+
+gower:
+    type: article
+    author: 'Gower J C'
+    year: 1971
+    title: 'A General Coefficient of Similarity and Some of Its Properties'
+    publisher: Biometrics
+    volume: 27
+    pages: 857-871
+
+calinski:
+    type: article
+    author: 'Calinski T, Harabasz J'
+    year: 1974
+    title: 'A Dendrite Method for Cluster Analysis'
+    publisher: Communications in Statistics
+    volume: 3
+    pages: 1-27
+
+hubert:
+    type: article
+    author: 'Hubert L, Arabie P'
+    year: 1985
+    title: 'Comparing Partitions'
+    publisher: Journal of Classification
+    volume: 2
+    pages: 193-218
+
+dendextend:
+    type: software
+    author: 'Galili T'
+    year: 2015
+    title: 'dendextend: An R Package for Visualizing, Adjusting and Comparing Trees of Hierarchical Clustering'
+    publisher: Bioinformatics
+    volume: 31
+    pages: 3718-3720
+
+jolliffe:
+    type: book
+    author: 'Jolliffe I T'
+    year: 2002
+    title: 'Principal Component Analysis (2nd ed.)'
+    publisher: Springer
+    url: https://link.springer.com/book/10.1007/b98835
+
+kaiser:
+    type: article
+    author: 'Kaiser H F'
+    year: 1958
+    title: 'The Varimax Criterion for Analytic Rotation in Factor Analysis'
+    publisher: Psychometrika
+    volume: 23
+    pages: 187-200
+
+hendrickson:
+    type: article
+    author: 'Hendrickson A E, White P O'
+    year: 1964
+    title: 'Promax: A Quick Method for Rotation to Oblique Simple Structure'
+    publisher: British Journal of Statistical Psychology
+    volume: 17
+    pages: 65-70
+
+...

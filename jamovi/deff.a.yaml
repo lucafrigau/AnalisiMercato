@@ -1,0 +1,113 @@
+---
+name:  deff
+title: Design Effect
+menuGroup: AnalisiMercato
+menuSubgroup: Campionamento
+version: '2.0.9'
+jas: '1.2'
+
+options:
+    - name: tuto
+      title: Descrizione delle analisi
+      type: Bool
+      default: true
+
+    - name: mode
+      title: Modalità di calcolo
+      type: List
+      options:
+        - title: Da due varianze
+          name:  variances
+        - title: Formula analitica per piano specifico
+          name:  formula
+      default: variances
+      description:
+          R: >
+            'variances': inserire la varianza dello stimatore nel piano
+            complesso e nel SCR di riferimento, il modulo calcola Deff
+            come rapporto. 'formula': usa una formula analitica per uno
+            dei piani standard (sistematico, a più stadi, a grappoli,
+            stratificato) coerenti con la slide 39.
+
+    # --- modalità 'variances' ---
+    - name: var_complex
+      title: Varianza nel piano complesso
+      type: Number
+      min: 0
+      default: 1
+
+    - name: var_srs
+      title: Varianza nel SCR di riferimento
+      type: Number
+      min: 0.000001
+      default: 1
+
+    # --- modalità 'formula' ---
+    - name: plan
+      title: Piano di campionamento
+      type: List
+      options:
+        - title: Sistematico
+          name:  systematic
+        - title: A più stadi
+          name:  multistage
+        - title: A grappoli
+          name:  cluster
+        - title: Stratificato
+          name:  stratified
+      default: systematic
+      description:
+          R: Piano di campionamento per cui calcolare il Deff teorico.
+
+    # parametri per i piani analitici
+    - name: N
+      title: Popolazione N (sistematico)
+      type: Integer
+      min: 2
+      default: 1000
+
+    - name: n_total
+      title: Numerosità del campione n
+      type: Integer
+      min: 1
+      default: 100
+
+    - name: rho
+      title: Coefficiente di correlazione intra (a più stadi / a grappoli)
+      type: Number
+      min: -1
+      max: 1
+      default: 0.1
+
+    - name: n_within
+      title: "Unità per gruppo / dimensione grappolo (n_s o n_g)"
+      type: Integer
+      min: 1
+      default: 10
+
+    - name: L
+      title: Numero di strati L (stratificato)
+      type: Integer
+      min: 2
+      default: 4
+
+    - name: R2
+      title: R² tra variabile di interesse e di stratificazione
+      type: Number
+      min: 0
+      max: 1
+      default: 0.3
+
+    # --- numerosità SCR equivalente (output) ---
+    - name: n_srs
+      title: Numerosità di riferimento (n)
+      type: Integer
+      min: 1
+      default: 100
+      description:
+          R: >
+            Numerosità n, letta in due modi: se è la numerosità del casuale
+            semplice da eguagliare, il piano complesso ne richiede
+            n_complex = Deff · n; se è un campione già raccolto col piano
+            complesso, vale quanto n_eff = n / Deff unità di un casuale semplice.
+...

@@ -1,0 +1,59 @@
+---
+name:  catdes
+title: Caratterizzazione
+menuGroup: AnalisiMercato
+menuSubgroup: Cluster Analysis
+version: '2.0.9'
+jas: '1.2'
+
+options:
+  - name: data
+    type: Data
+
+  - name: vartochar
+    title: Variabile 'Cluster' da caratterizzare
+    type: Variable
+    suggested:
+      - nominal
+      - ordinal
+    permitted:
+      - numeric
+      - factor
+    description:
+        R: >
+          Variabile categoriale (tipicamente l'assegnazione ai cluster) da
+          caratterizzare. Se numerica viene usata condes; se factor viene
+          usata catdes.
+
+  - name: descbyvar
+    title: Descrittori
+    type: Variables
+    suggested:
+      - continuous
+      - nominal
+    permitted:
+      - numeric
+      - factor
+    description:
+        R: >
+          Variabili (quantitative e/o qualitative) con cui descrivere la
+          variabile target attraverso test statistici.
+
+  - name: tuto
+    title: Descrizione delle analisi
+    type: Bool
+    default: true
+    description:
+        R: Se TRUE mostra il pannello con la descrizione metodologica.
+
+  - name: threshold
+    title: Soglia di significatività (%)
+    type: Number
+    default: 5
+    min: 0
+    max: 100
+    description:
+        R: >
+          Soglia di significatività in percentuale (default 5 = 0.05) per
+          filtrare le variabili e le categorie riportate nei risultati.
+...

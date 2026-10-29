@@ -1,0 +1,85 @@
+title: Intervalli di confidenza
+name: confint
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+  - type: VariableSupplier
+    persistentItems: false
+    stretchFactor: 1
+    permitted:
+      - factor
+      - numeric
+      - id
+    children:
+      - type: TargetLayoutBox
+        label: Variabile (per calcolo da dataset)
+        children:
+          - type: VariablesListBox
+            name: data_var
+            maxItemCount: 1
+            isTarget: true
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: success_level
+        format: string
+        enable: (data_var)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: CheckBox
+        name: tuto
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: ComboBox
+        name: param
+        enable: (!data_var)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: n_manual
+        format: number
+        enable: (!data_var)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: p_manual
+        format: number
+        enable: (!data_var && param:proportion)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: mean_manual
+        format: number
+        enable: (!data_var && param:mean)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: sd_manual
+        format: number
+        enable: (!data_var && param:mean)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: 'N'
+        format: number
+        enable: (use_fpc)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: CheckBox
+        name: use_fpc
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: confidence
+        format: number

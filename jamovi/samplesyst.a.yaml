@@ -1,0 +1,102 @@
+---
+name:  samplesyst
+title: Campionamento sistematico
+menuGroup: AnalisiMercato
+menuSubgroup: Campionamento
+version: '2.0.9'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: id_var
+      title: Variabile identificativa (opzionale)
+      type: Variable
+      suggested:
+        - id
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Variabile usata per identificare le singole unità nel dataset.
+            Se specificata, la tabella "Unità estratte" mostra gli ID dei
+            soggetti selezionati.
+
+    - name: sort_var
+      title: Variabile di ordinamento (opzionale)
+      type: Variable
+      suggested:
+        - continuous
+        - ordinal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Se specificata, le unità della popolazione vengono ordinate in
+            base ai valori di questa variabile prima di applicare
+            l'intervallo di campionamento. L'efficienza del sistematico dipende
+            criticamente dall'ordinamento.
+
+    - name: tuto
+      title: Descrizione delle analisi
+      type: Bool
+      default: true
+
+    - name: size_mode
+      title: Modalità di specifica della numerosità
+      type: List
+      options:
+        - title: Numero di unità (n)
+          name:  n
+        - title: Frazione di campionamento (f)
+          name:  f
+      default: n
+      description:
+          R: >
+            Indica se il campione è definito tramite un numero assoluto di
+            unità (n) oppure tramite una frazione f della popolazione.
+
+    - name: n
+      title: Numerosità campionaria (n)
+      type: Integer
+      min: 1
+      default: 30
+      description:
+          R: Numerosità del campione da estrarre.
+
+    - name: f
+      title: Frazione di campionamento (f)
+      type: Number
+      min: 0.0001
+      max: 1
+      default: 0.1
+      description:
+          R: Frazione f = n/N della popolazione da estrarre.
+
+    - name: seed
+      title: Seed (riproducibilità)
+      type: Integer
+      default: 1
+      description:
+          R: >
+            Seme del generatore casuale, usato per estrarre la partenza r
+            in (0, k] con k = N/n, unico numero casuale del disegno
+            (sistematico a intervallo frazionario). Garantisce la
+            riproducibilità del campione.
+
+    - name: out_freq
+      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      type: Output
+      description:
+          R: >
+            Spuntare per iniettare nel dataset la colonna indicatrice del
+            campione: 1 se l'unità è stata estratta, 0 altrimenti. Il nome
+            della colonna sarà in_SM (Sistematico).
+...

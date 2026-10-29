@@ -1,0 +1,127 @@
+---
+name:  samplemultistage
+title: Campionamento a due stadi
+jrs:   '1.1'
+
+refs:
+    - cochran
+    - kish
+
+items:
+    - name: instructions
+      title: Istruzioni
+      type: Html
+      visible: (tuto)
+
+    - name: summary
+      title: Riepilogo del campione
+      type: Table
+      rows: 1
+      clearWith:
+        - psu_var
+        - psu_mode
+        - ng
+        - fg
+        - ssu_mode
+        - b
+        - fb
+        - seed
+      columns:
+        - name: N
+          title: N (popolazione)
+          type: integer
+        - name: M
+          title: M (PSU totali)
+          type: integer
+        - name: ng_richiesto
+          title: n_g richiesti
+          type: integer
+        - name: ng_estratto
+          title: n_g estratti
+          type: integer
+        - name: ssu_label
+          title: 2° stadio
+          type: text
+        - name: n_unita
+          title: n unità campionate
+          type: integer
+        - name: frazione
+          title: Frazione f = n/N
+          type: number
+          format: zto
+        - name: seed_used
+          title: Seed
+          type: integer
+
+    - name: psu_table
+      title: PSU estratte
+      type: Table
+      rows: 0
+      clearWith:
+        - psu_var
+        - psu_mode
+        - ng
+        - fg
+        - ssu_mode
+        - b
+        - fb
+        - seed
+      columns:
+        - name: psu
+          title: PSU
+          type: text
+        - name: dim_psu
+          title: Dimensione PSU
+          type: integer
+        - name: n_estratte
+          title: Unità estratte
+          type: integer
+        - name: f_psu
+          title: f_j = n_j / N_j
+          type: number
+          format: zto
+
+    - name: extracted
+      title: Unità estratte
+      type: Table
+      rows: 0
+      visible: (id_var)
+      clearWith:
+        - id_var
+        - psu_var
+        - psu_mode
+        - ng
+        - fg
+        - ssu_mode
+        - b
+        - fb
+        - seed
+      columns:
+        - name: ord
+          title: Ordine
+          type: integer
+        - name: psu
+          title: PSU
+          type: text
+        - name: pos
+          title: Riga
+          type: integer
+        - name: id_value
+          title: ID
+          type: text
+
+    - name: out_freq
+      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      type: Output
+      varTitle: in_2STG
+      measureType: continuous
+      clearWith:
+        - psu_var
+        - psu_mode
+        - ng
+        - fg
+        - ssu_mode
+        - b
+        - fb
+        - seed
+...

@@ -1,0 +1,96 @@
+---
+name:  samplecluster
+title: Campionamento a grappoli
+menuGroup: AnalisiMercato
+menuSubgroup: Campionamento
+version: '2.0.9'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: cluster_var
+      title: Variabile di grappolo
+      type: Variable
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Variabile che identifica i grappoli (es. città, scuola, quartiere).
+            Le unità all'interno di uno stesso grappolo dovrebbero essere
+            tra loro eterogenee rispetto al fenomeno di interesse: il
+            metodo è efficiente quando i grappoli sono "piccole popolazioni"
+            simili tra loro.
+
+    - name: id_var
+      title: Variabile identificativa (opzionale)
+      type: Variable
+      suggested:
+        - id
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Variabile usata per identificare le singole unità nel dataset.
+            Se specificata, la tabella "Unità estratte" mostra gli ID dei
+            soggetti selezionati.
+
+    - name: tuto
+      title: Descrizione delle analisi
+      type: Bool
+      default: true
+
+    - name: size_mode
+      title: Modalità di specifica
+      type: List
+      options:
+        - title: Numero di grappoli (n_g)
+          name:  ng
+        - title: Frazione di grappoli (f_g)
+          name:  fg
+      default: ng
+      description:
+          R: >
+            Indica se si specifica un numero assoluto di grappoli da
+            estrarre o una frazione dei grappoli totali.
+
+    - name: ng
+      title: Numero di grappoli da estrarre
+      type: Integer
+      min: 1
+      default: 3
+      description:
+          R: Numero di grappoli (cluster) da estrarre dalla popolazione.
+
+    - name: fg
+      title: Frazione di grappoli (f_g)
+      type: Number
+      min: 0.0001
+      max: 1
+      default: 0.3
+      description:
+          R: Frazione f_g = n_g / M dei grappoli da estrarre.
+
+    - name: seed
+      title: Seed (riproducibilità)
+      type: Integer
+      default: 1
+
+    - name: out_freq
+      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      type: Output
+      description:
+          R: >
+            Spuntare per iniettare nel dataset la colonna indicatrice del
+            campione. Il nome della colonna sarà in_GR.
+...

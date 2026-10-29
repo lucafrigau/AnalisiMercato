@@ -1,0 +1,84 @@
+title: Design Effect
+name: deff
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: CheckBox
+        name: tuto
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: ComboBox
+        name: mode
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: var_complex
+        format: number
+        enable: (mode:variances)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: var_srs
+        format: number
+        enable: (mode:variances)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: ComboBox
+        name: plan
+        enable: (mode:formula)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: 'N'
+        format: number
+        enable: (plan:systematic)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: n_total
+        format: number
+        enable: (plan:systematic)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: rho
+        format: number
+        enable: (plan:multistage || plan:cluster)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: n_within
+        format: number
+        enable: (plan:multistage || plan:cluster)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: L
+        format: number
+        enable: (plan:stratified)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: R2
+        format: number
+        enable: (plan:stratified)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: TextBox
+        name: n_srs
+        format: number

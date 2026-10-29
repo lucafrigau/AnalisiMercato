@@ -1,0 +1,80 @@
+---
+name:  samplesize
+title: Numerosità campionaria
+jrs:   '1.1'
+
+refs:
+    - cochran
+    - lohr
+
+items:
+    - name: instructions
+      title: Istruzioni
+      type: Html
+      visible: (tuto)
+
+    - name: inputs
+      title: Parametri dell'indagine
+      type: Table
+      rows: 1
+      clearWith:
+        - param
+        - replacement
+        - N
+        - delta
+        - confidence
+        - prop_P
+        - mean_sigma
+      columns:
+        - name: parametro
+          title: Parametro
+          type: text
+        - name: N
+          title: N
+          type: text
+        - name: delta
+          title: Δ
+          type: number
+        - name: conf
+          title: Confidenza
+          type: text
+        - name: z
+          title: z (α/2)
+          type: number
+        - name: input_stat
+          title: P / σ
+          type: number
+        - name: schema
+          title: Schema
+          type: text
+
+    - name: result
+      title: Numerosità campionaria
+      type: Table
+      rows: 1
+      clearWith:
+        - param
+        - replacement
+        - N
+        - delta
+        - confidence
+        - prop_P
+        - mean_sigma
+      columns:
+        - name: n_teorico
+          title: n teorico
+          type: number
+        - name: n_consigliato
+          title: n consigliato
+          type: integer
+        - name: frazione
+          title: Frazione f = n/N
+          type: number
+          format: zto
+        - name: var_attesa
+          title: Var attesa dello stimatore
+          type: number
+        - name: se_attesa
+          title: Errore standard atteso
+          type: number
+...

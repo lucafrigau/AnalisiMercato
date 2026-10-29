@@ -1,0 +1,175 @@
+---
+name:  hc
+title: Cluster Analysis Gerarchica
+jrs:   '1.1'
+refs:
+    - everitt
+    - ward
+    - gower
+    - calinski
+    - dendextend
+
+items:
+
+    - name: instructions
+      title: Istruzioni
+      type: Html
+      visible: (tuto)
+
+    - name: izpis
+      title: Statistiche generali
+      type: Table
+      rows: 1
+      clearWith:
+        - vars
+        - asimm
+        - dis
+        - method
+        - stdVars
+      columns:
+        - name: var
+          title: Variabili
+          type: integer
+        - name: dist
+          title: Distanza
+          type: text
+        - name: method
+          title: Metodo di agglomerazione
+          type: text
+
+    - name: metriche
+      title: Metriche partizioni
+      type: Table
+      rows: 0
+      clearWith:
+        - vars
+        - asimm
+        - dis
+        - method
+        - stdVars
+        - n_clusters
+      columns:
+        - name: g
+          title: g
+          type: integer
+        - name: r2
+          title: R²
+          type: number
+        - name: rmsstd
+          title: RMSSTD
+          type: number
+        - name: ch_index
+          title: Indice CH
+          type: number
+        - name: deltaG
+          title: Delta G
+          type: number
+
+    - name: groups
+      title: Appartenenza ai gruppi
+      type: Table
+      rows: 0
+      clearWith:
+        - vars
+        - asimm
+        - dis
+        - method
+        - stdVars
+        - n_clusters
+      columns:
+        - name: cluster
+          title: Cluster
+          type: integer
+        - name: freq
+          title: Numero di elementi
+          type: integer
+
+    - name: label_cluster
+      title: Clustering
+      type: Output
+      varTitle: Output cluster
+      measureType: nominal
+      clearWith:
+        - vars
+        - asimm
+        - dis
+        - method
+        - stdVars
+        - n_clusters
+        - outputName
+
+    - name: plot_dend
+      title: Dendrogramma
+      visible: FALSE
+      type: Image
+      renderFun: .plot_dend
+      clearWith:
+        - vars
+        - asimm
+        - dis
+        - method
+        - stdVars
+        - n_clusters
+        - width_dend
+        - height_dend
+
+    - name: plot_r2
+      title: R²
+      visible: FALSE
+      type: Image
+      renderFun: .plot_r2
+      clearWith:
+        - vars
+        - asimm
+        - dis
+        - method
+        - stdVars
+        - n_clusters
+        - width_r2
+        - height_r2
+
+    - name: plot_rmsstd
+      title: RMSSTD
+      visible: FALSE
+      type: Image
+      renderFun: .plot_rmsstd
+      clearWith:
+        - vars
+        - asimm
+        - dis
+        - method
+        - stdVars
+        - n_clusters
+        - width_rmsstd
+        - height_rmsstd
+
+    - name: plot_deltaG
+      title: Delta G
+      visible: FALSE
+      type: Image
+      renderFun: .plot_deltaG
+      clearWith:
+        - vars
+        - asimm
+        - dis
+        - method
+        - stdVars
+        - n_clusters
+        - width_deltaG
+        - height_deltaG
+
+    - name: plot_ch_index
+      title: CH index
+      visible: FALSE
+      type: Image
+      renderFun: .plot_ch_index
+      clearWith:
+        - vars
+        - asimm
+        - dis
+        - method
+        - stdVars
+        - n_clusters
+        - width_ch
+        - height_ch
+...

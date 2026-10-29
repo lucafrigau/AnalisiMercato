@@ -1,0 +1,52 @@
+Package: AnalisiMercato
+Type: Package
+Title: Tecniche di Analisi di Mercato
+Version: 2.1.4
+Authors@R:
+    person(given = "Luca",
+           family = "Frigau",
+           email = "frigau@unica.it",
+           role = c("aut", "cre"))
+Description: AnalisiMercato è un modulo jamovi sviluppato per il corso di
+    Analisi di Mercato, che raccoglie strumenti per alcune delle
+    principali fasi quantitative di una ricerca di mercato. Le analisi sono
+    organizzate in tre sezioni. (1) Ricerche per campione: numerosità campionaria per
+    proporzioni e medie con o senza fattore correttivo per popolazioni
+    finite; estrazione del campione con i principali disegni probabilistici
+    (casuale semplice con/senza reinserimento, sistematico, stratificato
+    proporzionale e ottimale di Neyman, a grappoli, a due stadi, con
+    probabilità variabili); intervalli di confidenza per medie e
+    proporzioni; Design Effect (Deff) con formule analitiche per i piani
+    sistematico, a più stadi, a grappoli e stratificato. (2) Cluster
+    Analysis: clustering gerarchico con sette metriche di distanza
+    (Euclidea, Manhattan, Mahalanobis, Sokal-Michener, Gower, Jaccard,
+    Jaccard politomico) e cinque metodi di agglomerazione, metriche per
+    la scelta del numero di gruppi (R², RMSSTD, Delta G, indice CH),
+    dendrogramma colorato per cluster, caratterizzazione dei cluster
+    tramite test statistici (catdes/condes da FactoMineR), confronto fra
+    partizioni con Adjusted Rand Index. (3) Analisi delle Componenti
+    Principali: PCA standardizzata o non standardizzata, criterio di
+    Kaiser / varianza cumulata / numero manuale, coordinate, contributi e
+    coseni quadrati per variabili e osservazioni, cerchio delle
+    correlazioni, biplot, heatmap dei coseni quadrati, scree plot,
+    variabili supplementari quantitative e qualitative, rotazione
+    Varimax e Promax.
+    Segnalazioni di bug, errori di calcolo o suggerimenti sono benvenute
+    e vanno inviate a Luca Frigau (frigau@unica.it), indicando la versione
+    del modulo, l'analisi coinvolta e i passi per riprodurre il problema.
+License: GPL-3
+BugReports: mailto:frigau@unica.it
+Encoding: UTF-8
+NeedsCompilation: no
+Imports:
+    jmvcore (>= 2.4.0),
+    R6,
+    stats,
+    FactoMineR,
+    ggplot2,
+    cluster,
+    dendextend
+Suggests:
+    testthat (>= 3.0.0),
+    ggrepel
+RoxygenNote: 7.3.2

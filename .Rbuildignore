@@ -1,0 +1,10 @@
+^icons$
+^.*\.jmo$
+^AnalisiMercato_1\.0\.2\.jmo$
+^build$
+^mac$
+^windows$
+^linux$
+^LICENSE\.md$
+^README\.md$
+^\.gitignore$

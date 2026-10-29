@@ -1,0 +1,75 @@
+---
+name:  deff
+title: Design Effect
+jrs:   '1.1'
+
+refs:
+    - kish
+    - cochran
+
+items:
+    - name: instructions
+      title: Istruzioni
+      type: Html
+      visible: (tuto)
+
+    - name: inputs
+      title: Parametri usati
+      type: Table
+      rows: 1
+      clearWith:
+        - mode
+        - var_complex
+        - var_srs
+        - plan
+        - N
+        - n_total
+        - rho
+        - n_within
+        - L
+        - R2
+        - n_srs
+      columns:
+        - name: modalita
+          title: Modalità
+          type: text
+        - name: piano
+          title: Piano
+          type: text
+        - name: formula
+          title: Formula usata
+          type: text
+
+    - name: result
+      title: Design Effect
+      type: Table
+      rows: 1
+      clearWith:
+        - mode
+        - var_complex
+        - var_srs
+        - plan
+        - N
+        - n_total
+        - rho
+        - n_within
+        - L
+        - R2
+        - n_srs
+      columns:
+        - name: deff
+          title: Deff
+          type: number
+        - name: efficienza
+          title: Efficienza vs SCR
+          type: text
+        - name: n_srs
+          title: n di riferimento
+          type: integer
+        - name: n_complex
+          title: Numerosità richiesta dal piano
+          type: integer
+        - name: n_eff
+          title: Numerosità efficace di n unità raccolte col piano
+          type: integer
+...

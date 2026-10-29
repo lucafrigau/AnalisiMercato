@@ -1,0 +1,1773 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-07-26 12:08:06+01000\n"
+"PO-Revision-Date: 2021-07-29 16:59:59+01000\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: samplestrat/options/method.description.R
+msgid "'proportional' alloca le unità in proporzione all'ampiezza dello strato (n_j = N_j · n/N). 'optimal' alloca anche in proporzione alla variabilità interna σ_j stimata sulla variabile ausiliaria (allocazione di Neyman)."
+msgstr "'proportional' allocates units in proportion to stratum size (n_j = N_j · n/N). 'optimal' allocates also in proportion to within-stratum variability σ_j, estimated on the auxiliary variable (Neyman allocation)."
+
+#: deff/options/mode.description.R
+msgid "'variances': inserire la varianza dello stimatore nel piano complesso e nel SCR di riferimento, il modulo calcola Deff come rapporto. 'formula': usa una formula analitica per uno dei piani standard (sistematico, a più stadi, a grappoli, stratificato) coerenti con la slide 39."
+msgstr "'variances': enter the estimator variance under the complex design and under the reference SRS; the module computes Deff as their ratio. 'formula': uses an analytical formula for one of the standard designs (systematic, multistage, cluster, stratified) following the lecture slides."
+
+#: pca/results/eigenvalues.columns.title
+msgid "% cumulata"
+msgstr "% cumulative"
+
+#: pca/results/eigenvalues.columns.title
+msgid "% varianza"
+msgstr "% variance"
+
+#: pca/options/map_height.title
+msgid "▸ MAPPA · Altezza"
+msgstr "▸ MAP · Height"
+
+#: pca/options/map_width.title
+msgid "▸ MAPPA · Larghezza"
+msgstr "▸ MAP · Width"
+
+#: pca/options/map_show_supp_quant.title
+msgid "▸ MAPPA · Mostra vettori quantitative supplementari"
+msgstr "▸ MAP · Show supplementary quantitative arrows"
+
+#: pca/options/map_show_active.title
+msgid "▸ MAPPA · Mostra vettori variabili attive"
+msgstr "▸ MAP · Show active variables arrows"
+
+#: pca/options/out_PC1.title
+msgid "▸ SALVA · PC1"
+msgstr "▸ SAVE · PC1"
+
+#: pca/options/out_PC2.title
+msgid "▸ SALVA · PC2"
+msgstr "▸ SAVE · PC2"
+
+#: pca/options/out_PC3.title
+msgid "▸ SALVA · PC3"
+msgstr "▸ SAVE · PC3"
+
+#: pca/options/out_PC4.title
+msgid "▸ SALVA · PC4"
+msgstr "▸ SAVE · PC4"
+
+#: pca/options/out_PC5.title
+msgid "▸ SALVA · PC5"
+msgstr "▸ SAVE · PC5"
+
+#: samplemultistage/results/summary.columns.title
+msgid "2° stadio"
+msgstr "2nd stage"
+
+#: deff/options/plan/cluster.title
+msgid "A grappoli"
+msgstr "Clusters"
+
+#: deff/options/plan/multistage.title
+msgid "A più stadi"
+msgstr "Multistage"
+
+#: ari/results/matrix.title
+msgid "Adjusted Rand Index"
+msgstr "Adjusted Rand Index"
+
+#: samplestrat/results/strata.title
+msgid "Allocazione per strato"
+msgstr "Allocation by stratum"
+
+#: hc/options/height_dend.title
+msgid "Altezza dendrogramma"
+msgstr "Dendrogram height"
+
+#: hc/options/height_deltaG.title
+msgid "Altezza grafico Delta G"
+msgstr "Delta G plot height"
+
+#: hc/options/height_ch.title
+msgid "Altezza grafico Indice CH"
+msgstr "CH index plot height"
+
+#: hc/options/height_r2.title
+msgid "Altezza grafico R²"
+msgstr "R² plot height"
+
+#: hc/options/height_rmsstd.title
+msgid "Altezza grafico RMSSTD"
+msgstr "RMSSTD plot height"
+
+#: confint/results/result.columns.title
+msgid "Ampiezza ± Δ"
+msgstr "Half-width ± Δ"
+
+#: package/analyses/pca.title
+#: package/analyses/pca.menuTitle
+#: pca/options.title
+#: pca/ui.title
+#: pca/results.title
+msgid "Analisi delle Componenti Principali"
+msgstr "Principal Component Analysis"
+
+#: package/analyses/samplesize.menuGroup
+#: package/analyses/samplesimple.menuGroup
+#: package/analyses/samplesyst.menuGroup
+#: package/analyses/samplestrat.menuGroup
+#: package/analyses/samplecluster.menuGroup
+#: package/analyses/samplemultistage.menuGroup
+#: package/analyses/sampleppv.menuGroup
+#: package/analyses/confint.menuGroup
+#: package/analyses/deff.menuGroup
+#: package/analyses/hc.menuGroup
+#: package/analyses/ari.menuGroup
+#: package/analyses/catdes.menuGroup
+#: package/analyses/pca.menuGroup
+#: ari/options.menuGroup
+#: catdes/options.menuGroup
+#: confint/options.menuGroup
+#: deff/options.menuGroup
+#: hc/options.menuGroup
+#: pca/options.menuGroup
+#: samplecluster/options.menuGroup
+#: samplemultistage/options.menuGroup
+#: sampleppv/options.menuGroup
+#: samplesimple/options.menuGroup
+#: samplesize/options.menuGroup
+#: samplestrat/options.menuGroup
+#: samplesyst/options.menuGroup
+msgid "AnalisiMercato"
+msgstr "AnalisiMercato"
+
+#: hc/results/groups.title
+msgid "Appartenenza ai gruppi"
+msgstr "Group membership"
+
+#: confint/options/use_fpc.title
+msgid "Applica fattore correttivo per popolazione finita (1 - f)"
+msgstr "Apply finite population correction (1 - f)"
+
+#: catdes/results/categgroup/qualir2.title
+msgid "Associazione con le variabili qualitative"
+msgstr "Association with qualitative variables"
+
+#: catdes/results/chigroup/chi.title
+msgid "Associazione tra la variabile 'Cluster' e le variabili categoriche"
+msgstr "Association between 'Cluster' and categorical variables"
+
+#: pca/results/eigenvalues.columns.title
+msgid "Autovalore"
+msgstr "Eigenvalue"
+
+#: pca/results/eigenvalues.title
+msgid "Autovalori e varianza spiegata"
+msgstr "Eigenvalues and explained variance"
+
+#: hc/options/vars.title
+#: hc/ui[0][0].label
+msgid "Base della segmentazione"
+msgstr "Segmentation base"
+
+#: hc/options/asimm.title
+#: hc/ui[0][1].label
+msgid "Binarie di presenza/assenza"
+msgstr "Presence/absence binaries"
+
+#: pca/options/plot_biplot.title
+msgid "Biplot (osservazioni nel piano principale)"
+msgstr "Biplot (observations on principal plane)"
+
+#: pca/results/plot_biplot.title
+msgid "Biplot delle osservazioni"
+msgstr "Observations biplot"
+
+#: package/analyses/samplesize.menuSubgroup
+#: package/analyses/samplesimple.menuSubgroup
+#: package/analyses/samplesyst.menuSubgroup
+#: package/analyses/samplestrat.menuSubgroup
+#: package/analyses/samplecluster.menuSubgroup
+#: package/analyses/samplemultistage.menuSubgroup
+#: package/analyses/sampleppv.menuSubgroup
+#: package/analyses/confint.menuSubgroup
+#: package/analyses/deff.menuSubgroup
+#: confint/options.menuSubgroup
+#: deff/options.menuSubgroup
+#: samplecluster/options.menuSubgroup
+#: samplemultistage/options.menuSubgroup
+#: sampleppv/options.menuSubgroup
+#: samplesimple/options.menuSubgroup
+#: samplesize/options.menuSubgroup
+#: samplestrat/options.menuSubgroup
+#: samplesyst/options.menuSubgroup
+msgid "Campionamento"
+msgstr "Sampling"
+
+#: package/analyses/samplemultistage.title
+#: package/analyses/samplemultistage.menuTitle
+#: samplemultistage/options.title
+#: samplemultistage/ui.title
+#: samplemultistage/results.title
+msgid "Campionamento a due stadi"
+msgstr "Two-stage sampling"
+
+#: package/analyses/samplecluster.title
+#: package/analyses/samplecluster.menuTitle
+#: samplecluster/options.title
+#: samplecluster/ui.title
+#: samplecluster/results.title
+msgid "Campionamento a grappoli"
+msgstr "Cluster sampling"
+
+#: package/analyses/samplesimple.title
+#: package/analyses/samplesimple.menuTitle
+#: samplesimple/options.title
+#: samplesimple/ui.title
+#: samplesimple/results.title
+msgid "Campionamento casuale semplice"
+msgstr "Simple random sampling"
+
+#: package/analyses/sampleppv.title
+#: package/analyses/sampleppv.menuTitle
+#: sampleppv/options.title
+#: sampleppv/ui.title
+#: sampleppv/results.title
+msgid "Campionamento con probabilità variabili (CPV)"
+msgstr "Probability-proportional-to-size (PPS) sampling"
+
+#: package/analyses/samplesyst.title
+#: package/analyses/samplesyst.menuTitle
+#: samplesyst/options.title
+#: samplesyst/ui.title
+#: samplesyst/results.title
+msgid "Campionamento sistematico"
+msgstr "Systematic sampling"
+
+#: package/analyses/samplestrat.title
+#: package/analyses/samplestrat.menuTitle
+#: samplestrat/options.title
+#: samplestrat/ui.title
+#: samplestrat/results.title
+msgid "Campionamento stratificato"
+msgstr "Stratified sampling"
+
+#: package/analyses/catdes.title
+#: package/analyses/catdes.menuTitle
+#: catdes/options.title
+#: catdes/ui.title
+#: catdes/results.title
+msgid "Caratterizzazione"
+msgstr "Cluster description"
+
+#: catdes/results/categgroup/categquali.columns.title
+#: catdes/results/categgroup/categquanti.columns.title
+msgid "Categoria"
+msgstr "Category"
+
+#: hc/options/method/centroid.title
+msgid "Centroide"
+msgstr "Centroid"
+
+#: pca/results/plot_circle.title
+msgid "Cerchio delle correlazioni"
+msgstr "Correlation circle"
+
+#: pca/options/plot_circle.title
+msgid "Cerchio delle correlazioni (variabili)"
+msgstr "Correlation circle (variables)"
+
+#: hc/results/plot_ch_index.title
+msgid "CH index"
+msgstr "CH index"
+
+#: catdes/results/categgroup/categquali.columns.title
+msgid "Cla/Mod"
+msgstr "Cls/Cat"
+
+#: hc/options/outputName.default
+#: hc/results/groups.columns.title
+msgid "Cluster"
+msgstr "Cluster"
+
+#: package/analyses/hc.menuSubgroup
+#: package/analyses/ari.menuSubgroup
+#: package/analyses/catdes.menuSubgroup
+#: ari/options.menuSubgroup
+#: catdes/options.menuSubgroup
+#: hc/options.menuSubgroup
+msgid "Cluster Analysis"
+msgstr "Cluster Analysis"
+
+#: package/analyses/hc.title
+#: package/analyses/hc.menuTitle
+#: hc/options.title
+#: hc/ui.title
+#: hc/results.title
+msgid "Cluster Analysis Gerarchica"
+msgstr "Hierarchical Cluster Analysis"
+
+#: hc/results/label_cluster.title
+msgid "Clustering"
+msgstr "Clustering"
+
+#: deff/options/rho.title
+msgid "Coefficiente di correlazione intra (a più stadi / a grappoli)"
+msgstr "Intra-cluster correlation (multistage / clusters)"
+
+#: hc/options/label_cluster.description.R
+msgid "Colonna di output con l'assegnazione di ogni osservazione al cluster."
+msgstr "Output column with each observation's cluster assignment."
+
+#: samplemultistage/options/ssu_mode.description.R
+msgid "Come allocare le unità di secondo stadio. 'fixed': estrae b unità da ciascuna PSU selezionata. 'frac': estrae una frazione f_b della numerosità di ciascuna PSU. 'all': prende tutte le unità delle PSU (equivalente al campionamento a grappoli)."
+msgstr "How to allocate second-stage units. 'fixed': draws b units from each selected PSU. 'frac': draws a fraction f_b of each PSU's size. 'all': takes every unit in the selected PSUs (equivalent to cluster sampling)."
+
+#: pca/results/eigenvalues.columns.title
+msgid "Componente"
+msgstr "Component"
+
+#: pca/options/axis_x.description.R
+msgid "Componente da visualizzare sull'asse orizzontale del cerchio delle correlazioni e del biplot (es. 1 = PC1)."
+msgstr "Component shown on the horizontal axis of the correlation circle and biplot (e.g., 1 = PC1)."
+
+#: pca/options/axis_y.description.R
+msgid "Componente da visualizzare sull'asse verticale del cerchio delle correlazioni e del biplot (es. 2 = PC2)."
+msgstr "Component shown on the vertical axis of the correlation circle and biplot (e.g., 2 = PC2)."
+
+#: pca/options/axis_x.title
+msgid "Componente sull'asse X"
+msgstr "Component on X axis"
+
+#: pca/options/axis_y.title
+msgid "Componente sull'asse Y"
+msgstr "Component on Y axis"
+
+#: pca/results/settings.columns.title
+msgid "Componenti ritenute"
+msgstr "Components retained"
+
+#: confint/results/result.columns.title
+#: samplesize/results/inputs.columns.title
+msgid "Confidenza"
+msgstr "Confidence"
+
+#: package/analyses/ari.title
+#: package/analyses/ari.menuTitle
+#: ari/options.title
+#: ari/ui.title
+#: ari/results.title
+msgid "Confronto partizioni"
+msgstr "Comparing partitions"
+
+#: pca/results/ind_group/ind_contrib.title
+msgid "Contributi delle osservazioni (%)"
+msgstr "Observation contributions (%)"
+
+#: pca/results/var_contrib.title
+msgid "Contributi delle variabili (%)"
+msgstr "Variable contributions (%)"
+
+#: pca/results/ind_group/ind_coord.title
+msgid "Coordinate delle osservazioni"
+msgstr "Observation coordinates"
+
+#: pca/results/var_coord.title
+msgid "Coordinate delle variabili (loadings)"
+msgstr "Variable coordinates (loadings)"
+
+#: catdes/results/qtgroup/qtcor.columns.title
+msgid "Correlazione"
+msgstr "Correlation"
+
+#: catdes/results/qtvargroup/qtvar.columns.title
+msgid "Correlazione al quadrato"
+msgstr "Squared correlation"
+
+#: pca/results/ind_group/ind_cos2.title
+msgid "Coseni quadrati delle osservazioni (cos²)"
+msgstr "Squared cosines of observations (cos²)"
+
+#: pca/results/var_cos2.title
+msgid "Coseni quadrati delle variabili (cos²)"
+msgstr "Squared cosines of variables (cos²)"
+
+#: hc/options/method.description.R
+msgid "Criterio di agglomerazione passato a stats::hclust. Ward (ward.D2) è la scelta più comune per dati quantitativi standardizzati."
+msgstr "Agglomeration criterion passed to stats::hclust. Ward (ward.D2) is the most common choice for standardised quantitative data."
+
+#: deff/options/mode/variances.title
+msgid "Da due varianze"
+msgstr "From two variances"
+
+#: sampleppv/options/replacement.description.R
+msgid "Default TRUE: il CPV \"classico\" è con reinserimento perché le formule degli stimatori si semplificano. Se FALSE applica sample() senza reinserimento con probabilità proporzionali ai pesi (πps approssimato)."
+msgstr "Default TRUE: \"classical\" PPS uses with-replacement sampling because the estimator formulae simplify. If FALSE applies sample() without replacement with weight-proportional probabilities (approximate πps)."
+
+#: deff/results/result.columns.title
+msgid "Deff"
+msgstr "Deff"
+
+#: hc/options/deltaG.title
+#: hc/results/metriche.columns.title
+#: hc/results/plot_deltaG.title
+msgid "Delta G"
+msgstr "Delta G"
+
+#: hc/options/dend.title
+#: hc/results/plot_dend.title
+msgid "Dendrogramma"
+msgstr "Dendrogram"
+
+#: catdes/options/descbyvar.title
+#: catdes/ui[0][1].label
+msgid "Descrittori"
+msgstr "Descriptors"
+
+#: pca/options/tuto.title
+msgid "Descrizione dell'analisi"
+msgstr "Show methodological description"
+
+#: catdes/results/categgroup/categquanti.title
+msgid "Descrizione della variabile quantitativa tramite le categorie"
+msgstr "Description of the quantitative variable via categories"
+
+#: ari/options/tuto.title
+#: catdes/options/tuto.title
+#: confint/options/tuto.title
+#: deff/options/tuto.title
+#: hc/options/tuto.title
+#: samplecluster/options/tuto.title
+#: samplemultistage/options/tuto.title
+#: sampleppv/options/tuto.title
+#: samplesimple/options/tuto.title
+#: samplesize/options/tuto.title
+#: samplestrat/options/tuto.title
+#: samplesyst/options/tuto.title
+msgid "Descrizione delle analisi"
+msgstr "Show methodological description"
+
+#: catdes/results/categgroup/categquali.title
+msgid "Descrizione di ciascun 'Cluster' tramite le categorie"
+msgstr "Description of each 'Cluster' via categories"
+
+#: catdes/results/qtgroup/qt.title
+msgid "Descrizione di ciascun 'Cluster' tramite le variabili quantitative"
+msgstr "Description of each 'Cluster' via quantitative variables"
+
+#: catdes/results/qtvargroup.title
+msgid "Descrizione globale tramite le variabili quantitative"
+msgstr "Overall description via quantitative variables"
+
+#: catdes/results/categgroup.title
+msgid "Descrizione tramite le variabili categoriche"
+msgstr "Description via categorical variables"
+
+#: catdes/results/qtgroup.title
+msgid "Descrizione tramite le variabili quantitative"
+msgstr "Description via quantitative variables"
+
+#: package/analyses/deff.title
+#: package/analyses/deff.menuTitle
+#: deff/options.title
+#: deff/ui.title
+#: deff/results.title
+#: deff/results/result.title
+msgid "Design Effect"
+msgstr "Design Effect"
+
+#: catdes/results/qtgroup/qt.columns.title
+msgid "Dev.std. generale"
+msgstr "Overall SD"
+
+#: catdes/results/qtgroup/qt.columns.title
+msgid "Dev.std. nel 'Cluster'"
+msgstr "SD in 'Cluster'"
+
+#: catdes/results/chigroup/chi.columns.title
+msgid "df"
+msgstr "df"
+
+#: samplecluster/results/clusters.columns.title
+msgid "Dimensione (n unità)"
+msgstr "Size (n units)"
+
+#: samplesize/options/N.title
+msgid "Dimensione della popolazione (N)"
+msgstr "Population size (N)"
+
+#: confint/options/N.title
+msgid "Dimensione della popolazione N (opzionale)"
+msgstr "Population size N (optional)"
+
+#: samplesize/options/N.description.R
+msgid "Dimensione N della popolazione di riferimento. Usata per il fattore correttivo (1 - f) nel campionamento senza reinserimento."
+msgstr "Reference population size N. Used for the (1 - f) finite-population correction in without-replacement sampling."
+
+#: samplemultistage/results/psu_table.columns.title
+msgid "Dimensione PSU"
+msgstr "PSU size"
+
+#: hc/options/dis.title
+#: hc/results/izpis.columns.title
+msgid "Distanza"
+msgstr "Distance"
+
+#: deff/results/result.columns.title
+msgid "Efficienza vs SCR"
+msgstr "Efficiency vs SRS"
+
+#: confint/results/result.columns.title
+msgid "Errore standard"
+msgstr "Standard error"
+
+#: samplesize/results/result.columns.title
+msgid "Errore standard atteso"
+msgstr "Expected standard error"
+
+#: sampleppv/options/out_freq.title
+#: sampleppv/results/out_freq.title
+#: samplesimple/options/out_freq.title
+#: samplesimple/results/out_freq.title
+msgid "Estrai il campione (frequenza nel campione)"
+msgstr "Sample (frequency in sample)"
+
+#: samplecluster/options/out_freq.title
+#: samplecluster/results/out_freq.title
+#: samplemultistage/options/out_freq.title
+#: samplemultistage/results/out_freq.title
+#: samplestrat/options/out_freq.title
+#: samplestrat/results/out_freq.title
+#: samplesyst/options/out_freq.title
+#: samplesyst/results/out_freq.title
+msgid "Estrai il campione (indicatore 0/1, frequenza)"
+msgstr "Sample (0/1 indicator, frequency)"
+
+#: sampleppv/options/replacement.title
+msgid "Estrazione con reinserimento"
+msgstr "Sampling with replacement"
+
+#: samplesize/options/replacement.title
+msgid "Estrazione con reinserimento (popolazione infinita)"
+msgstr "With replacement (infinite population)"
+
+#: samplesimple/options/replacement.title
+msgid "Estrazione con reinserimento (SCR)"
+msgstr "With replacement (SRS-R)"
+
+#: hc/options/label_cluster.title
+msgid "Etichetta cluster"
+msgstr "Cluster label"
+
+#: hc/options/dis/euclidean.title
+msgid "Euclidea"
+msgstr "Euclidean"
+
+#: samplemultistage/results/psu_table.columns.title
+#: samplestrat/results/strata.columns.title
+msgid "f_j = n_j / N_j"
+msgstr "f_j = n_j / N_j"
+
+#: confint/results/inputs.columns.title
+msgid "Fattore (1-f)"
+msgstr "Factor (1-f)"
+
+#: deff/options/mode/formula.title
+msgid "Formula analitica per piano specifico"
+msgstr "Analytical formula for a specific plan"
+
+#: deff/results/inputs.columns.title
+msgid "Formula usata"
+msgstr "Formula used"
+
+#: sampleppv/options/size_mode/f.title
+#: sampleppv/options/f.title
+#: samplesimple/options/size_mode/f.title
+#: samplesimple/options/f.title
+#: samplestrat/options/size_mode/f.title
+#: samplestrat/options/f.title
+#: samplesyst/options/size_mode/f.title
+#: samplesyst/options/f.title
+msgid "Frazione di campionamento (f)"
+msgstr "Sampling fraction (f)"
+
+#: samplecluster/options/size_mode/fg.title
+#: samplecluster/options/fg.title
+msgid "Frazione di grappoli (f_g)"
+msgstr "Cluster fraction (f_g)"
+
+#: samplemultistage/options/psu_mode/fg.title
+#: samplemultistage/options/fg.title
+msgid "Frazione di PSU (f_g)"
+msgstr "PSU fraction (f_g)"
+
+#: samplemultistage/options/fb.title
+msgid "Frazione di unità per PSU (f_b)"
+msgstr "Unit fraction per PSU (f_b)"
+
+#: samplecluster/results/summary.columns.title
+#: samplemultistage/results/summary.columns.title
+#: samplesimple/results/summary.columns.title
+#: samplesize/results/result.columns.title
+#: samplestrat/results/summary.columns.title
+msgid "Frazione f = n/N"
+msgstr "Fraction f = n/N"
+
+#: samplesimple/options/f.description.R
+msgid "Frazione f = n/N della popolazione da estrarre (es. 0.1 = 10%)."
+msgstr "Sampling fraction f = n/N of the population (e.g., 0.1 = 10%)."
+
+#: samplesyst/options/f.description.R
+msgid "Frazione f = n/N della popolazione da estrarre."
+msgstr "Sampling fraction f = n/N of the population."
+
+#: samplemultistage/options/ssu_mode/frac.title
+msgid "Frazione f_b della PSU"
+msgstr "Fraction f_b of PSU"
+
+#: samplecluster/options/fg.description.R
+msgid "Frazione f_g = n_g / M dei grappoli da estrarre."
+msgstr "Fraction f_g = n_g / M of clusters to draw."
+
+#: sampleppv/results/extracted.columns.title
+#: samplesimple/results/extracted.columns.title
+msgid "Frequenza di estrazione"
+msgstr "Draw frequency"
+
+#: hc/results/metriche.columns.title
+msgid "g"
+msgstr "g"
+
+#: catdes/results/categgroup/categquali.columns.title
+msgid "Generale"
+msgstr "Overall"
+
+#: hc/options/dis/gower.title
+msgid "Gower"
+msgstr "Gower"
+
+#: samplecluster/results/clusters.title
+msgid "Grappoli estratti"
+msgstr "Sampled clusters"
+
+#: samplecluster/results/clusters.columns.title
+#: samplecluster/results/extracted.columns.title
+msgid "Grappolo"
+msgstr "Cluster"
+
+#: pca/options/plot_cos2.title
+msgid "Heatmap dei coseni² (qualità di rappresentazione)"
+msgstr "Squared cosines heatmap (representation quality)"
+
+#: samplecluster/results/extracted.columns.title
+#: samplemultistage/results/extracted.columns.title
+#: sampleppv/results/extracted.columns.title
+#: samplesimple/results/extracted.columns.title
+#: samplestrat/results/extracted.columns.title
+#: samplesyst/results/extracted.columns.title
+msgid "ID"
+msgstr "ID"
+
+#: pca/results/ind_group/ind_coord.columns.title
+#: pca/results/ind_group/ind_contrib.columns.title
+#: pca/results/ind_group/ind_cos2.columns.title
+msgid "ID/Riga"
+msgstr "ID/Row"
+
+#: pca/results/settings.title
+msgid "Impostazioni"
+msgstr "Settings"
+
+#: samplesimple/options/size_mode.description.R
+msgid "Indica se il campione è definito tramite un numero assoluto di unità (n) oppure tramite una frazione f = n/N della popolazione."
+msgstr "Whether the sample is specified by an absolute number of units (n) or by a fraction f = n/N of the population."
+
+#: samplesyst/options/size_mode.description.R
+msgid "Indica se il campione è definito tramite un numero assoluto di unità (n) oppure tramite una frazione f della popolazione."
+msgstr "Whether the sample is specified by an absolute number of units (n) or by a fraction f of the population."
+
+#: samplecluster/options/size_mode.description.R
+msgid "Indica se si specifica un numero assoluto di grappoli da estrarre o una frazione dei grappoli totali."
+msgstr "Whether to specify an absolute number of clusters to draw or a fraction of all clusters."
+
+#: hc/options/ch_index.title
+#: hc/results/metriche.columns.title
+msgid "Indice CH"
+msgstr "CH index"
+
+#: package/analyses/confint.title
+#: package/analyses/confint.menuTitle
+#: confint/options.title
+#: confint/ui.title
+#: confint/results.title
+msgid "Intervalli di confidenza"
+msgstr "Confidence intervals"
+
+#: confint/results/result.title
+msgid "Intervallo di confidenza"
+msgstr "Confidence interval"
+
+#: ari/results/instructions.title
+#: catdes/results/instructions.title
+#: confint/results/instructions.title
+#: deff/results/instructions.title
+#: hc/results/instructions.title
+#: pca/results/instructions.title
+#: samplecluster/results/instructions.title
+#: samplemultistage/results/instructions.title
+#: sampleppv/results/instructions.title
+#: samplesimple/results/instructions.title
+#: samplesize/results/instructions.title
+#: samplestrat/results/instructions.title
+#: samplesyst/results/instructions.title
+msgid "Istruzioni"
+msgstr "Instructions"
+
+#: hc/options/dis/binary.title
+msgid "Jaccard"
+msgstr "Jaccard"
+
+#: hc/options/dis/politomici.title
+msgid "Jaccard (politomici)"
+msgstr "Jaccard (polytomous)"
+
+#: hc/options/width_dend.title
+msgid "Larghezza dendrogramma"
+msgstr "Dendrogram width"
+
+#: hc/options/width_deltaG.title
+msgid "Larghezza grafico Delta G"
+msgstr "Delta G plot width"
+
+#: hc/options/width_ch.title
+msgid "Larghezza grafico Indice CH"
+msgstr "CH index plot width"
+
+#: hc/options/width_r2.title
+msgid "Larghezza grafico R²"
+msgstr "R² plot width"
+
+#: hc/options/width_rmsstd.title
+msgid "Larghezza grafico RMSSTD"
+msgstr "RMSSTD plot width"
+
+#: confint/results/result.columns.title
+msgid "LB"
+msgstr "LB"
+
+#: hc/options/method/complete.title
+msgid "Legame completo"
+msgstr "Complete linkage"
+
+#: hc/options/method/average.title
+msgid "Legame medio"
+msgstr "Average linkage"
+
+#: hc/options/method/single.title
+msgid "Legame singolo"
+msgstr "Single linkage"
+
+#: confint/options/success_level.title
+msgid "Livello \"successo\" (per variabile categoriale)"
+msgstr "\"Success\" level (for categorical variable)"
+
+#: confint/options/confidence.title
+#: samplesize/options/confidence.title
+msgid "Livello di confidenza (%)"
+msgstr "Confidence level (%)"
+
+#: samplesize/options/confidence.description.R
+msgid "Livello di confidenza in percentuale (default 95)."
+msgstr "Confidence level as a percentage (default 95)."
+
+#: samplecluster/results/summary.columns.title
+msgid "M (grappoli totali)"
+msgstr "M (total clusters)"
+
+#: samplemultistage/results/summary.columns.title
+msgid "M (PSU totali)"
+msgstr "M (total PSUs)"
+
+#: samplestrat/results/summary.columns.title
+msgid "M (strati)"
+msgstr "M (strata)"
+
+#: hc/options/dis/mahalanobis.title
+msgid "Mahalanobis"
+msgstr "Mahalanobis"
+
+#: hc/options/dis/manhattan.title
+msgid "Manhattan"
+msgstr "Manhattan"
+
+#: pca/results/plot_map.title
+msgid "Mappa di posizionamento"
+msgstr "Positioning map"
+
+#: pca/options/plot_map.title
+msgid "Mappa di posizionamento (variabili e baricentri, no osservazioni)"
+msgstr "Positioning map (variables and centroids, no observations)"
+
+#: samplesize/options/delta.title
+msgid "Margine di errore (Δ)"
+msgstr "Margin of error (Δ)"
+
+#: samplesize/options/delta.description.R
+msgid "Margine di errore massimo ammesso, espresso nella scala del parametro: per la proporzione 0 &lt; Δ &lt; 1 (es. 0.03 = 3%), per la media qualsiasi valore positivo nella scala della variabile (es. ±2 punti)."
+msgstr "Maximum admissible margin of error, on the parameter scale: for a proportion 0 &lt; Δ &lt; 1 (e.g., 0.03 = 3%); for a mean any positive value on the variable's scale (e.g., ±2 points)."
+
+#: confint/options/param/mean.title
+#: samplesize/options/param/mean.title
+msgid "Media"
+msgstr "Mean"
+
+#: confint/options/mean_manual.title
+msgid "Media campionaria x̄ (modalità media)"
+msgstr "Sample mean x̄ (mean mode)"
+
+#: catdes/results/qtgroup/qt.columns.title
+msgid "Media generale"
+msgstr "Overall mean"
+
+#: catdes/results/qtgroup/qt.columns.title
+msgid "Media nel 'Cluster'"
+msgstr "Mean in 'Cluster'"
+
+#: samplestrat/results/summary.columns.title
+msgid "Metodo"
+msgstr "Method"
+
+#: hc/options/method.title
+#: hc/results/izpis.columns.title
+msgid "Metodo di agglomerazione"
+msgstr "Agglomeration method"
+
+#: samplestrat/options/method.title
+msgid "Metodo di allocazione"
+msgstr "Allocation method"
+
+#: hc/options/dis.description.R
+msgid "Metrica di distanza fra osservazioni. 'euclidean'/'manhattan'/'mahalanobis' per dati quantitativi; 'SokalMichener' e 'binary' (Jaccard) per dati binari 0/1; 'politomici' per categoriali con livelli interi; 'gower' per dataset misti."
+msgstr "Distance metric between observations. 'euclidean'/'manhattan'/'mahalanobis' for quantitative data; 'SokalMichener' and 'binary' (Jaccard) for binary 0/1 data; 'politomici' for polytomous categorical with integer levels; 'gower' for mixed-type datasets."
+
+#: hc/results/metriche.title
+msgid "Metriche partizioni"
+msgstr "Partition metrics"
+
+#: catdes/results/categgroup/categquali.columns.title
+msgid "Mod/Cla"
+msgstr "Cat/Cls"
+
+#: confint/results/inputs.columns.title
+#: deff/results/inputs.columns.title
+msgid "Modalità"
+msgstr "Mode"
+
+#: deff/options/mode.title
+msgid "Modalità di calcolo"
+msgstr "Calculation mode"
+
+#: samplecluster/options/size_mode.title
+msgid "Modalità di specifica"
+msgstr "Specification mode"
+
+#: sampleppv/options/size_mode.title
+#: samplesimple/options/size_mode.title
+#: samplestrat/options/size_mode.title
+#: samplesyst/options/size_mode.title
+msgid "Modalità di specifica della numerosità"
+msgstr "Sample size specification mode"
+
+#: package.description
+msgid "Modulo didattico e applicativo per il corso di Analisi di Mercato. Comprende strumenti per le ricerche per campione (numerosità campionaria, estrazione del campione con i principali disegni probabilistici - casuale semplice, sistematico, stratificato proporzionale e ottimale, a grappoli, a due stadi, con probabilità variabili - intervalli di confidenza e Design Effect), per la cluster analysis gerarchica (con metriche per la scelta del numero di gruppi, caratterizzazione dei cluster e confronto fra partizioni tramite Adjusted Rand Index) e per l'analisi delle componenti principali (con rotazione varimax/promax, cerchio delle correlazioni, biplot e heatmap dei coseni quadrati)."
+msgstr "Educational and applied module for the Market Research course. It bundles tools for survey sampling (sample size, sample drawing under the main probability designs — simple random, systematic, proportional and optimal stratified, cluster, two-stage, probability-proportional-to-size — confidence intervals and Design Effect), for hierarchical cluster analysis (with metrics to choose the number of groups, cluster description, and partition comparison via the Adjusted Rand Index), and for principal component analysis (varimax/promax rotation, correlation circle, biplot and squared-cosines heatmap)."
+
+#: pca/options/show_ind.title
+msgid "Mostra tabella contributi/coseni² delle osservazioni"
+msgstr "Show observations contributions/cos² table"
+
+#: confint/results/inputs.columns.title
+msgid "n"
+msgstr "n"
+
+#: confint/results/inputs.columns.title
+#: samplesize/results/inputs.columns.title
+msgid "N"
+msgstr "N"
+
+#: samplecluster/results/summary.columns.title
+#: samplemultistage/results/summary.columns.title
+#: sampleppv/results/summary.columns.title
+#: samplesimple/results/summary.columns.title
+#: samplestrat/results/summary.columns.title
+#: samplesyst/results/summary.columns.title
+msgid "N (popolazione)"
+msgstr "N (population)"
+
+#: samplesize/results/result.columns.title
+msgid "n consigliato"
+msgstr "n recommended"
+
+#: deff/results/result.columns.title
+msgid "n equivalente nel piano complesso"
+msgstr "Equivalent n in complex design"
+
+#: samplestrat/results/summary.columns.title
+#: samplesyst/results/summary.columns.title
+msgid "n estratto"
+msgstr "n drawn"
+
+#: sampleppv/results/summary.columns.title
+#: samplesimple/results/summary.columns.title
+msgid "n estrazioni totali"
+msgstr "n total draws"
+
+#: sampleppv/results/summary.columns.title
+#: samplesimple/results/summary.columns.title
+#: samplestrat/results/summary.columns.title
+#: samplesyst/results/summary.columns.title
+msgid "n richiesto"
+msgstr "n requested"
+
+#: deff/results/result.columns.title
+msgid "n di riferimento"
+msgstr "Reference n"
+
+#: samplesize/results/result.columns.title
+msgid "n teorico"
+msgstr "n theoretical"
+
+#: samplecluster/results/summary.columns.title
+#: samplemultistage/results/summary.columns.title
+msgid "n unità campionate"
+msgstr "n sampled units"
+
+#: sampleppv/results/summary.columns.title
+#: samplesimple/results/summary.columns.title
+msgid "n unità distinte"
+msgstr "n distinct units"
+
+#: samplecluster/results/summary.columns.title
+#: samplemultistage/results/summary.columns.title
+msgid "n_g estratti"
+msgstr "n_g drawn"
+
+#: samplecluster/results/summary.columns.title
+#: samplemultistage/results/summary.columns.title
+msgid "n_g richiesti"
+msgstr "n_g requested"
+
+#: samplestrat/results/strata.columns.title
+msgid "N_j"
+msgstr "N_j"
+
+#: samplestrat/results/strata.columns.title
+msgid "n_j"
+msgstr "n_j"
+
+#: pca/options/rotation/none.title
+msgid "Nessuna"
+msgstr "None"
+
+#: hc/options/outputName.description.R
+msgid "Nome della colonna che jamovi inietterà nel dataset con l'assegnazione di ciascuna osservazione al proprio cluster."
+msgstr "Name of the column injected by jamovi into the dataset with each observation's cluster assignment."
+
+#: hc/options/outputName.title
+msgid "Nome della variabile di output"
+msgstr "Output variable name"
+
+#: hc/options/n_clusters.description.R
+msgid "Numero di cluster k a cui tagliare il dendrogramma per produrre l'assegnazione delle osservazioni."
+msgstr "Number of clusters k at which to cut the dendrogram to produce the observation-to-cluster assignment."
+
+#: pca/options/ncp.title
+msgid "Numero di componenti da ritenere"
+msgstr "Number of components to retain"
+
+#: pca/options/ncp.description.R
+msgid "Numero di componenti principali da ritenere (massimo 5). Per orientarsi sulla scelta, consultare la tabella degli autovalori e lo scree plot (criterio di Kaiser: λ > 1; criterio del gomito; criterio della varianza cumulata)."
+msgstr "Number of principal components to retain (maximum 5). To guide the choice, consult the eigenvalues table and the scree plot (Kaiser criterion: λ > 1; elbow rule; cumulative variance criterion)."
+
+#: hc/results/groups.columns.title
+msgid "Numero di elementi"
+msgstr "Number of elements"
+
+#: samplecluster/options/ng.description.R
+msgid "Numero di grappoli (cluster) da estrarre dalla popolazione."
+msgstr "Number of clusters to draw from the population."
+
+#: samplecluster/options/size_mode/ng.title
+msgid "Numero di grappoli (n_g)"
+msgstr "Number of clusters (n_g)"
+
+#: samplecluster/options/ng.title
+msgid "Numero di grappoli da estrarre"
+msgstr "Number of clusters to draw"
+
+#: hc/options/n_clusters.title
+msgid "Numero di gruppi"
+msgstr "Number of groups"
+
+#: samplemultistage/options/psu_mode.title
+msgid "Numero di PSU"
+msgstr "Number of PSUs"
+
+#: samplemultistage/options/psu_mode/ng.title
+msgid "Numero di PSU (n_g)"
+msgstr "Number of PSUs (n_g)"
+
+#: samplemultistage/options/ng.title
+msgid "Numero di PSU da estrarre"
+msgstr "Number of PSUs to draw"
+
+#: deff/options/L.title
+msgid "Numero di strati L (stratificato)"
+msgstr "Number of strata L (stratified)"
+
+#: sampleppv/options/size_mode/n.title
+#: samplesimple/options/size_mode/n.title
+#: samplestrat/options/size_mode/n.title
+#: samplesyst/options/size_mode/n.title
+msgid "Numero di unità (n)"
+msgstr "Number of units (n)"
+
+#: samplemultistage/options/ssu_mode.title
+msgid "Numero di unità per PSU"
+msgstr "Units per PSU"
+
+#: samplemultistage/options/b.title
+msgid "Numero di unità per PSU (b)"
+msgstr "Units per PSU (b)"
+
+#: samplemultistage/options/ssu_mode/fixed.title
+msgid "Numero fisso (b)"
+msgstr "Fixed number (b)"
+
+#: pca/options/top_ind.title
+msgid "Numero massimo di osservazioni da mostrare"
+msgstr "Maximum number of observations to display"
+
+#: package/analyses/samplesize.title
+#: package/analyses/samplesize.menuTitle
+#: samplesize/options.title
+#: samplesize/ui.title
+#: samplesize/results.title
+#: samplesize/results/result.title
+msgid "Numerosità campionaria"
+msgstr "Sample size"
+
+#: sampleppv/options/n.title
+#: samplesimple/options/n.title
+#: samplesyst/options/n.title
+msgid "Numerosità campionaria (n)"
+msgstr "Sample size (n)"
+
+#: confint/options/n_manual.title
+msgid "Numerosità campionaria n"
+msgstr "Sample size n"
+
+#: samplestrat/options/n.title
+msgid "Numerosità campionaria totale (n)"
+msgstr "Total sample size (n)"
+
+#: deff/options/n_srs.description.R
+msgid "Numerosità n, letta in due modi: se è la numerosità del casuale semplice da eguagliare, il piano complesso ne richiede n_complex = Deff · n; se è un campione già raccolto col piano complesso, vale quanto n_eff = n / Deff unità di un casuale semplice."
+msgstr "Sample size n, read in two ways: if it is the size of the simple random sample to be matched, the complex design needs n_complex = Deff · n units; if it is a sample already collected with the complex design, it is worth n_eff = n / Deff units of a simple random sample."
+
+#: samplesimple/options/n.description.R
+#: samplesyst/options/n.description.R
+msgid "Numerosità del campione da estrarre."
+msgstr "Size of the sample to draw."
+
+#: deff/options/n_total.title
+msgid "Numerosità del campione n"
+msgstr "Sample size n"
+
+#: deff/options/n_srs.title
+msgid "Numerosità di riferimento (n)"
+msgstr "Reference sample size (n)"
+
+#: samplesyst/results/summary.columns.title
+msgid "Ordinato per"
+msgstr "Sorted by"
+
+#: samplecluster/results/extracted.columns.title
+#: samplemultistage/results/extracted.columns.title
+#: samplestrat/results/extracted.columns.title
+msgid "Ordine"
+msgstr "Order"
+
+#: samplesyst/results/extracted.columns.title
+msgid "Ordine nel campione"
+msgstr "Order in sample"
+
+#: pca/results/ind_group.title
+msgid "Osservazioni"
+msgstr "Observations"
+
+#: pca/results/settings.columns.title
+msgid "Osservazioni (n)"
+msgstr "Observations (n)"
+
+#: samplestrat/options/method/optimal.title
+msgid "Ottimale di Neyman (n_j ∝ N_j · σ_j)"
+msgstr "Neyman optimal (n_j ∝ N_j · σ_j)"
+
+#: catdes/results/chigroup/chi.columns.title
+#: catdes/results/categgroup/categquali.columns.title
+#: catdes/results/categgroup/qualir2.columns.title
+#: catdes/results/categgroup/categquanti.columns.title
+#: catdes/results/qtvargroup/qtvar.columns.title
+#: catdes/results/qtgroup/qt.columns.title
+#: catdes/results/qtgroup/qtcor.columns.title
+msgid "p"
+msgstr "p"
+
+#: samplesize/results/inputs.columns.title
+msgid "P / σ"
+msgstr "P / σ"
+
+#: samplesize/results/inputs.title
+msgid "Parametri dell'indagine"
+msgstr "Survey parameters"
+
+#: confint/results/inputs.title
+#: deff/results/inputs.title
+msgid "Parametri usati"
+msgstr "Input parameters"
+
+#: confint/results/inputs.columns.title
+#: samplesize/results/inputs.columns.title
+msgid "Parametro"
+msgstr "Parameter"
+
+#: samplesize/options/param.title
+msgid "Parametro da stimare"
+msgstr "Parameter to estimate"
+
+#: confint/options/param.title
+msgid "Parametro da stimare (modalità manuale)"
+msgstr "Parameter to estimate (manual mode)"
+
+#: ari/options/vars.title
+#: ari/ui[0][0].label
+msgid "Partizioni da confrontare"
+msgstr "Partitions to compare"
+
+#: samplesyst/results/summary.columns.title
+msgid "Passo k = ⌊N/n⌋"
+msgstr "Step k = ⌊N/n⌋"
+
+#: pca/results/out_PC1.title
+msgid "PC1"
+msgstr "PC1"
+
+#: pca/results/out_PC2.title
+msgid "PC2"
+msgstr "PC2"
+
+#: pca/results/out_PC3.title
+msgid "PC3"
+msgstr "PC3"
+
+#: pca/results/out_PC4.title
+msgid "PC4"
+msgstr "PC4"
+
+#: pca/results/out_PC5.title
+msgid "PC5"
+msgstr "PC5"
+
+#: package/analyses/pca.menuSubgroup
+#: pca/options.menuSubgroup
+msgid "PCA"
+msgstr "PCA"
+
+#: confint/options/success_level.description.R
+msgid "Per una variabile categoriale, etichetta del livello considerato \"successo\" (numeratore della proporzione). Se vuoto, viene usato il primo livello."
+msgstr "For a categorical variable, label of the level treated as a \"success\" (numerator of the proportion). If empty, the first level is used."
+
+#: sampleppv/results/extracted.columns.title
+msgid "Peso w_i"
+msgstr "Weight w_i"
+
+#: deff/results/inputs.columns.title
+msgid "Piano"
+msgstr "Plan"
+
+#: deff/options/plan.title
+msgid "Piano di campionamento"
+msgstr "Sampling plan"
+
+#: deff/options/plan.description.R
+msgid "Piano di campionamento per cui calcolare il Deff teorico."
+msgstr "Sampling design for which the theoretical Deff is computed."
+
+#: pca/options/plot_map.description.R
+msgid "Plot delle sole variabili: baricentri delle modalità della variabile qualitativa supplementare + (opzionalmente) vettori delle attive e/o delle quantitative supplementari. Utile per leggere il posizionamento di segmenti o marche rispetto agli attributi."
+msgstr "Variable-only plot: centroids of supplementary qualitative variable categories + (optionally) active and/or supplementary quantitative arrows. Useful for reading the positioning of segments or brands with respect to the attributes."
+
+#: deff/options/N.title
+msgid "Popolazione N (sistematico)"
+msgstr "Population N (systematic)"
+
+#: samplesimple/results/extracted.columns.title
+msgid "Posizione"
+msgstr "Position"
+
+#: samplesyst/results/extracted.columns.title
+msgid "Posizione (dopo ordinamento)"
+msgstr "Position (after sorting)"
+
+#: sampleppv/results/extracted.columns.title
+msgid "Probabilità p_i = w_i/Σw"
+msgstr "Probability p_i = w_i/Σw"
+
+#: pca/options/rotation/promax.title
+msgid "Promax (obliqua)"
+msgstr "Promax (oblique)"
+
+#: samplestrat/options/method/proportional.title
+msgid "Proporzionale (n_j ∝ N_j)"
+msgstr "Proportional (n_j ∝ N_j)"
+
+#: confint/options/param/proportion.title
+#: samplesize/options/param/proportion.title
+msgid "Proporzione"
+msgstr "Proportion"
+
+#: confint/options/p_manual.title
+msgid "Proporzione campionaria p_c (modalità proporzione)"
+msgstr "Sample proportion p_c (proportion mode)"
+
+#: samplemultistage/results/psu_table.columns.title
+#: samplemultistage/results/extracted.columns.title
+msgid "PSU"
+msgstr "PSU"
+
+#: samplemultistage/results/psu_table.title
+msgid "PSU estratte"
+msgstr "Sampled PSUs"
+
+#: samplesyst/results/summary.columns.title
+msgid "Punto di partenza t"
+msgstr "Starting point t"
+
+#: pca/results/plot_cos2.title
+msgid "Qualità di rappresentazione (cos²) — heatmap"
+msgstr "Representation quality (cos²) — heatmap"
+
+#: catdes/results/categgroup/qualir2.columns.title
+#: hc/options/r2.title
+#: hc/results/metriche.columns.title
+#: hc/results/plot_r2.title
+msgid "R²"
+msgstr "R²"
+
+#: deff/options/R2.title
+msgid "R² tra variabile di interesse e di stratificazione"
+msgstr "R² between target and stratification variable"
+
+#: catdes/results/qtgroup/qtcor.title
+msgid "Relazione con le variabili quantitative"
+msgstr "Relationship with quantitative variables"
+
+#: catdes/results/qtvargroup/qtvar.title
+msgid "Relazione tra la variabile 'Cluster' e le variabili quantitative"
+msgstr "Relationship between 'Cluster' and quantitative variables"
+
+#: samplecluster/results/summary.title
+#: samplemultistage/results/summary.title
+#: sampleppv/results/summary.title
+#: samplesimple/results/summary.title
+#: samplestrat/results/summary.title
+#: samplesyst/results/summary.title
+msgid "Riepilogo del campione"
+msgstr "Sample summary"
+
+#: samplecluster/results/extracted.columns.title
+#: samplemultistage/results/extracted.columns.title
+#: sampleppv/results/extracted.columns.title
+#: samplestrat/results/extracted.columns.title
+msgid "Riga"
+msgstr "Row"
+
+#: samplesyst/results/extracted.columns.title
+msgid "Riga originale"
+msgstr "Original row"
+
+#: hc/options/rmsstd.title
+#: hc/results/metriche.columns.title
+#: hc/results/plot_rmsstd.title
+msgid "RMSSTD"
+msgstr "RMSSTD"
+
+#: pca/options/rotation.title
+#: pca/results/settings.columns.title
+msgid "Rotazione"
+msgstr "Rotation"
+
+#: pca/options/rotation.description.R
+msgid "Rotazione applicata ai loadings per facilitare l'interpretazione delle componenti. Varimax (ortogonale) massimizza la varianza dei loadings al quadrato per ciascuna componente; Promax (obliqua) consente che le componenti ruotate siano correlate."
+msgstr "Rotation applied to the loadings to ease component interpretation. Varimax (orthogonal) maximises the variance of squared loadings on each component; Promax (oblique) allows the rotated components to be correlated."
+
+#: confint/results/inputs.columns.title
+msgid "s (campionario)"
+msgstr "s (sample)"
+
+#: confint/options/sd_manual.title
+msgid "Scarto quadratico medio campionario s (modalità media)"
+msgstr "Sample standard deviation s (mean mode)"
+
+#: samplesize/options/mean_sigma.title
+msgid "Scarto quadratico medio σ"
+msgstr "Standard deviation σ"
+
+#: samplesize/options/mean_sigma.description.R
+msgid "Scarto quadratico medio σ della variabile di interesse nella popolazione (richiesto per il caso \"media\")."
+msgstr "Standard deviation σ of the variable of interest in the population (required for the \"mean\" case)."
+
+#: sampleppv/results/summary.columns.title
+#: samplesimple/results/summary.columns.title
+#: samplesize/results/inputs.columns.title
+msgid "Schema"
+msgstr "Scheme"
+
+#: pca/options/plot_scree.title
+#: pca/results/plot_scree.title
+msgid "Scree plot"
+msgstr "Scree plot"
+
+#: confint/options/N.description.R
+msgid "Se fornita, l'IC include il fattore correttivo per popolazioni finite (1 - f). Mantenere N molto grande (o ignorare) per il caso \"popolazione infinita\"."
+msgstr "When provided, the CI includes the finite-population correction (1 - f). Keep N very large (or ignore) for the \"infinite population\" case."
+
+#: confint/options/data_var.description.R
+msgid "Se specificata, l'IC viene calcolato direttamente dai dati di questa variabile (media se numerica, proporzione del livello di riferimento se factor binario)."
+msgstr "When specified, the CI is computed directly from this variable's data (mean if numeric, proportion of the reference level if a binary factor)."
+
+#: samplesyst/options/sort_var.description.R
+msgid "Se specificata, le unità della popolazione vengono ordinate in base ai valori di questa variabile prima di applicare il passo di campionamento. L'efficienza del sistematico dipende criticamente dall'ordinamento."
+msgstr "When specified, units are sorted by this variable before applying the sampling step. Systematic-sampling efficiency depends critically on the ordering."
+
+#: pca/options/map_show_active.description.R
+msgid "Se TRUE aggiunge le frecce delle variabili attive alla mappa."
+msgstr "If TRUE, adds the active variable arrows to the map."
+
+#: pca/options/map_show_supp_quant.description.R
+msgid "Se TRUE aggiunge le frecce delle variabili quantitative supplementari (se presenti) alla mappa."
+msgstr "If TRUE, adds the supplementary quantitative arrows (if any) to the map."
+
+#: confint/options/use_fpc.description.R
+msgid "Se TRUE applica (1 - f) all'espressione della varianza dello stimatore (slide 14, 20, 23)."
+msgstr "If TRUE, applies (1 - f) to the estimator's variance expression."
+
+#: samplesize/options/replacement.description.R
+msgid "Se TRUE applica la formula per popolazione infinita o con reinserimento (SCR); se FALSE applica il fattore correttivo (1 - f) per popolazione finita (SSR)."
+msgstr "If TRUE, applies the infinite-population / with-replacement formula (SRS-WR); if FALSE, applies the (1 - f) finite-population correction (SRS-WOR)."
+
+#: pca/options/standardize.description.R
+msgid "Se TRUE applica la PCA sulla matrice di correlazione (z-score preventivo). Raccomandato quando le variabili hanno unità di misura o varianze diverse. Se FALSE applica la PCA sulla matrice di covarianza."
+msgstr "If TRUE, applies PCA on the correlation matrix (prior z-score). Recommended when variables have different units or variances. If FALSE, applies PCA on the covariance matrix."
+
+#: samplesimple/options/replacement.description.R
+msgid "Se TRUE estrazione con reinserimento (SCR): la stessa unità può essere selezionata più volte. Se FALSE estrazione senza reinserimento (SSR)."
+msgstr "If TRUE, sampling with replacement (SRS-WR): the same unit may be drawn multiple times. If FALSE, sampling without replacement (SRS-WOR)."
+
+#: hc/options/tuto.description.R
+msgid "Se TRUE mostra il pannello con la descrizione metodologica dell'analisi."
+msgstr "If TRUE, shows the panel with the methodological description of the analysis."
+
+#: ari/options/tuto.description.R
+#: catdes/options/tuto.description.R
+#: samplesimple/options/tuto.description.R
+#: samplesize/options/tuto.description.R
+msgid "Se TRUE mostra il pannello con la descrizione metodologica."
+msgstr "If TRUE, shows the panel with the methodological description."
+
+#: hc/options/dend.description.R
+msgid "Se TRUE produce il dendrogramma colorato per cluster."
+msgstr "If TRUE, produces the cluster-coloured dendrogram."
+
+#: hc/options/deltaG.description.R
+msgid "Se TRUE produce il grafico del Delta G (differenza fra altezze di unione successive) al variare di k."
+msgstr "If TRUE, produces the Delta G plot (differences between successive merge heights) as k varies."
+
+#: hc/options/ch_index.description.R
+msgid "Se TRUE produce il grafico dell'Indice F di Calinski-Harabasz al variare di k."
+msgstr "If TRUE, produces the Calinski-Harabasz F-index plot as k varies."
+
+#: hc/options/r2.description.R
+msgid "Se TRUE produce il grafico dell'R² al variare di k."
+msgstr "If TRUE, produces the R² plot as k varies."
+
+#: hc/options/rmsstd.description.R
+msgid "Se TRUE produce il grafico dell'RMSSTD al variare di k."
+msgstr "If TRUE, produces the RMSSTD plot as k varies."
+
+#: hc/options/stdVars.description.R
+msgid "Se TRUE standardizza le variabili prima del calcolo della distanza. Applicato solo a distanze numeriche (Euclidea, Manhattan, Mahalanobis); ignorato per distanze binarie/categoriche."
+msgstr "If TRUE, standardises variables before computing distances. Applied only to numeric distances (Euclidean, Manhattan, Mahalanobis); ignored for binary/categorical distances."
+
+#: samplecluster/results/summary.columns.title
+#: samplemultistage/results/summary.columns.title
+#: sampleppv/results/summary.columns.title
+#: samplesimple/results/summary.columns.title
+#: samplestrat/results/summary.columns.title
+#: samplesyst/results/summary.columns.title
+msgid "Seed"
+msgstr "Seed"
+
+#: samplecluster/options/seed.title
+#: samplemultistage/options/seed.title
+#: sampleppv/options/seed.title
+#: samplesimple/options/seed.title
+#: samplestrat/options/seed.title
+#: samplesyst/options/seed.title
+msgid "Seed (riproducibilità)"
+msgstr "Seed (reproducibility)"
+
+#: samplesyst/options/seed.description.R
+msgid "Seme del generatore casuale, usato per scegliere il punto di partenza t entro 1..k. Garantisce la riproducibilità del campione."
+msgstr "Random-number generator seed, used to pick the starting point t in 1..k. Ensures sample reproducibility."
+
+#: samplesimple/options/seed.description.R
+msgid "Seme del generatore casuale. Impostare un valore garantisce l'esatta riproducibilità del campione."
+msgstr "Random-number generator seed. Setting a value ensures exact reproducibility of the sample."
+
+#: deff/options/plan/systematic.title
+msgid "Sistematico"
+msgstr "Systematic"
+
+#: catdes/options/threshold.title
+msgid "Soglia di significatività (%)"
+msgstr "Significance threshold (%)"
+
+#: catdes/options/threshold.description.R
+msgid "Soglia di significatività in percentuale (default 5 = 0.05) per filtrare le variabili e le categorie riportate nei risultati."
+msgstr "Significance threshold as a percentage (default 5 = 0.05) used to filter variables and categories reported in the results."
+
+#: hc/options/dis/SokalMichener.title
+msgid "Sokal-Michener"
+msgstr "Sokal-Michener"
+
+#: confint/options/param.description.R
+msgid "Solo per la modalità manuale (senza variabile selezionata)."
+msgstr "Only for the manual mode (no variable selected)."
+
+#: samplesimple/options/out_freq.description.R
+msgid "Spuntare per iniettare nel dataset la colonna con la frequenza di estrazione di ciascuna unità (0 = non estratta; 1 = estratta; >1 possibile solo in SCR). Il nome della colonna sarà freq_SSR o freq_SCR a seconda dello schema scelto."
+msgstr "Tick to inject into the dataset the column with each unit's draw frequency (0 = not drawn; 1 = drawn once; >1 only under with-replacement). Column name will be freq_SSR or freq_SCR depending on the scheme."
+
+#: sampleppv/options/out_freq.description.R
+msgid "Spuntare per iniettare nel dataset la colonna con la frequenza di estrazione di ciascuna unità. Il nome della colonna sarà freq_CPV."
+msgstr "Tick to inject into the dataset the column with each unit's draw frequency. Column name will be freq_CPV."
+
+#: samplesyst/options/out_freq.description.R
+msgid "Spuntare per iniettare nel dataset la colonna indicatrice del campione: 1 se l'unità è stata estratta, 0 altrimenti. Il nome della colonna sarà in_SM (Sistematico)."
+msgstr "Tick to inject the sample-indicator column into the dataset: 1 if the unit was drawn, 0 otherwise. Column name will be in_SM (Systematic)."
+
+#: samplemultistage/options/out_freq.description.R
+msgid "Spuntare per iniettare nel dataset la colonna indicatrice del campione. Il nome della colonna sarà in_2STG."
+msgstr "Tick to inject the sample-indicator column into the dataset. Column name will be in_2STG."
+
+#: samplecluster/options/out_freq.description.R
+msgid "Spuntare per iniettare nel dataset la colonna indicatrice del campione. Il nome della colonna sarà in_GR."
+msgstr "Tick to inject the sample-indicator column into the dataset. Column name will be in_GR."
+
+#: samplestrat/options/out_freq.description.R
+msgid "Spuntare per iniettare nel dataset la colonna indicatrice del campione. Il nome della colonna sarà in_STpr o in_STott a seconda del metodo scelto."
+msgstr "Tick to inject the sample-indicator column into the dataset. Column name will be in_STpr or in_STott depending on the chosen method."
+
+#: hc/options/stdVars.title
+msgid "Standardizza le variabili"
+msgstr "Standardize variables"
+
+#: pca/options/standardize.title
+msgid "Standardizza le variabili (z-score)"
+msgstr "Standardize variables (z-score)"
+
+#: pca/results/settings.columns.title
+msgid "Standardizzate"
+msgstr "Standardized"
+
+#: hc/results/izpis.title
+msgid "Statistiche generali"
+msgstr "Overall statistics"
+
+#: catdes/results/categgroup/categquanti.columns.title
+#: confint/results/result.columns.title
+msgid "Stima"
+msgstr "Estimate"
+
+#: samplesize/options/prop_P.title
+msgid "Stima della proporzione P (caso peggiore = 0.5)"
+msgstr "Proportion estimate P (worst case = 0.5)"
+
+#: confint/results/inputs.columns.title
+msgid "Stima puntuale"
+msgstr "Point estimate"
+
+#: deff/options/plan/stratified.title
+msgid "Stratificato"
+msgstr "Stratified"
+
+#: samplestrat/results/strata.columns.title
+#: samplestrat/results/extracted.columns.title
+msgid "Strato"
+msgstr "Stratum"
+
+#: package.title
+msgid "Tecniche di Analisi di Mercato"
+msgstr "Market Research Techniques"
+
+#: catdes/results/chigroup.title
+msgid "Test del Chi-quadro"
+msgstr "Chi-square test"
+
+#: samplesize/options/param.description.R
+msgid "Tipo di parametro che l'indagine intende stimare. Determina la formula utilizzata per il calcolo della numerosità."
+msgstr "Type of parameter the survey aims to estimate. Determines the formula used to compute the sample size."
+
+#: samplemultistage/options/ssu_mode/all.title
+msgid "Tutte le unità della PSU (= grappoli)"
+msgstr "All PSU units (= clusters)"
+
+#: confint/results/result.columns.title
+msgid "UB"
+msgstr "UB"
+
+#: samplestrat/options/strat_var.description.R
+msgid "Una o più variabili categoriali (o numeriche con pochi livelli) usate per suddividere la popolazione negli M strati. Se ne vengono fornite più di una, gli strati sono dati dall'incrocio joint dei livelli (es. Sesso × Fascia di età → 6 strati per 2 × 3 livelli). Le unità all'interno di ciascuno strato dovrebbero essere omogenee rispetto al fenomeno di interesse."
+msgstr "One or more categorical variables (or numeric with few levels) used to split the population into M strata. If more than one is provided, strata are the joint cross of the levels (e.g., Sex × Age band → 6 strata for 2 × 3 levels). Units within each stratum should be homogeneous with respect to the variable of interest."
+
+#: pca/options/supp_qual_map.description.R
+msgid "Una o più variabili categoriali supplementari. I baricentri delle loro modalità vengono proiettati nel piano principale e disegnati nel grafico \"Mappa di posizionamento\"."
+msgstr "One or more supplementary categorical variables. The centroids of their categories are projected on the principal plane and drawn in the \"Positioning map\" plot."
+
+#: samplecluster/results/extracted.title
+#: samplemultistage/results/psu_table.columns.title
+#: samplemultistage/results/extracted.title
+#: sampleppv/results/extracted.title
+#: samplesimple/results/extracted.title
+#: samplestrat/results/extracted.title
+#: samplesyst/results/extracted.title
+msgid "Unità estratte"
+msgstr "Sampled units"
+
+#: deff/options/n_within.title
+msgid "Unità per gruppo / dimensione grappolo (n_s o n_g)"
+msgstr "Units per group / cluster size (n_s or n_g)"
+
+#: samplesize/options/prop_P.description.R
+msgid "Valore di P utilizzato nella formula. Se non si dispone di una stima pilota, lasciare 0.5 (varianza massima, stima n per eccesso)."
+msgstr "Value of P used in the formula. If no pilot estimate is available, leave 0.5 (maximum variance, giving an upward estimate of n)."
+
+#: samplesize/results/result.columns.title
+msgid "Var attesa dello stimatore"
+msgstr "Expected estimator variance"
+
+#: catdes/results/qtgroup/qt.columns.title
+#: pca/results/var_coord.columns.title
+#: pca/results/var_contrib.columns.title
+#: pca/results/var_cos2.columns.title
+msgid "Variabile"
+msgstr "Variable"
+
+#: catdes/options/vartochar.title
+#: catdes/ui[0][0].label
+msgid "Variabile 'Cluster' da caratterizzare"
+msgstr "'Cluster' variable to describe"
+
+#: confint/options/data_var.title
+#: confint/ui[0][0].label
+msgid "Variabile (per calcolo da dataset)"
+msgstr "Variable (for dataset-based estimation)"
+
+#: samplestrat/options/aux_var.title
+#: samplestrat/ui[0][1].label
+msgid "Variabile ausiliaria per allocazione ottimale (opzionale)"
+msgstr "Auxiliary variable for optimal allocation (optional)"
+
+#: catdes/options/vartochar.description.R
+msgid "Variabile categoriale (tipicamente l'assegnazione ai cluster) da caratterizzare. Se numerica viene usata condes; se factor viene usata catdes."
+msgstr "Categorical variable (typically the cluster assignment) to be described. If numeric, condes is used; if factor, catdes is used."
+
+#: pca/options/supp_qual.description.R
+msgid "Variabile categoriale che NON contribuisce al calcolo delle componenti. Usata SOLO per colorare le osservazioni nel biplot."
+msgstr "Categorical variable that does NOT contribute to component computation. Used ONLY to colour observations on the biplot."
+
+#: samplecluster/options/cluster_var.description.R
+msgid "Variabile che identifica i grappoli (es. città, scuola, quartiere). Le unità all'interno di uno stesso grappolo dovrebbero essere tra loro eterogenee rispetto al fenomeno di interesse: il metodo è efficiente quando i grappoli sono \"piccole popolazioni\" simili tra loro."
+msgstr "Variable identifying the clusters (e.g., city, school, neighbourhood). Units within the same cluster should be heterogeneous with respect to the variable of interest: the method is efficient when clusters are \"small populations\" similar to each other."
+
+#: samplemultistage/options/psu_var.description.R
+msgid "Variabile che identifica le unità primarie (PSU = primary sampling units): tipicamente città, scuole, quartieri. Dal primo stadio vengono estratte casualmente n_g PSU."
+msgstr "Variable identifying the primary sampling units (PSUs): typically cities, schools or neighbourhoods. The first stage randomly draws n_g PSUs."
+
+#: samplecluster/options/cluster_var.title
+#: samplecluster/ui[0][0].label
+msgid "Variabile di grappolo"
+msgstr "Cluster variable"
+
+#: samplesyst/options/sort_var.title
+#: samplesyst/ui[0][1].label
+msgid "Variabile di ordinamento (opzionale)"
+msgstr "Sorting variable (optional)"
+
+#: sampleppv/options/weight_var.title
+#: sampleppv/ui[0][0].label
+msgid "Variabile di peso (ausiliaria)"
+msgstr "Weight variable (auxiliary)"
+
+#: pca/options/id_var.title
+#: pca/ui[0][4].label
+#: samplecluster/options/id_var.title
+#: samplecluster/ui[0][1].label
+#: samplemultistage/options/id_var.title
+#: samplemultistage/ui[0][1].label
+#: sampleppv/options/id_var.title
+#: sampleppv/ui[0][1].label
+#: samplesimple/options/id_var.title
+#: samplesimple/ui[0][0].label
+#: samplestrat/options/id_var.title
+#: samplestrat/ui[0][2].label
+#: samplesyst/options/id_var.title
+#: samplesyst/ui[0][0].label
+msgid "Variabile identificativa (opzionale)"
+msgstr "ID variable (optional)"
+
+#: pca/options/supp_qual.title
+#: pca/ui[0][2].label
+msgid "Variabile qualitativa supplementare per biplot (opzionale)"
+msgstr "Supplementary qualitative variable for biplot (optional)"
+
+#: sampleppv/options/weight_var.description.R
+msgid "Variabile quantitativa positiva proporzionale al \"peso\" che ogni unità ha nella popolazione (es. fatturato, addetti, numero di abitanti). Le probabilità di inclusione p_i sono calcolate come w_i / Σ w_i."
+msgstr "Positive quantitative variable proportional to each unit's \"weight\" in the population (e.g., turnover, employees, inhabitants). Inclusion probabilities p_i are computed as w_i / Σ w_i."
+
+#: samplestrat/options/aux_var.description.R
+msgid "Variabile quantitativa usata per stimare lo scarto quadratico medio σ_j dentro ciascuno strato (richiesta per il metodo ottimale). Tipicamente è la variabile di interesse o una sua proxy."
+msgstr "Quantitative variable used to estimate the standard deviation σ_j within each stratum (required for the optimal method). Typically the variable of interest or a proxy."
+
+#: samplemultistage/options/psu_var.title
+#: samplemultistage/ui[0][0].label
+msgid "Variabile unità di primo stadio (PSU)"
+msgstr "Primary sampling unit (PSU) variable"
+
+#: pca/options/id_var.description.R
+msgid "Variabile usata per etichettare le osservazioni nelle tabelle e nel biplot."
+msgstr "Variable used to label observations in the tables and biplot."
+
+#: samplecluster/options/id_var.description.R
+#: samplestrat/options/id_var.description.R
+#: samplesyst/options/id_var.description.R
+msgid "Variabile usata per identificare le singole unità nel dataset. Se specificata, la tabella \"Unità estratte\" mostra gli ID dei soggetti selezionati."
+msgstr "Variable used to identify the individual units in the dataset. When specified, the \"Sampled units\" table shows the IDs of the selected subjects."
+
+#: samplesimple/options/id_var.description.R
+msgid "Variabile usata per identificare le singole unità nel dataset. Se specificata, la tabella \"Unità estratte\" mostra gli ID dei soggetti selezionati. Non influisce sul processo di estrazione."
+msgstr "Variable used to identify the individual units in the dataset. When specified, the \"Sampled units\" table shows the IDs of the selected subjects. It does not affect the sampling process."
+
+#: sampleppv/options/id_var.description.R
+msgid "Variabile usata per identificare le singole unità nel dataset. Se specificata, la tabella \"Unità estratte\" mostra gli ID e i pesi dei soggetti selezionati."
+msgstr "Variable used to identify the individual units in the dataset. When specified, the \"Sampled units\" table shows the IDs and weights of the selected subjects."
+
+#: samplemultistage/options/id_var.description.R
+msgid "Variabile usata per identificare le unità di secondo stadio (SSU). Se specificata, la tabella \"Unità estratte\" mostra gli ID dei soggetti selezionati."
+msgstr "Variable used to identify second-stage units (SSUs). When specified, the \"Sampled units\" table shows the IDs of the selected subjects."
+
+#: hc/results/izpis.columns.title
+msgid "Variabili"
+msgstr "Variables"
+
+#: ari/options/vars.description.R
+msgid "Variabili (almeno due) che codificano partizioni alternative delle stesse osservazioni. L'Adjusted Rand Index viene calcolato per ciascuna coppia."
+msgstr "Variables (at least two) coding alternative partitions of the same observations. The Adjusted Rand Index is computed for each pair."
+
+#: catdes/options/descbyvar.description.R
+msgid "Variabili (quantitative e/o qualitative) con cui descrivere la variabile target attraverso test statistici."
+msgstr "Variables (quantitative and/or qualitative) used to describe the target variable through statistical tests."
+
+#: pca/results/settings.columns.title
+msgid "Variabili attive"
+msgstr "Active variables"
+
+#: pca/options/vars.title
+#: pca/ui[0][0].label
+msgid "Variabili attive (quantitative)"
+msgstr "Active variables (quantitative)"
+
+#: samplestrat/options/strat_var.title
+#: samplestrat/ui[0][0].label
+msgid "Variabili di stratificazione"
+msgstr "Stratification variables"
+
+#: hc/options/vars.description.R
+msgid "Variabili numeriche su cui calcolare la matrice delle distanze e applicare l'algoritmo di clustering gerarchico."
+msgstr "Numeric variables on which to compute the distance matrix and apply the hierarchical clustering algorithm."
+
+#: pca/options/supp_qual_map.title
+#: pca/ui[0][3].label
+msgid "Variabili qualitative per la mappa di posizionamento (opzionali)"
+msgstr "Qualitative variables for positioning map (optional)"
+
+#: pca/options/supp_quant.description.R
+msgid "Variabili quantitative che NON contribuiscono al calcolo delle componenti, ma vengono proiettate a posteriori nel piano principale. Utili per validare le componenti con variabili esterne."
+msgstr "Quantitative variables that do NOT contribute to component computation but are projected a posteriori on the principal plane. Useful to validate components against external variables."
+
+#: pca/options/supp_quant.title
+#: pca/ui[0][1].label
+msgid "Variabili quantitative supplementari (opzionali)"
+msgstr "Supplementary quantitative variables (optional)"
+
+#: pca/options/vars.description.R
+msgid "Variabili quantitative usate per costruire le componenti principali. Devono essere almeno due. La PCA opera sulla matrice di covarianza (se non standardizzate) o di correlazione (se standardizzate)."
+msgstr "Quantitative variables used to build the principal components. At least two are required. PCA operates on the covariance matrix (if not standardised) or the correlation matrix (if standardised)."
+
+#: deff/options/var_complex.title
+msgid "Varianza nel piano complesso"
+msgstr "Variance in complex design"
+
+#: deff/options/var_srs.title
+msgid "Varianza nel SCR di riferimento"
+msgstr "Variance in reference SRS"
+
+#: pca/options/rotation/varimax.title
+msgid "Varimax (ortogonale)"
+msgstr "Varimax (orthogonal)"
+
+#: catdes/results/categgroup/categquali.columns.title
+#: catdes/results/qtgroup/qt.columns.title
+msgid "Vtest"
+msgstr "v-test"
+
+#: samplestrat/results/strata.columns.title
+msgid "W_j"
+msgstr "W_j"
+
+#: hc/options/method/ward.D2.title
+msgid "Ward"
+msgstr "Ward"
+
+#: confint/results/inputs.columns.title
+#: samplesize/results/inputs.columns.title
+msgid "z (α/2)"
+msgstr "z (α/2)"
+
+#: samplesize/results/inputs.columns.title
+msgid "Δ"
+msgstr "Δ"
+
+#: sampleppv/results/summary.columns.title
+msgid "Σ pesi"
+msgstr "Σ weights"
+
+#: samplestrat/results/strata.columns.title
+msgid "σ_j"
+msgstr "σ_j"
+
+#: deff/results/result.columns.title
+msgid "Numerosità efficace di n unità raccolte col piano"
+msgstr "Effective size of n units collected with the design"

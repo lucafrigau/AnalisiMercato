@@ -1,0 +1,105 @@
+---
+name:  samplecluster
+title: Campionamento a grappoli
+jrs:   '1.1'
+
+refs:
+    - cochran
+    - kish
+
+items:
+    - name: instructions
+      title: Istruzioni
+      type: Html
+      visible: (tuto)
+
+    - name: summary
+      title: Riepilogo del campione
+      type: Table
+      rows: 1
+      clearWith:
+        - cluster_var
+        - size_mode
+        - ng
+        - fg
+        - seed
+      columns:
+        - name: N
+          title: N (popolazione)
+          type: integer
+        - name: M
+          title: M (grappoli totali)
+          type: integer
+        - name: ng_richiesto
+          title: n_g richiesti
+          type: integer
+        - name: ng_estratto
+          title: n_g estratti
+          type: integer
+        - name: n_unita
+          title: n unità campionate
+          type: integer
+        - name: frazione_unita
+          title: Frazione f = n/N
+          type: number
+          format: zto
+        - name: seed_used
+          title: Seed
+          type: integer
+
+    - name: clusters
+      title: Grappoli estratti
+      type: Table
+      rows: 0
+      clearWith:
+        - cluster_var
+        - size_mode
+        - ng
+        - fg
+        - seed
+      columns:
+        - name: grappolo
+          title: Grappolo
+          type: text
+        - name: dim
+          title: Dimensione (n unità)
+          type: integer
+
+    - name: extracted
+      title: Unità estratte
+      type: Table
+      rows: 0
+      visible: (id_var)
+      clearWith:
+        - id_var
+        - cluster_var
+        - size_mode
+        - ng
+        - fg
+        - seed
+      columns:
+        - name: ord
+          title: Ordine
+          type: integer
+        - name: grappolo
+          title: Grappolo
+          type: text
+        - name: pos
+          title: Riga
+          type: integer
+        - name: id_value
+          title: ID
+          type: text
+
+    - name: out_freq
+      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      type: Output
+      varTitle: in_GR
+      measureType: continuous
+      clearWith:
+        - cluster_var
+        - size_mode
+        - ng
+        - fg
+        - seed
+...

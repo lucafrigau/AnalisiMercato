@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cluster Analysis Gerarchica">
+  <title>Cluster Analysis Gerarchica</title>
+  <!-- Rami del dendrogramma: 4 foglie raggruppate in 2 + 2 -->
+  <g stroke="#1F77B4" stroke-width="3" fill="none" stroke-linecap="round">
+    <!-- foglia 1 e 2 → primo nodo -->
+    <line x1="10" y1="50" x2="10" y2="40"/>
+    <line x1="22" y1="50" x2="22" y2="40"/>
+    <line x1="10" y1="40" x2="22" y2="40"/>
+    <line x1="16" y1="40" x2="16" y2="20"/>
+    <!-- foglia 3 e 4 → secondo nodo -->
+    <line x1="42" y1="50" x2="42" y2="32"/>
+    <line x1="54" y1="50" x2="54" y2="32"/>
+    <line x1="42" y1="32" x2="54" y2="32"/>
+    <line x1="48" y1="32" x2="48" y2="20"/>
+    <!-- nodo radice -->
+    <line x1="16" y1="20" x2="48" y2="20"/>
+    <line x1="32" y1="20" x2="32" y2="8"/>
+  </g>
+  <!-- Foglie colorate: due cluster -->
+  <circle cx="10" cy="54" r="4" fill="#FF7F0E"/>
+  <circle cx="22" cy="54" r="4" fill="#FF7F0E"/>
+  <circle cx="42" cy="54" r="4" fill="#2CA02C"/>
+  <circle cx="54" cy="54" r="4" fill="#2CA02C"/>
+</svg>

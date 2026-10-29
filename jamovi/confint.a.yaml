@@ -1,0 +1,117 @@
+---
+name:  confint
+title: Intervalli di confidenza
+menuGroup: AnalisiMercato
+menuSubgroup: Campionamento
+version: '2.0.9'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: data_var
+      title: Variabile (per calcolo da dataset)
+      type: Variable
+      suggested:
+        - continuous
+        - nominal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Se specificata, l'IC viene calcolato direttamente dai dati di
+            questa variabile (media se numerica, proporzione del livello
+            di riferimento se factor binario).
+
+    - name: success_level
+      title: Livello "successo" (per variabile categoriale)
+      type: String
+      default: ""
+      description:
+          R: >
+            Per una variabile categoriale, etichetta del livello considerato
+            "successo" (numeratore della proporzione). Se vuoto, viene usato
+            il primo livello.
+
+    - name: tuto
+      title: Descrizione delle analisi
+      type: Bool
+      default: true
+
+    - name: param
+      title: Parametro da stimare (modalità manuale)
+      type: List
+      options:
+        - title: Proporzione
+          name:  proportion
+        - title: Media
+          name:  mean
+      default: proportion
+      description:
+          R: Solo per la modalità manuale (senza variabile selezionata).
+
+    - name: n_manual
+      title: Numerosità campionaria n
+      type: Integer
+      min: 2
+      default: 100
+      description:
+          R: >
+            Numerosità del campione in modalità manuale. Il minimo è 2:
+            con n = 1 la varianza campionaria non è definita (né per la
+            media né per la proporzione) e il backend rifiuterebbe
+            comunque il calcolo.
+
+    - name: p_manual
+      title: Proporzione campionaria p_c (modalità proporzione)
+      type: Number
+      min: 0
+      max: 1
+      default: 0.5
+
+    - name: mean_manual
+      title: Media campionaria x̄ (modalità media)
+      type: Number
+      default: 0
+
+    - name: sd_manual
+      title: Scarto quadratico medio campionario s (modalità media)
+      type: Number
+      min: 0
+      default: 1
+
+    - name: N
+      title: Dimensione della popolazione N (opzionale)
+      type: Integer
+      min: 2
+      default: 1000
+      description:
+          R: >
+            Se fornita, l'IC include il fattore correttivo per popolazioni
+            finite (1 - f). Mantenere N molto grande (o ignorare) per il
+            caso "popolazione infinita".
+
+    - name: use_fpc
+      title: Applica fattore correttivo per popolazione finita (1 - f)
+      type: Bool
+      default: false
+      description:
+          R: >
+            Se TRUE applica (1 - f) all'espressione della varianza dello
+            stimatore (slide 14, 20, 23). Disattivato per default: la
+            correzione va abilitata consapevolmente, dichiarando la N
+            effettiva della popolazione. Con il default attivo uno
+            studente otterrebbe un IC corretto per una popolazione di
+            1000 unità senza averlo mai richiesto (e con n = 1000
+            l'errore standard si annullerebbe).
+
+    - name: confidence
+      title: Livello di confidenza (%)
+      type: Number
+      min: 50
+      max: 99.99
+      default: 95
+...

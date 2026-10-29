@@ -1,0 +1,120 @@
+---
+name:  samplestrat
+title: Campionamento stratificato
+menuGroup: AnalisiMercato
+menuSubgroup: Campionamento
+version: '2.0.9'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: strat_var
+      title: Variabili di stratificazione
+      type: Variables
+      suggested:
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Una o più variabili categoriali (o numeriche con pochi livelli)
+            usate per suddividere la popolazione negli M strati. Se ne
+            vengono fornite più di una, gli strati sono dati dall'incrocio
+            joint dei livelli (es. Sesso × Fascia di età → 6 strati per
+            2 × 3 livelli). Le unità all'interno di ciascuno strato
+            dovrebbero essere omogenee rispetto al fenomeno di interesse.
+
+    - name: aux_var
+      title: Variabile ausiliaria per allocazione ottimale (opzionale)
+      type: Variable
+      suggested:
+        - continuous
+      permitted:
+        - numeric
+      description:
+          R: >
+            Variabile quantitativa usata per stimare lo scarto quadratico
+            medio σ_j dentro ciascuno strato (richiesta per il metodo
+            ottimale). Tipicamente è la variabile di interesse o una sua
+            proxy.
+
+    - name: id_var
+      title: Variabile identificativa (opzionale)
+      type: Variable
+      suggested:
+        - id
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Variabile usata per identificare le singole unità nel dataset.
+            Se specificata, la tabella "Unità estratte" mostra gli ID dei
+            soggetti selezionati.
+
+    - name: tuto
+      title: Descrizione delle analisi
+      type: Bool
+      default: true
+
+    - name: method
+      title: Metodo di allocazione
+      type: List
+      options:
+        - title: Proporzionale (n_j ∝ N_j)
+          name:  proportional
+        - title: Ottimale di Neyman (n_j ∝ N_j · σ_j)
+          name:  optimal
+      default: proportional
+      description:
+          R: >
+            'proportional' alloca le unità in proporzione all'ampiezza dello
+            strato (n_j = N_j · n/N). 'optimal' alloca anche in proporzione
+            alla variabilità interna σ_j stimata sulla variabile ausiliaria
+            (allocazione di Neyman).
+
+    - name: size_mode
+      title: Modalità di specifica della numerosità
+      type: List
+      options:
+        - title: Numero di unità (n)
+          name:  n
+        - title: Frazione di campionamento (f)
+          name:  f
+      default: n
+
+    - name: n
+      title: Numerosità campionaria totale (n)
+      type: Integer
+      min: 1
+      default: 30
+
+    - name: f
+      title: Frazione di campionamento (f)
+      type: Number
+      min: 0.0001
+      max: 1
+      default: 0.1
+
+    - name: seed
+      title: Seed (riproducibilità)
+      type: Integer
+      default: 1
+
+    - name: out_freq
+      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      type: Output
+      description:
+          R: >
+            Spuntare per iniettare nel dataset la colonna indicatrice del
+            campione. Il nome della colonna sarà in_STpr o in_STott a
+            seconda del metodo scelto.
+...

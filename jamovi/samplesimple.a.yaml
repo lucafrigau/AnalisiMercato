@@ -1,0 +1,96 @@
+---
+name:  samplesimple
+title: Campionamento casuale semplice
+menuGroup: AnalisiMercato
+menuSubgroup: Campionamento
+version: '2.0.9'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: id_var
+      title: Variabile identificativa (opzionale)
+      type: Variable
+      suggested:
+        - id
+        - nominal
+        - ordinal
+      permitted:
+        - factor
+        - id
+        - numeric
+      description:
+          R: >
+            Variabile usata per identificare le singole unità nel dataset.
+            Se specificata, la tabella "Unità estratte" mostra gli ID dei
+            soggetti selezionati. Non influisce sul processo di estrazione.
+
+    - name: tuto
+      title: Descrizione delle analisi
+      type: Bool
+      default: true
+      description:
+          R: Se TRUE mostra il pannello con la descrizione metodologica.
+
+    - name: replacement
+      title: Estrazione con reinserimento (SCR)
+      type: Bool
+      default: false
+      description:
+          R: >
+            Se TRUE estrazione con reinserimento (SCR): la stessa unità può
+            essere selezionata più volte. Se FALSE estrazione senza
+            reinserimento (SSR).
+
+    - name: size_mode
+      title: Modalità di specifica della numerosità
+      type: List
+      options:
+        - title: Numero di unità (n)
+          name:  n
+        - title: Frazione di campionamento (f)
+          name:  f
+      default: n
+      description:
+          R: >
+            Indica se il campione è definito tramite un numero assoluto di
+            unità (n) oppure tramite una frazione f = n/N della popolazione.
+
+    - name: n
+      title: Numerosità campionaria (n)
+      type: Integer
+      min: 1
+      default: 30
+      description:
+          R: Numerosità del campione da estrarre.
+
+    - name: f
+      title: Frazione di campionamento (f)
+      type: Number
+      min: 0.0001
+      max: 1
+      default: 0.1
+      description:
+          R: Frazione f = n/N della popolazione da estrarre (es. 0.1 = 10%).
+
+    - name: seed
+      title: Seed (riproducibilità)
+      type: Integer
+      default: 1
+      description:
+          R: >
+            Seme del generatore casuale. Impostare un valore garantisce
+            l'esatta riproducibilità del campione.
+
+    - name: out_freq
+      title: "Estrai il campione (frequenza nel campione)"
+      type: Output
+      description:
+          R: >
+            Spuntare per iniettare nel dataset la colonna con la frequenza
+            di estrazione di ciascuna unità (0 = non estratta; 1 = estratta;
+            >1 possibile solo in SCR). Il nome della colonna sarà
+            freq_SSR o freq_SCR a seconda dello schema scelto.
+...

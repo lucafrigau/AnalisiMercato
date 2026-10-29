@@ -1,0 +1,84 @@
+---
+name:  samplesimple
+title: Campionamento casuale semplice
+jrs:   '1.1'
+
+refs:
+    - cochran
+    - lohr
+
+items:
+    - name: instructions
+      title: Istruzioni
+      type: Html
+      visible: (tuto)
+
+    - name: summary
+      title: Riepilogo del campione
+      type: Table
+      rows: 1
+      clearWith:
+        - size_mode
+        - n
+        - f
+        - replacement
+        - seed
+      columns:
+        - name: N
+          title: N (popolazione)
+          type: integer
+        - name: n_richiesto
+          title: n richiesto
+          type: integer
+        - name: n_distinti
+          title: n unità distinte
+          type: integer
+        - name: n_totale
+          title: n estrazioni totali
+          type: integer
+        - name: frazione
+          title: Frazione f = n/N
+          type: number
+          format: zto
+        - name: schema
+          title: Schema
+          type: text
+        - name: seed_used
+          title: Seed
+          type: integer
+
+    - name: extracted
+      title: Unità estratte
+      type: Table
+      rows: 0
+      visible: (id_var)
+      clearWith:
+        - id_var
+        - size_mode
+        - n
+        - f
+        - replacement
+        - seed
+      columns:
+        - name: pos
+          title: Posizione
+          type: integer
+        - name: id_value
+          title: ID
+          type: text
+        - name: freq
+          title: Frequenza di estrazione
+          type: integer
+
+    - name: out_freq
+      title: "Estrai il campione (frequenza nel campione)"
+      type: Output
+      varTitle: freq_SSR
+      measureType: continuous
+      clearWith:
+        - size_mode
+        - n
+        - f
+        - replacement
+        - seed
+...

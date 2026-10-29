@@ -1,0 +1,94 @@
+---
+name:  samplesize
+title: Numerosità campionaria
+menuGroup: AnalisiMercato
+menuSubgroup: Campionamento
+version: '2.0.9'
+jas: '1.2'
+
+options:
+    - name: tuto
+      title: Descrizione delle analisi
+      type: Bool
+      default: true
+      description:
+          R: Se TRUE mostra il pannello con la descrizione metodologica.
+
+    - name: param
+      title: Parametro da stimare
+      type: List
+      options:
+        - title: Proporzione
+          name:  proportion
+        - title: Media
+          name:  mean
+      default: proportion
+      description:
+          R: >
+            Tipo di parametro che l'indagine intende stimare. Determina la
+            formula utilizzata per il calcolo della numerosità.
+
+    - name: replacement
+      title: Estrazione con reinserimento (popolazione infinita)
+      type: Bool
+      default: false
+      description:
+          R: >
+            Se TRUE applica la formula per popolazione infinita o con
+            reinserimento (SCR); se FALSE applica il fattore correttivo
+            (1 - f) per popolazione finita (SSR).
+
+    - name: N
+      title: Dimensione della popolazione (N)
+      type: Integer
+      min: 2
+      default: 1000
+      description:
+          R: >
+            Dimensione N della popolazione di riferimento. Usata per il
+            fattore correttivo (1 - f) nel campionamento senza
+            reinserimento.
+
+    - name: delta
+      title: Margine di errore (Δ)
+      type: Number
+      min: 0.000001
+      default: 0.03
+      description:
+          R: >
+            Margine di errore massimo ammesso, espresso nella scala del
+            parametro: per la proporzione 0 &lt; Δ &lt; 1 (es. 0.03 = 3%),
+            per la media qualsiasi valore positivo nella scala della
+            variabile (es. ±2 punti).
+
+    - name: confidence
+      title: Livello di confidenza (%)
+      type: Number
+      min: 50
+      max: 99.99
+      default: 95
+      description:
+          R: Livello di confidenza in percentuale (default 95).
+
+    - name: prop_P
+      title: Stima della proporzione P (caso peggiore = 0.5)
+      type: Number
+      min: 0
+      max: 1
+      default: 0.5
+      description:
+          R: >
+            Valore di P utilizzato nella formula. Se non si dispone di una
+            stima pilota, lasciare 0.5 (varianza massima, stima n per
+            eccesso).
+
+    - name: mean_sigma
+      title: Scarto quadratico medio σ
+      type: Number
+      min: 0.000001
+      default: 1
+      description:
+          R: >
+            Scarto quadratico medio σ della variabile di interesse nella
+            popolazione (richiesto per il caso "media").
+...

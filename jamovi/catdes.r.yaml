@@ -1,0 +1,165 @@
+---
+name:  catdes
+title: Caratterizzazione
+jrs:   '1.1'
+refs:
+    - factominer
+    - explo
+
+items:
+  - name: instructions
+    title: Istruzioni
+    visible: (tuto)
+    type: Html
+    
+  - name: chigroup
+    title: Test del Chi-quadro
+    type: Group
+    items:
+      - name: chi
+        title: Associazione tra la variabile 'Cluster' e le variabili categoriche
+        type: Table
+        columns:
+          - name: varchi
+            title: ''
+            type: text
+          - name: chipv
+            title: p
+            type: number
+            format: zto,pvalue
+          - name: df
+            title: df
+            type: integer
+
+  - name: categgroup
+    title: Descrizione tramite le variabili categoriche
+    type: Group
+    items:
+      - name: categquali
+        title: Descrizione di ciascun 'Cluster' tramite le categorie
+        type: Table
+        columns:
+          - name: varcateg
+            title: ''
+            type: text
+            combineBelow: true
+          - name: vardesccateg
+            title: Categoria
+            type: text
+          - name: clamod
+            title: Cla/Mod
+            type: number
+          - name: modcla
+            title: Mod/Cla
+            type: number
+          - name: global
+            title: Generale
+            type: number
+          - name: categpv
+            title: p
+            type: number
+            format: zto,pvalue
+          - name: vtest
+            title: Vtest
+            type: number
+      - name: qualir2
+        title: Associazione con le variabili qualitative
+        type: Table
+        columns:
+          - name: varr2
+            title: ''
+            type: text
+          - name: r2
+            title: R²
+            type: number
+            format: zto
+          - name: r2pvalue
+            title: p
+            type: number
+            format: zto,pvalue      
+      - name: categquanti
+        title: Descrizione della variabile quantitativa tramite le categorie
+        type: Table
+        columns:
+          - name: varcateg
+            title: ''
+            type: text
+            combineBelow: true
+          - name: vardesccateg
+            title: Categoria
+            type: text
+          - name: estimate
+            title: Stima
+            type: number
+          - name: categpv
+            title: p
+            type: number
+            format: zto,pvalue
+      
+  - name: qtvargroup
+    title: Descrizione globale tramite le variabili quantitative
+    type: Group
+    items:
+      - name: qtvar
+        title: Relazione tra la variabile 'Cluster' e le variabili quantitative
+        type: Table
+        columns:
+          - name: varqtvar
+            title: ''
+            type: text
+          - name: scc
+            title: Correlazione al quadrato
+            type: number
+          - name: qtvarpv
+            title: p
+            type: number
+            format: zto,pvalue
+
+  - name: qtgroup
+    title: Descrizione tramite le variabili quantitative
+    type: Group
+    items:
+      - name: qt
+        title: Descrizione di ciascun 'Cluster' tramite le variabili quantitative
+        type: Table
+        columns:
+          - name: varqt
+            title: ''
+            type: text
+          - name: vardescqt
+            title: Variabile
+            type: text
+          - name: vtestqt
+            title: Vtest
+            type: number
+          - name: meancateg
+            title: Media nel 'Cluster'
+            type: number
+          - name: overallmean
+            title: Media generale
+            type: number
+          - name: sdcateg
+            title: Dev.std. nel 'Cluster'
+            type: number
+          - name: overallsd
+            title: Dev.std. generale
+            type: number
+          - name: qtpv
+            title: p
+            type: number
+            format: zto,pvalue
+      - name: qtcor
+        title: Relazione con le variabili quantitative
+        type: Table
+        columns:
+          - name: varcor
+            title: ''
+            type: text
+          - name: cor
+            title: Correlazione
+            type: number
+          - name: corpvalue
+            title: p
+            type: number
+            format: zto,pvalue
+...

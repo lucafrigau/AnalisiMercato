@@ -1,0 +1,27 @@
+---
+name:  ari
+title: Confronto partizioni
+jrs:   '1.1'
+
+refs:
+    - hubert
+    - everitt
+
+items:
+    - name: instructions
+      title: Istruzioni
+      type: Html
+      visible: (tuto)
+      
+    - name: matrix
+      title: Adjusted Rand Index
+      type: Table
+      rows: (vars)
+
+      columns:
+          - name: .name[r]
+            title: ""
+            type: text
+            content: ($key)
+            combineBelow: true
+...
