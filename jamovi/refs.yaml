@@ -15,6 +15,14 @@ explo:
     publisher: Chapman & Hall/CRC
     url: https://www.routledge.com/9781138196346
 
+meda:
+    type: software
+    author: 'Leblay T, Tuffin F, Saland M, Faure M, Lê S'
+    year: 2026
+    title: 'MEDA: Multivariate Exploratory Data Analysis (version 1.7.2)'
+    publisher: '[jamovi module]'
+    url: https://github.com/Sebastien-Le/MEDA
+
 cochran:
     type: book
     author: 'Cochran W G'

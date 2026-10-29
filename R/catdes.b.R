@@ -1,5 +1,13 @@
 # This file is a generated template, your changes will not be overwritten
 
+# Analisi «Caratterizzazione». La struttura delle tabelle dei risultati e parte
+# del codice che le compila derivano dal modulo jamovi MEDA (Multivariate
+# Exploratory Data Analysis) di Thomas Leblay, Fiona Tuffin, Maxime Saland,
+# Maïwen Faure e Sébastien Lê, distribuito con licenza GPL
+# (https://github.com/Sebastien-Le/MEDA). Adattamento didattico e modifiche di
+# Luca Frigau, 2026; il file è distribuito con licenza GPL-3, come il resto del
+# modulo.
+
 catdesClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
   R6::R6Class(
     "catdesClass",

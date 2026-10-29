@@ -1,10 +1,15 @@
 ---
+# La struttura dei risultati deriva dal modulo jamovi MEDA di Thomas Leblay,
+# Fiona Tuffin, Maxime Saland, Maïwen Faure e Sébastien Lê, distribuito con
+# licenza GPL (https://github.com/Sebastien-Le/MEDA). Adattata e modificata da
+# Luca Frigau, 2026; distribuita con licenza GPL-3, come il resto del modulo.
 name:  catdes
 title: Caratterizzazione
 jrs:   '1.1'
 refs:
     - factominer
     - explo
+    - meda
 
 items:
   - name: instructions

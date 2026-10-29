@@ -2,11 +2,21 @@ Package: AnalisiMercato
 Type: Package
 Title: Tecniche di Analisi di Mercato
 Version: 2.1.4
-Authors@R:
+Authors@R: c(
     person(given = "Luca",
            family = "Frigau",
            email = "frigau@unica.it",
-           role = c("aut", "cre"))
+           role = c("aut", "cre")),
+    person("Thomas", "Leblay", role = "ctb",
+           comment = "MEDA, da cui deriva l'analisi Caratterizzazione"),
+    person("Fiona", "Tuffin", role = "ctb",
+           comment = "MEDA, da cui deriva l'analisi Caratterizzazione"),
+    person("Maxime", "Saland", role = "ctb",
+           comment = "MEDA, da cui deriva l'analisi Caratterizzazione"),
+    person("Maïwen", "Faure", role = "ctb",
+           comment = "MEDA, da cui deriva l'analisi Caratterizzazione"),
+    person("Sébastien", "Lê", role = "ctb",
+           comment = "MEDA, da cui deriva l'analisi Caratterizzazione"))
 Description: AnalisiMercato è un modulo jamovi sviluppato per il corso di
     Analisi di Mercato, che raccoglie strumenti per alcune delle
     principali fasi quantitative di una ricerca di mercato. Le analisi sono
@@ -23,7 +33,8 @@ Description: AnalisiMercato è un modulo jamovi sviluppato per il corso di
     Jaccard politomico) e cinque metodi di agglomerazione, metriche per
     la scelta del numero di gruppi (R², RMSSTD, Delta G, indice CH),
     dendrogramma colorato per cluster, caratterizzazione dei cluster
-    tramite test statistici (catdes/condes da FactoMineR), confronto fra
+    tramite test statistici (catdes/condes da FactoMineR; analisi derivata
+    dal modulo jamovi MEDA), confronto fra
     partizioni con Adjusted Rand Index. (3) Analisi delle Componenti
     Principali: PCA standardizzata o non standardizzata, criterio di
     Kaiser / varianza cumulata / numero manuale, coordinate, contributi e
