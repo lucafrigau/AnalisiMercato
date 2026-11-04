@@ -1,0 +1,63 @@
+---
+name: duplicates
+title: Duplicati
+jrs: '1.1'
+
+items:
+  - name: instructions
+    title: Istruzioni
+    type: Html
+    visible: (tuto)
+
+  - name: riepilogo
+    title: Riepilogo
+    type: Table
+    rows: 1
+    clearWith:
+      - vars
+      - ignoreCase
+    columns:
+      - name: righe
+        title: Righe confrontate
+        type: integer
+      - name: gruppi
+        title: Gruppi di righe uguali
+        type: integer
+      - name: inpiu
+        title: Righe in più
+        type: integer
+      - name: vuote
+        title: Righe senza dati
+        type: integer
+
+  - name: gruppi
+    title: Righe uguali
+    type: Table
+    rows: 0
+    clearWith:
+      - vars
+      - ignoreCase
+    columns:
+      - name: gruppo
+        title: Gruppo
+        type: integer
+      - name: righe
+        title: Righe
+        type: text
+      - name: tenuta
+        title: Riga da tenere
+        type: integer
+      - name: valore
+        title: Valore
+        type: text
+
+  - name: duplicatoOV
+    title: Duplicati
+    type: Output
+    varTitle: duplicato
+    varDescription: 1 = riga ripetuta da escludere, 0 = riga da tenere
+    measureType: nominal
+    clearWith:
+      - vars
+      - ignoreCase
+...

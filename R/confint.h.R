@@ -52,13 +52,10 @@ confintOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             private$..n_manual <- jmvcore::OptionInteger$new(
                 "n_manual",
                 n_manual,
-                min=2,
                 default=100)
             private$..p_manual <- jmvcore::OptionNumber$new(
                 "p_manual",
                 p_manual,
-                min=0,
-                max=1,
                 default=0.5)
             private$..mean_manual <- jmvcore::OptionNumber$new(
                 "mean_manual",
@@ -67,12 +64,10 @@ confintOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             private$..sd_manual <- jmvcore::OptionNumber$new(
                 "sd_manual",
                 sd_manual,
-                min=0,
                 default=1)
             private$..N <- jmvcore::OptionInteger$new(
                 "N",
                 N,
-                min=2,
                 default=1000)
             private$..use_fpc <- jmvcore::OptionBool$new(
                 "use_fpc",
@@ -81,8 +76,6 @@ confintOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             private$..confidence <- jmvcore::OptionNumber$new(
                 "confidence",
                 confidence,
-                min=50,
-                max=99.99,
                 default=95)
 
             self$.addOption(private$..data_var)

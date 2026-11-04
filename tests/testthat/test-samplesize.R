@@ -54,14 +54,14 @@ test_that("samplesize media SCR: n = z²σ²/Δ², variance attesa = σ²/n", {
 })
 
 test_that("samplesize: Δ deve essere strettamente positivo", {
-  # jmvcore intercetta i valori fuori range (min=1e-06) prima del modulo
+  # il controllo dei limiti del modulo intercetta i valori fuori range
   expect_error(
     samplesize(param = "proportion", delta = 0, prop_P = 0.5),
-    "delta"
+    "margine di errore Δ deve essere maggiore di 0|margin of error Δ must be greater than 0"
   )
   expect_error(
     samplesize(param = "mean", delta = -1, mean_sigma = 1),
-    "delta"
+    "margine di errore Δ deve essere maggiore di 0|margin of error Δ must be greater than 0"
   )
 })
 
@@ -81,10 +81,10 @@ test_that("samplesize media accetta Δ > 1 (es. ±2 punti)", {
 })
 
 test_that("samplesize media: σ deve essere strettamente positivo", {
-  # jmvcore intercetta mean_sigma=0 (min=1e-06)
+  # il controllo dei limiti del modulo intercetta mean_sigma = 0
   expect_error(
     samplesize(param = "mean", delta = 0.5, mean_sigma = 0),
-    "mean_sigma"
+    "scarto quadratico medio σ deve essere maggiore di 0|standard deviation σ must be greater than 0"
   )
 })
 

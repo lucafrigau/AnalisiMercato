@@ -1,0 +1,66 @@
+---
+name: dummies
+title: Variabili dummy
+menuGroup: AnalisiMercato
+menuSubgroup: Preparazione dei dati
+version: '2.2.0'
+jas: '1.2'
+
+options:
+  - name: data
+    type: Data
+
+  - name: vars
+    title: Variabili categoriali
+    type: Variables
+    suggested:
+      - nominal
+      - ordinal
+    permitted:
+      - factor
+    description:
+        R: >
+          Variabili categoriali (nominali, ordinali o di testo) da cui creare
+          le dummy: una variabile 0/1 per ciascuna modalità, oppure per
+          ciascuna opzione se `multi` è TRUE.
+
+  - name: multi
+    title: Risposta multipla
+    type: Bool
+    default: false
+    description:
+        R: >
+          Se TRUE ogni cella può contenere più opzioni separate da `sep`,
+          come nelle domande a risposta multipla di Moduli Google, e si crea
+          una dummy per ciascuna opzione.
+
+  - name: sep
+    title: Separatore
+    type: String
+    default: ","
+    description:
+        R: Il carattere che separa le opzioni nelle risposte multiple.
+
+  - name: minAltro
+    title: Riunisci in «altro» le opzioni scelte meno di
+    type: Integer
+    default: 2
+    description:
+        R: >
+          Con la risposta multipla, le opzioni scelte da meno di `minAltro`
+          rispondenti, come le risposte libere della voce Altro, finiscono in
+          un'unica dummy «altro». Con 1 non si riunisce nessuna opzione.
+
+  - name: tuto
+    title: Descrizione delle analisi
+    type: Bool
+    default: true
+    description:
+        R: Se TRUE mostra il pannello con la descrizione dell'analisi.
+
+  - name: dummiesOV
+    title: Crea le variabili dummy
+    type: Output
+    description:
+        R: Colonne di output con le dummy, una per modalità o per opzione.
+...

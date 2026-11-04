@@ -41,10 +41,10 @@ test_that("deff stratificato: 1 - R²·(L²-1)/L² (Cochran Eq. 5.51)", {
 })
 
 test_that("deff rifiuta varianze nulle (denominatore)", {
-  # var_srs = 0 viene intercettato dal check di jmvcore (min=1e-06)
+  # var_srs = 0 viene intercettato dal controllo dei limiti del modulo
   expect_error(
     deff(mode = "variances", var_complex = 1, var_srs = 0, n_srs = 100),
-    "var_srs"
+    "varianza nel SCR di riferimento deve essere maggiore di 0|variance under the reference SRS must be greater than 0"
   )
 })
 

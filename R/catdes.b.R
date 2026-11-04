@@ -60,6 +60,7 @@ catdesClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
       #### Init + run functions ----
 
       .init = function() {
+        .controlla_limiti("catdes", self$options)
         if (is.null(self$options$descbyvar)) {
           if (self$options$tuto == TRUE) {
             self$results$instructions$setVisible(visible = TRUE)

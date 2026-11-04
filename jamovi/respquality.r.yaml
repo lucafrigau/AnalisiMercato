@@ -1,0 +1,97 @@
+---
+name: respquality
+title: Qualità delle risposte
+jrs: '1.1'
+
+items:
+  - name: instructions
+    title: Istruzioni
+    type: Html
+    visible: (tuto)
+
+  - name: riepilogo
+    title: Segnali
+    type: Table
+    rows: 0
+    clearWith:
+      - items
+      - seqPerc
+      - missPerc
+      - pairs
+      - distMin
+    columns:
+      - name: segnale
+        title: Segnale
+        type: text
+      - name: criterio
+        title: Criterio
+        type: text
+      - name: n
+        title: Rispondenti
+        type: integer
+      - name: perc
+        title: '% dei rispondenti'
+        type: number
+        format: pc
+
+  - name: rispondenti
+    title: Rispondenti da esaminare
+    type: Table
+    rows: 0
+    clearWith:
+      - items
+      - seqPerc
+      - missPerc
+      - pairs
+      - distMin
+      - minSegnali
+    columns:
+      - name: riga
+        title: Riga
+        type: integer
+      - name: segnali
+        title: Segnali
+        type: integer
+      - name: seqmax
+        title: Stessa risposta di fila
+        type: integer
+      - name: mancanti
+        title: Mancanti
+        type: integer
+
+  - name: matrici
+    title: Matrici di coerenza
+    type: Array
+    items: (pairs)
+    template:
+      title: Matrice di coerenza
+      type: Image
+      width: 520
+      height: 460
+      renderFun: .plotMatrice
+      clearWith:
+        - pairs
+        - distMin
+
+  - name: segnaliOV
+    title: Numero di segnali
+    type: Output
+    varTitle: segnali
+    varDescription: Numero di segnali di poca attenzione del rispondente
+    measureType: continuous
+    clearWith:
+      - items
+      - seqPerc
+      - missPerc
+      - pairs
+      - distMin
+
+  - name: indicatoriOV
+    title: Indicatori
+    type: Output
+    initInRun: true
+    measureType: continuous
+    clearWith:
+      - items
+      - pairs
+...

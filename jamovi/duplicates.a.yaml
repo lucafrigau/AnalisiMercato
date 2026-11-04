@@ -1,0 +1,52 @@
+---
+name: duplicates
+title: Duplicati
+menuGroup: AnalisiMercato
+menuSubgroup: Preparazione dei dati
+version: '2.2.0'
+jas: '1.2'
+
+options:
+  - name: data
+    type: Data
+
+  - name: vars
+    title: Variabili da confrontare
+    type: Variables
+    permitted:
+      - numeric
+      - factor
+      - id
+    description:
+        R: >
+          Variabili su cui confrontare le righe: tutte quelle del
+          questionario, tranne l'informazione cronologica dei moduli online,
+          per trovare gli invii identici; oppure solo quelle che identificano
+          il rispondente, come l'email o la matricola. Le righe in cui
+          mancano tutte non si confrontano.
+
+  - name: ignoreCase
+    title: Ignora maiuscole e spazi nei testi
+    type: Bool
+    default: true
+    description:
+        R: >
+          Se TRUE i testi si confrontano senza distinguere maiuscole e
+          minuscole e senza contare gli spazi all'inizio, alla fine e quelli
+          ripetuti.
+
+  - name: tuto
+    title: Descrizione delle analisi
+    type: Bool
+    default: true
+    description:
+        R: Se TRUE mostra il pannello con la descrizione dell'analisi.
+
+  - name: duplicatoOV
+    title: Crea la variabile «duplicato»
+    type: Output
+    description:
+        R: >
+          Colonna di output che vale 0 per le righe da tenere (l'ultima di
+          ogni gruppo di righe uguali) e 1 per le altre.
+...

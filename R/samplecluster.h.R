@@ -55,13 +55,10 @@ sampleclusterOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
             private$..ng <- jmvcore::OptionInteger$new(
                 "ng",
                 ng,
-                min=1,
                 default=3)
             private$..fg <- jmvcore::OptionNumber$new(
                 "fg",
                 fg,
-                min=0.0001,
-                max=1,
                 default=0.3)
             private$..seed <- jmvcore::OptionInteger$new(
                 "seed",

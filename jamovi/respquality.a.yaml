@@ -1,0 +1,97 @@
+---
+name: respquality
+title: Qualità delle risposte
+menuGroup: AnalisiMercato
+menuSubgroup: Preparazione dei dati
+version: '2.2.0'
+jas: '1.2'
+
+options:
+  - name: data
+    type: Data
+
+  - name: items
+    title: Batteria di item (stessa scala)
+    type: Variables
+    default: []
+    suggested:
+      - ordinal
+      - continuous
+    permitted:
+      - numeric
+      - factor
+    description:
+        R: >
+          Le domande con la stessa scala di risposta poste una dopo l'altra,
+          per esempio gli item di una scala Likert, nell'ordine in cui
+          compaiono nel questionario.
+
+  - name: seqPerc
+    title: Stessa risposta di fila su almeno il
+    type: Integer
+    default: 100
+    description:
+        R: >
+          Segnale quando il rispondente dà la stessa risposta a item
+          consecutivi per almeno questa percentuale degli item. Con 100 il
+          segnale scatta solo per chi ha dato la stessa risposta a tutti
+          gli item.
+
+  - name: missPerc
+    title: Risposte mancanti, almeno il
+    type: Integer
+    default: 50
+    description:
+        R: >
+          Segnale quando mancano almeno questa percentuale degli item.
+
+  - name: pairs
+    title: Coppie di domande di controllo
+    type: Pairs
+    permitted:
+      - numeric
+      - factor
+    description:
+        R: >
+          Coppie di domande che chiedono la stessa informazione, con le
+          modalità nello stesso ordine. Per ogni rispondente si calcola la
+          distanza dalla diagonale della matrice di coerenza.
+
+  - name: distMin
+    title: Distanza dalla diagonale che conta come segnale, almeno
+    type: Integer
+    default: 3
+    description:
+        R: >
+          Distanza minima dalla diagonale della matrice di coerenza che
+          conta come segnale: 3 corrisponde alle contraddizioni forti, 2
+          comprende anche le incoerenze da esaminare.
+
+  - name: minSegnali
+    title: Elenca i rispondenti con almeno
+    type: Integer
+    default: 2
+    description:
+        R: Numero minimo di segnali per comparire nell'elenco dei rispondenti.
+
+  - name: tuto
+    title: Descrizione delle analisi
+    type: Bool
+    default: true
+    description:
+        R: Se TRUE mostra il pannello con la descrizione dell'analisi.
+
+  - name: segnaliOV
+    title: Crea la variabile con il numero di segnali
+    type: Output
+    description:
+        R: Colonna di output con il numero di segnali di ogni rispondente.
+
+  - name: indicatoriOV
+    title: Crea le variabili dei singoli indicatori
+    type: Output
+    description:
+        R: >
+          Colonne di output con la sequenza più lunga di risposte uguali, il
+          numero di mancanti e la distanza dalla diagonale di ogni coppia.
+...

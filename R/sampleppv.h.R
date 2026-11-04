@@ -57,13 +57,10 @@ sampleppvOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             private$..n <- jmvcore::OptionInteger$new(
                 "n",
                 n,
-                min=1,
                 default=30)
             private$..f <- jmvcore::OptionNumber$new(
                 "f",
                 f,
-                min=0.0001,
-                max=1,
                 default=0.1)
             private$..seed <- jmvcore::OptionInteger$new(
                 "seed",

@@ -5,10 +5,11 @@ Modulo [jamovi](https://www.jamovi.org) per il corso di Analisi di Mercato dell'
 ## Analisi
 
 - **Campionamento**: numerosità campionaria per proporzioni e medie; estrazione del campione con casuale semplice (con e senza reinserimento), sistematico, stratificato (allocazione proporzionale e di Neyman), a grappoli, a due stadi e con probabilità variabili; intervalli di confidenza; Design Effect.
+- **Preparazione dei dati**: variabili dummy, anche per le domande a risposta multipla; righe duplicate; qualità delle risposte (stessa risposta di fila, risposte mancanti, coerenza delle domande di controllo); outlier multivariati con la distanza di Mahalanobis.
 - **Cluster Analysis**: clustering gerarchico con sette distanze e cinque metodi di agglomerazione, indici per la scelta del numero di gruppi (R², RMSSTD, Delta G, indice CH) e dendrogramma colorato per gruppo; caratterizzazione dei gruppi; confronto fra partizioni con l'Adjusted Rand Index.
 - **PCA**: analisi delle componenti principali con coordinate, contributi e coseni quadrati, cerchio delle correlazioni, biplot, variabili supplementari quantitative e qualitative, rotazioni Varimax e Promax.
 
-Il modulo include quattro dataset didattici, che in jamovi si aprono da *Menu ≡ → Apri → Libreria Dati → Tecniche di Analisi di Mercato*.
+Il modulo include cinque dataset didattici, che in jamovi si aprono da *Menu ≡ → Apri → Libreria Dati → Tecniche di Analisi di Mercato*.
 
 ## Installazione
 

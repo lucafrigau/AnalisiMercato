@@ -62,14 +62,11 @@ options:
     - name: ng
       title: Numero di PSU da estrarre
       type: Integer
-      min: 1
       default: 3
 
     - name: fg
       title: Frazione di PSU (f_g)
       type: Number
-      min: 0.0001
-      max: 1
       default: 0.3
 
     # --- secondo stadio ---
@@ -94,14 +91,11 @@ options:
     - name: b
       title: Numero di unità per PSU (b)
       type: Integer
-      min: 1
       default: 5
 
     - name: fb
       title: Frazione di unità per PSU (f_b)
       type: Number
-      min: 0.0001
-      max: 1
       default: 0.5
 
     - name: seed

@@ -7,6 +7,7 @@ deffClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
     private = list(
 
       .init = function() {
+        .controlla_limiti("deff", self$options)
         self$results$instructions$setContent(.tr(
           it = "<html>
             <head></head>

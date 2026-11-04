@@ -7,6 +7,7 @@ samplesimpleClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
     private = list(
 
       .init = function() {
+        .controlla_limiti("samplesimple", self$options)
         self$results$instructions$setContent(.tr(
           it = "<html>
             <head></head>

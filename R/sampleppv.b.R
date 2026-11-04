@@ -7,6 +7,7 @@ sampleppvClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
     private = list(
 
       .init = function() {
+        .controlla_limiti("sampleppv", self$options)
         self$results$instructions$setContent(.tr(
           it = "<html>
             <head></head>

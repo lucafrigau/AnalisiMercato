@@ -42,9 +42,7 @@ catdesOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             private$..threshold <- jmvcore::OptionNumber$new(
                 "threshold",
                 threshold,
-                default=5,
-                min=0,
-                max=100)
+                default=5)
 
             self$.addOption(private$..vartochar)
             self$.addOption(private$..descbyvar)
@@ -81,7 +79,8 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 title="Caratterizzazione",
                 refs=list(
                     "factominer",
-                    "explo"))
+                    "explo",
+                    "meda"))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",

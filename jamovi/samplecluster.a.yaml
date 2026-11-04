@@ -67,7 +67,6 @@ options:
     - name: ng
       title: Numero di grappoli da estrarre
       type: Integer
-      min: 1
       default: 3
       description:
           R: Numero di grappoli (cluster) da estrarre dalla popolazione.
@@ -75,8 +74,6 @@ options:
     - name: fg
       title: Frazione di grappoli (f_g)
       type: Number
-      min: 0.0001
-      max: 1
       default: 0.3
       description:
           R: Frazione f_g = n_g / M dei grappoli da estrarre.

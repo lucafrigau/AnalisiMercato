@@ -1,7 +1,7 @@
 Package: AnalisiMercato
 Type: Package
 Title: Tecniche di Analisi di Mercato
-Version: 2.1.4
+Version: 2.2.0
 Authors@R: c(
     person(given = "Luca",
            family = "Frigau",
@@ -20,14 +20,18 @@ Authors@R: c(
 Description: AnalisiMercato è un modulo jamovi sviluppato per il corso di
     Analisi di Mercato, che raccoglie strumenti per alcune delle
     principali fasi quantitative di una ricerca di mercato. Le analisi sono
-    organizzate in tre sezioni. (1) Ricerche per campione: numerosità campionaria per
+    organizzate in quattro sezioni. (1) Ricerche per campione: numerosità campionaria per
     proporzioni e medie con o senza fattore correttivo per popolazioni
     finite; estrazione del campione con i principali disegni probabilistici
     (casuale semplice con/senza reinserimento, sistematico, stratificato
     proporzionale e ottimale di Neyman, a grappoli, a due stadi, con
     probabilità variabili); intervalli di confidenza per medie e
     proporzioni; Design Effect (Deff) con formule analitiche per i piani
-    sistematico, a più stadi, a grappoli e stratificato. (2) Cluster
+    sistematico, a più stadi, a grappoli e stratificato. (2) Preparazione
+    dei dati: variabili dummy, anche per le domande a risposta multipla;
+    righe duplicate; qualità delle risposte (stessa risposta di fila,
+    risposte mancanti, coerenza delle domande di controllo); outlier
+    multivariati con la distanza di Mahalanobis. (3) Cluster
     Analysis: clustering gerarchico con sette metriche di distanza
     (Euclidea, Manhattan, Mahalanobis, Sokal-Michener, Gower, Jaccard,
     Jaccard politomico) e cinque metodi di agglomerazione, metriche per
@@ -35,7 +39,7 @@ Description: AnalisiMercato è un modulo jamovi sviluppato per il corso di
     dendrogramma colorato per cluster, caratterizzazione dei cluster
     tramite test statistici (catdes/condes da FactoMineR; analisi derivata
     dal modulo jamovi MEDA), confronto fra
-    partizioni con Adjusted Rand Index. (3) Analisi delle Componenti
+    partizioni con Adjusted Rand Index. (4) Analisi delle Componenti
     Principali: PCA standardizzata o non standardizzata, criterio di
     Kaiser / varianza cumulata / numero manuale, coordinate, contributi e
     coseni quadrati per variabili e osservazioni, cerchio delle
@@ -46,6 +50,7 @@ Description: AnalisiMercato è un modulo jamovi sviluppato per il corso di
     e vanno inviate a Luca Frigau (frigau@unica.it), indicando la versione
     del modulo, l'analisi coinvolta e i passi per riprodurre il problema.
 License: GPL-3
+URL: https://github.com/lucafrigau/AnalisiMercato
 BugReports: mailto:frigau@unica.it
 Encoding: UTF-8
 NeedsCompilation: no

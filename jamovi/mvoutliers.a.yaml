@@ -1,0 +1,55 @@
+---
+name: mvoutliers
+title: Outlier multivariati
+menuGroup: AnalisiMercato
+menuSubgroup: Preparazione dei dati
+version: '2.2.0'
+jas: '1.2'
+
+options:
+  - name: data
+    type: Data
+
+  - name: vars
+    title: Variabili quantitative
+    type: Variables
+    suggested:
+      - continuous
+    permitted:
+      - numeric
+    rejectInf: true
+    description:
+        R: >
+          Le variabili quantitative su cui misurare la distanza di ogni
+          osservazione dal centro dei dati, di solito quelle della base della
+          segmentazione o della PCA.
+
+  - name: alpha
+    title: Soglia di probabilità
+    type: Number
+    default: 0.001
+    description:
+        R: >
+          Un'osservazione è un outlier quando la probabilità di una distanza
+          almeno così grande, secondo il chi-quadrato con tanti gradi di
+          libertà quante sono le variabili, è minore della soglia.
+
+  - name: tuto
+    title: Descrizione delle analisi
+    type: Bool
+    default: true
+    description:
+        R: Se TRUE mostra il pannello con la descrizione dell'analisi.
+
+  - name: distOV
+    title: Crea la variabile con la distanza
+    type: Output
+    description:
+        R: Colonna di output con la distanza di Mahalanobis al quadrato (D²).
+
+  - name: outlierOV
+    title: Crea la variabile «outlier»
+    type: Output
+    description:
+        R: Colonna di output che vale 1 per gli outlier e 0 per le altre osservazioni.
+...

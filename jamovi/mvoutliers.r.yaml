@@ -1,0 +1,73 @@
+---
+name: mvoutliers
+title: Outlier multivariati
+jrs: '1.1'
+
+items:
+  - name: instructions
+    title: Istruzioni
+    type: Html
+    visible: (tuto)
+
+  - name: riepilogo
+    title: Riepilogo
+    type: Table
+    rows: 1
+    clearWith:
+      - vars
+      - alpha
+    columns:
+      - name: n
+        title: Osservazioni usate
+        type: integer
+      - name: p
+        title: Variabili
+        type: integer
+      - name: soglia
+        title: Valore critico di D²
+        type: number
+      - name: nout
+        title: Outlier
+        type: integer
+      - name: escluse
+        title: Righe con mancanti
+        type: integer
+
+  - name: outlier
+    title: Osservazioni oltre la soglia
+    type: Table
+    rows: 0
+    clearWith:
+      - vars
+      - alpha
+    columns:
+      - name: riga
+        title: Riga
+        type: integer
+      - name: d2
+        title: D²
+        type: number
+      - name: pval
+        title: p
+        type: number
+        format: zto,pvalue
+
+  - name: distOV
+    title: Distanza di Mahalanobis
+    type: Output
+    varTitle: mahal_D2
+    varDescription: Distanza di Mahalanobis al quadrato dal centro dei dati
+    measureType: continuous
+    clearWith:
+      - vars
+
+  - name: outlierOV
+    title: Outlier
+    type: Output
+    varTitle: outlier
+    varDescription: 1 = outlier multivariato, 0 = altre osservazioni
+    measureType: nominal
+    clearWith:
+      - vars
+      - alpha
+...

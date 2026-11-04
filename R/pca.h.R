@@ -87,8 +87,6 @@ pcaOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             private$..ncp <- jmvcore::OptionInteger$new(
                 "ncp",
                 ncp,
-                min=1,
-                max=5,
                 default=2)
             private$..rotation <- jmvcore::OptionList$new(
                 "rotation",
@@ -105,18 +103,14 @@ pcaOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             private$..top_ind <- jmvcore::OptionInteger$new(
                 "top_ind",
                 top_ind,
-                min=1,
-                max=1000,
                 default=20)
             private$..axis_x <- jmvcore::OptionInteger$new(
                 "axis_x",
                 axis_x,
-                min=1,
                 default=1)
             private$..axis_y <- jmvcore::OptionInteger$new(
                 "axis_y",
                 axis_y,
-                min=1,
                 default=2)
             private$..plot_scree <- jmvcore::OptionBool$new(
                 "plot_scree",
@@ -149,14 +143,10 @@ pcaOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             private$..map_width <- jmvcore::OptionInteger$new(
                 "map_width",
                 map_width,
-                min=300,
-                max=1600,
                 default=800)
             private$..map_height <- jmvcore::OptionInteger$new(
                 "map_height",
                 map_height,
-                min=300,
-                max=1600,
                 default=650)
             private$..out_PC1 <- jmvcore::OptionOutput$new(
                 "out_PC1")

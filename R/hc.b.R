@@ -16,6 +16,7 @@ hcClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
       .nomi = function(x) as.character(unlist(x)),
 
       .init = function() {
+        .controlla_limiti("hc", self$options)
         # private$.htmlwidget <- HTMLWidget$new()
 
         if (is.null(self$data) || length(private$.base()) == 0) {
@@ -38,7 +39,8 @@ hcClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
               specifiche:
               <ul>
               <li> R quadro (proporzione di devianza between spiegata) </li>
-              <li> RMSSTD (Root-Mean-Square Standard Deviation) </li>
+              <li> RMSSTD (Root-Mean-Square Standard Deviation), calcolato su tutta la partizione
+              (versione pooled), non sul solo gruppo formato al passo </li>
               <li> Delta G (dissomiglianza a passi successivi) </li>
               <li> L'Indice CH (Indice F di Calinski-Harabasz) </li>
               </ul>
@@ -46,11 +48,17 @@ hcClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
 
               <p> I valori delle metriche sono riportati in una tabella, e in un apposito grafico.</p>
 
-              <p> Con la distanza di Gower le variabili binarie di presenza/assenza (0 = assenza,
-              1 = presenza) vanno nella casella <i>Binarie di presenza/assenza</i>: quando due unità
-              hanno entrambe 0 (co-assenza) la variabile non entra nel loro confronto, come
-              nell'indice di Jaccard. Una variabile a due modalità entrambe informative, come il
-              sesso, va invece nella base della segmentazione.</p>
+              <p> Con la distanza di Gower le variabili binarie di presenza/assenza, codificate 0/1
+              con 0 = assenza, vanno nella casella <i>Binarie di presenza/assenza</i>: quando due
+              unità hanno entrambe 0 (co-assenza) la variabile non entra nel loro confronto, come
+              nell'indice di Jaccard. Che due clienti non abbiano un'auto elettrica, per esempio,
+              dice poco su quanto si somiglino. Una variabile a due modalità entrambe informative,
+              come il sesso, va invece nella base della segmentazione.</p>
+
+              <p> La casella è separata dalla scelta della distanza perché la distanza vale per
+              tutta la base, mentre simmetrica o asimmetrica è una proprietà della singola
+              variabile. È attiva solo con Gower: scegliendo un'altra distanza, le sue variabili
+              passano nella base della segmentazione.</p>
             </div>
             </body>
             </html>",
@@ -66,7 +74,8 @@ hcClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
               <p> Partitions can be evaluated through the dendrogram and four metrics:
               <ul>
               <li> R-squared (proportion of between-group variance explained) </li>
-              <li> RMSSTD (Root-Mean-Square Standard Deviation) </li>
+              <li> RMSSTD (Root-Mean-Square Standard Deviation), computed on the whole partition
+              (pooled version), not only on the cluster formed at each step </li>
               <li> Delta G (dissimilarity at successive merge steps) </li>
               <li> CH Index (Calinski–Harabasz pseudo-F index) </li>
               </ul>
@@ -74,11 +83,17 @@ hcClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
 
               <p> Metric values are shown both as a table and as dedicated plots.</p>
 
-              <p> With the Gower distance, presence/absence binary variables (0 = absence,
-              1 = presence) go in the <i>Presence/absence binaries</i> box: when two units both
+              <p> With the Gower distance, presence/absence binary variables, coded 0/1 with
+              0 = absence, go in the <i>Presence/absence binaries</i> box: when two units both
               have 0 (co-absence) the variable is left out of their comparison, as in the Jaccard
-              index. A two-category variable whose categories are both informative, such as sex,
-              goes in the segmentation base instead.</p>
+              index. That two customers do not own an electric car, for example, says little about
+              how similar they are. A two-category variable whose categories are both informative,
+              such as sex, goes in the segmentation base instead.</p>
+
+              <p> The box is separate from the choice of distance because the distance applies to
+              the whole base, while symmetric or asymmetric is a property of each variable. It is
+              active only with Gower: choosing another distance moves its variables into the
+              segmentation base.</p>
             </div>
             </body>
             </html>"
@@ -223,9 +238,10 @@ hcClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
           wss <- max(total_ss - between_ss, 0)  # protezione da roundoff
 
           r2 <- if (total_ss > 0) between_ss / total_ss else NA_real_
-          # RMSSTD nella definizione pooled standard (SAS PROC CLUSTER,
-          # Sharma 1996): la devianza within è divisa anche per il numero
-          # di variabili p, non solo per (n - k).
+          # RMSSTD su tutta la partizione (versione pooled): la devianza
+          # within di tutti i gruppi è divisa per p (n - k), con p il numero
+          # di variabili. SAS PROC CLUSTER riporta invece, a ogni passo,
+          # l'RMSSTD del solo gruppo appena formato.
           p <- ncol(dati_mat)
           rmsstd <- if (n > k && p > 0) sqrt(wss / (p * (n - k))) else NA_real_
           ch_index <- if (wss > 0 && n > k) {
@@ -302,6 +318,31 @@ hcClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
         # droplevels dopo na.omit: livelli rimasti vuoti falserebbero
         # il conteggio delle modalità nelle distanze categoriche.
         dati <- droplevels(dati)
+
+        # --- binarie di presenza/assenza: solo 0/1 ---
+        # Con 0/1 è chi codifica a dire quale modalità sia l'assenza, e le
+        # variabili funzionano con ogni distanza anche quando passano nella
+        # base: il controllo vale quindi con qualunque distanza. Sono
+        # rifiutate le modalità testuali, comprese le etichette date in
+        # jamovi ai codici 0 e 1, perché al modulo arrivano le etichette.
+        for (nm in asimm) {
+          v <- dati[[nm]]
+          valori <- if (is.factor(v)) suppressWarnings(as.numeric(levels(v)))
+                    else unique(v)
+          if (anyNA(valori) || !all(valori %in% c(0, 1))) {
+            modalita <- if (is.factor(v)) levels(v) else sort(unique(v))
+            elenco <- paste(head(modalita, 6), collapse = ", ")
+            if (length(modalita) > 6) elenco <- paste0(elenco, ", ...")
+            jmvcore::reject(
+              sprintf(.tr(
+                it = "Le binarie di presenza/assenza devono valere 0 o 1 (0 = assenza, 1 = presenza), ma '%s' ha i valori %s. Ricodificare la variabile in 0/1; se in jamovi i codici 0 e 1 hanno un'etichetta (per esempio No e Sì), dichiararla Continua. Una variabile a due modalità entrambe informative, come il sesso, va invece nella base della segmentazione.",
+                en = "Presence/absence binaries must take the values 0 or 1 (0 = absence, 1 = presence), but '%s' has the values %s. Recode the variable to 0/1; if in jamovi the codes 0 and 1 have a label (for example No and Yes), set it to Continuous. A two-category variable whose categories are both informative, such as sex, goes in the segmentation base instead."
+              ), nm, elenco),
+              code = ""
+            )
+          }
+          if (is.factor(v)) dati[[nm]] <- valori[as.integer(v)]
+        }
 
         # Quali variabili sono categoriali? Determina cosa è ammesso.
         is_cat <- vapply(dati, function(x) is.factor(x) || is.character(x),
@@ -489,41 +530,9 @@ hcClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
         # asimmetrica: la co-presenza (1-1) è un accordo, la discordanza
         # (1-0) un disaccordo e la co-assenza (0-0) non entra nel
         # confronto (peso 0), come nell'indice di Jaccard. daisy() la
-        # tratta così solo se è codificata 0/1 e dichiarata in type$asymm.
+        # tratta così solo se è codificata 0/1, come controllato sopra, e
+        # dichiarata in type$asymm.
         if (dis == "gower" && length(asimm) > 0) {
-          for (nm in asimm) {
-            v <- dati[[nm]]
-            if (is.factor(v)) {
-              lv <- levels(v)
-              num <- suppressWarnings(as.numeric(lv))
-              if (!any(is.na(num)) && all(num %in% c(0, 1))) {
-                dati[[nm]] <- num[as.integer(v)]
-              } else if (any(is.na(num)) && nlevels(v) <= 2) {
-                # modalità testuali: il primo livello è l'assenza, come
-                # nel Jaccard binario, e la scelta è dichiarata in nota
-                dati[[nm]] <- as.integer(v) - 1L
-                codifica_note <- c(codifica_note, sprintf(
-                  "%s: %s", nm,
-                  paste(sprintf("%s=%d", lv, seq_along(lv) - 1L), collapse = ", ")))
-              } else {
-                jmvcore::reject(
-                  sprintf(.tr(
-                    it = "Le binarie di presenza/assenza devono avere due modalità codificate 0/1 (0 = assenza, 1 = presenza), ma '%s' ha le modalità %s. Spostare la variabile nella base della segmentazione oppure ricodificarla in 0/1.",
-                    en = "Presence/absence binaries must have two categories coded 0/1 (0 = absence, 1 = presence), but '%s' has the categories %s. Move the variable to the segmentation base or recode it to 0/1."
-                  ), nm, paste(lv, collapse = ", ")),
-                  code = ""
-                )
-              }
-            } else if (!all(v %in% c(0, 1))) {
-              jmvcore::reject(
-                sprintf(.tr(
-                  it = "Le binarie di presenza/assenza devono essere codificate 0/1 (0 = assenza, 1 = presenza), ma '%s' contiene altri valori. Spostare la variabile nella base della segmentazione oppure ricodificarla in 0/1.",
-                  en = "Presence/absence binaries must be coded 0/1 (0 = absence, 1 = presence), but '%s' contains other values. Move the variable to the segmentation base or recode it to 0/1."
-                ), nm),
-                code = ""
-              )
-            }
-          }
           # una binaria costante non distingue le unità: daisy() la
           # lascia fuori dal calcolo, e la nota lo dice
           costanti <- asimm[vapply(asimm, function(nm) length(unique(dati[[nm]])) < 2,
@@ -710,6 +719,15 @@ hcClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
         if (metriche_ss) {
           # Precomputazione invarianti rispetto a k
           dati_mat <- as.matrix(dati)
+          # Con Gower la distanza divide ogni variabile per il suo campo di
+          # variazione: gli indici si calcolano sulla stessa scala, come con
+          # le altre distanze si calcolano sui dati standardizzati. Una
+          # variabile costante resta com'è: non entra nella devianza.
+          if (dis == "gower") {
+            campo <- apply(dati_mat, 2, function(x) diff(range(x)))
+            campo[!is.finite(campo) | campo == 0] <- 1
+            dati_mat <- sweep(dati_mat, 2, campo, "/")
+          }
           n_dati <- nrow(dati_mat)
           col_means <- colMeans(dati_mat)
           total_ss <- sum((dati_mat - rep(col_means, each = n_dati))^2)
@@ -740,6 +758,11 @@ hcClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
           self$results$plot_r2$setVisible(FALSE)
           self$results$plot_rmsstd$setVisible(FALSE)
           self$results$plot_ch_index$setVisible(FALSE)
+        } else if (dis == "gower") {
+          table_metriche$setNote("gower", .tr(
+            it = "Con la distanza di Gower R², RMSSTD e indice CH sono calcolati sulle variabili divise per il loro campo di variazione, come fa la distanza.",
+            en = "With the Gower distance, R², RMSSTD and the CH index are computed on the variables divided by their range, as the distance does."
+          ))
         }
 
         for (i in 1:nrow(metriche)) {

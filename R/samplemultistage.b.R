@@ -7,6 +7,7 @@ samplemultistageClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
     private = list(
 
       .init = function() {
+        .controlla_limiti("samplemultistage", self$options)
         self$results$instructions$setContent(.tr(
           it = "<html>
             <head></head>

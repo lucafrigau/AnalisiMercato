@@ -38,14 +38,18 @@ options:
          - factor
       description:
           R: >
-            Variabili binarie di presenza/assenza (0 = assenza, 1 =
-            presenza), che entrano nella base della segmentazione insieme
-            a quelle di `vars`. Con la distanza di Gower la co-assenza (0
-            in entrambe le unità) non entra nel confronto: per quella
-            coppia la variabile esce dalla media, come nell'indice di
-            Jaccard. Una variabile a due modalità entrambe informative
-            (per esempio il sesso) va invece in `vars`. Con le altre
-            distanze queste variabili sono trattate come quelle di `vars`.
+            Variabili binarie di presenza/assenza, con valori 0 e 1 (0 =
+            assenza, 1 = presenza): numeriche o fattori con livelli "0" e
+            "1"; le modalità testuali sono rifiutate. Entrano nella base
+            della segmentazione insieme a quelle di `vars`. Con la
+            distanza di Gower la co-assenza (0 in entrambe le unità) non
+            entra nel confronto: per quella coppia la variabile esce dalla
+            media, come nell'indice di Jaccard. Una variabile a due
+            modalità entrambe informative (per esempio il sesso) va invece
+            in `vars`. Con le altre distanze queste variabili sono
+            trattate come quelle di `vars`; nell'interfaccia di jamovi la
+            casella è attiva solo con Gower, e cambiando distanza le sue
+            variabili passano in `vars`.
 
     - name: tuto
       title: Descrizione delle analisi
@@ -129,7 +133,6 @@ options:
       title: Numero di gruppi
       type: Integer
       default: 2
-      min: 2
       description:
           R: >
             Numero di cluster k a cui tagliare il dendrogramma per produrre

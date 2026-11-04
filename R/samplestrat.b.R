@@ -7,6 +7,7 @@ samplestratClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
     private = list(
 
       .init = function() {
+        .controlla_limiti("samplestrat", self$options)
         self$results$instructions$setContent(.tr(
           it = "<html>
             <head></head>

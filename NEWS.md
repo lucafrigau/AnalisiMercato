@@ -1,3 +1,95 @@
+# AnalisiMercato 2.2.0
+
+## Nuovo gruppo di menu: Preparazione dei dati
+
+Quattro analisi per le fasi della preparazione dei dati che jamovi non
+copre con Calcola. Tutte segnalano e nessuna esclude osservazioni da sola:
+le variabili che creano si aggiungono al dataset e si usano come filtri o
+nelle analisi successive.
+
+- **Variabili dummy**: una variabile 0/1 per ciascuna modalita' di una o
+  piu' variabili categoriali, di tipo continuo e chiamata
+  `variabile_modalita`. Con *Risposta multipla* ogni cella si divide al
+  separatore (la virgola di Moduli Google) e si crea una dummy per
+  ciascuna opzione; le opzioni scelte meno di N volte, come le risposte
+  libere della voce Altro, si riuniscono in «altro». Dove manca la
+  variabile mancano anche le sue dummy.
+- **Duplicati**: trova le righe uguali sulle variabili scelte (tutte
+  tranne l'informazione cronologica, oppure solo l'email o la matricola),
+  con l'opzione di ignorare maiuscole e spazi. Di ogni gruppo si tiene
+  l'ultima riga, cioe' l'invio piu' recente; la variabile `duplicato` vale
+  0 per le righe da tenere e 1 per le altre. Le righe vuote sulle
+  variabili scelte non si confrontano.
+- **Qualita' delle risposte**: per ogni rispondente conta i segnali di
+  risposte date con poca attenzione: la stessa risposta data a molti item
+  di fila e i mancanti in una batteria di item, con soglie in percentuale
+  degli item, e la distanza dalla diagonale della matrice di coerenza
+  nelle coppie di domande di controllo, con la soglia modificabile
+  (predefinita 3). Disegna le matrici di coerenza con in rosso le celle
+  che contano come segnale secondo la soglia scelta (con 3, i colori della
+  dispensa), elenca i rispondenti con almeno due segnali e salva il numero
+  di segnali e i singoli indicatori.
+- **Outlier multivariati**: la distanza di Mahalanobis al quadrato di ogni
+  osservazione dal centro dei dati, con la soglia del chi-quadrato
+  (predefinita 0,001). Elenca le osservazioni oltre la soglia e salva la
+  distanza e un indicatore 0/1. Prima si trovava in jamovi solo fra i
+  salvataggi della regressione lineare.
+
+Nella Libreria Dati c'e' un quinto dataset, *Questionario da ripulire*:
+154 risposte a un questionario online come le esporta Moduli Google, con
+invii doppi, una domanda a risposta multipla, una batteria di item con
+risposte tutte uguali e mancanti, due domande di controllo e una
+combinazione insolita di reddito e spesa. E' l'esempio delle quattro analisi
+nelle dispense.
+
+## Cluster gerarchica: la casella delle binarie di presenza/assenza
+
+- La casella e' attiva solo con la distanza di Gower, l'unica che tratta
+  la co-assenza in modo diverso. Scegliendo un'altra distanza le sue
+  variabili passano nella base della segmentazione, dove sono trattate come
+  le altre.
+- Una nota in fondo alla casella ne ricorda l'uso, e la descrizione
+  iniziale spiega perche' la casella e' separata dalla scelta della
+  distanza.
+- La casella accetta solo valori 0 e 1, numerici o fattori con livelli
+  "0" e "1", con qualunque distanza. Le modalita' testuali sono rifiutate,
+  comprese le etichette date in jamovi ai codici 0 e 1, che arrivano al
+  modulo al posto dei codici: il messaggio suggerisce di dichiarare la
+  variabile Continua. Con 0/1 e' chi codifica a dire quale modalita' sia
+  l'assenza.
+
+## Cluster gerarchica: R², RMSSTD e indice CH con Gower
+
+Con la distanza di Gower e una base tutta numerica i tre indici erano
+calcolati sui valori originali, e una variabile in euro pesava molto piu'
+delle binarie 0/1. Ora sono calcolati sulle variabili divise per il loro
+campo di variazione, come fa la distanza, e una nota lo dichiara. Con le
+variabili categoriali restano vuoti, come prima.
+
+## Cluster gerarchica: RMSSTD nella descrizione
+
+La descrizione iniziale dice che l'RMSSTD e' calcolato su tutta la
+partizione (versione pooled), non sul solo gruppo formato al passo come
+in SAS PROC CLUSTER e in diversi manuali. I calcoli non cambiano.
+
+## Valori fuori dai limiti: messaggi in italiano
+
+Con un valore fuori dai limiti di un'opzione, per esempio 0 come
+numerosita' campionaria, l'analisi si fermava con il messaggio inglese di
+jmvcore e il nome interno dell'opzione ("n must be between 1 and Inf (is
+0)"). Ora i limiti li controlla il modulo (`R/00-limiti.R`), con un
+messaggio in italiano che usa il nome visto nel pannello: "La numerosita'
+campionaria n deve essere almeno 1: 0 non e' un valore ammesso." I limiti
+sono gli stessi di prima, ma non stanno piu' nei `.a.yaml`, dove jmvcore li
+controllerebbe da se'.
+
+## Compilazione
+
+I .jmo sono ricompilati con `tools/build.R`: jmvtools 28.4, con lo stesso
+compilatore della 2.7.26, e l'R 4.5.0 di jamovi 2.7.41 per i pacchetti.
+Entrano cosi' nei .jmo anche i riconoscimenti a MEDA aggiunti al sorgente
+della 2.1.4. DESCRIPTION ha il campo `URL`.
+
 # AnalisiMercato 2.1.4
 
 ## Titoli di tabelle e grafici in italiano con jamovi in italiano

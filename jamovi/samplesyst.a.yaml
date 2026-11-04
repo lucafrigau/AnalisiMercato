@@ -66,7 +66,6 @@ options:
     - name: n
       title: Numerosità campionaria (n)
       type: Integer
-      min: 1
       default: 30
       description:
           R: Numerosità del campione da estrarre.
@@ -74,8 +73,6 @@ options:
     - name: f
       title: Frazione di campionamento (f)
       type: Number
-      min: 0.0001
-      max: 1
       default: 0.1
       description:
           R: Frazione f = n/N della popolazione da estrarre.

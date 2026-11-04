@@ -41,7 +41,6 @@ options:
     - name: N
       title: Dimensione della popolazione (N)
       type: Integer
-      min: 2
       default: 1000
       description:
           R: >
@@ -52,7 +51,6 @@ options:
     - name: delta
       title: Margine di errore (Δ)
       type: Number
-      min: 0.000001
       default: 0.03
       description:
           R: >
@@ -64,8 +62,6 @@ options:
     - name: confidence
       title: Livello di confidenza (%)
       type: Number
-      min: 50
-      max: 99.99
       default: 95
       description:
           R: Livello di confidenza in percentuale (default 95).
@@ -73,8 +69,6 @@ options:
     - name: prop_P
       title: Stima della proporzione P (caso peggiore = 0.5)
       type: Number
-      min: 0
-      max: 1
       default: 0.5
       description:
           R: >
@@ -85,7 +79,6 @@ options:
     - name: mean_sigma
       title: Scarto quadratico medio σ
       type: Number
-      min: 0.000001
       default: 1
       description:
           R: >

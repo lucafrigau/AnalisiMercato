@@ -100,8 +100,6 @@ options:
     - name: ncp
       title: Numero di componenti da ritenere
       type: Integer
-      min: 1
-      max: 5
       default: 2
       description:
           R: >
@@ -137,14 +135,11 @@ options:
     - name: top_ind
       title: Numero massimo di osservazioni da mostrare
       type: Integer
-      min: 1
-      max: 1000
       default: 20
 
     - name: axis_x
       title: Componente sull'asse X
       type: Integer
-      min: 1
       default: 1
       description:
           R: >
@@ -154,7 +149,6 @@ options:
     - name: axis_y
       title: Componente sull'asse Y
       type: Integer
-      min: 1
       default: 2
       description:
           R: >
@@ -212,15 +206,11 @@ options:
     - name: map_width
       title: "▸ MAPPA · Larghezza"
       type: Integer
-      min: 300
-      max: 1600
       default: 800
 
     - name: map_height
       title: "▸ MAPPA · Altezza"
       type: Integer
-      min: 300
-      max: 1600
       default: 650
 
     - name: out_PC1

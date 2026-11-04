@@ -138,8 +138,10 @@ test_that("confint: senza FPC (use_fpc=FALSE) la formula si riduce a SCR", {
   expect_equal(se1, 1 / sqrt(30), tolerance = 1e-10)
 })
 
-test_that("l'opzione n_manual non ammette n = 1 (rifiutato dal backend)", {
-  src <- paste(readLines(testthat::test_path("..", "..", "R", "confint.h.R")),
-               collapse = "\n")
-  expect_match(src, '"n_manual",\\s*\\n\\s*n_manual,\\s*\\n\\s*min=2')
+test_that("l'opzione n_manual non ammette n = 1 (rifiutato dal modulo)", {
+  # il limite sta in R/00-limiti.R, non nel .a.yaml: il messaggio è in
+  # italiano invece che quello inglese di jmvcore
+  expect_equal(.limiti_opzioni$confint$n_manual$min, 2)
+  expect_error(.controlla_limiti("confint", list(n_manual = 1)),
+               "La numerosità campionaria n deve essere almeno 2|must be at least 2")
 })

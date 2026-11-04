@@ -1,0 +1,41 @@
+title: Variabili dummy
+name: dummies
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+  - type: VariableSupplier
+    persistentItems: false
+    stretchFactor: 1
+    children:
+      - type: TargetLayoutBox
+        label: Variabili categoriali
+        children:
+          - type: VariablesListBox
+            name: vars
+            isTarget: true
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: CheckBox
+        name: tuto
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: CheckBox
+        name: multi
+        children:
+          - type: TextBox
+            name: sep
+            format: string
+            enable: (multi)
+          - type: TextBox
+            name: minAltro
+            format: number
+            suffix: volte
+            enable: (multi)
+  - type: LayoutBox
+    margin: large
+    children:
+      - type: Output
+        name: dummiesOV

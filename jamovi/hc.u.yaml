@@ -3,6 +3,8 @@ name: hc
 jus: '3.0'
 stage: 0
 compilerMode: tame
+events:
+  updated: './hc.events::update'
 children:
   - type: VariableSupplier
     persistentItems: false
@@ -20,6 +22,8 @@ children:
           - type: VariablesListBox
             name: asimm
             isTarget: true
+            events:
+              change: './hc.events::onChange_asimm'
   - type: LayoutBox
     margin: large
     children:
@@ -30,6 +34,8 @@ children:
     children:
       - type: ComboBox
         name: dis
+        events:
+          change: './hc.events::onChange_dis'
   - type: LayoutBox
     margin: large
     children:

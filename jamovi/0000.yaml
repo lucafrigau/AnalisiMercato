@@ -1,12 +1,12 @@
 ---
 title: Tecniche di Analisi di Mercato
 name: AnalisiMercato
-version: 2.1.4
+version: 2.2.0
 jms: '1.0'
 authors:
   - Luca Frigau
 maintainer: Luca Frigau <frigau@unica.it>
-date: '2026-10-28'
+date: '2026-11-03'
 type: R
 defaultLanguage: it
 description: >-
@@ -16,11 +16,12 @@ description: >-
   campione con i principali disegni probabilistici - casuale semplice,
   sistematico, stratificato proporzionale e ottimale, a grappoli, a due stadi,
   con probabilità variabili - intervalli di confidenza e Design Effect), per la
-  cluster analysis gerarchica (con metriche per la scelta del numero di gruppi,
-  caratterizzazione dei cluster e confronto fra partizioni tramite Adjusted Rand
-  Index) e per l'analisi delle componenti principali (con rotazione
-  varimax/promax, cerchio delle correlazioni, biplot e heatmap dei coseni
-  quadrati).
+  preparazione dei dati (variabili dummy, duplicati, qualità delle risposte e
+  outlier multivariati), per la cluster analysis gerarchica (con metriche per la
+  scelta del numero di gruppi, caratterizzazione dei cluster e confronto fra
+  partizioni tramite Adjusted Rand Index) e per l'analisi delle componenti
+  principali (con rotazione varimax/promax, cerchio delle correlazioni, biplot e
+  heatmap dei coseni quadrati).
 
   Segnalazioni di bug, errori di calcolo o suggerimenti: scrivere a Luca Frigau
   (frigau@unica.it) indicando la versione del modulo, l'analisi coinvolta e i
@@ -42,6 +43,16 @@ datasets:
       probabilita proporzionali alla dimensione.
     tags:
       - Campionamento
+  - name: Questionario da ripulire
+    path: questionario_grezzo.omv
+    description: >-
+      154 risposte a un questionario online come le esporta Moduli Google, prima
+      della pulizia: invii doppi, una domanda a risposta multipla, una batteria
+      di item con risposte tutte uguali e mancanti, due domande di controllo e
+      una combinazione insolita di reddito e spesa. Per le analisi di
+      Preparazione dei dati.
+    tags:
+      - Preparazione dei dati
   - name: Survey di segmentazione
     path: survey_segmentazione.omv
     description: >-
@@ -123,6 +134,34 @@ analyses:
     menuSubgroup: Campionamento
     menuTitle: Design Effect
     category: analyses
+  - title: Variabili dummy
+    name: dummies
+    ns: AnalisiMercato
+    category: analyses
+    menuGroup: AnalisiMercato
+    menuSubgroup: Preparazione dei dati
+    menuTitle: Variabili dummy
+  - title: Duplicati
+    name: duplicates
+    ns: AnalisiMercato
+    category: analyses
+    menuGroup: AnalisiMercato
+    menuSubgroup: Preparazione dei dati
+    menuTitle: Duplicati
+  - title: Qualità delle risposte
+    name: respquality
+    ns: AnalisiMercato
+    category: analyses
+    menuGroup: AnalisiMercato
+    menuSubgroup: Preparazione dei dati
+    menuTitle: Qualità delle risposte
+  - title: Outlier multivariati
+    name: mvoutliers
+    ns: AnalisiMercato
+    category: analyses
+    menuGroup: AnalisiMercato
+    menuSubgroup: Preparazione dei dati
+    menuTitle: Outlier multivariati
   - title: Cluster Analysis Gerarchica
     name: hc
     ns: AnalisiMercato

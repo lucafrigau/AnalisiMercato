@@ -11,6 +11,7 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
       .ind_coords = NULL,
 
       .init = function() {
+        .controlla_limiti("pca", self$options)
         # Dimensioni custom della mappa di posizionamento.
         # Applicato qui (in .init) come fa hc.b.R per i suoi plot — è il
         # punto in cui jamovi crea il contenitore dell'immagine e applica

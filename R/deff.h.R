@@ -39,12 +39,10 @@ deffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             private$..var_complex <- jmvcore::OptionNumber$new(
                 "var_complex",
                 var_complex,
-                min=0,
                 default=1)
             private$..var_srs <- jmvcore::OptionNumber$new(
                 "var_srs",
                 var_srs,
-                min=0.000001,
                 default=1)
             private$..plan <- jmvcore::OptionList$new(
                 "plan",
@@ -58,39 +56,30 @@ deffOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             private$..N <- jmvcore::OptionInteger$new(
                 "N",
                 N,
-                min=2,
                 default=1000)
             private$..n_total <- jmvcore::OptionInteger$new(
                 "n_total",
                 n_total,
-                min=1,
                 default=100)
             private$..rho <- jmvcore::OptionNumber$new(
                 "rho",
                 rho,
-                min=-1,
-                max=1,
                 default=0.1)
             private$..n_within <- jmvcore::OptionInteger$new(
                 "n_within",
                 n_within,
-                min=1,
                 default=10)
             private$..L <- jmvcore::OptionInteger$new(
                 "L",
                 L,
-                min=2,
                 default=4)
             private$..R2 <- jmvcore::OptionNumber$new(
                 "R2",
                 R2,
-                min=0,
-                max=1,
                 default=0.3)
             private$..n_srs <- jmvcore::OptionInteger$new(
                 "n_srs",
                 n_srs,
-                min=1,
                 default=100)
 
             self$.addOption(private$..tuto)

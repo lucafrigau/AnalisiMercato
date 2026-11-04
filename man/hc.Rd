@@ -7,7 +7,7 @@
 hc(
   data,
   vars,
-  asimm,
+  asimm = list(),
   tuto = TRUE,
   dis = "euclidean",
   method = "ward.D2",
@@ -42,13 +42,16 @@ mentre Euclidea, Manhattan e Mahalanobis trattano i valori come quantità
 (ammesse anche su categoriali con modalità numeriche, ma i codici entrano
 nel calcolo come numeri).}
 
-\item{asimm}{Variabili binarie di presenza/assenza (0 = assenza, 1 =
-presenza), che entrano nella base della segmentazione insieme a quelle di
-\code{vars}. Con la distanza di Gower la co-assenza (0 in entrambe le
-unità) non entra nel confronto: per quella coppia la variabile esce dalla
-media, come nell'indice di Jaccard. Una variabile a due modalità entrambe
-informative (per esempio il sesso) va invece in \code{vars}. Con le altre
-distanze queste variabili sono trattate come quelle di \code{vars}.}
+\item{asimm}{Variabili binarie di presenza/assenza, con valori 0 e 1 (0 =
+assenza, 1 = presenza): numeriche o fattori con livelli "0" e "1"; le
+modalità testuali sono rifiutate. Entrano nella base della segmentazione
+insieme a quelle di \code{vars}. Con la distanza di Gower la co-assenza (0
+in entrambe le unità) non entra nel confronto: per quella coppia la
+variabile esce dalla media, come nell'indice di Jaccard. Una variabile a
+due modalità entrambe informative (per esempio il sesso) va invece in
+\code{vars}. Con le altre distanze queste variabili sono trattate come
+quelle di \code{vars}; nell'interfaccia di jamovi la casella è attiva solo
+con Gower, e cambiando distanza le sue variabili passano in \code{vars}.}
 
 \item{tuto}{Se TRUE mostra il pannello con la descrizione metodologica
 dell'analisi.}

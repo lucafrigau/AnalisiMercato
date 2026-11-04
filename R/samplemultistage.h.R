@@ -58,13 +58,10 @@ samplemultistageOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
             private$..ng <- jmvcore::OptionInteger$new(
                 "ng",
                 ng,
-                min=1,
                 default=3)
             private$..fg <- jmvcore::OptionNumber$new(
                 "fg",
                 fg,
-                min=0.0001,
-                max=1,
                 default=0.3)
             private$..ssu_mode <- jmvcore::OptionList$new(
                 "ssu_mode",
@@ -77,13 +74,10 @@ samplemultistageOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
             private$..b <- jmvcore::OptionInteger$new(
                 "b",
                 b,
-                min=1,
                 default=5)
             private$..fb <- jmvcore::OptionNumber$new(
                 "fb",
                 fb,
-                min=0.0001,
-                max=1,
                 default=0.5)
             private$..seed <- jmvcore::OptionInteger$new(
                 "seed",

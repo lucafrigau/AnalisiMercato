@@ -46,8 +46,10 @@ complesso e nel SCR di riferimento, il modulo calcola Deff come rapporto.
 
 \item{R2}{.}
 
-\item{n_srs}{Numerosità del campione casuale semplice da cui calcolare la
-numerosità equivalente del piano complesso (n_complex = Deff · n_SCR).}
+\item{n_srs}{Numerosità n, letta in due modi: se è la numerosità del
+casuale semplice da eguagliare, il piano complesso ne richiede n_complex =
+Deff · n; se è un campione già raccolto col piano complesso, vale quanto
+n_eff = n / Deff unità di un casuale semplice.}
 }
 \value{
 A results object containing:

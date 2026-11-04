@@ -289,20 +289,21 @@ test_that("con Gower la co-assenza delle binarie di presenza/assenza non conta",
                rif(list()))
 })
 
-test_that("le binarie di presenza/assenza ammettono 0/1 numerici, fattori 0/1 e due modalita' testuali", {
+test_that("le binarie di presenza/assenza ammettono solo 0/1, numerici o fattori", {
   d <- data.frame(x = c(0, 10, 4, 7), a = c(0, 0, 1, 1))
   atteso <- altezze_hc(data = d, vars = "x", asimm = "a", dis = "gower",
                        method = "average")
   d_f <- data.frame(x = d$x, a = factor(c("0", "0", "1", "1")))
   expect_equal(altezze_hc(data = d_f, vars = "x", asimm = "a", dis = "gower",
                           method = "average"), atteso)
-  # due modalita' testuali: il primo livello e' l'assenza, e la nota lo dice
-  d_t <- data.frame(x = d$x, a = factor(c("no", "no", "si", "si"), levels = c("no", "si")))
-  r <- hc(data = d_t, vars = "x", asimm = "a", dis = "gower", method = "average",
-          n_clusters = 2, dend = TRUE)
-  expect_equal(r$plot_dend$state[[1]]$height, atteso)
-  expect_match(r$izpis$notes[["codifica"]]$note, "no=0, si=1", fixed = TRUE)
+  r <- hc(data = d_f, vars = "x", asimm = "a", dis = "gower", n_clusters = 2)
   expect_match(r$izpis$notes[["asimm"]]$note, "co-assenza|co-absence")
+  # due modalita' testuali, come le etichette date in jamovi ai codici 0 e
+  # 1: rifiutate con qualunque distanza
+  d_t <- data.frame(x = d$x, a = factor(c("no", "no", "si", "si"), levels = c("no", "si")))
+  for (distanza in c("gower", "euclidean"))
+    expect_error(hc(data = d_t, vars = "x", asimm = "a", dis = distanza, n_clusters = 2),
+                 "dichiararla Continua|set it to Continuous")
 })
 
 test_that("le binarie di presenza/assenza rifiutano codifiche diverse da 0/1", {
@@ -310,10 +311,32 @@ test_that("le binarie di presenza/assenza rifiutano codifiche diverse da 0/1", {
     hc(data = data.frame(x = c(0, 10, 4, 7), a = factor(c("a", "b", "c", "a"))),
        vars = "x", asimm = "a", dis = "gower", n_clusters = 2),
     "presenza/assenza|Presence/absence")
-  expect_error(
-    hc(data = data.frame(x = c(0, 10, 4, 7), a = c(0, 1, 2, 1)),
-       vars = "x", asimm = "a", dis = "gower", n_clusters = 2),
-    "presenza/assenza|Presence/absence")
+  for (distanza in c("gower", "euclidean"))
+    expect_error(
+      hc(data = data.frame(x = c(0, 10, 4, 7), a = c(0, 1, 2, 1)),
+         vars = "x", asimm = "a", dis = distanza, n_clusters = 2),
+      "presenza/assenza|Presence/absence")
+})
+
+test_that("con Gower R2, RMSSTD e CH non dipendono dall'unita' di misura", {
+  # Gower divide ogni variabile per il suo campo di variazione: gli indici
+  # fanno lo stesso, quindi il reddito in euro o in migliaia di euro da'
+  # gli stessi valori, con la nota che lo dichiara.
+  set.seed(7)
+  d <- data.frame(reddito = round(rnorm(30, 2500, 700)),
+                  sesso = rbinom(30, 1, 0.5), auto = rbinom(30, 1, 0.3))
+  metriche <- function(dati) {
+    r <- hc(data = dati, vars = c("reddito", "sesso"), asimm = "auto",
+            dis = "gower", method = "average", n_clusters = 3)
+    list(tab = as.data.frame(r$metriche)[, c("r2", "rmsstd", "ch_index")],
+         nota = r$metriche$notes[["gower"]]$note)
+  }
+  in_euro <- metriche(d)
+  d$reddito <- d$reddito / 1000
+  in_migliaia <- metriche(d)
+  expect_equal(in_euro$tab, in_migliaia$tab)
+  expect_true(all(is.finite(in_euro$tab$r2)))
+  expect_match(in_euro$nota, "campo di variazione|range")
 })
 
 test_that("base di sole binarie di presenza/assenza: la co-assenza totale vale 0", {

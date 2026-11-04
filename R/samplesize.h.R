@@ -39,29 +39,22 @@ samplesizeOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             private$..N <- jmvcore::OptionInteger$new(
                 "N",
                 N,
-                min=2,
                 default=1000)
             private$..delta <- jmvcore::OptionNumber$new(
                 "delta",
                 delta,
-                min=0.000001,
                 default=0.03)
             private$..confidence <- jmvcore::OptionNumber$new(
                 "confidence",
                 confidence,
-                min=50,
-                max=99.99,
                 default=95)
             private$..prop_P <- jmvcore::OptionNumber$new(
                 "prop_P",
                 prop_P,
-                min=0,
-                max=1,
                 default=0.5)
             private$..mean_sigma <- jmvcore::OptionNumber$new(
                 "mean_sigma",
                 mean_sigma,
-                min=0.000001,
                 default=1)
 
             self$.addOption(private$..tuto)

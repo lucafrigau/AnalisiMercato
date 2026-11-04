@@ -90,3 +90,35 @@ test_that("i grafici della cluster analysis si disegnano con ogni distanza", {
     expect_equal(.render_all(a, .hc_plots), character(0), info = dis)
   }
 })
+
+test_that("le matrici di coerenza si disegnano, con modalita' numeriche e testuali", {
+  grDevices::pdf(NULL); on.exit(grDevices::dev.off(), add = TRUE)
+  livelli <- c("Mai", "Meno di una volta al mese", "1-3 volte al mese",
+               "Almeno una volta a settimana", "Sempre")
+  d <- data.frame(
+    d17 = factor(livelli[c(1, 1, 5, 2, 3, 4)], levels = livelli),
+    d43 = factor(livelli[c(5, 1, 1, 2, 4, 4)], levels = livelli),
+    a = c(1, 2, 3, 4, 5, 1), b = c(5, 2, 3, 1, 5, 1))
+  # i colori seguono la soglia: il rosso parte dalla distanza scelta
+  # distanze della prima coppia: 4, 0, 4, 0, 1, 0
+  rosso <- c(`1` = 3, `2` = 2, `3` = 2, `4` = 2)
+  for (soglia in 1:4) {
+    o <- respqualityOptions$new(pairs = list(list(i1 = "d17", i2 = "d43"),
+                                             list(i1 = "a", i2 = "b")),
+                                distMin = soglia)
+    a <- respqualityClass$new(options = o, data = d)
+    a$init(); a$run()
+    priv <- a$.__enclos_env__$private
+    for (i in 1:2) {
+      img <- a$results$matrici$get(index = i)
+      g <- priv$.plotMatrice(img)
+      expect_s3_class(g, "ggplot")
+      expect_no_error(print(g))
+    }
+    # prima coppia, 5 modalita': le celle rosse sono quelle a distanza >= soglia
+    g1 <- priv$.plotMatrice(a$results$matrici$get(index = 1))
+    segnale <- grepl("segnale|signal", as.character(g1$data$classe))
+    expect_equal(sum(segnale), sum(g1$data$dist >= soglia), info = paste("soglia", soglia))
+    expect_equal(sum(g1$data$n[segnale]), rosso[[as.character(soglia)]], info = paste("soglia", soglia))
+  }
+})

@@ -145,4 +145,40 @@ scrivi(prepara(d, tipi, descr,
                livelli = list(posizionamento = c("Mass", "Bio", "Funzionale", "Premium"))),
        "panel_prodotti")
 
+# --- 5. questionario_grezzo: preparazione dei dati --------------------------
+# Le risposte a un questionario online come le esporta Moduli Google, prima
+# della pulizia. Le celle vuote dei testi sono mancanti, non una modalità.
+d <- leggi("questionario_grezzo")
+for (nm in names(d)) if (is.character(d[[nm]])) d[[nm]][d[[nm]] == ""] <- NA
+item <- c("prezzi_convenienti", "assortimento_ampio", "personale_cortese",
+          "attese_brevi", "negozio_pulito", "personale_scortese")
+tipi <- c(list(informazione_cronologica = "ID", email = "ID", eta = "continua",
+               sesso = "nominale", social = "nominale",
+               freq_bio = "ordinale", bio_ultimi_3_mesi = "ordinale",
+               reddito_k = "continua", spesa_mensile = "continua"),
+          setNames(as.list(rep("continua", length(item))), item))
+descr <- c(list(
+  informazione_cronologica = "Data e ora dell'invio, come le registra Moduli Google: cambia a ogni invio e va lasciata fuori dal confronto dei duplicati",
+  email             = "Email del rispondente: identifica chi ha risposto piu volte",
+  eta               = "Eta in anni compiuti",
+  sesso             = "Sesso del rispondente",
+  social            = "Social usati almeno una volta alla settimana: risposta multipla, opzioni separate da virgole",
+  freq_bio          = "Con quale frequenza acquista prodotti biologici? Domanda di controllo",
+  bio_ultimi_3_mesi = "Negli ultimi 3 mesi, con quale frequenza ha acquistato prodotti biologici? Domanda di controllo, modalita nello stesso ordine di freq_bio",
+  reddito_k         = "Reddito annuo in migliaia di euro",
+  spesa_mensile     = "Spesa mensile nel punto vendita, in euro"),
+  setNames(lapply(item, function(x)
+    "Punteggio su scala 1-5 (1 = per niente d'accordo, 5 = del tutto d'accordo)"), item))
+descr$personale_scortese <- "Punteggio su scala 1-5 (1 = per niente d'accordo, 5 = del tutto d'accordo): item formulato al contrario"
+scrivi(prepara(d, tipi, descr,
+               livelli = list(
+                 sesso = c("F", "M"),
+                 freq_bio = c("Mai/quasi mai", "Meno di una volta al mese",
+                              "1-3 volte al mese", "Almeno una volta a settimana",
+                              "Sempre/quasi sempre"),
+                 bio_ultimi_3_mesi = c("Mai", "1-2 volte in 3 mesi",
+                                       "Circa una volta al mese", "2-3 volte al mese",
+                                       "Settimanalmente o più spesso"))),
+       "questionario_grezzo")
+
 cat("\nFatto. I file .omv sono in", normalizePath(out_dir), "\n")
