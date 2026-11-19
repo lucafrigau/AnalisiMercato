@@ -1,4 +1,4 @@
-title: Confronto partizioni
+title: "Comparing partitions"
 name: ari
 jus: '3.0'
 stage: 0
@@ -9,7 +9,7 @@ children:
     stretchFactor: 1
     children:
       - type: TargetLayoutBox
-        label: Partizioni da confrontare
+        label: "Partitions to compare"
         children:
           - type: VariablesListBox
             name: vars

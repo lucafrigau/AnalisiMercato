@@ -81,16 +81,16 @@ dummiesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Variabili dummy")
+                title="Dummy variables")
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="dummies",
-                title="Dummy create",
+                title="Dummies created",
                 rows=0,
                 clearWith=list(
                     "vars",
@@ -100,34 +100,34 @@ dummiesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="var", 
-                        `title`="Variabile", 
+                        `title`="Variable", 
                         `type`="text", 
                         `combineBelow`=TRUE),
                     list(
                         `name`="level", 
-                        `title`="Modalit\u00E0", 
+                        `title`="Level", 
                         `type`="text"),
                     list(
                         `name`="name", 
-                        `title`="Nome della dummy", 
+                        `title`="Dummy name", 
                         `type`="text"),
                     list(
                         `name`="n1", 
-                        `title`="N con 1", 
+                        `title`="N with 1", 
                         `type`="integer"),
                     list(
                         `name`="perc1", 
-                        `title`="% con 1", 
+                        `title`="% with 1", 
                         `type`="number", 
                         `format`="pc"),
                     list(
                         `name`="nmiss", 
-                        `title`="Mancanti", 
+                        `title`="Missing", 
                         `type`="integer"))))
             self$add(jmvcore::Output$new(
                 options=options,
                 name="dummiesOV",
-                title="Variabili dummy",
+                title="Dummy variables",
                 initInRun=TRUE,
                 measureType="continuous",
                 clearWith=list(
@@ -157,7 +157,7 @@ dummiesBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'none')
         }))
 
-#' Variabili dummy
+#' Dummy variables
 #'
 #' 
 #' @param data .

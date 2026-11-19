@@ -139,19 +139,19 @@ samplemultistageResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
             super$initialize(
                 options=options,
                 name="",
-                title="Campionamento a due stadi",
+                title="Two-stage sampling",
                 refs=list(
                     "cochran",
                     "kish"))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="summary",
-                title="Riepilogo del campione",
+                title="Sample summary",
                 rows=1,
                 clearWith=list(
                     "psu_var",
@@ -165,31 +165,31 @@ samplemultistageResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                 columns=list(
                     list(
                         `name`="N", 
-                        `title`="N (popolazione)", 
+                        `title`="N (population)", 
                         `type`="integer"),
                     list(
                         `name`="M", 
-                        `title`="M (PSU totali)", 
+                        `title`="M (total PSUs)", 
                         `type`="integer"),
                     list(
                         `name`="ng_richiesto", 
-                        `title`="n_g richiesti", 
+                        `title`="Requested n_g", 
                         `type`="integer"),
                     list(
                         `name`="ng_estratto", 
-                        `title`="n_g estratti", 
+                        `title`="Drawn n_g", 
                         `type`="integer"),
                     list(
                         `name`="ssu_label", 
-                        `title`="2\u00B0 stadio", 
+                        `title`="2nd stage", 
                         `type`="text"),
                     list(
                         `name`="n_unita", 
-                        `title`="n unit\u00E0 campionate", 
+                        `title`="Sampled units (n)", 
                         `type`="integer"),
                     list(
                         `name`="frazione", 
-                        `title`="Frazione f = n/N", 
+                        `title`="Fraction f = n/N", 
                         `type`="number", 
                         `format`="zto"),
                     list(
@@ -199,7 +199,7 @@ samplemultistageResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
             self$add(jmvcore::Table$new(
                 options=options,
                 name="psu_table",
-                title="PSU estratte",
+                title="Sampled PSUs",
                 rows=0,
                 clearWith=list(
                     "psu_var",
@@ -217,11 +217,11 @@ samplemultistageResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                         `type`="text"),
                     list(
                         `name`="dim_psu", 
-                        `title`="Dimensione PSU", 
+                        `title`="PSU size", 
                         `type`="integer"),
                     list(
                         `name`="n_estratte", 
-                        `title`="Unit\u00E0 estratte", 
+                        `title`="Sampled units", 
                         `type`="integer"),
                     list(
                         `name`="f_psu", 
@@ -231,7 +231,7 @@ samplemultistageResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
             self$add(jmvcore::Table$new(
                 options=options,
                 name="extracted",
-                title="Unit\u00E0 estratte",
+                title="Sampled units",
                 rows=0,
                 visible="(id_var)",
                 clearWith=list(
@@ -247,7 +247,7 @@ samplemultistageResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                 columns=list(
                     list(
                         `name`="ord", 
-                        `title`="Ordine", 
+                        `title`="Order", 
                         `type`="integer"),
                     list(
                         `name`="psu", 
@@ -255,7 +255,7 @@ samplemultistageResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                         `type`="text"),
                     list(
                         `name`="pos", 
-                        `title`="Riga", 
+                        `title`="Row", 
                         `type`="integer"),
                     list(
                         `name`="id_value", 
@@ -264,7 +264,7 @@ samplemultistageResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
             self$add(jmvcore::Output$new(
                 options=options,
                 name="out_freq",
-                title="Estrai il campione (indicatore 0/1, frequenza)",
+                title="Draw the sample (0/1 indicator, frequency)",
                 varTitle="in_2STG",
                 measureType="continuous",
                 clearWith=list(
@@ -298,7 +298,7 @@ samplemultistageBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
                 weightsSupport = 'none')
         }))
 
-#' Campionamento a due stadi
+#' Two-stage sampling
 #'
 #' 
 #' @param data .

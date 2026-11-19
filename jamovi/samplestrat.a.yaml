@@ -1,8 +1,8 @@
 ---
 name:  samplestrat
-title: Campionamento stratificato
+title: "Stratified sampling"
 menuGroup: AnalisiMercato
-menuSubgroup: Campionamento
+menuSubgroup: "Sampling"
 version: '2.0.9'
 jas: '1.2'
 
@@ -11,7 +11,7 @@ options:
       type: Data
 
     - name: strat_var
-      title: Variabili di stratificazione
+      title: "Stratification variables"
       type: Variables
       suggested:
         - nominal
@@ -30,7 +30,7 @@ options:
             dovrebbero essere omogenee rispetto al fenomeno di interesse.
 
     - name: aux_var
-      title: Variabile ausiliaria per allocazione ottimale (opzionale)
+      title: "Auxiliary variable for optimal allocation (optional)"
       type: Variable
       suggested:
         - continuous
@@ -44,7 +44,7 @@ options:
             proxy.
 
     - name: id_var
-      title: Variabile identificativa (opzionale)
+      title: "ID variable (optional)"
       type: Variable
       suggested:
         - id
@@ -61,17 +61,17 @@ options:
             soggetti selezionati.
 
     - name: tuto
-      title: Descrizione delle analisi
+      title: "Show methodological description"
       type: Bool
       default: true
 
     - name: method
-      title: Metodo di allocazione
+      title: "Allocation method"
       type: List
       options:
-        - title: Proporzionale (n_j ∝ N_j)
+        - title: "Proportional (n_j ∝ N_j)"
           name:  proportional
-        - title: Ottimale di Neyman (n_j ∝ N_j · σ_j)
+        - title: "Neyman optimal (n_j ∝ N_j · σ_j)"
           name:  optimal
       default: proportional
       description:
@@ -82,32 +82,32 @@ options:
             (allocazione di Neyman).
 
     - name: size_mode
-      title: Modalità di specifica della numerosità
+      title: "Sample size specification mode"
       type: List
       options:
-        - title: Numero di unità (n)
+        - title: "Number of units (n)"
           name:  n
-        - title: Frazione di campionamento (f)
+        - title: "Sampling fraction (f)"
           name:  f
       default: n
 
     - name: n
-      title: Numerosità campionaria totale (n)
+      title: "Total sample size (n)"
       type: Integer
       default: 30
 
     - name: f
-      title: Frazione di campionamento (f)
+      title: "Sampling fraction (f)"
       type: Number
       default: 0.1
 
     - name: seed
-      title: Seed (riproducibilità)
+      title: "Seed (reproducibility)"
       type: Integer
       default: 1
 
     - name: out_freq
-      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      title: "Draw the sample (0/1 indicator, frequency)"
       type: Output
       description:
           R: >

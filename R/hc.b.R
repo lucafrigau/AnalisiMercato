@@ -520,7 +520,7 @@ hcClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
           if (!all(valori %in% c(0, 1))) {
             self$results$izpis$setNote("sm", .tr(
               it = "I dati non sono binari 0/1: la distanza è calcolata come Simple Matching (quota di variabili con modalità diversa), generalizzazione naturale di Sokal-Michener ai dati politomici.",
-              en = "The data are not binary 0/1: the distance is computed as Simple Matching (share of variables with differing categories), the natural generalisation of Sokal-Michener to polytomous data."
+              en = "The data are not binary 0/1: the distance is computed as Simple Matching (share of variables with differing categories), the natural generalization of Sokal-Michener to polytomous data."
             ))
           }
         }

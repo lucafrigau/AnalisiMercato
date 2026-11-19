@@ -1,8 +1,8 @@
 ---
 name: duplicates
-title: Duplicati
+title: "Duplicates"
 menuGroup: AnalisiMercato
-menuSubgroup: Preparazione dei dati
+menuSubgroup: "Data preparation"
 version: '2.2.0'
 jas: '1.2'
 
@@ -11,7 +11,7 @@ options:
     type: Data
 
   - name: vars
-    title: Variabili da confrontare
+    title: "Variables to compare"
     type: Variables
     permitted:
       - numeric
@@ -26,7 +26,7 @@ options:
           mancano tutte non si confrontano.
 
   - name: ignoreCase
-    title: Ignora maiuscole e spazi nei testi
+    title: "Ignore case and spaces in texts"
     type: Bool
     default: true
     description:
@@ -36,14 +36,14 @@ options:
           ripetuti.
 
   - name: tuto
-    title: Descrizione delle analisi
+    title: "Show methodological description"
     type: Bool
     default: true
     description:
         R: Se TRUE mostra il pannello con la descrizione dell'analisi.
 
   - name: duplicatoOV
-    title: Crea la variabile «duplicato»
+    title: "Create the “duplicato” variable"
     type: Output
     description:
         R: >

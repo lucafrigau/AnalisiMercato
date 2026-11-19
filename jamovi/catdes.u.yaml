@@ -1,4 +1,4 @@
-title: Caratterizzazione
+title: "Cluster profiling"
 name: catdes
 jus: '3.0'
 stage: 0
@@ -9,14 +9,14 @@ children:
     stretchFactor: 1
     children:
       - type: TargetLayoutBox
-        label: Variabile 'Cluster' da caratterizzare
+        label: "'Cluster' variable to describe"
         children:
           - type: VariablesListBox
             name: vartochar
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Descrittori
+        label: "Descriptors"
         children:
           - type: VariablesListBox
             name: descbyvar

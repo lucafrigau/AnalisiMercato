@@ -1,4 +1,4 @@
-title: Intervalli di confidenza
+title: "Confidence intervals"
 name: confint
 jus: '3.0'
 stage: 0
@@ -13,7 +13,7 @@ children:
       - id
     children:
       - type: TargetLayoutBox
-        label: Variabile (per calcolo da dataset)
+        label: "Variable (for dataset-based estimation)"
         children:
           - type: VariablesListBox
             name: data_var

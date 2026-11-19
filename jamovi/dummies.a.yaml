@@ -1,8 +1,8 @@
 ---
 name: dummies
-title: Variabili dummy
+title: "Dummy variables"
 menuGroup: AnalisiMercato
-menuSubgroup: Preparazione dei dati
+menuSubgroup: "Data preparation"
 version: '2.2.0'
 jas: '1.2'
 
@@ -11,7 +11,7 @@ options:
     type: Data
 
   - name: vars
-    title: Variabili categoriali
+    title: "Categorical variables"
     type: Variables
     suggested:
       - nominal
@@ -25,7 +25,7 @@ options:
           ciascuna opzione se `multi` è TRUE.
 
   - name: multi
-    title: Risposta multipla
+    title: "Multiple response"
     type: Bool
     default: false
     description:
@@ -35,14 +35,14 @@ options:
           una dummy per ciascuna opzione.
 
   - name: sep
-    title: Separatore
+    title: "Separator"
     type: String
     default: ","
     description:
         R: Il carattere che separa le opzioni nelle risposte multiple.
 
   - name: minAltro
-    title: Riunisci in «altro» le opzioni scelte meno di
+    title: "Group into “altro” the options chosen fewer than"
     type: Integer
     default: 2
     description:
@@ -52,14 +52,14 @@ options:
           un'unica dummy «altro». Con 1 non si riunisce nessuna opzione.
 
   - name: tuto
-    title: Descrizione delle analisi
+    title: "Show methodological description"
     type: Bool
     default: true
     description:
         R: Se TRUE mostra il pannello con la descrizione dell'analisi.
 
   - name: dummiesOV
-    title: Crea le variabili dummy
+    title: "Create the dummy variables"
     type: Output
     description:
         R: Colonne di output con le dummy, una per modalità o per opzione.

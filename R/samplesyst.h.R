@@ -110,19 +110,19 @@ samplesystResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Campionamento sistematico",
+                title="Systematic sampling",
                 refs=list(
                     "cochran",
                     "lohr"))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="summary",
-                title="Riepilogo del campione",
+                title="Sample summary",
                 rows=1,
                 clearWith=list(
                     "size_mode",
@@ -133,29 +133,29 @@ samplesystResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="N", 
-                        `title`="N (popolazione)", 
+                        `title`="N (population)", 
                         `type`="integer"),
                     list(
                         `name`="n_richiesto", 
-                        `title`="n richiesto", 
+                        `title`="Requested n", 
                         `type`="integer"),
                     list(
                         `name`="n_estratto", 
-                        `title`="n estratto", 
+                        `title`="Drawn n", 
                         `type`="integer"),
                     list(
                         `name`="intervallo", 
-                        `title`="Intervallo k = N/n", 
+                        `title`="Interval k = N/n", 
                         `type`="number", 
                         `format`="zto"),
                     list(
                         `name`="partenza", 
-                        `title`="Partenza casuale r \u2208 (0, k]", 
+                        `title`="Random start r \u2208 (0, k]", 
                         `type`="number", 
                         `format`="zto"),
                     list(
                         `name`="ordinato_per", 
-                        `title`="Ordinato per", 
+                        `title`="Sorted by", 
                         `type`="text"),
                     list(
                         `name`="seed_used", 
@@ -164,7 +164,7 @@ samplesystResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Table$new(
                 options=options,
                 name="extracted",
-                title="Unit\u00E0 estratte",
+                title="Sampled units",
                 rows=0,
                 visible="(id_var)",
                 clearWith=list(
@@ -177,15 +177,15 @@ samplesystResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="ord", 
-                        `title`="Ordine nel campione", 
+                        `title`="Order in sample", 
                         `type`="integer"),
                     list(
                         `name`="pos", 
-                        `title`="Posizione (dopo ordinamento)", 
+                        `title`="Position (after sorting)", 
                         `type`="integer"),
                     list(
                         `name`="pos_orig", 
-                        `title`="Riga originale", 
+                        `title`="Original row", 
                         `type`="integer"),
                     list(
                         `name`="id_value", 
@@ -194,7 +194,7 @@ samplesystResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Output$new(
                 options=options,
                 name="out_freq",
-                title="Estrai il campione (indicatore 0/1, frequenza)",
+                title="Draw the sample (0/1 indicator, frequency)",
                 varTitle="in_SM",
                 measureType="continuous",
                 clearWith=list(
@@ -225,7 +225,7 @@ samplesystBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'none')
         }))
 
-#' Campionamento sistematico
+#' Systematic sampling
 #'
 #' 
 #' @param data .

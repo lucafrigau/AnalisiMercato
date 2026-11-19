@@ -1,16 +1,16 @@
 ---
 name: respquality
-title: Qualità delle risposte
+title: "Response quality"
 jrs: '1.1'
 
 items:
   - name: instructions
-    title: Istruzioni
+    title: "Instructions"
     type: Html
     visible: (tuto)
 
   - name: riepilogo
-    title: Segnali
+    title: "Signals"
     type: Table
     rows: 0
     clearWith:
@@ -21,21 +21,21 @@ items:
       - distMin
     columns:
       - name: segnale
-        title: Segnale
+        title: "Signal"
         type: text
       - name: criterio
-        title: Criterio
+        title: "Criterion"
         type: text
       - name: n
-        title: Rispondenti
+        title: "Respondents"
         type: integer
       - name: perc
-        title: '% dei rispondenti'
+        title: "% of respondents"
         type: number
         format: pc
 
   - name: rispondenti
-    title: Rispondenti da esaminare
+    title: "Respondents to examine"
     type: Table
     rows: 0
     clearWith:
@@ -47,24 +47,24 @@ items:
       - minSegnali
     columns:
       - name: riga
-        title: Riga
+        title: "Row"
         type: integer
       - name: segnali
-        title: Segnali
+        title: "Signals"
         type: integer
       - name: seqmax
-        title: Stessa risposta di fila
+        title: "Same answer in a row"
         type: integer
       - name: mancanti
-        title: Mancanti
+        title: "Missing"
         type: integer
 
   - name: matrici
-    title: Matrici di coerenza
+    title: "Consistency matrices"
     type: Array
     items: (pairs)
     template:
-      title: Matrice di coerenza
+      title: "Consistency matrix"
       type: Image
       width: 520
       height: 460
@@ -74,7 +74,7 @@ items:
         - distMin
 
   - name: segnaliOV
-    title: Numero di segnali
+    title: "Number of signals"
     type: Output
     varTitle: segnali
     varDescription: Numero di segnali di poca attenzione del rispondente
@@ -87,7 +87,7 @@ items:
       - distMin
 
   - name: indicatoriOV
-    title: Indicatori
+    title: "Indicators"
     type: Output
     initInRun: true
     measureType: continuous

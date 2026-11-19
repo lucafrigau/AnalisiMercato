@@ -1,8 +1,8 @@
 ---
 name:  samplecluster
-title: Campionamento a grappoli
+title: "Cluster sampling"
 menuGroup: AnalisiMercato
-menuSubgroup: Campionamento
+menuSubgroup: "Sampling"
 version: '2.0.9'
 jas: '1.2'
 
@@ -11,7 +11,7 @@ options:
       type: Data
 
     - name: cluster_var
-      title: Variabile di grappolo
+      title: "Cluster variable"
       type: Variable
       suggested:
         - nominal
@@ -29,7 +29,7 @@ options:
             simili tra loro.
 
     - name: id_var
-      title: Variabile identificativa (opzionale)
+      title: "ID variable (optional)"
       type: Variable
       suggested:
         - id
@@ -46,17 +46,17 @@ options:
             soggetti selezionati.
 
     - name: tuto
-      title: Descrizione delle analisi
+      title: "Show methodological description"
       type: Bool
       default: true
 
     - name: size_mode
-      title: Modalità di specifica
+      title: "Specification mode"
       type: List
       options:
-        - title: Numero di grappoli (n_g)
+        - title: "Number of clusters (n_g)"
           name:  ng
-        - title: Frazione di grappoli (f_g)
+        - title: "Cluster fraction (f_g)"
           name:  fg
       default: ng
       description:
@@ -65,26 +65,26 @@ options:
             estrarre o una frazione dei grappoli totali.
 
     - name: ng
-      title: Numero di grappoli da estrarre
+      title: "Number of clusters to draw"
       type: Integer
       default: 3
       description:
           R: Numero di grappoli (cluster) da estrarre dalla popolazione.
 
     - name: fg
-      title: Frazione di grappoli (f_g)
+      title: "Cluster fraction (f_g)"
       type: Number
       default: 0.3
       description:
           R: Frazione f_g = n_g / M dei grappoli da estrarre.
 
     - name: seed
-      title: Seed (riproducibilità)
+      title: "Seed (reproducibility)"
       type: Integer
       default: 1
 
     - name: out_freq
-      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      title: "Draw the sample (0/1 indicator, frequency)"
       type: Output
       description:
           R: >

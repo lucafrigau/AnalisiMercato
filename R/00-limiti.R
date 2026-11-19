@@ -3,8 +3,8 @@
 # Nei .a.yaml le opzioni non hanno `min` e `max`: con quelli jmvcore
 # controllerebbe da sé i valori e, se fuori, risponderebbe in inglese e con
 # il nome interno dell'opzione («distMin must be between 1 and Inf (is
-# 0)»). Qui il messaggio è in italiano e nomina l'opzione come la vede lo
-# studente nel pannello. Ogni analisi chiama .controlla_limiti() all'inizio
+# 0)»). Qui il messaggio è nella lingua di jamovi (italiano o inglese) e
+# nomina l'opzione come la vede lo studente nel pannello. Ogni analisi chiama .controlla_limiti() all'inizio
 # di .init.
 #
 # Per ogni opzione: `min` e `max` (assenti = nessun limite), `aperto = TRUE`
@@ -41,7 +41,7 @@
                  en = "The reference sample size n")),
   dummies = list(
     minAltro = list(min = 1, it = "Il numero di volte sotto cui un'opzione va in «altro»",
-                    en = "The number of times below which an option goes into «altro»")),
+                    en = "The number of times below which an option goes into “altro”")),
   hc = list(
     n_clusters = list(min = 2, it = "Il numero di gruppi", en = "The number of groups")),
   mvoutliers = list(
@@ -108,8 +108,8 @@
              en = "The sampling fraction f"))
 )
 
-# Ferma l'analisi, con un messaggio in italiano, se un'opzione numerica è
-# fuori dai suoi limiti.
+# Ferma l'analisi, con un messaggio nella lingua di jamovi, se un'opzione
+# numerica è fuori dai suoi limiti.
 .controlla_limiti <- function(analisi, options) {
   numero <- function(x) format(x, scientific = FALSE, drop0trailing = TRUE, trim = TRUE,
                                decimal.mark = .tr(it = ",", en = "."))

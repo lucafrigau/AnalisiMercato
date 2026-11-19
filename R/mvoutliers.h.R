@@ -72,16 +72,16 @@ mvoutliersResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Outlier multivariati")
+                title="Multivariate outliers")
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="riepilogo",
-                title="Riepilogo",
+                title="Summary",
                 rows=1,
                 clearWith=list(
                     "vars",
@@ -89,28 +89,28 @@ mvoutliersResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="n", 
-                        `title`="Osservazioni usate", 
+                        `title`="Observations used", 
                         `type`="integer"),
                     list(
                         `name`="p", 
-                        `title`="Variabili", 
+                        `title`="Variables", 
                         `type`="integer"),
                     list(
                         `name`="soglia", 
-                        `title`="Valore critico di D\u00B2", 
+                        `title`="Critical value of D\u00B2", 
                         `type`="number"),
                     list(
                         `name`="nout", 
-                        `title`="Outlier", 
+                        `title`="Outliers", 
                         `type`="integer"),
                     list(
                         `name`="escluse", 
-                        `title`="Righe con mancanti", 
+                        `title`="Rows with missing values", 
                         `type`="integer"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="outlier",
-                title="Osservazioni oltre la soglia",
+                title="Observations beyond the threshold",
                 rows=0,
                 clearWith=list(
                     "vars",
@@ -118,7 +118,7 @@ mvoutliersResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="riga", 
-                        `title`="Riga", 
+                        `title`="Row", 
                         `type`="integer"),
                     list(
                         `name`="d2", 
@@ -132,7 +132,7 @@ mvoutliersResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Output$new(
                 options=options,
                 name="distOV",
-                title="Distanza di Mahalanobis",
+                title="Mahalanobis distance",
                 varTitle="mahal_D2",
                 varDescription="Distanza di Mahalanobis al quadrato dal centro dei dati",
                 measureType="continuous",
@@ -141,7 +141,7 @@ mvoutliersResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Output$new(
                 options=options,
                 name="outlierOV",
-                title="Outlier",
+                title="Outliers",
                 varTitle="outlier",
                 varDescription="1 = outlier multivariato, 0 = altre osservazioni",
                 measureType="nominal",
@@ -170,7 +170,7 @@ mvoutliersBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'none')
         }))
 
-#' Outlier multivariati
+#' Multivariate outliers
 #'
 #' 
 #' @param data .

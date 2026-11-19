@@ -1,8 +1,8 @@
 ---
 name:  samplesimple
-title: Campionamento casuale semplice
+title: "Simple random sampling"
 menuGroup: AnalisiMercato
-menuSubgroup: Campionamento
+menuSubgroup: "Sampling"
 version: '2.0.9'
 jas: '1.2'
 
@@ -11,7 +11,7 @@ options:
       type: Data
 
     - name: id_var
-      title: Variabile identificativa (opzionale)
+      title: "ID variable (optional)"
       type: Variable
       suggested:
         - id
@@ -28,14 +28,14 @@ options:
             soggetti selezionati. Non influisce sul processo di estrazione.
 
     - name: tuto
-      title: Descrizione delle analisi
+      title: "Show methodological description"
       type: Bool
       default: true
       description:
           R: Se TRUE mostra il pannello con la descrizione metodologica.
 
     - name: replacement
-      title: Estrazione con reinserimento (SCR)
+      title: "With replacement (SRS-R)"
       type: Bool
       default: false
       description:
@@ -45,12 +45,12 @@ options:
             reinserimento (SSR).
 
     - name: size_mode
-      title: Modalità di specifica della numerosità
+      title: "Sample size specification mode"
       type: List
       options:
-        - title: Numero di unità (n)
+        - title: "Number of units (n)"
           name:  n
-        - title: Frazione di campionamento (f)
+        - title: "Sampling fraction (f)"
           name:  f
       default: n
       description:
@@ -59,21 +59,21 @@ options:
             unità (n) oppure tramite una frazione f = n/N della popolazione.
 
     - name: n
-      title: Numerosità campionaria (n)
+      title: "Sample size (n)"
       type: Integer
       default: 30
       description:
           R: Numerosità del campione da estrarre.
 
     - name: f
-      title: Frazione di campionamento (f)
+      title: "Sampling fraction (f)"
       type: Number
       default: 0.1
       description:
           R: Frazione f = n/N della popolazione da estrarre (es. 0.1 = 10%).
 
     - name: seed
-      title: Seed (riproducibilità)
+      title: "Seed (reproducibility)"
       type: Integer
       default: 1
       description:
@@ -82,7 +82,7 @@ options:
             l'esatta riproducibilità del campione.
 
     - name: out_freq
-      title: "Estrai il campione (frequenza nel campione)"
+      title: "Draw the sample (frequency in the sample)"
       type: Output
       description:
           R: >

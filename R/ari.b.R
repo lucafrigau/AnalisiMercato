@@ -22,13 +22,13 @@ ariClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
             </head>
             <body>
             <div class='justified-text'>
-              <p> L'Adjusted Rand Index (ARI) e' una misura utilizzata per valutare la concordanza
+              <p> L'Adjusted Rand Index (ARI) è una misura utilizzata per valutare la concordanza
               tra due partizioni. L'ARI tiene conto del caso in cui l'accordo tra le partizioni
               potrebbe verificarsi per puro caso, correggendo il Rand Index non corretto.</p>
 
               <p> Questa metrica calcola la somiglianza tra le due partizioni considerando sia i
               dati assegnati correttamente allo stesso cluster sia quelli assegnati correttamente
-              a cluster diversi. L'ARI e' normalizzato per avere un valore compreso tra -1 e 1:
+              a cluster diversi. L'ARI è normalizzato per avere un valore compreso tra -1 e 1:
               <ul>
               <li> Un valore vicino a 1 indica una corrispondenza quasi perfetta tra le partizioni. </li>
               <li> Un valore pari a 0 indica che le partizioni concordano quanto ci si aspetterebbe per caso. </li>
@@ -50,7 +50,7 @@ ariClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
 
               <p> The index combines both observations assigned to the same cluster
               in both partitions and observations assigned to different clusters in
-              both partitions. The ARI is normalised to lie between −1 and 1:
+              both partitions. The ARI is normalized to lie between −1 and 1:
               <ul>
               <li> Values close to 1 indicate near-perfect agreement between the two partitions. </li>
               <li> A value of 0 means that the partitions agree only as much as expected by chance. </li>
@@ -79,9 +79,8 @@ ariClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
         }
 
         # Inizializza le celle del triangolo superiore (vuote) e la diagonale.
-        # Le colonne sono di tipo number: usiamo NA_real_ per le celle vuote
-        # \u2014 jmvcore le renderizza come vuote senza generare warning di
-        # coercion (che invece scatta con stringhe vuote).
+        # Le celle vuote sono stringhe vuote: con NA_real_ jamovi 2.7 scrive
+        # NaN nella cella, anche se la colonna è di tipo number.
         for (i in seq_along(vars)) {
           var <- vars[[i]]
           values <- list()
@@ -90,7 +89,7 @@ ariClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
             v <- vars[[j]]
             # La diagonale è ARI(partizione, se stessa) = 1 per definizione:
             # mostrarla esplicitamente aiuta la lettura della matrice.
-            values[[paste0(v, '[r]')]] <- if (j == i) 1 else NA_real_
+            values[[paste0(v, '[r]')]] <- if (j == i) 1 else ""
           }
 
           matrix$setRow(rowKey = var, values)

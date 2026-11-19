@@ -1,16 +1,16 @@
 ---
 name: duplicates
-title: Duplicati
+title: "Duplicates"
 jrs: '1.1'
 
 items:
   - name: instructions
-    title: Istruzioni
+    title: "Instructions"
     type: Html
     visible: (tuto)
 
   - name: riepilogo
-    title: Riepilogo
+    title: "Summary"
     type: Table
     rows: 1
     clearWith:
@@ -18,20 +18,20 @@ items:
       - ignoreCase
     columns:
       - name: righe
-        title: Righe confrontate
+        title: "Rows compared"
         type: integer
       - name: gruppi
-        title: Gruppi di righe uguali
+        title: "Groups of identical rows"
         type: integer
       - name: inpiu
-        title: Righe in più
+        title: "Extra rows"
         type: integer
       - name: vuote
-        title: Righe senza dati
+        title: "Rows without data"
         type: integer
 
   - name: gruppi
-    title: Righe uguali
+    title: "Identical rows"
     type: Table
     rows: 0
     clearWith:
@@ -39,20 +39,20 @@ items:
       - ignoreCase
     columns:
       - name: gruppo
-        title: Gruppo
+        title: "Group"
         type: integer
       - name: righe
-        title: Righe
+        title: "Rows"
         type: text
       - name: tenuta
-        title: Riga da tenere
+        title: "Row to keep"
         type: integer
       - name: valore
-        title: Valore
+        title: "Value"
         type: text
 
   - name: duplicatoOV
-    title: Duplicati
+    title: "Duplicates"
     type: Output
     varTitle: duplicato
     varDescription: 1 = riga ripetuta da escludere, 0 = riga da tenere

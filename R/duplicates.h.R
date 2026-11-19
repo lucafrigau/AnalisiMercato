@@ -65,16 +65,16 @@ duplicatesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Duplicati")
+                title="Duplicates")
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="riepilogo",
-                title="Riepilogo",
+                title="Summary",
                 rows=1,
                 clearWith=list(
                     "vars",
@@ -82,24 +82,24 @@ duplicatesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="righe", 
-                        `title`="Righe confrontate", 
+                        `title`="Rows compared", 
                         `type`="integer"),
                     list(
                         `name`="gruppi", 
-                        `title`="Gruppi di righe uguali", 
+                        `title`="Groups of identical rows", 
                         `type`="integer"),
                     list(
                         `name`="inpiu", 
-                        `title`="Righe in pi\u00F9", 
+                        `title`="Extra rows", 
                         `type`="integer"),
                     list(
                         `name`="vuote", 
-                        `title`="Righe senza dati", 
+                        `title`="Rows without data", 
                         `type`="integer"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="gruppi",
-                title="Righe uguali",
+                title="Identical rows",
                 rows=0,
                 clearWith=list(
                     "vars",
@@ -107,24 +107,24 @@ duplicatesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="gruppo", 
-                        `title`="Gruppo", 
+                        `title`="Group", 
                         `type`="integer"),
                     list(
                         `name`="righe", 
-                        `title`="Righe", 
+                        `title`="Rows", 
                         `type`="text"),
                     list(
                         `name`="tenuta", 
-                        `title`="Riga da tenere", 
+                        `title`="Row to keep", 
                         `type`="integer"),
                     list(
                         `name`="valore", 
-                        `title`="Valore", 
+                        `title`="Value", 
                         `type`="text"))))
             self$add(jmvcore::Output$new(
                 options=options,
                 name="duplicatoOV",
-                title="Duplicati",
+                title="Duplicates",
                 varTitle="duplicato",
                 varDescription="1 = riga ripetuta da escludere, 0 = riga da tenere",
                 measureType="nominal",
@@ -153,7 +153,7 @@ duplicatesBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'none')
         }))
 
-#' Duplicati
+#' Duplicates
 #'
 #' 
 #' @param data .

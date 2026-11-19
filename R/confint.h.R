@@ -129,19 +129,19 @@ confintResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Intervalli di confidenza",
+                title="Confidence intervals",
                 refs=list(
                     "cochran",
                     "lohr"))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="inputs",
-                title="Parametri usati",
+                title="Input parameters",
                 rows=1,
                 clearWith=list(
                     "data_var",
@@ -157,11 +157,11 @@ confintResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="modalita", 
-                        `title`="Modalit\u00E0", 
+                        `title`="Mode", 
                         `type`="text"),
                     list(
                         `name`="parametro", 
-                        `title`="Parametro", 
+                        `title`="Parameter", 
                         `type`="text"),
                     list(
                         `name`="n", 
@@ -173,11 +173,11 @@ confintResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         `type`="text"),
                     list(
                         `name`="stima", 
-                        `title`="Stima puntuale", 
+                        `title`="Point estimate", 
                         `type`="number"),
                     list(
                         `name`="s", 
-                        `title`="s (campionario)", 
+                        `title`="s (sample)", 
                         `type`="number"),
                     list(
                         `name`="z", 
@@ -185,12 +185,12 @@ confintResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         `type`="number"),
                     list(
                         `name`="fpc", 
-                        `title`="Fattore (1-f)", 
+                        `title`="Factor (1-f)", 
                         `type`="text"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="result",
-                title="Intervallo di confidenza",
+                title="Confidence interval",
                 rows=1,
                 clearWith=list(
                     "data_var",
@@ -206,19 +206,19 @@ confintResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="confidence", 
-                        `title`="Confidenza", 
+                        `title`="Confidence", 
                         `type`="text"),
                     list(
                         `name`="stima", 
-                        `title`="Stima", 
+                        `title`="Estimate", 
                         `type`="number"),
                     list(
                         `name`="se", 
-                        `title`="Errore standard", 
+                        `title`="Standard error", 
                         `type`="number"),
                     list(
                         `name`="halfwidth", 
-                        `title`="Ampiezza \u00B1 \u0394", 
+                        `title`="Half-width \u00B1 \u0394", 
                         `type`="number"),
                     list(
                         `name`="lower", 
@@ -250,7 +250,7 @@ confintBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'auto')
         }))
 
-#' Intervalli di confidenza
+#' Confidence intervals
 #'
 #' 
 #' @param data .

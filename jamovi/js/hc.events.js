@@ -48,9 +48,9 @@ const sistemaBinarie = function(ui) {
     // la nota in fondo alla casella non va a capo: deve stare in una riga
     // di una trentina di caratteri
     if (gower)
-        ui.asimm.setPropertyValue('infoText', _('0/1: due 0 non rendono simili'));
+        ui.asimm.setPropertyValue('infoText', _('0/1: shared 0s do not count'));
     else
-        ui.asimm.setPropertyValue('infoText', _('Attiva solo con Gower'));
+        ui.asimm.setPropertyValue('infoText', _('Active only with Gower'));
 };
 
 module.exports = events;

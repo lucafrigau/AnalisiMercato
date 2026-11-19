@@ -1,6 +1,6 @@
 ---
 name:  pca
-title: Analisi delle Componenti Principali
+title: "Principal Component Analysis"
 menuGroup: AnalisiMercato
 menuSubgroup: PCA
 version: '2.0.9'
@@ -11,7 +11,7 @@ options:
       type: Data
 
     - name: vars
-      title: Variabili attive (quantitative)
+      title: "Active variables (quantitative)"
       type: Variables
       suggested:
         - continuous
@@ -25,7 +25,7 @@ options:
             (se standardizzate).
 
     - name: supp_quant
-      title: Variabili quantitative supplementari (opzionali)
+      title: "Supplementary quantitative variables (optional)"
       type: Variables
       suggested:
         - continuous
@@ -39,7 +39,7 @@ options:
             esterne.
 
     - name: supp_qual
-      title: Variabile qualitativa supplementare per biplot (opzionale)
+      title: "Supplementary qualitative variable for biplot (optional)"
       type: Variable
       suggested:
         - nominal
@@ -52,7 +52,7 @@ options:
             componenti. Usata SOLO per colorare le osservazioni nel biplot.
 
     - name: supp_qual_map
-      title: Variabili qualitative per la mappa di posizionamento (opzionali)
+      title: "Qualitative variables for positioning map (optional)"
       type: Variables
       suggested:
         - nominal
@@ -66,7 +66,7 @@ options:
             disegnati nel grafico "Mappa di posizionamento".
 
     - name: id_var
-      title: Variabile identificativa (opzionale)
+      title: "ID variable (optional)"
       type: Variable
       suggested:
         - id
@@ -82,12 +82,12 @@ options:
             e nel biplot.
 
     - name: tuto
-      title: Descrizione dell'analisi
+      title: "Show analysis description"
       type: Bool
       default: true
 
     - name: standardize
-      title: Standardizza le variabili (z-score)
+      title: "Standardize variables (z-score)"
       type: Bool
       default: true
       description:
@@ -98,7 +98,7 @@ options:
             matrice di covarianza.
 
     - name: ncp
-      title: Numero di componenti da ritenere
+      title: "Number of components to retain"
       type: Integer
       default: 2
       description:
@@ -109,14 +109,14 @@ options:
             criterio del gomito; criterio della varianza cumulata).
 
     - name: rotation
-      title: Rotazione
+      title: "Rotation"
       type: List
       options:
-        - title: Nessuna
+        - title: "None"
           name:  none
-        - title: Varimax (ortogonale)
+        - title: "Varimax (orthogonal)"
           name:  varimax
-        - title: Promax (obliqua)
+        - title: "Promax (oblique)"
           name:  promax
       default: none
       description:
@@ -128,17 +128,17 @@ options:
 
     # --- output / plot ---
     - name: show_ind
-      title: Mostra tabella contributi/coseni² delle osservazioni
+      title: "Show observation contributions/cos² tables"
       type: Bool
       default: false
 
     - name: top_ind
-      title: Numero massimo di osservazioni da mostrare
+      title: "Maximum number of observations to display"
       type: Integer
       default: 20
 
     - name: axis_x
-      title: Componente sull'asse X
+      title: "Component on X axis"
       type: Integer
       default: 1
       description:
@@ -147,7 +147,7 @@ options:
             delle correlazioni e del biplot (es. 1 = PC1).
 
     - name: axis_y
-      title: Componente sull'asse Y
+      title: "Component on Y axis"
       type: Integer
       default: 2
       description:
@@ -161,22 +161,41 @@ options:
       default: true
 
     - name: plot_circle
-      title: Cerchio delle correlazioni (variabili)
+      title: "Correlation circle (variables)"
       type: Bool
       default: true
 
+    - name: circle_promax
+      title: "▸ CIRCLE · With Promax"
+      type: List
+      options:
+        - title: "Oblique axes over unrotated arrows"
+          name:  oblique
+        - title: "Perpendicular axes, pattern loadings"
+          name:  pattern
+      default: oblique
+      description:
+          R: >
+            Come disegnare il cerchio delle correlazioni con la rotazione
+            Promax. `oblique` (predefinito): le frecce restano quelle senza
+            rotazione e le componenti di Promax sono due assi obliqui, il
+            coseno del cui angolo è la loro correlazione; una freccia
+            proiettata ad angolo retto su un asse dà la correlazione con
+            quella componente. `pattern`: assi perpendicolari e frecce con
+            coordinate uguali ai pattern loadings della tabella.
+
     - name: plot_biplot
-      title: Biplot (osservazioni nel piano principale)
+      title: "Biplot (observations on principal plane)"
       type: Bool
       default: true
 
     - name: plot_cos2
-      title: Heatmap dei coseni² (qualità di rappresentazione)
+      title: "Heatmap of squared cosines (representation quality)"
       type: Bool
       default: true
 
     - name: plot_map
-      title: Mappa di posizionamento (variabili e baricentri, no osservazioni)
+      title: "Positioning map (variables and centroids, no observations)"
       type: Bool
       default: false
       description:
@@ -188,14 +207,14 @@ options:
             attributi.
 
     - name: map_show_active
-      title: "▸ MAPPA · Mostra vettori variabili attive"
+      title: "▸ MAP · Show active variables arrows"
       type: Bool
       default: false
       description:
           R: Se TRUE aggiunge le frecce delle variabili attive alla mappa.
 
     - name: map_show_supp_quant
-      title: "▸ MAPPA · Mostra vettori quantitative supplementari"
+      title: "▸ MAP · Show supplementary quantitative arrows"
       type: Bool
       default: true
       description:
@@ -204,28 +223,28 @@ options:
             supplementari (se presenti) alla mappa.
 
     - name: map_width
-      title: "▸ MAPPA · Larghezza"
+      title: "▸ MAP · Width"
       type: Integer
       default: 800
 
     - name: map_height
-      title: "▸ MAPPA · Altezza"
+      title: "▸ MAP · Height"
       type: Integer
       default: 650
 
     - name: out_PC1
-      title: "▸ SALVA · PC1"
+      title: "▸ SAVE · PC1"
       type: Output
     - name: out_PC2
-      title: "▸ SALVA · PC2"
+      title: "▸ SAVE · PC2"
       type: Output
     - name: out_PC3
-      title: "▸ SALVA · PC3"
+      title: "▸ SAVE · PC3"
       type: Output
     - name: out_PC4
-      title: "▸ SALVA · PC4"
+      title: "▸ SAVE · PC4"
       type: Output
     - name: out_PC5
-      title: "▸ SALVA · PC5"
+      title: "▸ SAVE · PC5"
       type: Output
 ...

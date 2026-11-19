@@ -218,18 +218,24 @@ test_that("titolo e didascalia dello scree plot non annunciano autovalori ruotat
   # tutto nelle etichette costruite dentro `.plot_scree`.
   grDevices::pdf(NULL); on.exit(grDevices::dev.off(), add = TRUE)
 
+  # lang = "" è l'italiano; LANGUAGE va impostata prima di creare le
+  # opzioni, perché jmvcore fissa la lingua alla prima traduzione
   scree <- function(rot, lang) {
-    old <- Sys.getenv("ANALISIMERCATO_LANG", unset = NA_character_)
-    on.exit(if (is.na(old)) Sys.unsetenv("ANALISIMERCATO_LANG")
-            else Sys.setenv(ANALISIMERCATO_LANG = old), add = TRUE)
-    Sys.setenv(ANALISIMERCATO_LANG = lang)
+    old <- Sys.getenv("LANGUAGE", unset = NA_character_)
+    on.exit(if (is.na(old)) Sys.unsetenv("LANGUAGE")
+            else Sys.setenv(LANGUAGE = old), add = TRUE)
+    Sys.setenv(LANGUAGE = if (nzchar(lang)) lang else "it")
     o <- pcaOptions$new(vars = names(iris)[1:4], ncp = 2, rotation = rot,
                         plot_scree = TRUE)
     a <- pcaClass$new(options = o, data = iris)
     a$init(); a$run()
     a$.__enclos_env__$private$.plot_scree(a$results$plot_scree)
     p <- ggplot2::last_plot()
-    list(title = p$labels$title, caption = p$labels$caption, eig = p$data$eig)
+    # la didascalia va a capo secondo la larghezza del grafico: il test
+    # guarda le parole, non dove cadono le righe
+    cap <- p$labels$caption
+    if (!is.null(cap)) cap <- gsub("[[:space:]]+", " ", cap)
+    list(title = p$labels$title, caption = cap, eig = p$data$eig)
   }
 
   # Affermazioni false: nessuna descrive ciò che il grafico contiene.
@@ -283,8 +289,9 @@ test_that("le SS loadings stanno in una tabella separata, additive solo se ortog
   # Promax (obliqua): SS riportate, quote di varianza NO (non sommabili)
   ss_p <- as.data.frame(P("promax")$ss_loadings)
   expect_true(all(is.finite(ss_p$ss)))
-  expect_true(all(is.na(ss_p$ss_pct)))
-  expect_true(all(is.na(ss_p$ss_cum)))
+  # celle vuote (stringa vuota: con NA jamovi scriverebbe NaN)
+  expect_true(all(is.na(ss_p$ss_pct) | ss_p$ss_pct == ""))
+  expect_true(all(is.na(ss_p$ss_cum) | ss_p$ss_cum == ""))
 })
 
 test_that("titoli e SS loadings si ripristinano tornando a nessuna rotazione", {
@@ -297,4 +304,115 @@ test_that("titoli e SS loadings si ripristinano tornando a nessuna rotazione", {
   expect_false(grepl("ruotat|rotated", r_none$var_coord$title))
   expect_false(grepl("ruotat|rotated", r_none$ind_group$ind_coord$title))
   expect_false(r_none$ss_loadings$visible)
+})
+
+test_that("le didascalie dei grafici vanno a capo secondo la larghezza dell'immagine", {
+  testo <- paste(rep("parola", 60), collapse = " ")
+  righe <- strsplit(.a_capo(testo, 500), "\n")[[1]]
+  expect_gt(length(righe), 1)
+  expect_true(all(nchar(righe) <= 100))
+  # un grafico più largo ha righe più lunghe
+  expect_lt(length(strsplit(.a_capo(testo, 800), "\n")[[1]]), length(righe))
+  expect_identical(.a_capo("breve", 500), "breve")
+  expect_null(.a_capo(NULL, 500))
+
+  # la didascalia più lunga, quella dello scree plot con una rotazione,
+  # resta dentro un grafico largo 500 pixel
+  grDevices::pdf(NULL); on.exit(grDevices::dev.off(), add = TRUE)
+  o <- pcaOptions$new(vars = names(iris)[1:4], ncp = 2, rotation = "varimax",
+                      plot_scree = TRUE)
+  a <- pcaClass$new(options = o, data = iris)
+  a$init(); a$run()
+  a$.__enclos_env__$private$.plot_scree(a$results$plot_scree)
+  cap <- ggplot2::last_plot()$labels$caption
+  expect_true(all(nchar(strsplit(cap, "\n")[[1]]) <= 100))
+})
+
+
+test_that("con una rotazione e assi perpendicolari il cerchio disegna i loadings della tabella; con Promax i gruppi stanno lungo gli assi", {
+  # Due gruppi di item legati fra loro. Con Promax le frecce del cerchio
+  # hanno come coordinate i loadings della tabella (pattern), come biplot e
+  # mappa, e ogni gruppo sta lungo un asse. Fino alla 2.2.0 il cerchio
+  # disegnava le correlazioni (structure): con componenti correlate le
+  # frecce restavano in diagonale, più lontane dagli assi che con Varimax.
+  set.seed(1)
+  n <- 300
+  f1 <- rnorm(n); f2 <- 0.6 * f1 + 0.8 * rnorm(n)
+  d <- data.frame(a1 = f1 + 0.4 * rnorm(n), a2 = f1 + 0.4 * rnorm(n),
+                  a3 = f1 + 0.4 * rnorm(n), b1 = f2 + 0.4 * rnorm(n),
+                  b2 = f2 + 0.4 * rnorm(n), b3 = f2 + 0.4 * rnorm(n))
+  cerchio <- list()
+  for (rot in c("varimax", "promax")) {
+    a <- pcaClass$new(options = pcaOptions$new(vars = names(d), ncp = 2, rotation = rot,
+                                               plot_circle = TRUE, circle_promax = "pattern"),
+                      data = d)
+    a$init(); a$run()
+    expect_false(isTRUE(a$results$plot_circle$state$obliquo), info = rot)
+    cerchio[[rot]] <- a$results$plot_circle$state$coord
+    tab <- as.matrix(as.data.frame(a$results$var_coord)[, c("PC1", "PC2")])
+    expect_equal(unname(cerchio[[rot]]), unname(tab), tolerance = 1e-6, info = rot)
+    if (rot == "promax") {
+      cos2 <- as.matrix(as.data.frame(a$results$var_cos2)[, c("PC1", "PC2")])
+    }
+  }
+  # con Promax ogni item ha un loading piccolo sull'asse dell'altro gruppo,
+  # più piccolo che con Varimax: i gruppi si aprono fino agli assi
+  secondario <- function(M) apply(abs(M), 1, min)
+  expect_true(all(secondario(cerchio$promax) < 0.15))
+  expect_true(all(secondario(cerchio$promax) < secondario(cerchio$varimax)))
+  # i cos² restano i quadrati delle correlazioni (structure), non delle
+  # coordinate delle frecce
+  expect_true(any(abs(cos2 - cerchio$promax^2) > 0.05))
+  expect_true(all(cos2 >= 0 & cos2 <= 1 + 1e-9))
+})
+
+
+test_that("con Promax il cerchio predefinito ha le frecce senza rotazione e gli assi obliqui", {
+  # Le frecce sono le correlazioni con le componenti senza rotazione, sul
+  # piano delle due componenti di Promax scelte: la prima è l'asse
+  # orizzontale, la seconda forma con lei l'angolo il cui coseno è Phi. Una
+  # freccia proiettata ad angolo retto su un asse dà la correlazione con
+  # quella componente (structure = pattern x Phi).
+  set.seed(1)
+  n <- 300
+  f1 <- rnorm(n); f2 <- 0.6 * f1 + 0.8 * rnorm(n); f3 <- rnorm(n)
+  d <- data.frame(a1 = f1 + 0.4 * rnorm(n), a2 = f1 + 0.4 * rnorm(n),
+                  a3 = f1 + 0.4 * rnorm(n), b1 = f2 + 0.4 * rnorm(n),
+                  b2 = f2 + 0.4 * rnorm(n), b3 = f2 + 0.4 * rnorm(n),
+                  c1 = f3 + 0.5 * rnorm(n), c2 = f3 + 0.5 * rnorm(n))
+  grDevices::pdf(NULL); on.exit(grDevices::dev.off(), add = TRUE)
+  for (caso in list(list(k = 2, x = 1, y = 2), list(k = 3, x = 1, y = 3))) {
+    nota <- paste("componenti", caso$k, "assi", caso$x, caso$y)
+    an <- function(rot) {
+      a <- pcaClass$new(options = pcaOptions$new(vars = names(d), ncp = caso$k, rotation = rot,
+                                                 axis_x = caso$x, axis_y = caso$y,
+                                                 plot_circle = TRUE), data = d)
+      a$init(); a$run(); a
+    }
+    p <- an("promax"); st <- p$results$plot_circle$state
+    expect_true(isTRUE(st$obliquo), info = nota)
+    P   <- as.matrix(as.data.frame(p$results$var_coord)[, sprintf("PC%d", 1:caso$k)])
+    Phi <- as.matrix(as.data.frame(p$results$phi)[, -1])
+    S   <- P %*% Phi
+    ab  <- c(caso$x, caso$y)
+    expect_equal(st$phi, Phi[ab[1], ab[2]], tolerance = 1e-6, info = nota)
+    C <- unname(st$coord)
+    # proiezione sul primo asse (orizzontale) e sul secondo (inclinato)
+    expect_equal(C[, 1], unname(S[, ab[1]]), tolerance = 1e-6, info = nota)
+    dir_b <- c(st$phi, sqrt(1 - st$phi^2))
+    expect_equal(as.numeric(C %*% dir_b), unname(S[, ab[2]]), tolerance = 1e-6, info = nota)
+    # nessuna freccia esce dal cerchio
+    expect_true(all(sqrt(rowSums(C^2)) <= 1 + 1e-9), info = nota)
+    # con due componenti le frecce sono quelle senza rotazione
+    if (caso$k == 2) {
+      n0 <- an("none")$results$plot_circle$state$coord
+      expect_equal(sqrt(rowSums(C^2)), unname(sqrt(rowSums(n0^2))), tolerance = 1e-6, info = nota)
+      # e le parallele agli assi danno i pattern loadings
+      A <- rbind(c(1, 0), dir_b)
+      expect_equal(unname(C %*% solve(A)), unname(P[, ab]), tolerance = 1e-6, info = nota)
+    }
+    # il grafico si disegna, con la didascalia
+    p$.__enclos_env__$private$.plot_circle(p$results$plot_circle)
+    expect_false(is.null(ggplot2::last_plot()$labels$caption), info = nota)
+  }
 })

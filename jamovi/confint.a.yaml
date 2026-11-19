@@ -1,8 +1,8 @@
 ---
 name:  confint
-title: Intervalli di confidenza
+title: "Confidence intervals"
 menuGroup: AnalisiMercato
-menuSubgroup: Campionamento
+menuSubgroup: "Sampling"
 version: '2.0.9'
 jas: '1.2'
 
@@ -11,7 +11,7 @@ options:
       type: Data
 
     - name: data_var
-      title: Variabile (per calcolo da dataset)
+      title: "Variable (for dataset-based estimation)"
       type: Variable
       suggested:
         - continuous
@@ -27,7 +27,7 @@ options:
             di riferimento se factor binario).
 
     - name: success_level
-      title: Livello "successo" (per variabile categoriale)
+      title: "\"Success\" level (for categorical variable)"
       type: String
       default: ""
       description:
@@ -37,24 +37,24 @@ options:
             il primo livello.
 
     - name: tuto
-      title: Descrizione delle analisi
+      title: "Show methodological description"
       type: Bool
       default: true
 
     - name: param
-      title: Parametro da stimare (modalità manuale)
+      title: "Parameter to estimate (manual mode)"
       type: List
       options:
-        - title: Proporzione
+        - title: "Proportion"
           name:  proportion
-        - title: Media
+        - title: "Mean"
           name:  mean
       default: proportion
       description:
           R: Solo per la modalità manuale (senza variabile selezionata).
 
     - name: n_manual
-      title: Numerosità campionaria n
+      title: "Sample size n"
       type: Integer
       default: 100
       description:
@@ -65,22 +65,22 @@ options:
             comunque il calcolo.
 
     - name: p_manual
-      title: Proporzione campionaria p_c (modalità proporzione)
+      title: "Sample proportion p_c (proportion mode)"
       type: Number
       default: 0.5
 
     - name: mean_manual
-      title: Media campionaria x̄ (modalità media)
+      title: "Sample mean x̄ (mean mode)"
       type: Number
       default: 0
 
     - name: sd_manual
-      title: Scarto quadratico medio campionario s (modalità media)
+      title: "Sample standard deviation s (mean mode)"
       type: Number
       default: 1
 
     - name: N
-      title: Dimensione della popolazione N (opzionale)
+      title: "Population size N (optional)"
       type: Integer
       default: 1000
       description:
@@ -90,7 +90,7 @@ options:
             caso "popolazione infinita".
 
     - name: use_fpc
-      title: Applica fattore correttivo per popolazione finita (1 - f)
+      title: "Apply finite population correction (1 - f)"
       type: Bool
       default: false
       description:
@@ -104,7 +104,7 @@ options:
             l'errore standard si annullerebbe).
 
     - name: confidence
-      title: Livello di confidenza (%)
+      title: "Confidence level (%)"
       type: Number
       default: 95
 ...

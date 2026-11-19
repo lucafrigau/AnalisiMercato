@@ -1,8 +1,8 @@
 ---
 name:  samplemultistage
-title: Campionamento a due stadi
+title: "Two-stage sampling"
 menuGroup: AnalisiMercato
-menuSubgroup: Campionamento
+menuSubgroup: "Sampling"
 version: '2.0.9'
 jas: '1.2'
 
@@ -11,7 +11,7 @@ options:
       type: Data
 
     - name: psu_var
-      title: Variabile unità di primo stadio (PSU)
+      title: "Primary sampling unit (PSU) variable"
       type: Variable
       suggested:
         - nominal
@@ -27,7 +27,7 @@ options:
             Dal primo stadio vengono estratte casualmente n_g PSU.
 
     - name: id_var
-      title: Variabile identificativa (opzionale)
+      title: "ID variable (optional)"
       type: Variable
       suggested:
         - id
@@ -44,41 +44,41 @@ options:
             ID dei soggetti selezionati.
 
     - name: tuto
-      title: Descrizione delle analisi
+      title: "Show methodological description"
       type: Bool
       default: true
 
     # --- primo stadio ---
     - name: psu_mode
-      title: Numero di PSU
+      title: "Number of PSUs"
       type: List
       options:
-        - title: Numero di PSU (n_g)
+        - title: "Number of PSUs (n_g)"
           name:  ng
-        - title: Frazione di PSU (f_g)
+        - title: "PSU fraction (f_g)"
           name:  fg
       default: ng
 
     - name: ng
-      title: Numero di PSU da estrarre
+      title: "Number of PSUs to draw"
       type: Integer
       default: 3
 
     - name: fg
-      title: Frazione di PSU (f_g)
+      title: "PSU fraction (f_g)"
       type: Number
       default: 0.3
 
     # --- secondo stadio ---
     - name: ssu_mode
-      title: Numero di unità per PSU
+      title: "Units per PSU"
       type: List
       options:
-        - title: Numero fisso (b)
+        - title: "Fixed number (b)"
           name:  fixed
-        - title: Frazione f_b della PSU
+        - title: "Fraction f_b of PSU"
           name:  frac
-        - title: Tutte le unità della PSU (= grappoli)
+        - title: "All PSU units (= clusters)"
           name:  all
       default: fixed
       description:
@@ -89,22 +89,22 @@ options:
             unità delle PSU (equivalente al campionamento a grappoli).
 
     - name: b
-      title: Numero di unità per PSU (b)
+      title: "Units per PSU (b)"
       type: Integer
       default: 5
 
     - name: fb
-      title: Frazione di unità per PSU (f_b)
+      title: "Unit fraction per PSU (f_b)"
       type: Number
       default: 0.5
 
     - name: seed
-      title: Seed (riproducibilità)
+      title: "Seed (reproducibility)"
       type: Integer
       default: 1
 
     - name: out_freq
-      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      title: "Draw the sample (0/1 indicator, frequency)"
       type: Output
       description:
           R: >

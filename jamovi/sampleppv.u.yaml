@@ -1,4 +1,4 @@
-title: Campionamento con probabilità variabili (CPV)
+title: "Probability-proportional-to-size (PPS) sampling"
 name: sampleppv
 jus: '3.0'
 stage: 0
@@ -13,14 +13,14 @@ children:
       - id
     children:
       - type: TargetLayoutBox
-        label: Variabile di peso (ausiliaria)
+        label: "Weight variable (auxiliary)"
         children:
           - type: VariablesListBox
             name: weight_var
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Variabile identificativa (opzionale)
+        label: "ID variable (optional)"
         children:
           - type: VariablesListBox
             name: id_var

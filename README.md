@@ -1,6 +1,6 @@
 # AnalisiMercato
 
-Modulo [jamovi](https://www.jamovi.org) per il corso di Analisi di Mercato dell'Università degli Studi di Cagliari. Raccoglie strumenti per le principali fasi quantitative di una ricerca di mercato, con pannelli e risultati in italiano.
+Modulo [jamovi](https://www.jamovi.org) per il corso di Analisi di Mercato dell'Università degli Studi di Cagliari. Raccoglie strumenti per le principali fasi quantitative di una ricerca di mercato, con menu, pannelli e risultati in italiano o in inglese, secondo la lingua scelta in jamovi.
 
 ## Analisi
 

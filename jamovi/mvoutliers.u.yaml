@@ -1,4 +1,4 @@
-title: Outlier multivariati
+title: "Multivariate outliers"
 name: mvoutliers
 jus: '3.0'
 stage: 0
@@ -9,7 +9,7 @@ children:
     stretchFactor: 1
     children:
       - type: TargetLayoutBox
-        label: Variabili quantitative
+        label: "Quantitative variables"
         children:
           - type: VariablesListBox
             name: vars

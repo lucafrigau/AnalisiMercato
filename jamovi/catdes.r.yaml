@@ -4,7 +4,7 @@
 # licenza GPL (https://github.com/Sebastien-Le/MEDA). Adattata e modificata da
 # Luca Frigau, 2026; distribuita con licenza GPL-3, come il resto del modulo.
 name:  catdes
-title: Caratterizzazione
+title: "Cluster profiling"
 jrs:   '1.1'
 refs:
     - factominer
@@ -13,16 +13,16 @@ refs:
 
 items:
   - name: instructions
-    title: Istruzioni
+    title: "Instructions"
     visible: (tuto)
     type: Html
     
   - name: chigroup
-    title: Test del Chi-quadro
+    title: "Chi-square test"
     type: Group
     items:
       - name: chi
-        title: Associazione tra la variabile 'Cluster' e le variabili categoriche
+        title: "Association between 'Cluster' and categorical variables"
         type: Table
         columns:
           - name: varchi
@@ -37,11 +37,11 @@ items:
             type: integer
 
   - name: categgroup
-    title: Descrizione tramite le variabili categoriche
+    title: "Description via categorical variables"
     type: Group
     items:
       - name: categquali
-        title: Descrizione di ciascun 'Cluster' tramite le categorie
+        title: "Description of each 'Cluster' via categories"
         type: Table
         columns:
           - name: varcateg
@@ -49,7 +49,7 @@ items:
             type: text
             combineBelow: true
           - name: vardesccateg
-            title: Categoria
+            title: "Category"
             type: text
           - name: clamod
             title: Cla/Mod
@@ -58,17 +58,17 @@ items:
             title: Mod/Cla
             type: number
           - name: global
-            title: Generale
+            title: "Overall"
             type: number
           - name: categpv
             title: p
             type: number
             format: zto,pvalue
           - name: vtest
-            title: Vtest
+            title: "v-test"
             type: number
       - name: qualir2
-        title: Associazione con le variabili qualitative
+        title: "Association with qualitative variables"
         type: Table
         columns:
           - name: varr2
@@ -83,7 +83,7 @@ items:
             type: number
             format: zto,pvalue      
       - name: categquanti
-        title: Descrizione della variabile quantitativa tramite le categorie
+        title: "Description of the quantitative variable via categories"
         type: Table
         columns:
           - name: varcateg
@@ -91,10 +91,10 @@ items:
             type: text
             combineBelow: true
           - name: vardesccateg
-            title: Categoria
+            title: "Category"
             type: text
           - name: estimate
-            title: Stima
+            title: "Estimate"
             type: number
           - name: categpv
             title: p
@@ -102,18 +102,18 @@ items:
             format: zto,pvalue
       
   - name: qtvargroup
-    title: Descrizione globale tramite le variabili quantitative
+    title: "Overall description via quantitative variables"
     type: Group
     items:
       - name: qtvar
-        title: Relazione tra la variabile 'Cluster' e le variabili quantitative
+        title: "Relationship between 'Cluster' and quantitative variables"
         type: Table
         columns:
           - name: varqtvar
             title: ''
             type: text
           - name: scc
-            title: Correlazione al quadrato
+            title: "Squared correlation"
             type: number
           - name: qtvarpv
             title: p
@@ -121,47 +121,47 @@ items:
             format: zto,pvalue
 
   - name: qtgroup
-    title: Descrizione tramite le variabili quantitative
+    title: "Description via quantitative variables"
     type: Group
     items:
       - name: qt
-        title: Descrizione di ciascun 'Cluster' tramite le variabili quantitative
+        title: "Description of each 'Cluster' via quantitative variables"
         type: Table
         columns:
           - name: varqt
             title: ''
             type: text
           - name: vardescqt
-            title: Variabile
+            title: "Variable"
             type: text
           - name: vtestqt
-            title: Vtest
+            title: "v-test"
             type: number
           - name: meancateg
-            title: Media nel 'Cluster'
+            title: "Mean in 'Cluster'"
             type: number
           - name: overallmean
-            title: Media generale
+            title: "Overall mean"
             type: number
           - name: sdcateg
-            title: Dev.std. nel 'Cluster'
+            title: "SD in 'Cluster'"
             type: number
           - name: overallsd
-            title: Dev.std. generale
+            title: "Overall SD"
             type: number
           - name: qtpv
             title: p
             type: number
             format: zto,pvalue
       - name: qtcor
-        title: Relazione con le variabili quantitative
+        title: "Relationship with quantitative variables"
         type: Table
         columns:
           - name: varcor
             title: ''
             type: text
           - name: cor
-            title: Correlazione
+            title: "Correlation"
             type: number
           - name: corpvalue
             title: p

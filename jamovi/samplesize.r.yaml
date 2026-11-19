@@ -1,6 +1,6 @@
 ---
 name:  samplesize
-title: Numerosità campionaria
+title: "Sample size"
 jrs:   '1.1'
 
 refs:
@@ -9,12 +9,12 @@ refs:
 
 items:
     - name: instructions
-      title: Istruzioni
+      title: "Instructions"
       type: Html
       visible: (tuto)
 
     - name: inputs
-      title: Parametri dell'indagine
+      title: "Survey parameters"
       type: Table
       rows: 1
       clearWith:
@@ -27,7 +27,7 @@ items:
         - mean_sigma
       columns:
         - name: parametro
-          title: Parametro
+          title: "Parameter"
           type: text
         - name: N
           title: N
@@ -36,7 +36,7 @@ items:
           title: Δ
           type: number
         - name: conf
-          title: Confidenza
+          title: "Confidence"
           type: text
         - name: z
           title: z (α/2)
@@ -45,11 +45,11 @@ items:
           title: P / σ
           type: number
         - name: schema
-          title: Schema
+          title: "Scheme"
           type: text
 
     - name: result
-      title: Numerosità campionaria
+      title: "Sample size"
       type: Table
       rows: 1
       clearWith:
@@ -62,19 +62,19 @@ items:
         - mean_sigma
       columns:
         - name: n_teorico
-          title: n teorico
+          title: "Theoretical n"
           type: number
         - name: n_consigliato
-          title: n consigliato
+          title: "Recommended n"
           type: integer
         - name: frazione
-          title: Frazione f = n/N
+          title: "Fraction f = n/N"
           type: number
           format: zto
         - name: var_attesa
-          title: Var attesa dello stimatore
+          title: "Expected estimator variance"
           type: number
         - name: se_attesa
-          title: Errore standard atteso
+          title: "Expected standard error"
           type: number
 ...

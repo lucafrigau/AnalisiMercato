@@ -9,12 +9,12 @@ refs:
 
 items:
     - name: instructions
-      title: Istruzioni
+      title: "Instructions"
       type: Html
       visible: (tuto)
 
     - name: inputs
-      title: Parametri usati
+      title: "Input parameters"
       type: Table
       rows: 1
       clearWith:
@@ -31,13 +31,13 @@ items:
         - n_srs
       columns:
         - name: modalita
-          title: Modalità
+          title: "Mode"
           type: text
         - name: piano
-          title: Piano
+          title: "Plan"
           type: text
         - name: formula
-          title: Formula usata
+          title: "Formula used"
           type: text
 
     - name: result
@@ -61,15 +61,15 @@ items:
           title: Deff
           type: number
         - name: efficienza
-          title: Efficienza vs SCR
+          title: "Efficiency vs SRS"
           type: text
         - name: n_srs
-          title: n di riferimento
+          title: "Reference n"
           type: integer
         - name: n_complex
-          title: Numerosità richiesta dal piano
+          title: "Sample size required by the design"
           type: integer
         - name: n_eff
-          title: Numerosità efficace di n unità raccolte col piano
+          title: "Effective size of n units collected with the design"
           type: integer
 ...

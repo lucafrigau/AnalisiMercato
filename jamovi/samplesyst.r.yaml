@@ -1,6 +1,6 @@
 ---
 name:  samplesyst
-title: Campionamento sistematico
+title: "Systematic sampling"
 jrs:   '1.1'
 
 refs:
@@ -9,12 +9,12 @@ refs:
 
 items:
     - name: instructions
-      title: Istruzioni
+      title: "Instructions"
       type: Html
       visible: (tuto)
 
     - name: summary
-      title: Riepilogo del campione
+      title: "Sample summary"
       type: Table
       rows: 1
       clearWith:
@@ -25,31 +25,31 @@ items:
         - seed
       columns:
         - name: N
-          title: N (popolazione)
+          title: "N (population)"
           type: integer
         - name: n_richiesto
-          title: n richiesto
+          title: "Requested n"
           type: integer
         - name: n_estratto
-          title: n estratto
+          title: "Drawn n"
           type: integer
         - name: intervallo
-          title: Intervallo k = N/n
+          title: "Interval k = N/n"
           type: number
           format: zto
         - name: partenza
-          title: Partenza casuale r ∈ (0, k]
+          title: "Random start r ∈ (0, k]"
           type: number
           format: zto
         - name: ordinato_per
-          title: Ordinato per
+          title: "Sorted by"
           type: text
         - name: seed_used
           title: Seed
           type: integer
 
     - name: extracted
-      title: Unità estratte
+      title: "Sampled units"
       type: Table
       rows: 0
       visible: (id_var)
@@ -62,20 +62,20 @@ items:
         - seed
       columns:
         - name: ord
-          title: Ordine nel campione
+          title: "Order in sample"
           type: integer
         - name: pos
-          title: Posizione (dopo ordinamento)
+          title: "Position (after sorting)"
           type: integer
         - name: pos_orig
-          title: Riga originale
+          title: "Original row"
           type: integer
         - name: id_value
           title: ID
           type: text
 
     - name: out_freq
-      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      title: "Draw the sample (0/1 indicator, frequency)"
       type: Output
       varTitle: in_SM
       measureType: continuous

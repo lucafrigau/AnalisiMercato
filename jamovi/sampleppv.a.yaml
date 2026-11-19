@@ -1,8 +1,8 @@
 ---
 name:  sampleppv
-title: Campionamento con probabilità variabili (CPV)
+title: "Probability-proportional-to-size (PPS) sampling"
 menuGroup: AnalisiMercato
-menuSubgroup: Campionamento
+menuSubgroup: "Sampling"
 version: '2.0.9'
 jas: '1.2'
 
@@ -11,7 +11,7 @@ options:
       type: Data
 
     - name: weight_var
-      title: Variabile di peso (ausiliaria)
+      title: "Weight variable (auxiliary)"
       type: Variable
       suggested:
         - continuous
@@ -28,7 +28,7 @@ options:
             probabilità di inclusione nel campione.
 
     - name: id_var
-      title: Variabile identificativa (opzionale)
+      title: "ID variable (optional)"
       type: Variable
       suggested:
         - id
@@ -45,12 +45,12 @@ options:
             i pesi dei soggetti selezionati.
 
     - name: tuto
-      title: Descrizione delle analisi
+      title: "Show methodological description"
       type: Bool
       default: true
 
     - name: replacement
-      title: Estrazione con reinserimento
+      title: "Sampling with replacement"
       type: Bool
       default: true
       description:
@@ -61,32 +61,32 @@ options:
             ai pesi (πps approssimato).
 
     - name: size_mode
-      title: Modalità di specifica della numerosità
+      title: "Sample size specification mode"
       type: List
       options:
-        - title: Numero di unità (n)
+        - title: "Number of units (n)"
           name:  n
-        - title: Frazione di campionamento (f)
+        - title: "Sampling fraction (f)"
           name:  f
       default: n
 
     - name: n
-      title: Numerosità campionaria (n)
+      title: "Sample size (n)"
       type: Integer
       default: 30
 
     - name: f
-      title: Frazione di campionamento (f)
+      title: "Sampling fraction (f)"
       type: Number
       default: 0.1
 
     - name: seed
-      title: Seed (riproducibilità)
+      title: "Seed (reproducibility)"
       type: Integer
       default: 1
 
     - name: out_freq
-      title: "Estrai il campione (frequenza nel campione)"
+      title: "Draw the sample (frequency in the sample)"
       type: Output
       description:
           R: >

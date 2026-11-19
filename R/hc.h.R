@@ -249,7 +249,7 @@ hcResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Cluster Analysis Gerarchica",
+                title="Hierarchical Cluster Analysis",
                 refs=list(
                     "everitt",
                     "ward",
@@ -259,12 +259,12 @@ hcResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="izpis",
-                title="Statistiche generali",
+                title="Overall statistics",
                 rows=1,
                 clearWith=list(
                     "vars",
@@ -275,20 +275,20 @@ hcResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="var", 
-                        `title`="Variabili", 
+                        `title`="Variables", 
                         `type`="integer"),
                     list(
                         `name`="dist", 
-                        `title`="Distanza", 
+                        `title`="Distance", 
                         `type`="text"),
                     list(
                         `name`="method", 
-                        `title`="Metodo di agglomerazione", 
+                        `title`="Agglomeration method", 
                         `type`="text"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="metriche",
-                title="Metriche partizioni",
+                title="Partition metrics",
                 rows=0,
                 clearWith=list(
                     "vars",
@@ -312,7 +312,7 @@ hcResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         `type`="number"),
                     list(
                         `name`="ch_index", 
-                        `title`="Indice CH", 
+                        `title`="CH index", 
                         `type`="number"),
                     list(
                         `name`="deltaG", 
@@ -321,7 +321,7 @@ hcResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Table$new(
                 options=options,
                 name="groups",
-                title="Appartenenza ai gruppi",
+                title="Group membership",
                 rows=0,
                 clearWith=list(
                     "vars",
@@ -337,7 +337,7 @@ hcResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         `type`="integer"),
                     list(
                         `name`="freq", 
-                        `title`="Numero di elementi", 
+                        `title`="Number of elements", 
                         `type`="integer"))))
             self$add(jmvcore::Output$new(
                 options=options,
@@ -356,7 +356,7 @@ hcResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Image$new(
                 options=options,
                 name="plot_dend",
-                title="Dendrogramma",
+                title="Dendrogram",
                 visible=FALSE,
                 renderFun=".plot_dend",
                 clearWith=list(
@@ -416,7 +416,7 @@ hcResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Image$new(
                 options=options,
                 name="plot_ch_index",
-                title="CH index",
+                title="Calinski\u2013Harabasz index",
                 visible=FALSE,
                 renderFun=".plot_ch_index",
                 clearWith=list(
@@ -450,7 +450,7 @@ hcBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'none')
         }))
 
-#' Cluster Analysis Gerarchica
+#' Hierarchical Cluster Analysis
 #'
 #' 
 #' @param data .

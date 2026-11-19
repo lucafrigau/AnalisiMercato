@@ -2,23 +2,23 @@
 name:  deff
 title: Design Effect
 menuGroup: AnalisiMercato
-menuSubgroup: Campionamento
+menuSubgroup: "Sampling"
 version: '2.0.9'
 jas: '1.2'
 
 options:
     - name: tuto
-      title: Descrizione delle analisi
+      title: "Show methodological description"
       type: Bool
       default: true
 
     - name: mode
-      title: Modalità di calcolo
+      title: "Calculation mode"
       type: List
       options:
-        - title: Da due varianze
+        - title: "From two variances"
           name:  variances
-        - title: Formula analitica per piano specifico
+        - title: "Analytical formula for a specific plan"
           name:  formula
       default: variances
       description:
@@ -31,27 +31,27 @@ options:
 
     # --- modalità 'variances' ---
     - name: var_complex
-      title: Varianza nel piano complesso
+      title: "Variance in complex design"
       type: Number
       default: 1
 
     - name: var_srs
-      title: Varianza nel SCR di riferimento
+      title: "Variance in reference SRS"
       type: Number
       default: 1
 
     # --- modalità 'formula' ---
     - name: plan
-      title: Piano di campionamento
+      title: "Sampling plan"
       type: List
       options:
-        - title: Sistematico
+        - title: "Systematic"
           name:  systematic
-        - title: A più stadi
+        - title: "Multistage"
           name:  multistage
-        - title: A grappoli
+        - title: "Clusters"
           name:  cluster
-        - title: Stratificato
+        - title: "Stratified"
           name:  stratified
       default: systematic
       description:
@@ -59,38 +59,38 @@ options:
 
     # parametri per i piani analitici
     - name: N
-      title: Popolazione N (sistematico)
+      title: "Population N (systematic)"
       type: Integer
       default: 1000
 
     - name: n_total
-      title: Numerosità del campione n
+      title: "Total sample size n"
       type: Integer
       default: 100
 
     - name: rho
-      title: Coefficiente di correlazione intra (a più stadi / a grappoli)
+      title: "Intra-cluster correlation (multistage / clusters)"
       type: Number
       default: 0.1
 
     - name: n_within
-      title: "Unità per gruppo / dimensione grappolo (n_s o n_g)"
+      title: "Units per group / cluster size (n_s or n_g)"
       type: Integer
       default: 10
 
     - name: L
-      title: Numero di strati L (stratificato)
+      title: "Number of strata L (stratified)"
       type: Integer
       default: 4
 
     - name: R2
-      title: R² tra variabile di interesse e di stratificazione
+      title: "R² between target and stratification variable"
       type: Number
       default: 0.3
 
     # --- numerosità SCR equivalente (output) ---
     - name: n_srs
-      title: Numerosità di riferimento (n)
+      title: "Reference sample size (n)"
       type: Integer
       default: 100
       description:

@@ -83,7 +83,7 @@ samplestratClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
                   <li><b>Proportional</b>: n_j = N_j · n/N. In the
                   <i>theoretical</i> allocation the sampling fraction is
                   identical in every stratum (f_j = f); since the n_j must be
-                  integers, after rounding the realised fractions may differ
+                  integers, after rounding the realized fractions may differ
                   slightly across strata.</li>
                   <li><b>Neyman optimal</b>: n_j = n · (N_j · σ_j) /
                   Σ_j(N_j · σ_j). More units are allocated to larger and/or

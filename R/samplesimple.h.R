@@ -104,19 +104,19 @@ samplesimpleResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Clas
             super$initialize(
                 options=options,
                 name="",
-                title="Campionamento casuale semplice",
+                title="Simple random sampling",
                 refs=list(
                     "cochran",
                     "lohr"))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="summary",
-                title="Riepilogo del campione",
+                title="Sample summary",
                 rows=1,
                 clearWith=list(
                     "size_mode",
@@ -127,28 +127,28 @@ samplesimpleResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Clas
                 columns=list(
                     list(
                         `name`="N", 
-                        `title`="N (popolazione)", 
+                        `title`="N (population)", 
                         `type`="integer"),
                     list(
                         `name`="n_richiesto", 
-                        `title`="n richiesto", 
+                        `title`="Requested n", 
                         `type`="integer"),
                     list(
                         `name`="n_distinti", 
-                        `title`="n unit\u00E0 distinte", 
+                        `title`="Distinct units (n)", 
                         `type`="integer"),
                     list(
                         `name`="n_totale", 
-                        `title`="n estrazioni totali", 
+                        `title`="Total draws", 
                         `type`="integer"),
                     list(
                         `name`="frazione", 
-                        `title`="Frazione f = n/N", 
+                        `title`="Fraction f = n/N", 
                         `type`="number", 
                         `format`="zto"),
                     list(
                         `name`="schema", 
-                        `title`="Schema", 
+                        `title`="Scheme", 
                         `type`="text"),
                     list(
                         `name`="seed_used", 
@@ -157,7 +157,7 @@ samplesimpleResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Clas
             self$add(jmvcore::Table$new(
                 options=options,
                 name="extracted",
-                title="Unit\u00E0 estratte",
+                title="Sampled units",
                 rows=0,
                 visible="(id_var)",
                 clearWith=list(
@@ -170,7 +170,7 @@ samplesimpleResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Clas
                 columns=list(
                     list(
                         `name`="pos", 
-                        `title`="Posizione", 
+                        `title`="Position", 
                         `type`="integer"),
                     list(
                         `name`="id_value", 
@@ -178,12 +178,12 @@ samplesimpleResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Clas
                         `type`="text"),
                     list(
                         `name`="freq", 
-                        `title`="Frequenza di estrazione", 
+                        `title`="Draw frequency", 
                         `type`="integer"))))
             self$add(jmvcore::Output$new(
                 options=options,
                 name="out_freq",
-                title="Estrai il campione (frequenza nel campione)",
+                title="Draw the sample (frequency in the sample)",
                 varTitle="freq_SSR",
                 measureType="continuous",
                 clearWith=list(
@@ -214,7 +214,7 @@ samplesimpleBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'none')
         }))
 
-#' Campionamento casuale semplice
+#' Simple random sampling
 #'
 #' 
 #' @param data .

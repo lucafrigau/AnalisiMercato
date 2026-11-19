@@ -109,16 +109,16 @@ respqualityResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
             super$initialize(
                 options=options,
                 name="",
-                title="Qualità delle risposte")
+                title="Response quality")
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="riepilogo",
-                title="Segnali",
+                title="Signals",
                 rows=0,
                 clearWith=list(
                     "items",
@@ -129,25 +129,25 @@ respqualityResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
                 columns=list(
                     list(
                         `name`="segnale", 
-                        `title`="Segnale", 
+                        `title`="Signal", 
                         `type`="text"),
                     list(
                         `name`="criterio", 
-                        `title`="Criterio", 
+                        `title`="Criterion", 
                         `type`="text"),
                     list(
                         `name`="n", 
-                        `title`="Rispondenti", 
+                        `title`="Respondents", 
                         `type`="integer"),
                     list(
                         `name`="perc", 
-                        `title`="% dei rispondenti", 
+                        `title`="% of respondents", 
                         `type`="number", 
                         `format`="pc"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="rispondenti",
-                title="Rispondenti da esaminare",
+                title="Respondents to examine",
                 rows=0,
                 clearWith=list(
                     "items",
@@ -159,28 +159,28 @@ respqualityResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
                 columns=list(
                     list(
                         `name`="riga", 
-                        `title`="Riga", 
+                        `title`="Row", 
                         `type`="integer"),
                     list(
                         `name`="segnali", 
-                        `title`="Segnali", 
+                        `title`="Signals", 
                         `type`="integer"),
                     list(
                         `name`="seqmax", 
-                        `title`="Stessa risposta di fila", 
+                        `title`="Same answer in a row", 
                         `type`="integer"),
                     list(
                         `name`="mancanti", 
-                        `title`="Mancanti", 
+                        `title`="Missing", 
                         `type`="integer"))))
             self$add(jmvcore::Array$new(
                 options=options,
                 name="matrici",
-                title="Matrici di coerenza",
+                title="Consistency matrices",
                 items="(pairs)",
                 template=jmvcore::Image$new(
                     options=options,
-                    title="Matrice di coerenza",
+                    title="Consistency matrix",
                     width=520,
                     height=460,
                     renderFun=".plotMatrice",
@@ -190,7 +190,7 @@ respqualityResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
             self$add(jmvcore::Output$new(
                 options=options,
                 name="segnaliOV",
-                title="Numero di segnali",
+                title="Number of signals",
                 varTitle="segnali",
                 varDescription="Numero di segnali di poca attenzione del rispondente",
                 measureType="continuous",
@@ -203,7 +203,7 @@ respqualityResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
             self$add(jmvcore::Output$new(
                 options=options,
                 name="indicatoriOV",
-                title="Indicatori",
+                title="Indicators",
                 initInRun=TRUE,
                 measureType="continuous",
                 clearWith=list(
@@ -231,7 +231,7 @@ respqualityBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'none')
         }))
 
-#' Qualità delle risposte
+#' Response quality
 #'
 #' 
 #' @param data .

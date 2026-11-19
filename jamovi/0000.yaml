@@ -1,194 +1,193 @@
 ---
-title: Tecniche di Analisi di Mercato
+title: Market Analysis Techniques
 name: AnalisiMercato
-version: 2.2.0
+version: 2.3.0
 jms: '1.0'
 authors:
   - Luca Frigau
 maintainer: Luca Frigau <frigau@unica.it>
-date: '2026-11-03'
+date: '2026-11-19'
 type: R
-defaultLanguage: it
+defaultLanguage: en
 description: >-
-  Modulo didattico e applicativo per il corso di Analisi di Mercato. Comprende
-  strumenti per alcune delle principali fasi quantitative di una ricerca di
-  mercato: ricerche per campione (numerosità campionaria, estrazione del
-  campione con i principali disegni probabilistici - casuale semplice,
-  sistematico, stratificato proporzionale e ottimale, a grappoli, a due stadi,
-  con probabilità variabili - intervalli di confidenza e Design Effect), per la
-  preparazione dei dati (variabili dummy, duplicati, qualità delle risposte e
-  outlier multivariati), per la cluster analysis gerarchica (con metriche per la
-  scelta del numero di gruppi, caratterizzazione dei cluster e confronto fra
-  partizioni tramite Adjusted Rand Index) e per l'analisi delle componenti
-  principali (con rotazione varimax/promax, cerchio delle correlazioni, biplot e
-  heatmap dei coseni quadrati).
+  Teaching and applied module for the Market Analysis course. It provides tools
+  for some of the main quantitative phases of market research: sample surveys
+  (sample size, sample selection with the main probability designs - simple
+  random, systematic, proportional and optimal stratified, cluster, two-stage,
+  probability proportional to size - confidence intervals and Design Effect),
+  data preparation (dummy variables, duplicates, response quality and
+  multivariate outliers), hierarchical cluster analysis (with metrics for
+  choosing the number of groups, cluster profiling and comparison of partitions
+  through the Adjusted Rand Index) and principal component analysis (with
+  varimax/promax rotation, correlation circle, biplot and heatmap of squared
+  cosines).
 
-  Segnalazioni di bug, errori di calcolo o suggerimenti: scrivere a Luca Frigau
-  (frigau@unica.it) indicando la versione del modulo, l'analisi coinvolta e i
-  passi per riprodurre il problema.
+  Bug reports, calculation errors or suggestions: write to Luca Frigau
+  (frigau@unica.it) stating the module version, the analysis involved and the
+  steps to reproduce the problem.
 datasets:
-  - name: Popolazione clienti
+  - name: Customer population
     path: popolazione_clienti.omv
     description: >-
-      5.000 clienti con area, eta, sesso, reddito, spesa annua, punto vendita e
-      anzianita di fedelta. E la lista da cui estrarre il campione con tutti i
-      disegni: il punto vendita fa da grappolo, l'area da strato.
+      5,000 customers with area, age, sex, income, annual spending, store and
+      loyalty seniority. It is the list from which the sample is drawn with
+      every design: the store acts as cluster, the area as stratum.
     tags:
       - Campionamento
-  - name: Comuni per strati
+  - name: Municipalities by strata
     path: comuni_strati.omv
     description: >-
-      200 comuni con area, popolazione, reddito medio e numero di punti vendita.
-      Per l'allocazione proporzionale e di Neyman e per il campionamento con
-      probabilita proporzionali alla dimensione.
+      200 municipalities with area, population, average income and number of
+      stores. For proportional and Neyman allocation and for sampling with
+      probability proportional to size.
     tags:
       - Campionamento
-  - name: Questionario da ripulire
+  - name: Questionnaire to clean
     path: questionario_grezzo.omv
     description: >-
-      154 risposte a un questionario online come le esporta Moduli Google, prima
-      della pulizia: invii doppi, una domanda a risposta multipla, una batteria
-      di item con risposte tutte uguali e mancanti, due domande di controllo e
-      una combinazione insolita di reddito e spesa. Per le analisi di
-      Preparazione dei dati.
+      154 answers to an online questionnaire as exported by Google Forms, before
+      cleaning: double submissions, a multiple-response question, a battery of
+      items with all-equal and missing answers, two control questions and an
+      unusual combination of income and spending. For the Data preparation
+      analyses.
     tags:
       - Preparazione dei dati
-  - name: Survey di segmentazione
+  - name: Segmentation survey
     path: survey_segmentazione.omv
     description: >-
-      400 rispondenti, otto item su scala 1-7 piu eta, reddito, sesso e area.
-      Base per la cluster analysis e per la PCA; la colonna segmento_vero
-      permette di valutare la partizione ottenuta con l'Adjusted Rand Index.
+      400 respondents, eight items on a 1-7 scale plus age, income, sex and
+      area. Base for the cluster analysis and the PCA; the segmento_vero column
+      allows the partition obtained to be assessed with the Adjusted Rand Index.
     tags:
       - Cluster Analysis
       - PCA
-  - name: Panel di prodotti
+  - name: Product panel
     path: panel_prodotti.omv
     description: >-
-      20 marche descritte da dieci attributi percepiti, piu la fascia di
-      posizionamento come variabile qualitativa supplementare. Per la mappa di
-      posizionamento con la PCA.
+      20 brands described by ten perceived attributes, plus the positioning tier
+      as a supplementary qualitative variable. For the positioning map with the
+      PCA.
     tags:
       - PCA
 analyses:
-  - title: Numerosità campionaria
+  - title: Sample size
     name: samplesize
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
-    menuSubgroup: Campionamento
-    menuTitle: Numerosità campionaria
+    menuSubgroup: Sampling
+    menuTitle: Sample size
     category: analyses
-  - title: Campionamento casuale semplice
+  - title: Simple random sampling
     name: samplesimple
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
-    menuSubgroup: Campionamento
-    menuTitle: Campionamento casuale semplice
+    menuSubgroup: Sampling
+    menuTitle: Simple random sampling
     category: analyses
-  - title: Campionamento sistematico
+  - title: Systematic sampling
     name: samplesyst
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
-    menuSubgroup: Campionamento
-    menuTitle: Campionamento sistematico
+    menuSubgroup: Sampling
+    menuTitle: Systematic sampling
     category: analyses
-  - title: Campionamento stratificato
+  - title: Stratified sampling
     name: samplestrat
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
-    menuSubgroup: Campionamento
-    menuTitle: Campionamento stratificato
+    menuSubgroup: Sampling
+    menuTitle: Stratified sampling
     category: analyses
-  - title: Campionamento a grappoli
+  - title: Cluster sampling
     name: samplecluster
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
-    menuSubgroup: Campionamento
-    menuTitle: Campionamento a grappoli
+    menuSubgroup: Sampling
+    menuTitle: Cluster sampling
     category: analyses
-  - title: Campionamento a due stadi
+  - title: Two-stage sampling
     name: samplemultistage
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
-    menuSubgroup: Campionamento
-    menuTitle: Campionamento a due stadi
+    menuSubgroup: Sampling
+    menuTitle: Two-stage sampling
     category: analyses
-  - title: Campionamento con probabilità variabili (CPV)
+  - title: Probability-proportional-to-size (PPS) sampling
     name: sampleppv
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
-    menuSubgroup: Campionamento
-    menuTitle: Campionamento con probabilità variabili (CPV)
+    menuSubgroup: Sampling
+    menuTitle: Probability-proportional-to-size (PPS) sampling
     category: analyses
-  - title: Intervalli di confidenza
+  - title: Confidence intervals
     name: confint
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
-    menuSubgroup: Campionamento
-    menuTitle: Intervalli di confidenza
+    menuSubgroup: Sampling
+    menuTitle: Confidence intervals
     category: analyses
   - title: Design Effect
     name: deff
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
-    menuSubgroup: Campionamento
+    menuSubgroup: Sampling
     menuTitle: Design Effect
     category: analyses
-  - title: Variabili dummy
+  - title: Dummy variables
     name: dummies
     ns: AnalisiMercato
     category: analyses
     menuGroup: AnalisiMercato
-    menuSubgroup: Preparazione dei dati
-    menuTitle: Variabili dummy
-  - title: Duplicati
+    menuSubgroup: Data preparation
+    menuTitle: Dummy variables
+  - title: Duplicates
     name: duplicates
     ns: AnalisiMercato
     category: analyses
     menuGroup: AnalisiMercato
-    menuSubgroup: Preparazione dei dati
-    menuTitle: Duplicati
-  - title: Qualità delle risposte
+    menuSubgroup: Data preparation
+    menuTitle: Duplicates
+  - title: Response quality
     name: respquality
     ns: AnalisiMercato
     category: analyses
     menuGroup: AnalisiMercato
-    menuSubgroup: Preparazione dei dati
-    menuTitle: Qualità delle risposte
-  - title: Outlier multivariati
+    menuSubgroup: Data preparation
+    menuTitle: Response quality
+  - title: Multivariate outliers
     name: mvoutliers
     ns: AnalisiMercato
     category: analyses
     menuGroup: AnalisiMercato
-    menuSubgroup: Preparazione dei dati
-    menuTitle: Outlier multivariati
-  - title: Cluster Analysis Gerarchica
+    menuSubgroup: Data preparation
+    menuTitle: Multivariate outliers
+  - title: Hierarchical Cluster Analysis
     name: hc
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
     menuSubgroup: Cluster Analysis
-    menuTitle: Cluster Analysis Gerarchica
+    menuTitle: Hierarchical Cluster Analysis
     category: analyses
-  - title: Confronto partizioni
+  - title: Comparing partitions
     name: ari
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
     menuSubgroup: Cluster Analysis
-    menuTitle: Confronto partizioni
+    menuTitle: Comparing partitions
     category: analyses
-  - title: Caratterizzazione
+  - title: Cluster profiling
     name: catdes
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
     menuSubgroup: Cluster Analysis
-    menuTitle: Caratterizzazione
+    menuTitle: Cluster profiling
     category: analyses
-  - title: Analisi delle Componenti Principali
+  - title: Principal Component Analysis
     name: pca
     ns: AnalisiMercato
     menuGroup: AnalisiMercato
     menuSubgroup: PCA
-    menuTitle: Analisi delle Componenti Principali
+    menuTitle: Principal Component Analysis
     category: analyses
 usesNative: false
 minApp: 2.3.0

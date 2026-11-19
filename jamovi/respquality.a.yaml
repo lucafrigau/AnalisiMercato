@@ -1,8 +1,8 @@
 ---
 name: respquality
-title: Qualità delle risposte
+title: "Response quality"
 menuGroup: AnalisiMercato
-menuSubgroup: Preparazione dei dati
+menuSubgroup: "Data preparation"
 version: '2.2.0'
 jas: '1.2'
 
@@ -11,7 +11,7 @@ options:
     type: Data
 
   - name: items
-    title: Batteria di item (stessa scala)
+    title: "Item battery (same scale)"
     type: Variables
     default: []
     suggested:
@@ -27,7 +27,7 @@ options:
           compaiono nel questionario.
 
   - name: seqPerc
-    title: Stessa risposta di fila su almeno il
+    title: "Same answer in a row on at least"
     type: Integer
     default: 100
     description:
@@ -38,7 +38,7 @@ options:
           gli item.
 
   - name: missPerc
-    title: Risposte mancanti, almeno il
+    title: "Missing answers, at least"
     type: Integer
     default: 50
     description:
@@ -46,7 +46,7 @@ options:
           Segnale quando mancano almeno questa percentuale degli item.
 
   - name: pairs
-    title: Coppie di domande di controllo
+    title: "Pairs of control questions"
     type: Pairs
     permitted:
       - numeric
@@ -58,7 +58,7 @@ options:
           distanza dalla diagonale della matrice di coerenza.
 
   - name: distMin
-    title: Distanza dalla diagonale che conta come segnale, almeno
+    title: "Distance from the diagonal counted as a signal, at least"
     type: Integer
     default: 3
     description:
@@ -68,27 +68,27 @@ options:
           comprende anche le incoerenze da esaminare.
 
   - name: minSegnali
-    title: Elenca i rispondenti con almeno
+    title: "List the respondents with at least"
     type: Integer
     default: 2
     description:
         R: Numero minimo di segnali per comparire nell'elenco dei rispondenti.
 
   - name: tuto
-    title: Descrizione delle analisi
+    title: "Show methodological description"
     type: Bool
     default: true
     description:
         R: Se TRUE mostra il pannello con la descrizione dell'analisi.
 
   - name: segnaliOV
-    title: Crea la variabile con il numero di segnali
+    title: "Create the variable with the number of signals"
     type: Output
     description:
         R: Colonna di output con il numero di segnali di ogni rispondente.
 
   - name: indicatoriOV
-    title: Crea le variabili dei singoli indicatori
+    title: "Create the variables of the single indicators"
     type: Output
     description:
         R: >

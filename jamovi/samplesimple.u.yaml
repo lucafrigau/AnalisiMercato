@@ -1,4 +1,4 @@
-title: Campionamento casuale semplice
+title: "Simple random sampling"
 name: samplesimple
 jus: '3.0'
 stage: 0
@@ -13,7 +13,7 @@ children:
       - id
     children:
       - type: TargetLayoutBox
-        label: Variabile identificativa (opzionale)
+        label: "ID variable (optional)"
         children:
           - type: VariablesListBox
             name: id_var

@@ -1,16 +1,16 @@
 ---
 name: mvoutliers
-title: Outlier multivariati
+title: "Multivariate outliers"
 jrs: '1.1'
 
 items:
   - name: instructions
-    title: Istruzioni
+    title: "Instructions"
     type: Html
     visible: (tuto)
 
   - name: riepilogo
-    title: Riepilogo
+    title: "Summary"
     type: Table
     rows: 1
     clearWith:
@@ -18,23 +18,23 @@ items:
       - alpha
     columns:
       - name: n
-        title: Osservazioni usate
+        title: "Observations used"
         type: integer
       - name: p
-        title: Variabili
+        title: "Variables"
         type: integer
       - name: soglia
-        title: Valore critico di D²
+        title: "Critical value of D²"
         type: number
       - name: nout
-        title: Outlier
+        title: "Outliers"
         type: integer
       - name: escluse
-        title: Righe con mancanti
+        title: "Rows with missing values"
         type: integer
 
   - name: outlier
-    title: Osservazioni oltre la soglia
+    title: "Observations beyond the threshold"
     type: Table
     rows: 0
     clearWith:
@@ -42,7 +42,7 @@ items:
       - alpha
     columns:
       - name: riga
-        title: Riga
+        title: "Row"
         type: integer
       - name: d2
         title: D²
@@ -53,7 +53,7 @@ items:
         format: zto,pvalue
 
   - name: distOV
-    title: Distanza di Mahalanobis
+    title: "Mahalanobis distance"
     type: Output
     varTitle: mahal_D2
     varDescription: Distanza di Mahalanobis al quadrato dal centro dei dati
@@ -62,7 +62,7 @@ items:
       - vars
 
   - name: outlierOV
-    title: Outlier
+    title: "Outliers"
     type: Output
     varTitle: outlier
     varDescription: 1 = outlier multivariato, 0 = altre osservazioni

@@ -1,6 +1,6 @@
 ---
 name:  sampleppv
-title: Campionamento con probabilità variabili (CPV)
+title: "Probability-proportional-to-size (PPS) sampling"
 jrs:   '1.1'
 
 refs:
@@ -9,12 +9,12 @@ refs:
 
 items:
     - name: instructions
-      title: Istruzioni
+      title: "Instructions"
       type: Html
       visible: (tuto)
 
     - name: summary
-      title: Riepilogo del campione
+      title: "Sample summary"
       type: Table
       rows: 1
       clearWith:
@@ -26,29 +26,29 @@ items:
         - seed
       columns:
         - name: N
-          title: N (popolazione)
+          title: "N (population)"
           type: integer
         - name: n_richiesto
-          title: n richiesto
+          title: "Requested n"
           type: integer
         - name: n_distinti
-          title: n unità distinte
+          title: "Distinct units (n)"
           type: integer
         - name: n_totale
-          title: n estrazioni totali
+          title: "Total draws"
           type: integer
         - name: peso_totale
-          title: Σ pesi
+          title: "Σ weights"
           type: number
         - name: schema
-          title: Schema
+          title: "Scheme"
           type: text
         - name: seed_used
           title: Seed
           type: integer
 
     - name: extracted
-      title: Unità estratte
+      title: "Sampled units"
       type: Table
       rows: 0
       visible: (id_var)
@@ -62,28 +62,28 @@ items:
         - seed
       columns:
         - name: pos
-          title: Riga
+          title: "Row"
           type: integer
         - name: id_value
           title: ID
           type: text
         - name: peso
-          title: Peso w_i
+          title: "Weight w_i"
           type: number
         - name: prob
-          title: Prob. di selezione p_i = w_i/Σw
+          title: "Selection prob. p_i = w_i/Σw"
           type: number
           format: zto
         - name: pi_incl
-          title: Prob. di inclusione π_i
+          title: "Inclusion prob. π_i"
           type: number
           format: zto
         - name: freq
-          title: Frequenza di estrazione
+          title: "Draw frequency"
           type: integer
 
     - name: out_freq
-      title: "Estrai il campione (frequenza nel campione)"
+      title: "Draw the sample (frequency in the sample)"
       type: Output
       varTitle: freq_CPV
       measureType: continuous

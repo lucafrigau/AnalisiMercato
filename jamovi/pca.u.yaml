@@ -1,4 +1,4 @@
-title: Analisi delle Componenti Principali
+title: "Principal Component Analysis"
 name: pca
 jus: '3.0'
 stage: 0
@@ -13,32 +13,32 @@ children:
       - id
     children:
       - type: TargetLayoutBox
-        label: Variabili attive (quantitative)
+        label: "Active variables (quantitative)"
         children:
           - type: VariablesListBox
             name: vars
             isTarget: true
       - type: TargetLayoutBox
-        label: Variabili quantitative supplementari (opzionali)
+        label: "Supplementary quantitative variables (optional)"
         children:
           - type: VariablesListBox
             name: supp_quant
             isTarget: true
       - type: TargetLayoutBox
-        label: Variabile qualitativa supplementare per biplot (opzionale)
+        label: "Supplementary qualitative variable for biplot (optional)"
         children:
           - type: VariablesListBox
             name: supp_qual
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Variabili qualitative per la mappa di posizionamento (opzionali)
+        label: "Qualitative variables for positioning map (optional)"
         children:
           - type: VariablesListBox
             name: supp_qual_map
             isTarget: true
       - type: TargetLayoutBox
-        label: Variabile identificativa (opzionale)
+        label: "ID variable (optional)"
         children:
           - type: VariablesListBox
             name: id_var
@@ -92,6 +92,8 @@ children:
         name: plot_scree
       - type: CheckBox
         name: plot_circle
+      - type: ComboBox
+        name: circle_promax
       - type: CheckBox
         name: plot_biplot
       - type: CheckBox

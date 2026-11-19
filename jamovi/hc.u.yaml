@@ -1,4 +1,4 @@
-title: Cluster Analysis Gerarchica
+title: "Hierarchical Cluster Analysis"
 name: hc
 jus: '3.0'
 stage: 0
@@ -11,13 +11,13 @@ children:
     stretchFactor: 1
     children:
       - type: TargetLayoutBox
-        label: Base della segmentazione
+        label: "Segmentation base"
         children:
           - type: VariablesListBox
             name: vars
             isTarget: true
       - type: TargetLayoutBox
-        label: Binarie di presenza/assenza
+        label: "Presence/absence binaries"
         children:
           - type: VariablesListBox
             name: asimm

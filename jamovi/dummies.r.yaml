@@ -1,16 +1,16 @@
 ---
 name: dummies
-title: Variabili dummy
+title: "Dummy variables"
 jrs: '1.1'
 
 items:
   - name: instructions
-    title: Istruzioni
+    title: "Instructions"
     type: Html
     visible: (tuto)
 
   - name: dummies
-    title: Dummy create
+    title: "Dummies created"
     type: Table
     rows: 0
     clearWith:
@@ -20,28 +20,28 @@ items:
       - minAltro
     columns:
       - name: var
-        title: Variabile
+        title: "Variable"
         type: text
         combineBelow: true
       - name: level
-        title: Modalità
+        title: "Level"
         type: text
       - name: name
-        title: Nome della dummy
+        title: "Dummy name"
         type: text
       - name: n1
-        title: N con 1
+        title: "N with 1"
         type: integer
       - name: perc1
-        title: '% con 1'
+        title: "% with 1"
         type: number
         format: pc
       - name: nmiss
-        title: Mancanti
+        title: "Missing"
         type: integer
 
   - name: dummiesOV
-    title: Variabili dummy
+    title: "Dummy variables"
     type: Output
     initInRun: true
     measureType: continuous

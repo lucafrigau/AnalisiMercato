@@ -1,6 +1,6 @@
 ---
 name:  confint
-title: Intervalli di confidenza
+title: "Confidence intervals"
 jrs:   '1.1'
 
 refs:
@@ -9,12 +9,12 @@ refs:
 
 items:
     - name: instructions
-      title: Istruzioni
+      title: "Instructions"
       type: Html
       visible: (tuto)
 
     - name: inputs
-      title: Parametri usati
+      title: "Input parameters"
       type: Table
       rows: 1
       clearWith:
@@ -30,10 +30,10 @@ items:
         - confidence
       columns:
         - name: modalita
-          title: Modalità
+          title: "Mode"
           type: text
         - name: parametro
-          title: Parametro
+          title: "Parameter"
           type: text
         - name: n
           title: n
@@ -42,20 +42,20 @@ items:
           title: N
           type: text
         - name: stima
-          title: Stima puntuale
+          title: "Point estimate"
           type: number
         - name: s
-          title: s (campionario)
+          title: "s (sample)"
           type: number
         - name: z
           title: z (α/2)
           type: number
         - name: fpc
-          title: Fattore (1-f)
+          title: "Factor (1-f)"
           type: text
 
     - name: result
-      title: Intervallo di confidenza
+      title: "Confidence interval"
       type: Table
       rows: 1
       clearWith:
@@ -71,16 +71,16 @@ items:
         - confidence
       columns:
         - name: confidence
-          title: Confidenza
+          title: "Confidence"
           type: text
         - name: stima
-          title: Stima
+          title: "Estimate"
           type: number
         - name: se
-          title: Errore standard
+          title: "Standard error"
           type: number
         - name: halfwidth
-          title: Ampiezza ± Δ
+          title: "Half-width ± Δ"
           type: number
         - name: lower
           title: LB

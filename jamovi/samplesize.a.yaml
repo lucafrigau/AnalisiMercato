@@ -1,26 +1,26 @@
 ---
 name:  samplesize
-title: Numerosità campionaria
+title: "Sample size"
 menuGroup: AnalisiMercato
-menuSubgroup: Campionamento
+menuSubgroup: "Sampling"
 version: '2.0.9'
 jas: '1.2'
 
 options:
     - name: tuto
-      title: Descrizione delle analisi
+      title: "Show methodological description"
       type: Bool
       default: true
       description:
           R: Se TRUE mostra il pannello con la descrizione metodologica.
 
     - name: param
-      title: Parametro da stimare
+      title: "Parameter to estimate"
       type: List
       options:
-        - title: Proporzione
+        - title: "Proportion"
           name:  proportion
-        - title: Media
+        - title: "Mean"
           name:  mean
       default: proportion
       description:
@@ -29,7 +29,7 @@ options:
             formula utilizzata per il calcolo della numerosità.
 
     - name: replacement
-      title: Estrazione con reinserimento (popolazione infinita)
+      title: "With replacement (infinite population)"
       type: Bool
       default: false
       description:
@@ -39,7 +39,7 @@ options:
             (1 - f) per popolazione finita (SSR).
 
     - name: N
-      title: Dimensione della popolazione (N)
+      title: "Population size (N)"
       type: Integer
       default: 1000
       description:
@@ -49,7 +49,7 @@ options:
             reinserimento.
 
     - name: delta
-      title: Margine di errore (Δ)
+      title: "Margin of error (Δ)"
       type: Number
       default: 0.03
       description:
@@ -60,14 +60,14 @@ options:
             variabile (es. ±2 punti).
 
     - name: confidence
-      title: Livello di confidenza (%)
+      title: "Confidence level (%)"
       type: Number
       default: 95
       description:
           R: Livello di confidenza in percentuale (default 95).
 
     - name: prop_P
-      title: Stima della proporzione P (caso peggiore = 0.5)
+      title: "Proportion estimate P (worst case = 0.5)"
       type: Number
       default: 0.5
       description:
@@ -77,7 +77,7 @@ options:
             eccesso).
 
     - name: mean_sigma
-      title: Scarto quadratico medio σ
+      title: "Standard deviation σ"
       type: Number
       default: 1
       description:

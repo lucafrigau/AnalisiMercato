@@ -1,4 +1,4 @@
-title: Campionamento stratificato
+title: "Stratified sampling"
 name: samplestrat
 jus: '3.0'
 stage: 0
@@ -13,13 +13,13 @@ children:
       - id
     children:
       - type: TargetLayoutBox
-        label: Variabili di stratificazione
+        label: "Stratification variables"
         children:
           - type: VariablesListBox
             name: strat_var
             isTarget: true
       - type: TargetLayoutBox
-        label: Variabile ausiliaria per allocazione ottimale (opzionale)
+        label: "Auxiliary variable for optimal allocation (optional)"
         children:
           - type: VariablesListBox
             name: aux_var
@@ -27,7 +27,7 @@ children:
             isTarget: true
             enable: (method:optimal)
       - type: TargetLayoutBox
-        label: Variabile identificativa (opzionale)
+        label: "ID variable (optional)"
         children:
           - type: VariablesListBox
             name: id_var

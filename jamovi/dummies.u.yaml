@@ -1,4 +1,4 @@
-title: Variabili dummy
+title: "Dummy variables"
 name: dummies
 jus: '3.0'
 stage: 0
@@ -9,7 +9,7 @@ children:
     stretchFactor: 1
     children:
       - type: TargetLayoutBox
-        label: Variabili categoriali
+        label: "Categorical variables"
         children:
           - type: VariablesListBox
             name: vars
@@ -32,7 +32,7 @@ children:
           - type: TextBox
             name: minAltro
             format: number
-            suffix: volte
+            suffix: "times"
             enable: (multi)
   - type: LayoutBox
     margin: large

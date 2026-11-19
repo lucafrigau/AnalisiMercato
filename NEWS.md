@@ -1,3 +1,71 @@
+# AnalisiMercato 2.3.0
+
+## Il modulo anche in inglese
+
+Menu, pannelli delle opzioni, titoli dei risultati e testi del modulo
+(istruzioni, note, messaggi di errore, didascalie dei grafici) seguono la
+lingua scelta in jamovi: con jamovi in italiano tutto e' in italiano, come
+prima, con jamovi in inglese o in un'altra lingua tutto e' in inglese.
+
+Fino alla 2.2.0, con jamovi in inglese, menu, pannelli e testi del modulo
+restavano in italiano e solo i titoli passavano all'inglese. Il motivo e'
+nel client di jamovi, che considera l'inglese la lingua originale di ogni
+modulo e non applica mai un catalogo inglese. Ora i testi dei file yaml
+sono scritti in inglese e il catalogo `jamovi/i18n/it.po` li riporta in
+italiano, con le stesse parole di prima; i testi generati in R prendono la
+lingua dall'opzione `.lang` che jamovi passa a ogni analisi, la stessa
+usata per i titoli.
+
+La variabile d'ambiente `ANALISIMERCATO_LANG` non serve piu' e viene
+ignorata. Negli script R la lingua del modulo e' quella della variabile
+`LANGUAGE` (o, se e' vuota, del sistema), come per i titoli tradotti da
+jmvcore: per l'inglese, `Sys.setenv(LANGUAGE = "en")` prima di creare le
+opzioni dell'analisi.
+
+## PCA: cerchio delle correlazioni con Promax
+
+Il cerchio con Promax si puo' disegnare in due modi, con la nuova opzione
+*▸ CERCHIO · Con Promax*.
+
+- *Assi obliqui sulle frecce senza rotazione*, il predefinito. Le frecce
+  restano quelle senza rotazione, e si leggono come nel cerchio classico:
+  lunghezze, angoli, correlazioni fra le variabili. Le componenti di Promax
+  sono due linee rosse oblique, al centro dei gruppi di frecce: il coseno
+  dell'angolo fra le linee e' la loro correlazione (tabella Phi), e una
+  freccia proiettata ad angolo retto su una linea da' la correlazione con
+  quella componente, il cui quadrato e' il cos2 della tabella. Con due
+  componenti ritenute le parallele agli assi danno i pattern loadings; con
+  piu' di due il grafico mostra il piano delle due componenti scelte.
+- *Assi perpendicolari, pattern loadings*. Le frecce hanno come coordinate i
+  loadings ruotati della tabella (pattern matrix), come nel biplot e nella
+  mappa di posizionamento: ogni gruppo di variabili si dispone lungo il
+  proprio asse. I loadings di Promax non sono correlazioni e una freccia puo'
+  superare il cerchio: il grafico allarga i propri limiti e lo dice in una
+  didascalia.
+
+Fino alla 2.2.0 il cerchio disegnava su assi perpendicolari le correlazioni
+fra variabili e componenti ruotate (structure matrix): siccome le componenti
+ruotate sono correlate, le frecce restavano verso la diagonale, piu' lontane
+dagli assi che con Varimax, e potevano uscire dal cerchio.
+
+Cos2 e contributi delle variabili restano calcolati dalle correlazioni
+(structure matrix). Con Varimax non cambia nulla. I calcoli della rotazione
+(pattern, structure, matrice Phi, coseni quadrati, coordinate) coincidono
+con quelli di `psych::principal` e con le definizioni.
+
+## Celle vuote nelle tabelle
+
+Le celle che devono restare vuote ora sono vuote: le percentuali della
+tabella delle SS loadings con Promax e le celle sopra la diagonale della
+matrice dell'Adjusted Rand Index. Prima jamovi vi scriveva NaN.
+
+## PCA: didascalie dei grafici
+
+Le didascalie dei grafici della PCA vanno a capo secondo la larghezza del
+grafico. Prima restavano su una riga sola e, quando erano piu' lunghe del
+grafico, venivano tagliate ai lati: succedeva alla didascalia dello scree
+plot con una rotazione attiva.
+
 # AnalisiMercato 2.2.0
 
 ## Nuovo gruppo di menu: Preparazione dei dati

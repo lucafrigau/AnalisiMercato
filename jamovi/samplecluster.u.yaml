@@ -1,4 +1,4 @@
-title: Campionamento a grappoli
+title: "Cluster sampling"
 name: samplecluster
 jus: '3.0'
 stage: 0
@@ -13,14 +13,14 @@ children:
       - id
     children:
       - type: TargetLayoutBox
-        label: Variabile di grappolo
+        label: "Cluster variable"
         children:
           - type: VariablesListBox
             name: cluster_var
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Variabile identificativa (opzionale)
+        label: "ID variable (optional)"
         children:
           - type: VariablesListBox
             name: id_var

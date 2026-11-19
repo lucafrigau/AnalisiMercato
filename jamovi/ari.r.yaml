@@ -1,6 +1,6 @@
 ---
 name:  ari
-title: Confronto partizioni
+title: "Comparing partitions"
 jrs:   '1.1'
 
 refs:
@@ -9,7 +9,7 @@ refs:
 
 items:
     - name: instructions
-      title: Istruzioni
+      title: "Instructions"
       type: Html
       visible: (tuto)
       

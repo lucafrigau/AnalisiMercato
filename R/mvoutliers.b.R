@@ -42,7 +42,7 @@ mvoutliersClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
             </head>
             <body>
             <div class='justified-text'>
-              <p> The Mahalanobis distance measures how far each observation is from the centre
+              <p> The Mahalanobis distance measures how far each observation is from the center
               of the data, taking the correlations between the variables into account: an
               unusual combination of values, each normal on its own, gives a large distance. A
               customer with a high income and a very low spending, for example, may be extreme

@@ -143,12 +143,12 @@ deffResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="inputs",
-                title="Parametri usati",
+                title="Input parameters",
                 rows=1,
                 clearWith=list(
                     "mode",
@@ -165,15 +165,15 @@ deffResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="modalita", 
-                        `title`="Modalit\u00E0", 
+                        `title`="Mode", 
                         `type`="text"),
                     list(
                         `name`="piano", 
-                        `title`="Piano", 
+                        `title`="Plan", 
                         `type`="text"),
                     list(
                         `name`="formula", 
-                        `title`="Formula usata", 
+                        `title`="Formula used", 
                         `type`="text"))))
             self$add(jmvcore::Table$new(
                 options=options,
@@ -199,19 +199,19 @@ deffResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         `type`="number"),
                     list(
                         `name`="efficienza", 
-                        `title`="Efficienza vs SCR", 
+                        `title`="Efficiency vs SRS", 
                         `type`="text"),
                     list(
                         `name`="n_srs", 
-                        `title`="n di riferimento", 
+                        `title`="Reference n", 
                         `type`="integer"),
                     list(
                         `name`="n_complex", 
-                        `title`="Numerosit\u00E0 richiesta dal piano", 
+                        `title`="Sample size required by the design", 
                         `type`="integer"),
                     list(
                         `name`="n_eff", 
-                        `title`="Numerosit\u00E0 efficace di n unit\u00E0 raccolte col piano", 
+                        `title`="Effective size of n units collected with the design", 
                         `type`="integer"))))}))
 
 deffBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(

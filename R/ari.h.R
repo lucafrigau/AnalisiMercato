@@ -47,14 +47,14 @@ ariResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Confronto partizioni",
+                title="Comparing partitions",
                 refs=list(
                     "hubert",
                     "everitt"))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
@@ -90,7 +90,7 @@ ariBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'auto')
         }))
 
-#' Confronto partizioni
+#' Comparing partitions
 #'
 #' 
 #' @param data .

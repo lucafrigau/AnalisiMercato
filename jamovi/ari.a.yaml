@@ -1,6 +1,6 @@
 ---
 name: ari
-title: Confronto partizioni
+title: "Comparing partitions"
 menuGroup: AnalisiMercato
 menuSubgroup: Cluster Analysis
 version: '2.0.9'
@@ -11,7 +11,7 @@ options:
     type: Data
 
   - name: vars
-    title: Partizioni da confrontare
+    title: "Partitions to compare"
     type: Variables
     rejectInf: true
     description:
@@ -21,7 +21,7 @@ options:
           ciascuna coppia.
 
   - name: tuto
-    title: Descrizione delle analisi
+    title: "Show methodological description"
     type: Bool
     default: true
     description:

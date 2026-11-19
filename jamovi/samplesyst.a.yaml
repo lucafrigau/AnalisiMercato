@@ -1,8 +1,8 @@
 ---
 name:  samplesyst
-title: Campionamento sistematico
+title: "Systematic sampling"
 menuGroup: AnalisiMercato
-menuSubgroup: Campionamento
+menuSubgroup: "Sampling"
 version: '2.0.9'
 jas: '1.2'
 
@@ -11,7 +11,7 @@ options:
       type: Data
 
     - name: id_var
-      title: Variabile identificativa (opzionale)
+      title: "ID variable (optional)"
       type: Variable
       suggested:
         - id
@@ -28,7 +28,7 @@ options:
             soggetti selezionati.
 
     - name: sort_var
-      title: Variabile di ordinamento (opzionale)
+      title: "Sorting variable (optional)"
       type: Variable
       suggested:
         - continuous
@@ -45,17 +45,17 @@ options:
             criticamente dall'ordinamento.
 
     - name: tuto
-      title: Descrizione delle analisi
+      title: "Show methodological description"
       type: Bool
       default: true
 
     - name: size_mode
-      title: Modalità di specifica della numerosità
+      title: "Sample size specification mode"
       type: List
       options:
-        - title: Numero di unità (n)
+        - title: "Number of units (n)"
           name:  n
-        - title: Frazione di campionamento (f)
+        - title: "Sampling fraction (f)"
           name:  f
       default: n
       description:
@@ -64,21 +64,21 @@ options:
             unità (n) oppure tramite una frazione f della popolazione.
 
     - name: n
-      title: Numerosità campionaria (n)
+      title: "Sample size (n)"
       type: Integer
       default: 30
       description:
           R: Numerosità del campione da estrarre.
 
     - name: f
-      title: Frazione di campionamento (f)
+      title: "Sampling fraction (f)"
       type: Number
       default: 0.1
       description:
           R: Frazione f = n/N della popolazione da estrarre.
 
     - name: seed
-      title: Seed (riproducibilità)
+      title: "Seed (reproducibility)"
       type: Integer
       default: 1
       description:
@@ -89,7 +89,7 @@ options:
             riproducibilità del campione.
 
     - name: out_freq
-      title: "Estrai il campione (indicatore 0/1, frequenza)"
+      title: "Draw the sample (0/1 indicator, frequency)"
       type: Output
       description:
           R: >

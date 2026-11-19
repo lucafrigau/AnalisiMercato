@@ -76,7 +76,7 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Caratterizzazione",
+                title="Cluster profiling",
                 refs=list(
                     "factominer",
                     "explo",
@@ -84,7 +84,7 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(R6::R6Class(
                 inherit = jmvcore::Group,
@@ -96,11 +96,11 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         super$initialize(
                             options=options,
                             name="chigroup",
-                            title="Test del Chi-quadro")
+                            title="Chi-square test")
                         self$add(jmvcore::Table$new(
                             options=options,
                             name="chi",
-                            title="Associazione tra la variabile 'Cluster' e le variabili categoriche",
+                            title="Association between 'Cluster' and categorical variables",
                             columns=list(
                                 list(
                                     `name`="varchi", 
@@ -127,11 +127,11 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         super$initialize(
                             options=options,
                             name="categgroup",
-                            title="Descrizione tramite le variabili categoriche")
+                            title="Description via categorical variables")
                         self$add(jmvcore::Table$new(
                             options=options,
                             name="categquali",
-                            title="Descrizione di ciascun 'Cluster' tramite le categorie",
+                            title="Description of each 'Cluster' via categories",
                             columns=list(
                                 list(
                                     `name`="varcateg", 
@@ -140,7 +140,7 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                                     `combineBelow`=TRUE),
                                 list(
                                     `name`="vardesccateg", 
-                                    `title`="Categoria", 
+                                    `title`="Category", 
                                     `type`="text"),
                                 list(
                                     `name`="clamod", 
@@ -152,7 +152,7 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                                     `type`="number"),
                                 list(
                                     `name`="global", 
-                                    `title`="Generale", 
+                                    `title`="Overall", 
                                     `type`="number"),
                                 list(
                                     `name`="categpv", 
@@ -161,12 +161,12 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                                     `format`="zto,pvalue"),
                                 list(
                                     `name`="vtest", 
-                                    `title`="Vtest", 
+                                    `title`="v-test", 
                                     `type`="number"))))
                         self$add(jmvcore::Table$new(
                             options=options,
                             name="qualir2",
-                            title="Associazione con le variabili qualitative",
+                            title="Association with qualitative variables",
                             columns=list(
                                 list(
                                     `name`="varr2", 
@@ -185,7 +185,7 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         self$add(jmvcore::Table$new(
                             options=options,
                             name="categquanti",
-                            title="Descrizione della variabile quantitativa tramite le categorie",
+                            title="Description of the quantitative variable via categories",
                             columns=list(
                                 list(
                                     `name`="varcateg", 
@@ -194,11 +194,11 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                                     `combineBelow`=TRUE),
                                 list(
                                     `name`="vardesccateg", 
-                                    `title`="Categoria", 
+                                    `title`="Category", 
                                     `type`="text"),
                                 list(
                                     `name`="estimate", 
-                                    `title`="Stima", 
+                                    `title`="Estimate", 
                                     `type`="number"),
                                 list(
                                     `name`="categpv", 
@@ -215,11 +215,11 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         super$initialize(
                             options=options,
                             name="qtvargroup",
-                            title="Descrizione globale tramite le variabili quantitative")
+                            title="Overall description via quantitative variables")
                         self$add(jmvcore::Table$new(
                             options=options,
                             name="qtvar",
-                            title="Relazione tra la variabile 'Cluster' e le variabili quantitative",
+                            title="Relationship between 'Cluster' and quantitative variables",
                             columns=list(
                                 list(
                                     `name`="varqtvar", 
@@ -227,7 +227,7 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                                     `type`="text"),
                                 list(
                                     `name`="scc", 
-                                    `title`="Correlazione al quadrato", 
+                                    `title`="Squared correlation", 
                                     `type`="number"),
                                 list(
                                     `name`="qtvarpv", 
@@ -245,11 +245,11 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         super$initialize(
                             options=options,
                             name="qtgroup",
-                            title="Descrizione tramite le variabili quantitative")
+                            title="Description via quantitative variables")
                         self$add(jmvcore::Table$new(
                             options=options,
                             name="qt",
-                            title="Descrizione di ciascun 'Cluster' tramite le variabili quantitative",
+                            title="Description of each 'Cluster' via quantitative variables",
                             columns=list(
                                 list(
                                     `name`="varqt", 
@@ -257,27 +257,27 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                                     `type`="text"),
                                 list(
                                     `name`="vardescqt", 
-                                    `title`="Variabile", 
+                                    `title`="Variable", 
                                     `type`="text"),
                                 list(
                                     `name`="vtestqt", 
-                                    `title`="Vtest", 
+                                    `title`="v-test", 
                                     `type`="number"),
                                 list(
                                     `name`="meancateg", 
-                                    `title`="Media nel 'Cluster'", 
+                                    `title`="Mean in 'Cluster'", 
                                     `type`="number"),
                                 list(
                                     `name`="overallmean", 
-                                    `title`="Media generale", 
+                                    `title`="Overall mean", 
                                     `type`="number"),
                                 list(
                                     `name`="sdcateg", 
-                                    `title`="Dev.std. nel 'Cluster'", 
+                                    `title`="SD in 'Cluster'", 
                                     `type`="number"),
                                 list(
                                     `name`="overallsd", 
-                                    `title`="Dev.std. generale", 
+                                    `title`="Overall SD", 
                                     `type`="number"),
                                 list(
                                     `name`="qtpv", 
@@ -287,7 +287,7 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         self$add(jmvcore::Table$new(
                             options=options,
                             name="qtcor",
-                            title="Relazione con le variabili quantitative",
+                            title="Relationship with quantitative variables",
                             columns=list(
                                 list(
                                     `name`="varcor", 
@@ -295,7 +295,7 @@ catdesResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                                     `type`="text"),
                                 list(
                                     `name`="cor", 
-                                    `title`="Correlazione", 
+                                    `title`="Correlation", 
                                     `type`="number"),
                                 list(
                                     `name`="corpvalue", 
@@ -324,7 +324,7 @@ catdesBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'auto')
         }))
 
-#' Caratterizzazione
+#' Cluster profiling
 #'
 #' 
 #' @param data .

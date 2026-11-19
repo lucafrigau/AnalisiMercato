@@ -21,6 +21,7 @@ pcaOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             axis_y = 2,
             plot_scree = TRUE,
             plot_circle = TRUE,
+            circle_promax = "oblique",
             plot_biplot = TRUE,
             plot_cos2 = TRUE,
             plot_map = FALSE,
@@ -120,6 +121,13 @@ pcaOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 "plot_circle",
                 plot_circle,
                 default=TRUE)
+            private$..circle_promax <- jmvcore::OptionList$new(
+                "circle_promax",
+                circle_promax,
+                options=list(
+                    "oblique",
+                    "pattern"),
+                default="oblique")
             private$..plot_biplot <- jmvcore::OptionBool$new(
                 "plot_biplot",
                 plot_biplot,
@@ -174,6 +182,7 @@ pcaOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$.addOption(private$..axis_y)
             self$.addOption(private$..plot_scree)
             self$.addOption(private$..plot_circle)
+            self$.addOption(private$..circle_promax)
             self$.addOption(private$..plot_biplot)
             self$.addOption(private$..plot_cos2)
             self$.addOption(private$..plot_map)
@@ -203,6 +212,7 @@ pcaOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
         axis_y = function() private$..axis_y$value,
         plot_scree = function() private$..plot_scree$value,
         plot_circle = function() private$..plot_circle$value,
+        circle_promax = function() private$..circle_promax$value,
         plot_biplot = function() private$..plot_biplot$value,
         plot_cos2 = function() private$..plot_cos2$value,
         plot_map = function() private$..plot_map$value,
@@ -231,6 +241,7 @@ pcaOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
         ..axis_y = NA,
         ..plot_scree = NA,
         ..plot_circle = NA,
+        ..circle_promax = NA,
         ..plot_biplot = NA,
         ..plot_cos2 = NA,
         ..plot_map = NA,
@@ -274,7 +285,7 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Analisi delle Componenti Principali",
+                title="Principal Component Analysis",
                 refs=list(
                     "jolliffe",
                     "kaiser",
@@ -284,12 +295,12 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="settings",
-                title="Impostazioni",
+                title="Settings",
                 rows=1,
                 clearWith=list(
                     "vars",
@@ -299,28 +310,28 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="n_var", 
-                        `title`="Variabili attive", 
+                        `title`="Active variables", 
                         `type`="integer"),
                     list(
                         `name`="n_obs", 
-                        `title`="Osservazioni (n)", 
+                        `title`="Observations (n)", 
                         `type`="integer"),
                     list(
                         `name`="standardize", 
-                        `title`="Standardizzate", 
+                        `title`="Standardized", 
                         `type`="text"),
                     list(
                         `name`="ncp_used", 
-                        `title`="Componenti ritenute", 
+                        `title`="Retained components", 
                         `type`="integer"),
                     list(
                         `name`="rotation", 
-                        `title`="Rotazione", 
+                        `title`="Rotation", 
                         `type`="text"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="eigenvalues",
-                title="Autovalori e varianza spiegata",
+                title="Eigenvalues and explained variance",
                 rows=0,
                 clearWith=list(
                     "vars",
@@ -330,24 +341,24 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="comp", 
-                        `title`="Componente", 
+                        `title`="Component", 
                         `type`="text"),
                     list(
                         `name`="eig", 
-                        `title`="Autovalore", 
+                        `title`="Eigenvalue", 
                         `type`="number"),
                     list(
                         `name`="var_pct", 
-                        `title`="% varianza", 
+                        `title`="% variance", 
                         `type`="number"),
                     list(
                         `name`="cum_pct", 
-                        `title`="% cumulata", 
+                        `title`="% cumulative", 
                         `type`="number"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="ss_loadings",
-                title="Somme dei quadrati dei loadings dopo la rotazione",
+                title="Sums of squared loadings after rotation",
                 rows=0,
                 visible=FALSE,
                 clearWith=list(
@@ -358,7 +369,7 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="comp", 
-                        `title`="Componente ruotata", 
+                        `title`="Rotated component", 
                         `type`="text"),
                     list(
                         `name`="ss", 
@@ -366,16 +377,16 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         `type`="number"),
                     list(
                         `name`="ss_pct", 
-                        `title`="% varianza", 
+                        `title`="% variance", 
                         `type`="number"),
                     list(
                         `name`="ss_cum", 
-                        `title`="% cumulata", 
+                        `title`="% cumulative", 
                         `type`="number"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="phi",
-                title="Correlazioni fra le componenti ruotate (\u03A6)",
+                title="Correlations between the rotated components (\u03A6)",
                 rows=0,
                 visible="(rotation:promax)",
                 clearWith=list(
@@ -386,12 +397,12 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="componente", 
-                        `title`="Componente", 
+                        `title`="Component", 
                         `type`="text"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="var_coord",
-                title="Coordinate delle variabili (loadings)",
+                title="Variable coordinates (loadings)",
                 rows=0,
                 clearWith=list(
                     "vars",
@@ -401,12 +412,12 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="variabile", 
-                        `title`="Variabile", 
+                        `title`="Variable", 
                         `type`="text"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="var_contrib",
-                title="Contributi delle variabili (%)",
+                title="Variable contributions (%)",
                 rows=0,
                 clearWith=list(
                     "vars",
@@ -416,12 +427,12 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="variabile", 
-                        `title`="Variabile", 
+                        `title`="Variable", 
                         `type`="text"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="var_cos2",
-                title="Coseni quadrati delle variabili (cos\u00B2)",
+                title="Squared cosines of the variables (cos\u00B2)",
                 rows=0,
                 clearWith=list(
                     "vars",
@@ -431,7 +442,7 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="variabile", 
-                        `title`="Variabile", 
+                        `title`="Variable", 
                         `type`="text"))))
             self$add(R6::R6Class(
                 inherit = jmvcore::Group,
@@ -445,11 +456,11 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         super$initialize(
                             options=options,
                             name="ind_group",
-                            title="Osservazioni")
+                            title="Observations")
                         self$add(jmvcore::Table$new(
                             options=options,
                             name="ind_coord",
-                            title="Coordinate delle osservazioni",
+                            title="Observation coordinates",
                             rows=0,
                             clearWith=list(
                                 "vars",
@@ -461,12 +472,12 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                             columns=list(
                                 list(
                                     `name`="id", 
-                                    `title`="ID/Riga", 
+                                    `title`="ID/Row", 
                                     `type`="text"))))
                         self$add(jmvcore::Table$new(
                             options=options,
                             name="ind_contrib",
-                            title="Contributi delle osservazioni (%)",
+                            title="Observation contributions (%)",
                             rows=0,
                             clearWith=list(
                                 "vars",
@@ -478,12 +489,12 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                             columns=list(
                                 list(
                                     `name`="id", 
-                                    `title`="ID/Riga", 
+                                    `title`="ID/Row", 
                                     `type`="text"))))
                         self$add(jmvcore::Table$new(
                             options=options,
                             name="ind_cos2",
-                            title="Coseni quadrati delle osservazioni (cos\u00B2)",
+                            title="Squared cosines of the observations (cos\u00B2)",
                             rows=0,
                             clearWith=list(
                                 "vars",
@@ -495,7 +506,7 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                             columns=list(
                                 list(
                                     `name`="id", 
-                                    `title`="ID/Riga", 
+                                    `title`="ID/Row", 
                                     `type`="text"))))}))$new(options=options))
             self$add(jmvcore::Image$new(
                 options=options,
@@ -513,7 +524,7 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Image$new(
                 options=options,
                 name="plot_circle",
-                title="Cerchio delle correlazioni",
+                title="Correlation circle",
                 width=500,
                 height=500,
                 renderFun=".plot_circle",
@@ -523,13 +534,14 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "standardize",
                     "ncp",
                     "rotation",
+                    "circle_promax",
                     "supp_quant",
                     "axis_x",
                     "axis_y")))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="plot_biplot",
-                title="Biplot delle osservazioni",
+                title="Biplot of the observations",
                 width=600,
                 height=500,
                 renderFun=".plot_biplot",
@@ -546,7 +558,7 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Image$new(
                 options=options,
                 name="plot_cos2",
-                title="Qualit\u00E0 di rappresentazione (cos\u00B2) \u2014 heatmap",
+                title="Representation quality (cos\u00B2) \u2014 heatmap",
                 width=600,
                 height=400,
                 renderFun=".plot_cos2",
@@ -559,7 +571,7 @@ pcaResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Image$new(
                 options=options,
                 name="plot_map",
-                title="Mappa di posizionamento",
+                title="Positioning map",
                 width=800,
                 height=650,
                 renderFun=".plot_map",
@@ -655,7 +667,7 @@ pcaBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'none')
         }))
 
-#' Analisi delle Componenti Principali
+#' Principal Component Analysis
 #'
 #' 
 #' @param data .
@@ -693,6 +705,13 @@ pcaBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #'   delle correlazioni e del biplot (es. 2 = PC2).
 #' @param plot_scree .
 #' @param plot_circle .
+#' @param circle_promax Come disegnare il cerchio delle correlazioni con la
+#'   rotazione Promax. \code{oblique} (predefinito): le frecce restano quelle
+#'   senza rotazione e le componenti di Promax sono due assi obliqui, il coseno
+#'   del cui angolo è la loro correlazione; una freccia proiettata ad angolo
+#'   retto su un asse dà la correlazione con quella componente. \code{pattern}:
+#'   assi perpendicolari e frecce con coordinate uguali ai pattern loadings
+#'   della tabella.
 #' @param plot_biplot .
 #' @param plot_cos2 .
 #' @param plot_map Plot delle sole variabili: baricentri delle modalità della
@@ -754,6 +773,7 @@ pca <- function(
     axis_y = 2,
     plot_scree = TRUE,
     plot_circle = TRUE,
+    circle_promax = "oblique",
     plot_biplot = TRUE,
     plot_cos2 = TRUE,
     plot_map = FALSE,
@@ -798,6 +818,7 @@ pca <- function(
         axis_y = axis_y,
         plot_scree = plot_scree,
         plot_circle = plot_circle,
+        circle_promax = circle_promax,
         plot_biplot = plot_biplot,
         plot_cos2 = plot_cos2,
         plot_map = plot_map,

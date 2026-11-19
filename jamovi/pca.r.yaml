@@ -1,6 +1,6 @@
 ---
 name:  pca
-title: Analisi delle Componenti Principali
+title: "Principal Component Analysis"
 jrs:   '1.1'
 refs:
     - jolliffe
@@ -11,12 +11,12 @@ refs:
 
 items:
     - name: instructions
-      title: Istruzioni
+      title: "Instructions"
       type: Html
       visible: (tuto)
 
     - name: settings
-      title: Impostazioni
+      title: "Settings"
       type: Table
       rows: 1
       clearWith:
@@ -26,23 +26,23 @@ items:
         - rotation
       columns:
         - name: n_var
-          title: Variabili attive
+          title: "Active variables"
           type: integer
         - name: n_obs
-          title: Osservazioni (n)
+          title: "Observations (n)"
           type: integer
         - name: standardize
-          title: Standardizzate
+          title: "Standardized"
           type: text
         - name: ncp_used
-          title: Componenti ritenute
+          title: "Retained components"
           type: integer
         - name: rotation
-          title: Rotazione
+          title: "Rotation"
           type: text
 
     - name: eigenvalues
-      title: Autovalori e varianza spiegata
+      title: "Eigenvalues and explained variance"
       type: Table
       rows: 0
       clearWith:
@@ -52,20 +52,20 @@ items:
         - rotation
       columns:
         - name: comp
-          title: Componente
+          title: "Component"
           type: text
         - name: eig
-          title: Autovalore
+          title: "Eigenvalue"
           type: number
         - name: var_pct
-          title: "% varianza"
+          title: "% variance"
           type: number
         - name: cum_pct
-          title: "% cumulata"
+          title: "% cumulative"
           type: number
 
     - name: ss_loadings
-      title: Somme dei quadrati dei loadings dopo la rotazione
+      title: "Sums of squared loadings after rotation"
       type: Table
       rows: 0
       visible: false
@@ -76,20 +76,20 @@ items:
         - rotation
       columns:
         - name: comp
-          title: Componente ruotata
+          title: "Rotated component"
           type: text
         - name: ss
           title: SS loadings
           type: number
         - name: ss_pct
-          title: "% varianza"
+          title: "% variance"
           type: number
         - name: ss_cum
-          title: "% cumulata"
+          title: "% cumulative"
           type: number
 
     - name: phi
-      title: Correlazioni fra le componenti ruotate (Φ)
+      title: "Correlations between the rotated components (Φ)"
       type: Table
       rows: 0
       visible: (rotation:promax)
@@ -100,11 +100,11 @@ items:
         - rotation
       columns:
         - name: componente
-          title: Componente
+          title: "Component"
           type: text
 
     - name: var_coord
-      title: Coordinate delle variabili (loadings)
+      title: "Variable coordinates (loadings)"
       type: Table
       rows: 0
       clearWith:
@@ -114,11 +114,11 @@ items:
         - rotation
       columns:
         - name: variabile
-          title: Variabile
+          title: "Variable"
           type: text
 
     - name: var_contrib
-      title: Contributi delle variabili (%)
+      title: "Variable contributions (%)"
       type: Table
       rows: 0
       clearWith:
@@ -128,11 +128,11 @@ items:
         - rotation
       columns:
         - name: variabile
-          title: Variabile
+          title: "Variable"
           type: text
 
     - name: var_cos2
-      title: Coseni quadrati delle variabili (cos²)
+      title: "Squared cosines of the variables (cos²)"
       type: Table
       rows: 0
       clearWith:
@@ -142,16 +142,16 @@ items:
         - rotation
       columns:
         - name: variabile
-          title: Variabile
+          title: "Variable"
           type: text
 
     - name: ind_group
-      title: Osservazioni
+      title: "Observations"
       type: Group
       visible: (show_ind)
       items:
         - name: ind_coord
-          title: Coordinate delle osservazioni
+          title: "Observation coordinates"
           type: Table
           rows: 0
           clearWith:
@@ -163,11 +163,11 @@ items:
             - id_var
           columns:
             - name: id
-              title: ID/Riga
+              title: "ID/Row"
               type: text
 
         - name: ind_contrib
-          title: Contributi delle osservazioni (%)
+          title: "Observation contributions (%)"
           type: Table
           rows: 0
           clearWith:
@@ -179,11 +179,11 @@ items:
             - id_var
           columns:
             - name: id
-              title: ID/Riga
+              title: "ID/Row"
               type: text
 
         - name: ind_cos2
-          title: Coseni quadrati delle osservazioni (cos²)
+          title: "Squared cosines of the observations (cos²)"
           type: Table
           rows: 0
           clearWith:
@@ -195,7 +195,7 @@ items:
             - id_var
           columns:
             - name: id
-              title: ID/Riga
+              title: "ID/Row"
               type: text
 
     - name: plot_scree
@@ -212,7 +212,7 @@ items:
         - rotation
 
     - name: plot_circle
-      title: Cerchio delle correlazioni
+      title: "Correlation circle"
       type: Image
       width: 500
       height: 500
@@ -223,12 +223,13 @@ items:
         - standardize
         - ncp
         - rotation
+        - circle_promax
         - supp_quant
         - axis_x
         - axis_y
 
     - name: plot_biplot
-      title: Biplot delle osservazioni
+      title: "Biplot of the observations"
       type: Image
       width: 600
       height: 500
@@ -245,7 +246,7 @@ items:
         - axis_y
 
     - name: plot_cos2
-      title: Qualità di rappresentazione (cos²) — heatmap
+      title: "Representation quality (cos²) — heatmap"
       type: Image
       width: 600
       height: 400
@@ -258,7 +259,7 @@ items:
         - rotation
 
     - name: plot_map
-      title: Mappa di posizionamento
+      title: "Positioning map"
       type: Image
       width: 800
       height: 650

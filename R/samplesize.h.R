@@ -99,19 +99,19 @@ samplesizeResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Numerosità campionaria",
+                title="Sample size",
                 refs=list(
                     "cochran",
                     "lohr"))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="inputs",
-                title="Parametri dell'indagine",
+                title="Survey parameters",
                 rows=1,
                 clearWith=list(
                     "param",
@@ -124,7 +124,7 @@ samplesizeResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="parametro", 
-                        `title`="Parametro", 
+                        `title`="Parameter", 
                         `type`="text"),
                     list(
                         `name`="N", 
@@ -136,7 +136,7 @@ samplesizeResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         `type`="number"),
                     list(
                         `name`="conf", 
-                        `title`="Confidenza", 
+                        `title`="Confidence", 
                         `type`="text"),
                     list(
                         `name`="z", 
@@ -148,12 +148,12 @@ samplesizeResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         `type`="number"),
                     list(
                         `name`="schema", 
-                        `title`="Schema", 
+                        `title`="Scheme", 
                         `type`="text"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="result",
-                title="Numerosit\u00E0 campionaria",
+                title="Sample size",
                 rows=1,
                 clearWith=list(
                     "param",
@@ -166,24 +166,24 @@ samplesizeResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="n_teorico", 
-                        `title`="n teorico", 
+                        `title`="Theoretical n", 
                         `type`="number"),
                     list(
                         `name`="n_consigliato", 
-                        `title`="n consigliato", 
+                        `title`="Recommended n", 
                         `type`="integer"),
                     list(
                         `name`="frazione", 
-                        `title`="Frazione f = n/N", 
+                        `title`="Fraction f = n/N", 
                         `type`="number", 
                         `format`="zto"),
                     list(
                         `name`="var_attesa", 
-                        `title`="Var attesa dello stimatore", 
+                        `title`="Expected estimator variance", 
                         `type`="number"),
                     list(
                         `name`="se_attesa", 
-                        `title`="Errore standard atteso", 
+                        `title`="Expected standard error", 
                         `type`="number"))))}))
 
 samplesizeBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
@@ -207,7 +207,7 @@ samplesizeBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'na')
         }))
 
-#' Numerosità campionaria
+#' Sample size
 #'
 #' 
 #' @param tuto Se TRUE mostra il pannello con la descrizione metodologica.

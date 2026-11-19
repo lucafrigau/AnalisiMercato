@@ -111,19 +111,19 @@ sampleclusterResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
             super$initialize(
                 options=options,
                 name="",
-                title="Campionamento a grappoli",
+                title="Cluster sampling",
                 refs=list(
                     "cochran",
                     "kish"))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="summary",
-                title="Riepilogo del campione",
+                title="Sample summary",
                 rows=1,
                 clearWith=list(
                     "cluster_var",
@@ -134,27 +134,27 @@ sampleclusterResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
                 columns=list(
                     list(
                         `name`="N", 
-                        `title`="N (popolazione)", 
+                        `title`="N (population)", 
                         `type`="integer"),
                     list(
                         `name`="M", 
-                        `title`="M (grappoli totali)", 
+                        `title`="M (total clusters)", 
                         `type`="integer"),
                     list(
                         `name`="ng_richiesto", 
-                        `title`="n_g richiesti", 
+                        `title`="Requested n_g", 
                         `type`="integer"),
                     list(
                         `name`="ng_estratto", 
-                        `title`="n_g estratti", 
+                        `title`="Drawn n_g", 
                         `type`="integer"),
                     list(
                         `name`="n_unita", 
-                        `title`="n unit\u00E0 campionate", 
+                        `title`="Sampled units (n)", 
                         `type`="integer"),
                     list(
                         `name`="frazione_unita", 
-                        `title`="Frazione f = n/N", 
+                        `title`="Fraction f = n/N", 
                         `type`="number", 
                         `format`="zto"),
                     list(
@@ -164,7 +164,7 @@ sampleclusterResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
             self$add(jmvcore::Table$new(
                 options=options,
                 name="clusters",
-                title="Grappoli estratti",
+                title="Sampled clusters",
                 rows=0,
                 clearWith=list(
                     "cluster_var",
@@ -175,16 +175,16 @@ sampleclusterResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
                 columns=list(
                     list(
                         `name`="grappolo", 
-                        `title`="Grappolo", 
+                        `title`="Cluster ID", 
                         `type`="text"),
                     list(
                         `name`="dim", 
-                        `title`="Dimensione (n unit\u00E0)", 
+                        `title`="Size (n units)", 
                         `type`="integer"))))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="extracted",
-                title="Unit\u00E0 estratte",
+                title="Sampled units",
                 rows=0,
                 visible="(id_var)",
                 clearWith=list(
@@ -197,15 +197,15 @@ sampleclusterResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
                 columns=list(
                     list(
                         `name`="ord", 
-                        `title`="Ordine", 
+                        `title`="Order", 
                         `type`="integer"),
                     list(
                         `name`="grappolo", 
-                        `title`="Grappolo", 
+                        `title`="Cluster ID", 
                         `type`="text"),
                     list(
                         `name`="pos", 
-                        `title`="Riga", 
+                        `title`="Row", 
                         `type`="integer"),
                     list(
                         `name`="id_value", 
@@ -214,7 +214,7 @@ sampleclusterResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
             self$add(jmvcore::Output$new(
                 options=options,
                 name="out_freq",
-                title="Estrai il campione (indicatore 0/1, frequenza)",
+                title="Draw the sample (0/1 indicator, frequency)",
                 varTitle="in_GR",
                 measureType="continuous",
                 clearWith=list(
@@ -245,7 +245,7 @@ sampleclusterBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'none')
         }))
 
-#' Campionamento a grappoli
+#' Cluster sampling
 #'
 #' 
 #' @param data .

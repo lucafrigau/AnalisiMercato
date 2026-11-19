@@ -90,7 +90,17 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
                 correlazione fra le componenti ruotate, calcolata
                 analiticamente come (T'T)⁻¹ dalla matrice di rotazione T),
                 che è l'analogo interpretabile dei loadings nel caso
-                ortogonale.</li>
+                ortogonale. Le frecce del biplot e della mappa hanno come
+                coordinate la pattern matrix, come la tabella dei loadings:
+                non sono correlazioni e possono superare 1. Il cerchio delle
+                correlazioni lascia invece le frecce come senza rotazione e
+                disegna le componenti di Promax come due assi obliqui: il
+                coseno dell'angolo fra gli assi è la loro correlazione, e una
+                freccia proiettata ad angolo retto su un asse dà la
+                correlazione con quella componente. Con l'opzione
+                <i>▸ CERCHIO · Con Promax</i> = <i>Assi perpendicolari,
+                pattern loadings</i> il cerchio usa invece come coordinate la
+                pattern matrix.</li>
               </ul>
               <p>
                 <b>Autovalori e rotazione.</b> La rotazione non modifica gli
@@ -118,11 +128,11 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
                 A dimensionality-reduction technique that transforms the original
                 variables into new variables (principal components) that are mutually
                 orthogonal. Components are ordered by decreasing explained variance.
-                Typical goals: data summarisation, visualisation, and removal of
+                Typical goals: data summarization, visualization, and removal of
                 multicollinearity.
               </p>
               <p>
-                <b>Standardisation</b>: recommended when variables have different
+                <b>Standardization</b>: recommended when variables have different
                 units or variances; in that case PCA operates on the correlation
                 matrix.
               </p>
@@ -131,7 +141,7 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
                 choice, consult:
                 <ul>
                   <li>the <i>eigenvalues</i> table (Kaiser criterion: retain
-                  components with λ &gt; 1 when PCA is standardised);</li>
+                  components with λ &gt; 1 when PCA is standardized);</li>
                   <li>the <i>cumulative variance</i> percentage (typical thresholds
                   70–80%);</li>
                   <li>the <i>scree plot</i> (elbow criterion).</li>
@@ -145,7 +155,7 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
                   squared cosines (representation quality).</li>
                   <li>Correlation circle (projection of variables on the plane of the
                   first two components).</li>
-                  <li>Observations biplot (optionally coloured by a supplementary
+                  <li>Observations biplot (optionally colored by a supplementary
                   categorical variable).</li>
                   <li>Individual coordinates injected as new columns PC1, PC2, … in
                   the dataset.</li>
@@ -167,7 +177,16 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
                 uses the <i>structure matrix</i> S = P · Φ (where Φ is the
                 correlation matrix among rotated components, computed analytically
                 from the rotation matrix), the oblique analogue of the loadings in
-                the orthogonal case.</li>
+                the orthogonal case. The arrows of the biplot and the map use the
+                pattern matrix as coordinates, as in the loadings table: they are
+                not correlations and can exceed 1. The correlation circle instead
+                keeps the arrows as without rotation and draws the Promax
+                components as two oblique axes: the cosine of the angle between
+                the axes is their correlation, and an arrow projected at a right
+                angle onto an axis gives its correlation with that component.
+                With the option <i>▸ CIRCLE · With Promax</i> = <i>Perpendicular
+                axes, pattern loadings</i> the circle uses the pattern matrix as
+                coordinates instead.</li>
               </ul>
               <p>
                 <b>Eigenvalues and rotation.</b> Rotation does not change the
@@ -550,8 +569,9 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
               # sommabili: lasciamo vuote le due colonne percentuali
               # anziché riportare numeri non interpretabili (stessa
               # scelta di SPSS).
-              ss_pct = if (obliqua) NA_real_ else ss_pct[i],
-              ss_cum = if (obliqua) NA_real_ else cumsum(ss_pct)[i]
+              # con Promax le celle restano vuote: con NA jamovi scriverebbe NaN
+              ss_pct = if (obliqua) "" else ss_pct[i],
+              ss_cum = if (obliqua) "" else cumsum(ss_pct)[i]
             ))
           }
           tab_ss$setNote("ss", if (obliqua)
@@ -794,12 +814,13 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
         # Versione in scala di CORRELAZIONE delle supplementari
         # quantitative, per il cerchio delle correlazioni (le coordinate
         # coincidono con le correlazioni solo nella PCA standardizzata).
+        # Con una rotazione, come per le attive, cor · T: con Promax la
+        # pattern, con Varimax le correlazioni con le componenti ruotate.
         quanti_sup_cor <- NULL
         if (!is.null(res$quanti.sup)) {
           qs_cor <- as.matrix(res$quanti.sup$cor)
           if (!is.null(rot)) {
-            qs_cor <- qs_cor[, seq_len(ncp_used), drop = FALSE] %*%
-              solve(t(rotmat))
+            qs_cor <- qs_cor[, seq_len(ncp_used), drop = FALSE] %*% rotmat
           }
           rownames(qs_cor) <- rownames(res$quanti.sup$cor)
           quanti_sup_cor <- qs_cor
@@ -816,22 +837,76 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
           ))
         }
         if (isTRUE(self$options$plot_circle)) {
-          # Il cerchio unitario richiede CORRELAZIONI variabile–componente:
-          # con standardize = FALSE le coordinate sono covarianze e le
-          # frecce uscirebbero (clippate) dal cerchio di raggio 1.
-          coord_for_plot <- if (!is.null(rot)) {
-            cor_rot[, axes, drop = FALSE]
-          } else {
-            cor_active_all[, axes, drop = FALSE]
+          # Il cerchio unitario richiede la scala di CORRELAZIONE: con
+          # standardize = FALSE le coordinate sono covarianze e le frecce
+          # uscirebbero (clippate) dal cerchio di raggio 1.
+          # Con una rotazione le frecce hanno come coordinate i loadings
+          # ruotati in scala di correlazione, cor · T. Con Varimax T è
+          # ortogonale e coincidono con le correlazioni con le componenti
+          # ruotate. Con Promax sono la pattern matrix, come la tabella dei
+          # loadings, il biplot e la mappa: i gruppi di variabili stanno
+          # lungo gli assi ruotati. Le correlazioni (structure, cor_rot)
+          # mescolerebbero a ogni componente la correlazione con le altre e
+          # porterebbero le frecce verso la diagonale.
+          #
+          # Con Promax il cerchio si disegna in due modi (opzione
+          # circle_promax). Con "oblique", il predefinito, le frecce restano
+          # quelle senza rotazione, cioè le correlazioni con le componenti
+          # misurate in deviazioni standard, e le componenti di Promax sono
+          # due assi obliqui. Le direzioni degli assi sono le colonne di
+          # (T')^{-1}: vettori di lunghezza 1, il cui prodotto scalare è la
+          # correlazione fra le due componenti (Phi); il prodotto scalare di
+          # una freccia con un asse è la correlazione fra la variabile e
+          # quella componente (structure). Si disegna il piano dei due assi
+          # scelti, con il primo orizzontale: con due componenti ritenute è
+          # il piano del cerchio senza rotazione, con più di due le frecce
+          # sono le loro proiezioni su quel piano.
+          dir_assi <- NULL
+          if (!is.null(rot) && identical(rotation, "promax") &&
+              !identical(self$options$circle_promax, "pattern")) {
+            dir_assi <- solve(t(rotmat))
+            ua <- dir_assi[, axes[1]] / sqrt(sum(dir_assi[, axes[1]]^2))
+            ub <- dir_assi[, axes[2]] / sqrt(sum(dir_assi[, axes[2]]^2))
+            phi_ab <- sum(ua * ub)
+            if (1 - phi_ab^2 < 1e-10) dir_assi <- NULL
           }
-          self$results$plot_circle$setState(list(
-            coord       = coord_for_plot,
-            quanti_sup  = sub_axes(quanti_sup_cor),
-            eig_for_lab = eig_for_lab,
-            axis_labels = axis_labels,
-            axes        = axes,
-            rot_label   = rot_label
-          ))
+          if (!is.null(dir_assi)) {
+            e2 <- (ub - phi_ab * ua) / sqrt(1 - phi_ab^2)
+            sul_piano <- function(M) {
+              M <- as.matrix(M)[, seq_len(ncp_used), drop = FALSE]
+              out <- cbind(M %*% ua, M %*% e2)
+              dimnames(out) <- list(rownames(M), comp_names[axes])
+              out
+            }
+            self$results$plot_circle$setState(list(
+              coord       = sul_piano(cor_active_all),
+              quanti_sup  = if (!is.null(res$quanti.sup)) sul_piano(res$quanti.sup$cor) else NULL,
+              obliquo     = TRUE,
+              phi         = phi_ab,
+              ncp         = ncp_used,
+              eig_for_lab = eig_for_lab,
+              axis_labels = axis_labels,
+              axes        = axes,
+              rot_label   = rot_label
+            ))
+          } else {
+            coord_for_plot <- if (!is.null(rot)) {
+              cor_pat <- cor_active_all[, seq_len(ncp_used), drop = FALSE] %*% rotmat
+              dimnames(cor_pat) <- list(rownames(res$var$cor), comp_names)
+              cor_pat[, axes, drop = FALSE]
+            } else {
+              cor_active_all[, axes, drop = FALSE]
+            }
+            self$results$plot_circle$setState(list(
+              coord       = coord_for_plot,
+              quanti_sup  = sub_axes(quanti_sup_cor),
+              obliquo     = FALSE,
+              eig_for_lab = eig_for_lab,
+              axis_labels = axis_labels,
+              axes        = axes,
+              rot_label   = rot_label
+            ))
+          }
         }
         if (isTRUE(self$options$plot_biplot)) {
           quali <- if (!is.null(supp_qul) && nzchar(supp_qul)) df_for_pca[[supp_qul]] else NULL
@@ -956,7 +1031,7 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
           ggplot2::labs(title = title_txt,
                         x = .tr(it = "Componente", en = "Component"),
                         y = .tr(it = "Autovalore", en = "Eigenvalue"),
-                        caption = cap) +
+                        caption = .a_capo(cap, image$width)) +
           ggplot2::theme_bw()
         if (std)
           p <- p + ggplot2::geom_hline(yintercept = 1, linetype = "dashed",
@@ -969,6 +1044,7 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
         if (!isTRUE(self$options$plot_circle)) return()
         st <- image$state
         if (is.null(st)) return()
+        if (isTRUE(st$obliquo)) return(private$.plot_circle_obliquo(image))
         coord <- as.data.frame(st$coord)
         names(coord)[1:2] <- c("X", "Y")
         coord$var <- rownames(coord)
@@ -986,6 +1062,22 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
         theta <- seq(0, 2 * pi, length.out = 100)
         circle <- data.frame(x = cos(theta), y = sin(theta))
 
+        # Con Promax le coordinate sono i loadings della pattern matrix, non
+        # correlazioni, e una freccia può superare il cerchio: i limiti si
+        # allargano perché frecce ed etichette restino nel grafico, e la
+        # didascalia dice che cosa sono le coordinate.
+        lunghezze <- sqrt(coord$X^2 + coord$Y^2)
+        if (!is.null(st$quanti_sup)) {
+          qs_l <- as.matrix(st$quanti_sup)
+          lunghezze <- c(lunghezze, sqrt(qs_l[, 1]^2 + qs_l[, 2]^2))
+        }
+        lunga <- max(lunghezze, na.rm = TRUE)
+        lim <- max(1.15, 1.2 * lunga)
+        didascalia <- if (identical(st$rot_label, "Promax"))
+          .tr(it = "Con Promax le coordinate delle frecce sono i loadings ruotati della tabella (pattern matrix), non correlazioni: per questo una freccia può superare il cerchio.",
+              en = "With Promax the arrow coordinates are the rotated loadings shown in the table (pattern matrix), not correlations: this is why an arrow can extend beyond the circle.")
+        else NULL
+
         p <- ggplot2::ggplot() +
           ggplot2::geom_path(data = circle, ggplot2::aes(x = x, y = y), color = "black") +
           ggplot2::geom_hline(yintercept = 0, linetype = "dashed", color = "gray60") +
@@ -1001,11 +1093,111 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
             ggplot2::aes(x = X * 1.08, y = Y * 1.08, label = var),
             size = 3.5
           ) +
-          ggplot2::coord_fixed(xlim = c(-1.15, 1.15), ylim = c(-1.15, 1.15)) +
-          ggplot2::labs(title = title_txt, x = lab_x, y = lab_y) +
+          ggplot2::coord_fixed(xlim = c(-lim, lim), ylim = c(-lim, lim)) +
+          ggplot2::labs(title = title_txt, x = lab_x, y = lab_y,
+                        caption = .a_capo(didascalia, image$width)) +
           ggplot2::theme_bw()
 
         # variabili supplementari quantitative
+        if (!is.null(st$quanti_sup)) {
+          sup <- as.data.frame(st$quanti_sup)
+          names(sup)[1:2] <- c("X", "Y")
+          sup$var <- rownames(sup)
+          p <- p +
+            ggplot2::geom_segment(
+              data = sup,
+              ggplot2::aes(x = 0, y = 0, xend = X, yend = Y),
+              arrow = grid::arrow(length = grid::unit(0.15, "cm")),
+              color = "#FF7F0E", linetype = "dashed"
+            ) +
+            ggplot2::geom_text(
+              data = sup,
+              ggplot2::aes(x = X * 1.08, y = Y * 1.08, label = var),
+              size = 3.5, color = "#FF7F0E"
+            )
+        }
+        print(p)
+        TRUE
+      },
+
+      # Cerchio delle correlazioni con Promax, assi obliqui (predefinito).
+      # Le frecce sono le correlazioni con le componenti senza rotazione,
+      # sul piano delle due componenti di Promax scelte; le due linee rosse
+      # sono quelle componenti: la prima orizzontale, la seconda inclinata
+      # dell'angolo il cui coseno è la loro correlazione. Una freccia
+      # proiettata ad angolo retto su una linea dà la correlazione con
+      # quella componente; con due componenti ritenute le parallele agli
+      # assi danno i pattern loadings della tabella.
+      .plot_circle_obliquo = function(image) {
+        st <- image$state
+        coord <- as.data.frame(st$coord)
+        names(coord)[1:2] <- c("X", "Y")
+        coord$var <- rownames(coord)
+        phi   <- max(-1, min(1, st$phi))
+        theta <- acos(phi)
+        gradi <- round(theta * 180 / pi)
+        lab_a <- st$axis_labels[1]
+        lab_b <- st$axis_labels[2]
+        title_txt <- sprintf(.tr(it = "Cerchio delle correlazioni — ruotato (%s)",
+                                 en = "Correlation circle — rotated (%s)"), st$rot_label)
+        numero <- function(x) formatC(x, format = "f", digits = 2,
+                                      decimal.mark = .tr(it = ",", en = "."))
+        didascalia <- paste(
+          sprintf(.tr(it = "Linee rosse: le componenti di Promax. Il coseno dell'angolo fra loro (%d°) è la loro correlazione, %s.",
+                      en = "Red lines: the Promax components. The cosine of the angle between them (%d°) is their correlation, %s."),
+                  gradi, numero(phi)),
+          .tr(it = "Una freccia proiettata ad angolo retto su una linea rossa dà la correlazione con quella componente.",
+              en = "An arrow projected at a right angle onto a red line gives its correlation with that component."),
+          if (isTRUE(st$ncp > 2))
+            .tr(it = "Con più di due componenti le frecce sono proiettate sul piano di queste due; i loadings sono nella tabella.",
+                en = "With more than two components the arrows are projected onto the plane of these two; the loadings are in the table.")
+          else
+            .tr(it = "I loadings della tabella si leggono con le parallele agli assi.",
+                en = "The loadings in the table are read along lines parallel to the axes."))
+
+        theta_c <- seq(0, 2 * pi, length.out = 100)
+        circle  <- data.frame(x = cos(theta_c), y = sin(theta_c))
+        r_ax <- 1.2
+        assi <- data.frame(x = c(-r_ax, -r_ax * cos(theta)), y = c(0, -r_ax * sin(theta)),
+                           xend = c(r_ax, r_ax * cos(theta)), yend = c(0, r_ax * sin(theta)))
+        t_arco <- seq(0, theta, length.out = 40)
+        arco <- data.frame(x = 0.16 * cos(t_arco), y = 0.16 * sin(t_arco))
+        rosso <- "#D62728"
+        lim <- 1.4
+
+        p <- ggplot2::ggplot() +
+          ggplot2::geom_path(data = circle, ggplot2::aes(x = x, y = y), color = "black") +
+          ggplot2::geom_hline(yintercept = 0, linetype = "dashed", color = "gray75") +
+          ggplot2::geom_vline(xintercept = 0, linetype = "dashed", color = "gray75") +
+          ggplot2::geom_segment(data = assi, ggplot2::aes(x = x, y = y, xend = xend, yend = yend),
+                                color = rosso, linetype = "longdash", linewidth = 0.7,
+                                arrow = grid::arrow(length = grid::unit(0.2, "cm"))) +
+          # la prima componente è l'asse orizzontale, con il suo titolo; la
+          # seconda ha il nome alla fine della linea, fuori dal cerchio,
+          # dove non ci sono le etichette delle variabili
+          ggplot2::annotate("text", x = (r_ax + 0.04) * cos(theta),
+                            y = (r_ax + 0.04) * sin(theta) + if (cos(theta) > 0.75) 0.05 else 0,
+                            label = lab_b, color = rosso,
+                            hjust = if (cos(theta) > 0.75 || cos(theta) < 0) 1 else 0,
+                            vjust = if (sin(theta) >= 0) 0 else 1,
+                            size = 3.5, fontface = "bold") +
+          ggplot2::geom_path(data = arco, ggplot2::aes(x = x, y = y), color = rosso) +
+          ggplot2::geom_segment(
+            data = coord,
+            ggplot2::aes(x = 0, y = 0, xend = X, yend = Y),
+            arrow = grid::arrow(length = grid::unit(0.15, "cm")),
+            color = "#1F77B4"
+          ) +
+          ggplot2::geom_text(
+            data = coord,
+            ggplot2::aes(x = X * 1.08, y = Y * 1.08, label = var),
+            size = 3.5
+          ) +
+          ggplot2::coord_fixed(xlim = c(-lim, lim), ylim = c(-lim, lim)) +
+          ggplot2::labs(title = title_txt, x = lab_a, y = NULL,
+                        caption = .a_capo(didascalia, image$width)) +
+          ggplot2::theme_bw()
+
         if (!is.null(st$quanti_sup)) {
           sup <- as.data.frame(st$quanti_sup)
           names(sup)[1:2] <- c("X", "Y")
@@ -1083,10 +1275,14 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
             ggplot2::aes(x = Xs * 1.08, y = Ys * 1.08, label = var),
             color = "#D62728", size = 3.5
           ) +
-          ggplot2::labs(title = title_txt, x = lab_x, y = lab_y,
-                        color = if (!is.null(st$group_name)) st$group_name
-                                else .tr(it = "Gruppo", en = "Group")) +
+          ggplot2::labs(title = title_txt, x = lab_x, y = lab_y) +
           ggplot2::theme_bw()
+        # il titolo della legenda solo se i punti sono colorati per gruppo:
+        # senza colori ggplot2 avvertirebbe che l'etichetta non serve
+        if (!is.null(ind$group))
+          p <- p + ggplot2::labs(
+            color = if (!is.null(st$group_name)) st$group_name
+                    else .tr(it = "Gruppo", en = "Group"))
         print(p)
         TRUE
       },
@@ -1125,9 +1321,10 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
             limits = c(0, 1), name = "cos²"
           ) +
           ggplot2::labs(title = title_txt, x = NULL, y = NULL,
-                        caption = .tr(
+                        caption = .a_capo(.tr(
                           it = "Valori vicini a 1: variabile ben rappresentata dalla componente.",
-                          en = "Values close to 1: variable well represented by the component.")) +
+                          en = "Values close to 1: variable well represented by the component."),
+                          image$width)) +
           ggplot2::theme_minimal() +
           ggplot2::theme(
             panel.grid = ggplot2::element_blank(),
@@ -1277,7 +1474,7 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
 
         cap_parts <- c(.tr(
           it = "Triangoli colorati: baricentri delle modalità (un colore per variabile qualitativa).",
-          en = "Coloured triangles: category barycentres (one colour per qualitative variable)."))
+          en = "Colored triangles: category barycenters (one color per qualitative variable)."))
         if (show_active)
           cap_parts <- c(.tr(it = "Frecce blu: variabili attive.",
                              en = "Blue arrows: active variables."), cap_parts)
@@ -1292,7 +1489,8 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
         # dalle percentuali di varianza riportate sugli assi).
         p <- p +
           ggplot2::coord_cartesian(xlim = c(-mx, mx), ylim = c(-mx, mx)) +
-          ggplot2::labs(title = title_txt, x = lab_x, y = lab_y, caption = cap) +
+          ggplot2::labs(title = title_txt, x = lab_x, y = lab_y,
+                        caption = .a_capo(cap, image$width)) +
           ggplot2::theme_bw() +
           ggplot2::theme(legend.position = "bottom")
         print(p)
@@ -1300,4 +1498,18 @@ pcaClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
       }
     )
   )
+}
+
+# Manda a capo la didascalia di un grafico. ggplot2 non lo fa da solo e una
+# riga più larga del grafico viene tagliata ai lati (la didascalia dello
+# scree plot con una rotazione supera i 200 caratteri). `larghezza` è quella
+# dell'immagine in pixel di jamovi; a 8,8 punti, la dimensione delle
+# didascalie nei temi di ggplot2, un carattere occupa in media 4 pixel: con
+# 5 per carattere resta un margine.
+.a_capo <- function(testo, larghezza) {
+  if (is.null(testo) || length(testo) != 1 || is.na(testo) || !nzchar(testo))
+    return(testo)
+  if (!is.numeric(larghezza) || length(larghezza) != 1 || !is.finite(larghezza))
+    larghezza <- 500
+  paste(strwrap(testo, width = max(40, floor(larghezza / 5))), collapse = "\n")
 }

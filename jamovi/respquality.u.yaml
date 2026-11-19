@@ -1,4 +1,4 @@
-title: Qualità delle risposte
+title: "Response quality"
 name: respquality
 jus: '3.0'
 stage: 0
@@ -9,13 +9,13 @@ children:
     stretchFactor: 1
     children:
       - type: TargetLayoutBox
-        label: Batteria di item (stessa scala)
+        label: "Item battery (same scale)"
         children:
           - type: VariablesListBox
             name: items
             isTarget: true
       - type: TargetLayoutBox
-        label: Coppie di domande di controllo
+        label: "Pairs of control questions"
         children:
           - type: VariablesListBox
             name: pairs
@@ -37,29 +37,29 @@ children:
       - type: CheckBox
         name: tuto
   - type: Label
-    label: Segnali della batteria di item
+    label: "Signals from the item battery"
     children:
       - type: TextBox
         name: seqPerc
         format: number
-        suffix: '% degli item'
+        suffix: "% of the items"
       - type: TextBox
         name: missPerc
         format: number
-        suffix: '% degli item'
+        suffix: "% of the items"
   - type: Label
-    label: Segnali delle domande di controllo
+    label: "Signals from the control questions"
     children:
       - type: TextBox
         name: distMin
         format: number
   - type: Label
-    label: Rispondenti da esaminare
+    label: "Respondents to examine"
     children:
       - type: TextBox
         name: minSegnali
         format: number
-        suffix: segnali
+        suffix: "signals"
   - type: LayoutBox
     margin: large
     children:

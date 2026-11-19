@@ -133,7 +133,7 @@ samplestratResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
             super$initialize(
                 options=options,
                 name="",
-                title="Campionamento stratificato",
+                title="Stratified sampling",
                 refs=list(
                     "cochran",
                     "neyman",
@@ -141,12 +141,12 @@ samplestratResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="summary",
-                title="Riepilogo del campione",
+                title="Sample summary",
                 rows=1,
                 clearWith=list(
                     "strat_var",
@@ -159,28 +159,28 @@ samplestratResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
                 columns=list(
                     list(
                         `name`="N", 
-                        `title`="N (popolazione)", 
+                        `title`="N (population)", 
                         `type`="integer"),
                     list(
                         `name`="M", 
-                        `title`="M (strati)", 
+                        `title`="M (strata)", 
                         `type`="integer"),
                     list(
                         `name`="n_richiesto", 
-                        `title`="n richiesto", 
+                        `title`="Requested n", 
                         `type`="integer"),
                     list(
                         `name`="n_estratto", 
-                        `title`="n estratto", 
+                        `title`="Drawn n", 
                         `type`="integer"),
                     list(
                         `name`="frazione", 
-                        `title`="Frazione f = n/N", 
+                        `title`="Fraction f = n/N", 
                         `type`="number", 
                         `format`="zto"),
                     list(
                         `name`="metodo", 
-                        `title`="Metodo", 
+                        `title`="Method", 
                         `type`="text"),
                     list(
                         `name`="seed_used", 
@@ -189,7 +189,7 @@ samplestratResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
             self$add(jmvcore::Table$new(
                 options=options,
                 name="strata",
-                title="Allocazione per strato",
+                title="Allocation by stratum",
                 rows=0,
                 clearWith=list(
                     "strat_var",
@@ -202,7 +202,7 @@ samplestratResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
                 columns=list(
                     list(
                         `name`="livello", 
-                        `title`="Strato", 
+                        `title`="Stratum", 
                         `type`="text"),
                     list(
                         `name`="Nj", 
@@ -229,7 +229,7 @@ samplestratResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
             self$add(jmvcore::Table$new(
                 options=options,
                 name="extracted",
-                title="Unit\u00E0 estratte",
+                title="Sampled units",
                 rows=0,
                 visible="(id_var)",
                 clearWith=list(
@@ -244,15 +244,15 @@ samplestratResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
                 columns=list(
                     list(
                         `name`="ord", 
-                        `title`="Ordine", 
+                        `title`="Order", 
                         `type`="integer"),
                     list(
                         `name`="livello", 
-                        `title`="Strato", 
+                        `title`="Stratum", 
                         `type`="text"),
                     list(
                         `name`="pos", 
-                        `title`="Riga", 
+                        `title`="Row", 
                         `type`="integer"),
                     list(
                         `name`="id_value", 
@@ -261,7 +261,7 @@ samplestratResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class
             self$add(jmvcore::Output$new(
                 options=options,
                 name="out_freq",
-                title="Estrai il campione (indicatore 0/1, frequenza)",
+                title="Draw the sample (0/1 indicator, frequency)",
                 varTitle="in_STpr",
                 measureType="continuous",
                 clearWith=list(
@@ -294,7 +294,7 @@ samplestratBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'none')
         }))
 
-#' Campionamento stratificato
+#' Stratified sampling
 #'
 #' 
 #' @param data .

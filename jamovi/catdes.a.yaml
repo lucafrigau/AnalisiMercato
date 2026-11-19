@@ -1,6 +1,6 @@
 ---
 name:  catdes
-title: Caratterizzazione
+title: "Cluster profiling"
 menuGroup: AnalisiMercato
 menuSubgroup: Cluster Analysis
 version: '2.0.9'
@@ -11,7 +11,7 @@ options:
     type: Data
 
   - name: vartochar
-    title: Variabile 'Cluster' da caratterizzare
+    title: "'Cluster' variable to describe"
     type: Variable
     suggested:
       - nominal
@@ -26,7 +26,7 @@ options:
           usata catdes.
 
   - name: descbyvar
-    title: Descrittori
+    title: "Descriptors"
     type: Variables
     suggested:
       - continuous
@@ -40,14 +40,14 @@ options:
           variabile target attraverso test statistici.
 
   - name: tuto
-    title: Descrizione delle analisi
+    title: "Show methodological description"
     type: Bool
     default: true
     description:
         R: Se TRUE mostra il pannello con la descrizione metodologica.
 
   - name: threshold
-    title: Soglia di significatività (%)
+    title: "Significance threshold (%)"
     type: Number
     default: 5
     description:

@@ -1,4 +1,4 @@
-title: Duplicati
+title: "Duplicates"
 name: duplicates
 jus: '3.0'
 stage: 0
@@ -13,7 +13,7 @@ children:
       - id
     children:
       - type: TargetLayoutBox
-        label: Variabili da confrontare
+        label: "Variables to compare"
         children:
           - type: VariablesListBox
             name: vars

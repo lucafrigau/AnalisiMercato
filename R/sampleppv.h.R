@@ -115,19 +115,19 @@ sampleppvResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             super$initialize(
                 options=options,
                 name="",
-                title="Campionamento con probabilità variabili (CPV)",
+                title="Probability-proportional-to-size (PPS) sampling",
                 refs=list(
                     "hansenhurwitz",
                     "cochran"))
             self$add(jmvcore::Html$new(
                 options=options,
                 name="instructions",
-                title="Istruzioni",
+                title="Instructions",
                 visible="(tuto)"))
             self$add(jmvcore::Table$new(
                 options=options,
                 name="summary",
-                title="Riepilogo del campione",
+                title="Sample summary",
                 rows=1,
                 clearWith=list(
                     "weight_var",
@@ -139,27 +139,27 @@ sampleppvResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="N", 
-                        `title`="N (popolazione)", 
+                        `title`="N (population)", 
                         `type`="integer"),
                     list(
                         `name`="n_richiesto", 
-                        `title`="n richiesto", 
+                        `title`="Requested n", 
                         `type`="integer"),
                     list(
                         `name`="n_distinti", 
-                        `title`="n unit\u00E0 distinte", 
+                        `title`="Distinct units (n)", 
                         `type`="integer"),
                     list(
                         `name`="n_totale", 
-                        `title`="n estrazioni totali", 
+                        `title`="Total draws", 
                         `type`="integer"),
                     list(
                         `name`="peso_totale", 
-                        `title`="\u03A3 pesi", 
+                        `title`="\u03A3 weights", 
                         `type`="number"),
                     list(
                         `name`="schema", 
-                        `title`="Schema", 
+                        `title`="Scheme", 
                         `type`="text"),
                     list(
                         `name`="seed_used", 
@@ -168,7 +168,7 @@ sampleppvResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$add(jmvcore::Table$new(
                 options=options,
                 name="extracted",
-                title="Unit\u00E0 estratte",
+                title="Sampled units",
                 rows=0,
                 visible="(id_var)",
                 clearWith=list(
@@ -182,7 +182,7 @@ sampleppvResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 columns=list(
                     list(
                         `name`="pos", 
-                        `title`="Riga", 
+                        `title`="Row", 
                         `type`="integer"),
                     list(
                         `name`="id_value", 
@@ -190,26 +190,26 @@ sampleppvResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         `type`="text"),
                     list(
                         `name`="peso", 
-                        `title`="Peso w_i", 
+                        `title`="Weight w_i", 
                         `type`="number"),
                     list(
                         `name`="prob", 
-                        `title`="Prob. di selezione p_i = w_i/\u03A3w", 
+                        `title`="Selection prob. p_i = w_i/\u03A3w", 
                         `type`="number", 
                         `format`="zto"),
                     list(
                         `name`="pi_incl", 
-                        `title`="Prob. di inclusione \u03C0_i", 
+                        `title`="Inclusion prob. \u03C0_i", 
                         `type`="number", 
                         `format`="zto"),
                     list(
                         `name`="freq", 
-                        `title`="Frequenza di estrazione", 
+                        `title`="Draw frequency", 
                         `type`="integer"))))
             self$add(jmvcore::Output$new(
                 options=options,
                 name="out_freq",
-                title="Estrai il campione (frequenza nel campione)",
+                title="Draw the sample (frequency in the sample)",
                 varTitle="freq_CPV",
                 measureType="continuous",
                 clearWith=list(
@@ -241,7 +241,7 @@ sampleppvBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 weightsSupport = 'none')
         }))
 
-#' Campionamento con probabilità variabili (CPV)
+#' Probability-proportional-to-size (PPS) sampling
 #'
 #' 
 #' @param data .

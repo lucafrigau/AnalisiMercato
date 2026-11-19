@@ -1,6 +1,6 @@
 ---
 name:  hc
-title: Cluster Analysis Gerarchica
+title: "Hierarchical Cluster Analysis"
 menuGroup: AnalisiMercato
 menuSubgroup: Cluster Analysis
 version: '2.1.2'
@@ -11,7 +11,7 @@ options:
       type: Data
 
     - name: vars
-      title: Base della segmentazione
+      title: "Segmentation base"
       type: Variables
       rejectInf: true
       permitted:
@@ -29,7 +29,7 @@ options:
             numeriche, ma i codici entrano nel calcolo come numeri).
 
     - name: asimm
-      title: Binarie di presenza/assenza
+      title: "Presence/absence binaries"
       type: Variables
       default: []
       rejectInf: true
@@ -52,7 +52,7 @@ options:
             variabili passano in `vars`.
 
     - name: tuto
-      title: Descrizione delle analisi
+      title: "Show methodological description"
       type: Bool
       default: true
       description:
@@ -61,10 +61,10 @@ options:
             dell'analisi.
 
     - name: dis
-      title: Distanza
+      title: "Distance"
       type: List
       options:
-        - title: Euclidea
+        - title: "Euclidean"
           name:  euclidean
         - title: Manhattan
           name:  manhattan
@@ -76,7 +76,7 @@ options:
           name:  gower
         - title: Jaccard
           name:  binary
-        - title: Jaccard (politomici)
+        - title: "Jaccard (polytomous)"
           name:  politomici
       default: euclidean
       description:
@@ -99,18 +99,18 @@ options:
             nella definizione).
 
     - name: method
-      title: Metodo di agglomerazione
+      title: "Agglomeration method"
       type: List
       options:
         - title: Ward
           name:  ward.D2
-        - title: Legame singolo
+        - title: "Single linkage"
           name:  single
-        - title: Legame completo
+        - title: "Complete linkage"
           name:  complete
-        - title: Legame medio
+        - title: "Average linkage"
           name:  average
-        - title: Centroide
+        - title: "Centroid"
           name:  centroid
       default: ward.D2
       description:
@@ -120,7 +120,7 @@ options:
             standardizzati.
 
     - name: stdVars
-      title: Standardizza le variabili
+      title: "Standardize variables"
       type: Bool
       default: true
       description:
@@ -130,7 +130,7 @@ options:
             Manhattan, Mahalanobis); ignorato per distanze binarie/categoriche.
 
     - name: n_clusters
-      title: Numero di gruppi
+      title: "Number of groups"
       type: Integer
       default: 2
       description:
@@ -139,7 +139,7 @@ options:
             l'assegnazione delle osservazioni.
 
     - name: outputName
-      title: Nome della variabile di output
+      title: "Output variable name"
       type: String
       default: "Cluster"
       description:
@@ -148,13 +148,13 @@ options:
             l'assegnazione di ciascuna osservazione al proprio cluster.
 
     - name: label_cluster
-      title: Etichetta cluster
+      title: "Cluster label"
       type: Output
       description:
           R: Colonna di output con l'assegnazione di ogni osservazione al cluster.
 
     - name: dend
-      title: Dendrogramma
+      title: "Dendrogram"
       type: Bool
       default: false
       description:
@@ -184,7 +184,7 @@ options:
             di unione successive) al variare di k.
 
     - name: ch_index
-      title: Indice CH
+      title: "CH index"
       type: Bool
       default: false
       description:
@@ -195,51 +195,51 @@ options:
     # Dimensioni dei grafici. Raggruppate in CollapseBox nella UI (hc.u.yaml).
     - name: width_dend
       type: Integer
-      title: "Larghezza dendrogramma"
+      title: "Dendrogram width"
       default: 500
 
     - name: height_dend
       type: Integer
-      title: "Altezza dendrogramma"
+      title: "Dendrogram height"
       default: 500
 
     - name: width_r2
       type: Integer
-      title: "Larghezza grafico R²"
+      title: "R² plot width"
       default: 500
 
     - name: height_r2
       type: Integer
-      title: "Altezza grafico R²"
+      title: "R² plot height"
       default: 500
 
     - name: width_rmsstd
       type: Integer
-      title: "Larghezza grafico RMSSTD"
+      title: "RMSSTD plot width"
       default: 500
 
     - name: height_rmsstd
       type: Integer
-      title: "Altezza grafico RMSSTD"
+      title: "RMSSTD plot height"
       default: 500
 
     - name: width_deltaG
       type: Integer
-      title: "Larghezza grafico Delta G"
+      title: "Delta G plot width"
       default: 500
 
     - name: height_deltaG
       type: Integer
-      title: "Altezza grafico Delta G"
+      title: "Delta G plot height"
       default: 500
 
     - name: width_ch
       type: Integer
-      title: "Larghezza grafico Indice CH"
+      title: "CH index plot width"
       default: 500
 
     - name: height_ch
       type: Integer
-      title: "Altezza grafico Indice CH"
+      title: "CH index plot height"
       default: 500
 ...

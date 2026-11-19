@@ -84,18 +84,18 @@ catdesClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
                     altre variabili nel dataset. Caratterizzazione utilizza test statistici specifici
                     per scenari diversi. Ad esempio, per due variabili quantitative, utilizza il
                     coefficiente di correlazione; per due variabili qualitative, utilizza il test
-                    Chi-quadro di indipendenza. Inoltre, quando una variabile e' quantitativa e
+                    Chi-quadro di indipendenza. Inoltre, quando una variabile è quantitativa e
                     l'altra qualitativa, il modulo utilizza il coefficiente di determinazione per
                     stabilire la loro relazione. Questo approccio garantisce un'analisi approfondita
                     del dataset e una comprensione completa delle relazioni tra le variabili.</p>
 
-                    <p> A un livello piu' dettagliato, Caratterizzazione esegue test di associazione
+                    <p> A un livello più dettagliato, Caratterizzazione esegue test di associazione
                     specificamente per le variabili qualitative. Nel caso di due variabili qualitative,
                     Caratterizzazione analizza l'eventuale sovra- o sotto-rappresentazione di una
                     categoria all'interno di un'altra rispetto alla popolazione totale. Quando una
-                    variabile e' quantitativa e l'altra qualitativa, Caratterizzazione esamina se
+                    variabile è quantitativa e l'altra qualitativa, Caratterizzazione esamina se
                     il valore medio della variabile quantitativa all'interno di un sottogruppo definito
-                    da una determinata categoria e' superiore o inferiore al valore medio della
+                    da una determinata categoria è superiore o inferiore al valore medio della
                     popolazione generale.</p>
               <h4>Da dove deriva la metodologia</h4>
               <p>
@@ -117,7 +117,7 @@ catdesClass <- if (requireNamespace('jmvcore', quietly = TRUE)) {
                 This module helps you <b>interpret</b> a clustering solution by identifying
                 <b>which variables truly distinguish the groups</b>.
               </p>
-                <p> The Cluster description function characterises both quantitative and
+                <p> The Cluster description function characterizes both quantitative and
                     qualitative variables (typically the cluster-label variable) on the basis
                     of their relationships with all the other variables in the dataset. It
                     uses test statistics tailored to each scenario: the correlation coefficient

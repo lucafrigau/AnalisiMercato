@@ -1,4 +1,4 @@
-title: Campionamento sistematico
+title: "Systematic sampling"
 name: samplesyst
 jus: '3.0'
 stage: 0
@@ -13,14 +13,14 @@ children:
       - id
     children:
       - type: TargetLayoutBox
-        label: Variabile identificativa (opzionale)
+        label: "ID variable (optional)"
         children:
           - type: VariablesListBox
             name: id_var
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Variabile di ordinamento (opzionale)
+        label: "Sorting variable (optional)"
         children:
           - type: VariablesListBox
             name: sort_var

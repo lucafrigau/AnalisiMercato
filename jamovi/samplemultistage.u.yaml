@@ -1,4 +1,4 @@
-title: Campionamento a due stadi
+title: "Two-stage sampling"
 name: samplemultistage
 jus: '3.0'
 stage: 0
@@ -13,14 +13,14 @@ children:
       - id
     children:
       - type: TargetLayoutBox
-        label: Variabile unità di primo stadio (PSU)
+        label: "Primary sampling unit (PSU) variable"
         children:
           - type: VariablesListBox
             name: psu_var
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: Variabile identificativa (opzionale)
+        label: "ID variable (optional)"
         children:
           - type: VariablesListBox
             name: id_var
